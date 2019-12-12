@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LinePurchase{% endblock %}
+
+{% block body %}
+    <h1>Create new LinePurchase</h1>
+
+    {{ include('line_purchase/_form.html.twig') }}
+
+    <a href="{{ path('line_purchase_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+
+
+    .border_error {
+        border: 1px solid red;
+    }
+    .error_style {
+        color: red;
+    }
+    body
+    {
+        color:#73879c;
+        background:#34495e;
+        font-size:16px;font-weight:400;
+        line-height:1.471
+    }

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>معطيات المؤسسة</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    {#<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">تنظیمات 1</a></li>
+                                            <li><a href="#">تنظیمات 2</a></li>
+                                        </ul>
+                                    </li>#}
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <p class="text-muted font-13 m-b-30">
+                                    <a href="{{ path('institution_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
+                                </p>
+                                {% include('layouts/flash-messages.html.twig') %}
+                                {#{% for message in app.flashes('notice') %}
+                                    <div class="alert alert-success">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}#}
+                                {#<table id="datatable-buttons" class="table table-striped table-bordered">#}
+                                <table  class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ "Id"|trans }}</th>
+                                        <th>{{ "Ministry"|trans }}</th>
+                                        <th>{{ "Office"|trans }}</th>
+                                        <th>{{ "Name"|trans }}</th>
+                                        <th>{{ "Director"|trans }}</th>
+                                        <th>{{ "Economist"|trans }}</th>
+                                        <th>{{ "Administrator"|trans }}</th>
+                                        <th>{{ "Address"|trans }}</th>
+                                        <th>{{ "City"|trans }}</th>
+                                        <th>{{ "Phone"|trans }}</th>
+                                        <th>{{ "Fax"|trans }}</th>
+                                        <th>{{ "Year"|trans }}</th>
+                                        <th>{{ "Actions"|trans }}</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    {% for institution in institutions %}
+                                        <tr>
+                                            <td>{{ institution.id }}</td>
+                                            <td>{{ institution.ministry }}</td>
+                                            <td>{{ institution.office }}</td>
+                                            <td>{{ institution.name }}</td>
+                                            <td>{{ institution.director }}</td>
+                                            <td>{{ institution.economist }}</td>
+                                            <td>{{ institution.administrator }}</td>
+                                            <td>{{ institution.address }}</td>
+                                            <td>{{ institution.city }}</td>
+                                            <td>{{ institution.phone }}</td>
+                                            <td>{{ institution.fax }}</td>
+                                            <td>{{ institution.year }}</td>
+                                            <td>
+                                                <a href="{{ path('institution_show', {'id': institution.id}) }} " class="btn btn-primary btn-block"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
+                                                <a href="{{ path('institution_edit', {'id': institution.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr class="text-center">
+                                            {#<td colspan="12">{% trans %} no records found {% endtrans %}</td>#}
+                                            <td colspan="12">  {{ "no records found"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+    {#<div id="lock_screen">
+        <table>
+            <tr>
+                <td>
+                    <div class="clock"></div>
+                    <span class="unlock">
+                    <span class="fa-stack fa-5x">
+                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
+                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                </span>
+                </td>
+            </tr>
+        </table>
+    </div>#}
+{% endblock %}
+

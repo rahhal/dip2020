@@ -1,0 +1,118 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Article"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>{{ "Create new article"|trans }}</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+                                </ul>
+                                {#<div class="clearfix"></div>#}
+                            </div>
+                            <div class="x_content">
+                                <br/>
+
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                <div class="form-group">
+                                    {{ form_label(form.created_at, "Date"|trans, {'label_attr': {'class': 'col-md-3 col-sm-3 col-xs-12 control-label'}}) }}
+                                    {#{{ form_errors(form.created_at) }}#}
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.created_at) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.name,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Reference stock"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.reference_stock,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.unit,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Category"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.Category,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Initial quantity"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.ini_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Min quantity"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.min_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                        {{ include('article/_form.html.twig') }}
+
+                                        <a href="{{ path('article_index') }}" class="btn btn-warning"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
+                                    </div>
+                                </div>
+
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
+{% endblock %}
+

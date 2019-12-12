@@ -1,0 +1,93 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "institution_information"| trans }}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="x_panel">
+                                {% include('layouts/flash-messages.html.twig') %}
+                            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                            <div class="col-md-10 col-sm-10 col-xs-10">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <th>  {{ "Ministry"| trans }}</th>
+                                        <td>{{ institution.ministry }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Office"| trans }}</th>
+                                        <td>{{ institution.office }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "name_institution"| trans }}</th>
+                                        <td>{{ institution.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Director"| trans }}</th>
+                                        <td>{{ institution.director }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Economist"| trans }}</th>
+                                        <td>{{ institution.economist }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Administrator"| trans }}</th>
+                                        <td>{{ institution.administrator }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Address"| trans }}</th>
+                                        <td>{{ institution.address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "City"| trans }}</th>
+                                        <td>{{ institution.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Phone"| trans }}</th>
+                                        <td>{{ institution.phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Fax"| trans }}</th>
+                                        <td>{{ institution.fax }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Year"| trans }}</th>
+                                        <td>{{ institution.year }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                                <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <a href="{{ path('institution_edit', {'id': institution.id}) }}" class="btn btn-warning">
+                                               <i class="fa fa-edit" style="margin-left: 2rem"></i>
+                                                        {{ "Update institution informations"|trans }}</a>
+                                    </div>
+                                </div>
+                        </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+    {% include('layouts/footer.html.twig') %}
+
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>وصل دخول</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body style="font-family:Arial">
+<h4 style="text-align: right">  الجمهورية التونسية </h4>
+
+
+{% for vb in institution %}
+
+    {% if loop.first %}
+
+        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">    {{ vb.name }}</h4>
+    {% endif %}
+
+
+
+{% endfor %}
+
+{% for purchase in purchases %}
+
+        <h3 style="text-align: left"> التاريخ: {{ purchase.date ? purchase.date|date('Y/m/d') : '' }}</h3>
+        <h2 style="text-align: center">وصل دخول</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3 style="text-align: right"> وصل دخول عدد: {{ purchase.number }}</h3>
+        <h3 style="text-align: right"> المزود: {{ purchase.supplier }}</h3>
+        {#<h3 style="text-align: right"> المعرف الجبائي: {{ purchase.supplier.matricule }}</h3>#}
+
+
+{% endfor  %}
+
+<br>
+<br>
+
+
+
+    <table>
+
+        <thead>
+        <tr>
+
+            <th style="text-align: center" >{{ "Name of article"|trans }}</th>
+            <th style="text-align: center">{{ "Quantity"|trans }}</th>
+            <th style="text-align: center">{{ "Unit price"|trans }}</th>
+            <th style="text-align: center">{{ "Tax"|trans }}</th>
+            <th style="text-align: center">{{ "Total price"|trans }}</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% set toal = 0 %}
+        {% set somme = 0 %}
+        {% for line_purchase in line_purchases %}
+
+            <tr>
+
+                <td style="text-align: center">{{ line_purchase.article }}</td>
+                <td style="text-align: center">{{ line_purchase.quantityDelivred }}</td>
+                <td style="text-align: center">{{ line_purchase.unitPrice }}</td>
+                <td style="text-align: center">{{ line_purchase.tax }}</td>
+                <td style="text-align: center">{% set total = line_purchase.quantityDelivred * line_purchase.unitPrice *(1+(line_purchase.tax)/ 100) %} {{total}} </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="4" style="text-align: center">{{ "Total price"|trans }}</td>
+            {#<td> {% set somme = total + somme %}
+                {{somme}}</td>#}
+            <td ></td>
+        </tr>
+
+        </tbody>
+    </table>
+<br>
+<br>
+<h4 style="text-align: center">الإمضـــــــاء</h4>
+<h4 style="text-align: center">رئيس الوحدة</h4>
+</body>
+</html>

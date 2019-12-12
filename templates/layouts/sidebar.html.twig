@@ -1,0 +1,144 @@
+<div class="left_col scroll-view">
+    <div class="navbar nav_title" style="border: 0;">
+        <a href="{{ path('app_index') }}" class="site_title"> <span>المطعم المدرسي</span></a>
+    </div>
+
+    <div class="clearfix"></div>
+    {#
+       <!-- menu profile quick info -->
+       <div class="profile clearfix">
+           <div class="profile_pic">
+               <img src="{{ asset('build/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+           </div>
+          <div class="profile_info">
+               <span>مرحبا</span>
+               <h2>منسق المطعم</h2>
+           </div>
+       </div>
+       <!-- /menu profile quick info -->
+   #}
+    <br/>
+
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div class="menu_section">
+            <h3>اللوحة الرئيسية</h3>
+            {% if is_granted('ROLE_ADMIN') %}
+            <ul class="nav side-menu">
+                <li><a><i class="fa fa-home"></i> معطيات عامة <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
+                        <li><a href="{{ path('budget_index') }}">الميزانية</a></li>
+                        <li><a href="{{ path('category_index') }}">الاصناف</a></li>
+                        <li><a href="{{ path('article_index') }}">المواد</a></li>
+                        <li><a href="{{ path('supplier_index') }}">المزودين</a></li>
+                        <li><a href="{{ path('employee_index') }}"> الموظفين</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-edit"></i> المشتريات <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ path('request_supplied_index') }}">طلب تزوّد</a></li>
+                       {#<li><a href="{{ path('request_pdf') }}">طلب تزوّد</a></li>#}
+                        <li><a href="{{ path('commission_index') }}">لجنة قبول المواد</a></li>
+                        <li><a href="{{ path('purchase_index') }}">جدول المشتريات</a></li>
+                        {#<li><a href="{{ path('line_purchase_commi') }}">محضر جلسة استلام المواد</a></li>#}
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-desktop"></i> المخزون <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ path('line_stock_stocki') }}">المخزون الاولي</a></li>
+                        <li><a href="{{ path('line_stock_index') }}">كامل المخزون </a></li>
+                        <li><a href="{{ path('line_stock_valid') }}">صلوحية المواد</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-table"></i> خروج المواد <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ path('exitt_index') }}">خروج جديد</a></li>
+                        <li><a href="#">الخروج الشهري</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-cutlery"></i> الأكلات <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ path('menu_index') }}">  جدول الاكلات </a></li>
+                        <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
+                        <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-clone"></i> الجرد <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#">الجرد اليومي</a></li>
+                        <li><a href="#">الجرد الشهري</a></li>
+                        <li><a href="#">الجرد السنوي</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+        {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <div class="menu_section">
+            <h3>به صورت زنده</h3>
+            <ul class="nav side-menu">
+                <li><a><i class="fa fa-bug"></i> صفحات اضافية <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="e_commerce.html">تجارة الکترونیة</a></li>
+                        <li><a href="projects.html">مشاريع </a></li>
+                        <li><a href="project_detail.html">جزئیات پروژه</a></li>
+                        <li><a href="contacts.html">اطلاعات تماس</a></li>
+                        <li><a href="profile.html">نمایه</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-windows"></i> الوظائف الإضافية المقترحة <span
+                                class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="page_403.html">403 ارور</a></li>
+                        <li><a href="page_404.html">404 ارور</a></li>
+                        <li><a href="page_500.html">500 ارور</a></li>
+                        <li><a href="plain_page.html">صفحه ساده</a></li>
+                        <li><a href="login.html">صفحه ورود</a></li>
+                        <li><a href="pricing_tables.html">جداول قیمت</a></li>
+                    </ul>
+                </li>
+                <li><a><i class="fa fa-sitemap"></i> منو چند سطحی <span
+                                class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#level1_1">سطح یک</a>
+                        <li><a>سطح یک<span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li class="sub_menu"><a href="level2.html">سطح دو</a>
+                                </li>
+                                <li><a href="#level2_1">سطح دو</a>
+                                </li>
+                                <li><a href="#level2_2">سطح دو</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#level1_2">سطح یک</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> صفحه مقصد <span
+                                class="label label-success pull-left">به زودی</span></a></li>
+            </ul>
+        </div>
+        {% endif %}
+
+    </div>
+    <!-- /sidebar menu -->
+
+    <!-- /menu footer buttons -->
+    <div class="sidebar-footer hidden-small">
+        <a data-toggle="tooltip" data-placement="top" title="تنظیمات">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
+            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="خروج" href="login.html">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+        </a>
+    </div>
+    <!-- /menu footer buttons -->
+</div>

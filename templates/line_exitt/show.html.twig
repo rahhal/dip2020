@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineExitt{% endblock %}
+
+{% block body %}
+    <h1>LineExitt</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ line_exitt.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ line_exitt.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Unit_price</th>
+                <td>{{ line_exitt.unitPrice }}</td>
+            </tr>
+            <tr>
+                <th>Tax</th>
+                <td>{{ line_exitt.tax }}</td>
+            </tr>
+            <tr>
+                <th>Total_price</th>
+                <td>{{ line_exitt.totalPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_exitt_index') }}">back to list</a>
+
+    <a href="{{ path('line_exitt_edit', {'id': line_exitt.id}) }}">edit</a>
+
+    {{ include('line_exitt/_delete_form.html.twig') }}
+{% endblock %}

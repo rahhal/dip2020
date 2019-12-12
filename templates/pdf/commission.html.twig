@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<h4 style="text-align: right">  الجمهورية التونسية </h4>
+<body style="font-family:Arial">
+
+{% for vb in institution %}
+
+    {% if loop.first %}
+        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
+    {% endif %}
+{% endfor %}
+
+{% for vb in institution %}
+
+    {% if loop.first %}
+        <h4 style="text-align: left">  السنة الدراسية:  {{ vb.year }}</h4>
+    {% endif %}
+{% endfor %}
+
+
+        <h1 style="text-align: center">لجنة قبول المواد بالقسم الداخلي </h1>
+
+
+<br>
+<br>
+
+<table>
+
+    <thead>
+    <tr>
+
+        <th style="text-align: center" >{{ "Fullname"|trans }}</th>
+        <th style="text-align: center">{{ "Activity"|trans }}</th>
+        <th style="text-align: center">{{ "Signature"|trans }}</th>
+    </tr>
+    </thead>
+<tbody>
+    {% for commission in commissions %}
+
+        <tr>
+
+            <td style="text-align: center">{{ commission.employee.name }}</td>
+            <td style="text-align: center">{{ commission.employee.activity }}</td>
+            <td style="text-align: center"></td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+</body>
+
+</html>

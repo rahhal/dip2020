@@ -1,0 +1,79 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Details of categry"|trans }} {{ category.name }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <th>{{ "Id"|trans }}</th>
+                                        <td>{{ category.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Name"|trans }}</th>
+                                        <td>{{ category.name }}</td>
+                                    </tr>
+                                    </tbody>
+                                    <tr>
+                                        <th>{{ "Amount_allocated"|trans }}</th>
+                                        <td>{{ category.amountAllocated }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Name of category"|trans }}</th>
+                                        <td>{{ category.name }}</td>
+                                    </tr>
+                                </table>
+
+                               {# <a href="{{ path('category_index') }}" class="btn btn-primary">{% trans %} back to list {% endtrans %}</a>
+
+                                <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-success">{% trans %} Update {% endtrans %}</a>
+
+                                {{ include('category/_delete_form.html.twig') }}#}
+                                <div class="form-group col-lg-12">
+                                    <div class="ln_solid"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <form method="post" action="{{ path('category_delete', {'id': category.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                                            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
+                                            <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-warning"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                            <a href="{{ path('category_index') }}" class="btn btn-primary"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
+{% endblock %}

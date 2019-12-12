@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LineExitt{% endblock %}
+
+{% block body %}
+    <h1>Edit LineExitt</h1>
+
+    {{ include('line_exitt/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('line_exitt_index') }}">back to list</a>
+
+    {{ include('line_exitt/_delete_form.html.twig') }}
+{% endblock %}

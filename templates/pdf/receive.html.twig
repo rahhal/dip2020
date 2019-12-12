@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the PDF</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body style="font-family:Arial">
+<h4 style="text-align: right">  الجمهورية التونسية </h4>
+
+
+{% for vb in institution %}
+
+    {% if loop.first %}
+
+        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">    {{ vb.name }}</h4>
+    {% endif %}
+
+
+
+{% endfor %}
+
+{% for purchase in purchases %}
+    {% if loop.first %}
+        <h3 style="text-align: left"> التاريخ: {{ purchase.date ? purchase.date|date('Y/m/d') : '' }}</h3>
+        <h2 style="text-align: center">محضر جلسة استلام المواد</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        {#<h3 style="text-align: right">    {{ vb.name }}</h3>#}
+        <h3 style="text-align: right"> المزود: {{ purchase.supplier }}</h3>
+        {#<h3 style="text-align: right"> المعرف الجبائي: {{ purchase.supplier.matricule }}</h3>#}
+
+    {% endif %}
+{% endfor  %}
+
+<br>
+<br>
+
+<table>
+
+    <thead>
+    <tr>
+        <th style="text-align: center" >{{ "Name of article"|trans }}</th>
+        <th style="text-align: center">{{ "Quantity required"|trans }}</th>
+        <th style="text-align: center">{{ "Quantity delivred"|trans }}</th>
+        <th style="text-align: center">{{ "Technical confirmity"|trans }}</th>
+        <th style="text-align: center">{{ "Remarque"|trans }}</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for line_purchase in line_purchases %}
+        <tr>
+
+            <td style="text-align: center">{{ line_purchase.article }}</td>
+            <td style="text-align: center">{{ line_purchase.quantityRequired }}</td>
+            <td style="text-align: center">{{ line_purchase.quantityDelivred }}</td>
+            <td style="text-align: center">{{ line_purchase.technicalConfirmity }}</td>
+            <td style="text-align: center">{{ line_purchase.remarque}}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<h4 style="text-align: center">{{ "Member of commission"|trans }}</h4>
+<table>
+
+    <thead>
+    <tr>
+
+        <th style="text-align: center" >{{ "Fullname"|trans }}</th>
+        <th style="text-align: center">{{ "Activity"|trans }}</th>
+        <th style="text-align: center">{{ "Signature"|trans }}</th>
+
+    </tr>
+    </thead>
+
+    {% for commission in commissions %}
+    <tbody>
+    <tr>
+
+        <td style="text-align: center">{{ commission.employee.name }}</td>
+
+        <td style="text-align: center">{{ commission.employee.activity }}</td>
+        <td style="text-align: center"></td>
+
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+
+<br>
+<br>
+<h4 style="text-align: center">الإمضـــــــاء</h4>
+<h4 style="text-align: center">رئيس الوحدة</h4>
+</body>
+</html>

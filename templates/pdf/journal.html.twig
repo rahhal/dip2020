@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the PDF</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+        form{
+            font-family: arial, sans-serif;
+            dir: rtl;
+        }
+    </style>
+</head>
+<body style="font-family:Arial">
+<h4 style="text-align: right">  الجمهورية التونسية </h4>
+{% for vb in institution %}
+    {% if loop.first %}
+        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">    {{ vb.name }}</h4>
+    {% endif %}
+{% endfor %}
+
+{% for menu in menus %}
+    {% if loop.first %}
+        <h3 style="text-align: left"> اليوم: {{ menu.day }}</h3>
+        {#<h3 style="text-align: left"> التاريخ: {{ menu.date ? menu.date|date('Y/m/d') : '' }}</h3>#}
+        <h2 style="text-align: center">{{ "Journal of meals"|trans }}</h2>
+    {% endif %}
+{% endfor  %}
+<br>
+<br>
+<h4 style="text-align: center">{{ "Menu today"|trans }}</h4>
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center" >{{ "Breakfast"|trans }}</th>
+        <th style="text-align: center">{{ "Lunch"|trans }}</th>
+        <th style="text-align: center">{{ "Dinner"|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for menu in menus %}
+        <tr>
+
+            <td style="text-align: center">{{ menu.breakfast }}</td>
+            <td style="text-align: center">{{ menu.lunch }}</td>
+            <td style="text-align: center">{{ menu.dinner }}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+<br>
+<br>
+<h4 style="text-align: center">{{ "Number of meals today"|trans }}</h4>
+<table>
+    {% for nbMeal in nbMeals %}
+        <tr>
+            <td style="text-align: center" >{{ "Number of resident studiants"|trans }}</td>
+            <td style="text-align: center">{{ nbMeal.stdResident }}</td>
+            <td style="text-align: center">{{ "Number of employees"|trans }}</td>
+            <td style="text-align: center">{{ nbMeal.employee }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center" >{{ "Number of semi-resident studiants"|trans }}</td>
+            <td style="text-align: center">{{ nbMeal.stdSemiResident }}</td>
+            <td style="text-align: center">{{ "Number of professors"|trans }}</td>
+            <td style="text-align: center">{{ nbMeal.professor }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center" >{{ "Number of curators"|trans }}</td>
+            <td style="text-align: center">{{ nbMeal.curators}}</td>
+            <td style="text-align: center">{{ "Individual meal"|trans }}</td>
+            <td style="text-align: center"></td>
+        </tr>
+    {% endfor %}
+</table>
+<h4 style="text-align: center">{{ "Exitt today"|trans }}</h4>
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center" >{{ "Name of article"|trans }}</th>
+        <th style="text-align: center">{{ "Quantity"|trans }}</th>
+        <th style="text-align: center">{{ "Unit price"|trans }}</th>
+        <th style="text-align: center">{{ "Total price"|trans }}</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for lineExitt in lineExitts %}
+        <tr>
+            <td style="text-align: center">{{ lineExitt.article }}</td>
+            <td style="text-align: center">{{ lineExitt.quantity }}</td>
+            <td style="text-align: center">{{ lineExitt.unitPrice }}</td>
+            <td style="text-align: center">{{ lineExitt.totalPrice }}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<br>
+<br>
+<form>
+   <label> {{ "Number of student"|trans }}</label> <input type="text" name="Number of student" value="">
+    <label> {{ "Number of meals"|trans }}</label> <input type="text" name="Number of student" value="">
+    <label>{{ "Total costs"|trans }} </label> <input type="text" name="Number of student" value="">
+    <label>{{ "Unit meal costs"|trans }} </label> <input type="text" name="Number of student" value="">
+</form>
+
+<br>
+<br>
+
+<table>
+
+    <thead>
+    <tr>
+
+        <th style="text-align: center" >{{ "Storekeeper"|trans }}</th>
+        <th style="text-align: center">{{ "Internal general supervisor"|trans }}</th>
+        <th style="text-align: center">{{ "PDG"|trans }}</th>
+    </tr>
+    <tbody>
+            <tr>
+                <td style="text-align: center"></td>
+                <td style="text-align: center"></td>
+                <td style="text-align: center"></td>
+            </tr>
+
+    </tbody>
+    </thead>
+
+</table>
+<br>
+<br>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Number of meals today"|trans }}</h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="البحث عن...">
+                                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">ابدأ البحث</button>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                               {# <h2>{{ "Create new category"|trans }}
+                                </h2>#}
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">تنظیمات 1</a>
+                                            </li>
+                                            <li><a href="#">تنظیمات 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br/>
+
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                              {#  <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.date,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>#}
+
+
+                                <div class="form-group">
+                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-md-3 col-sm-3 col-xs-12 control-label'}}) }}
+                                    {#{{ form_errors(form.created_at) }}#}
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.date) }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of resident studiants"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.std_resident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of semi-resident studiants"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.std_semiResident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of granted studiants"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.std_granted,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of professors"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.professor,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of curators"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.curators,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of employees"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.employee,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-lg-12">
+                                    <div class="ln_solid"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        {#<button type="submit" class="btn btn-success"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{ button_label|default('Update')|trans }}</button>#}
+                                        {#{{ include('nb_meal/_form.html.twig') }}#}
+                                        <a href="{{ path('nb_meal_index') }}" class="btn btn-warning"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+
+                                    </div>
+                                </div>
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+    <div id="lock_screen">
+        <table>
+            <tr>
+                <td>
+                    <div class="clock"></div>
+                    <span class="unlock">
+                    <span class="fa-stack fa-5x">
+                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
+                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+

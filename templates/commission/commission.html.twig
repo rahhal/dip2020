@@ -1,0 +1,148 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+
+    <div hidden id="template_tmp">
+        <div id="commission_employee___name__">
+            <label class="required">__name__label__</label>
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="commission_employee___name__employee" class="required ">الاسم و اللقب</label>
+                    <select id="commission_employee___name___employee" class="form-control"
+                            name="commission[employees][__name__][employee]">
+                        {% for employee in employees %}
+                            <option value="{{ employee.id }}">{{ employee.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="commission_employee___name__activity" class="required"> الصفة  </label><input
+                            type="text" id="commission_employee___name__activity" class=" form-control"
+                            name="commission[employees][__name__][activity]" required="required"/>
+                </div>
+
+                <div class="col-md-1">
+                    <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Create new exit"|trans }}</h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="البحث عن...">
+                                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">ابدأ البحث</button>
+                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>{{ "New exit"|trans }}
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">تنظیمات 1</a>
+                                                </li>
+                                                <li><a href="#">تنظیمات 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <br/>
+                                    {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="well">
+                                                <div class="form-group">
+                                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                                                    {{ form_errors(form.date) }}
+                                                    <div class="col-sm-6">
+                                                        {{ form_widget(form.date) }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="well">
+
+                                                <div id="commission_employee"></div>
+                                                <a href="#" id="add_employee" class="btn btn-success m-10">{{ "Create new commission"|trans }}</a>
+
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+
+                                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                                    {{ form_widget(form._token) }}
+                                    {{ form_end(form, {'render_rest': false}) }}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include('layouts/footer.html.twig') %}
+            </div>
+
+            <div id="lock_screen">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="clock"></div>
+                            <span class="unlock">
+                    <span class="fa-stack fa-5x">
+                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
+                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

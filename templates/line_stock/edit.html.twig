@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit LineStock{% endblock %}
+
+{% block body %}
+    <h1>Edit LineStock</h1>
+
+    {{ include('line_stock/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('line_stock_index') }}">back to list</a>
+
+    {{ include('line_stock/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineStock{% endblock %}
+
+{% block body %}
+    <h1>LineStock</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ line_stock.id }}</td>
+            </tr>
+            <tr>
+                <th>Initial_quantity</th>
+                <td>{{ line_stock.initialQuantity }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ line_stock.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Quantity_alerte</th>
+                <td>{{ line_stock.quantityAlerte }}</td>
+            </tr>
+            <tr>
+                <th>Valid_date</th>
+                <td>{{ line_stock.validDate ? line_stock.validDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Prod_date</th>
+                <td>{{ line_stock.prodDate ? line_stock.prodDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_stock_index') }}">back to list</a>
+
+    <a href="{{ path('line_stock_edit', {'id': line_stock.id}) }}">edit</a>
+
+    {{ include('line_stock/_delete_form.html.twig') }}
+{% endblock %}
