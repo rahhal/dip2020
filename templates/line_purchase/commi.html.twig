@@ -15,18 +15,7 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "Details of purchases"|trans }} </h3>
-                    </div>
-
-                    <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="...البحث عن">
-                                <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">بحث</button>
-                    </span>
-                            </div>
-                        </div>
+                        <h3>{{ "List of purchases"|trans }} </h3>
                     </div>
                 </div>
 
@@ -35,24 +24,6 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2>{{ "List of purchases"|trans }}</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">تنظیمات 1</a></li>
-                                            <li><a href="#">تنظیمات 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
                                     <a href="{{ path('purchase_index') }}" class="btn btn-success">retour</a>
@@ -61,15 +32,12 @@
                                     <thead>
 
                                     <tr>
-                                        <th>{{ "Id"|trans }}</th>
                                         <th>{{ "Article"|trans }}</th>
                                         <th>{{ "Quantity required"|trans }}</th>
                                         <th>{{ "Quantity delivred"|trans }}</th>
                                         {#<th>{{ "Quantity"|trans }}</th>#}
-
                                         <th>{{ "Technical confirmity"|trans }}</th>
                                         <th>{{ "Remarque"|trans }}</th>
-
                                         {# <th>actions</th>#}
 
                                     </tr>
@@ -77,7 +45,6 @@
                                     <tbody>
                                     {% for line_purchase in line_purchases %}
                                         <tr>
-                                            <td>{{ line_purchase.id }}</td>
                                             <td>{{ line_purchase.article }}</td>
                                             <td>{{ line_purchase.quantityRequired }}</td>
                                             <td>{{ line_purchase.quantityDelivred }}</td>
@@ -108,20 +75,5 @@
             </div>
             {% include('layouts/footer.html.twig') %}
         </div>
-    </div>
-    <div id="lock_screen">
-        <table>
-            <tr>
-                <td>
-                    <div class="clock"></div>
-                    <span class="unlock">
-                    <span class="fa-stack fa-5x">
-                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
-                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                </span>
-                </td>
-            </tr>
-        </table>
     </div>
 {% endblock %}

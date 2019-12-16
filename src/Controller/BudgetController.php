@@ -41,7 +41,7 @@ class BudgetController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'تمت العملية بنجاح!'
+                'تمت الاضافة بنجاح!'
             );
 
             return $this->redirectToRoute('budget_index');
@@ -74,6 +74,8 @@ class BudgetController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+
+            $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('budget_index');
         }
 
@@ -93,7 +95,7 @@ class BudgetController extends AbstractController
             $entityManager->remove($budget);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', "تم الحذف بنجاح");
         return $this->redirectToRoute('budget_index');
     }
 }

@@ -24,6 +24,37 @@
 
 {% block javascripts %}
     {% include 'layout_footer.html.twig' %}
+<script>
+$("#register").click(function() {
+    var reference_stock = $('#article_reference_stock').val();
+    console.log('La valeur récupéreé est:'+reference_stock)
+    $('#article_reference_stock').removeClass("border_error");
+    console.log('Ref : '+reference_stock);
+    var response = $.ajax({
+        type: "GET",
+        url: "{{ url('reference_check_validity') }}",
+        data: {reference_stock: reference_stock},//(parametre: valeur)
+        async: false
+    }).responseText;
+    console.log(response);
+    if(response == 'exist'){
+        $('#article_reference_stock').addClass("border_error");
+        $('#reference_result').addClass("error_style");
+        $("#reference_result").text("خطأ:هذا المرجع موجود");
+        return false;
+    }else{
+        return true;
+    }
+});
+
+$('#single_cal1').daterangepicker({
+    "singleDatePicker": true,
+    "startDate": "07/01/2017",
+    "endDate": "07/15/2017"
+}, function(start, end, label) {
+  console.log('New date range selected: ' + start.format('YYYY/MM/DD') + ' to ' + end.format('YYYY/MM/DD') + ' (predefined range: ' + label + ')');
+});
+</script>
 {% endblock %}
 
 </body>

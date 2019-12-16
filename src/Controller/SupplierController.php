@@ -39,6 +39,7 @@ class SupplierController extends AbstractController
             $entityManager->persist($supplier);
             $entityManager->flush();
 
+            $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('supplier_index');
         }
 
@@ -69,6 +70,7 @@ class SupplierController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('supplier_index');
         }
 
@@ -88,6 +90,7 @@ class SupplierController extends AbstractController
             $entityManager->remove($supplier);
             $entityManager->flush();
         }
+        $this->addFlash('success', "تم الحذف بنجاح");
 
         return $this->redirectToRoute('supplier_index');
     }

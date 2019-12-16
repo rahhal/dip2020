@@ -15,33 +15,41 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "Article"|trans }}</h3>
+                        <h3>{{ "Edit article"|trans }}</h3>
                     </div>
                 </div>
-
-                <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2>{{ "Create new article"|trans }}</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                                </ul>
-                                {#<div class="clearfix"></div>#}
-                            </div>
                             <div class="x_content">
                                 <br/>
-
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
-                                <div class="form-group">
-                                    {{ form_label(form.created_at, "Date"|trans, {'label_attr': {'class': 'col-md-3 col-sm-3 col-xs-12 control-label'}}) }}
-                                    {#{{ form_errors(form.created_at) }}#}
+
+                                {# <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.created_at) }}
                                     </div>
-                                </div>
+                                </div> #}
+                                 <div class="form-group">
+                                        <div class="controls">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-4 col-xs-6 xdisplay_inputx control-group has-feedback">
+
+                                                <input type="text" class="form-control has-feedback-left"
+                                                       id="single_cal1"
+                                                       aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left"
+                                                      aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">{{ form_widget(form.created_at) }}</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
                                         <span class="required">*</span>
@@ -99,7 +107,7 @@
 
                                         {{ include('article/_form.html.twig') }}
 
-                                        <a href="{{ path('article_index') }}" class="btn btn-warning"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
+                                        <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
                                     </div>
                                 </div>
 

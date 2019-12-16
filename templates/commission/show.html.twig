@@ -24,17 +24,9 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                {#<h2> {{ "Commission index"| trans }}</h2>#}
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
                                 <table class="table table-hover">
                                     <tbody>
-                                    <tr>
-                                         <th>{{ "Id"| trans }}</th>
-                                         <td>{{ commission.id }}</td>
-                                     </tr>
                                     <tr>
                                         <th>  {{ "Date"| trans }}</th>
                                         <td>{{ commission.date ? commission.date|date('Y-m-d') : '' }}</td>
@@ -58,8 +50,8 @@
                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commission.id) }}">
                                             <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
 
-                                            <a href="{{ path('commission_edit', {'id': commission.id}) }}" class="btn btn-warning"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                            <a href="{{ path('commission_index') }}" class="btn btn-primary"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                            <a href="{{ path('commission_edit', {'id': commission.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                            <a href="{{ path('commission_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
 
                                         </form>
 

@@ -39,6 +39,8 @@ class EmployeeController extends AbstractController
             $entityManager->persist($employee);
             $entityManager->flush();
 
+            $this->addFlash('success', "تمت الاضافة بنجاح");
+
             return $this->redirectToRoute('employee_index');
         }
 
@@ -69,6 +71,8 @@ class EmployeeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+
+            $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('employee_index');
         }
 
@@ -88,7 +92,7 @@ class EmployeeController extends AbstractController
             $entityManager->remove($employee);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', "تم الحذف بنجاح");
         return $this->redirectToRoute('employee_index');
     }
 }

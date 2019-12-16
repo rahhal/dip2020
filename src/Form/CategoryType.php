@@ -21,13 +21,11 @@ class CategoryType extends AbstractType
         $builder
             ->add('name')
             ->add('amount_allocated')
-            ->add('budget')
            // ->add('stock')
          /*   ->add('budget',EntityType::class, array(
                 'class' => 'App:Budget',
                 'choice_label' => 'budget',
                 'label' => 'Budget :'))*/
-           ->add('budget')
         ;
     }
 

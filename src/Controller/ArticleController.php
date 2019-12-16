@@ -56,7 +56,7 @@ class ArticleController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-
+            $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('article_index');
         }
 
@@ -105,6 +105,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('article_index');
         }
 
@@ -124,7 +125,7 @@ class ArticleController extends AbstractController
             $entityManager->remove($article);
             $entityManager->flush();
         }
-
+        $this->addFlash('success', "تم الحذف بنجاح");
         return $this->redirectToRoute('article_index');
     }
 

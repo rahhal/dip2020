@@ -4,18 +4,13 @@
   {% for type, messages in app.session.flashbag.all() %}
         {% for message in messages %}
             <div class="alert alert-{{ type }} alert-dismissible" role="alert">
-                <button type="button button-success" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <button type="button button-success" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
                 {#{{ message | raw }}#}
                 {{message}}
             </div>
         {% endfor %}
     {% endfor %}
-
-
-    {#{% for message in app.flashes('success') %}
-        #}{#<div class="alert alert-success">#}{#
-        <div class="navbar  nav_menu navbar-expand-lg navbar-dark navbar-bg {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}">
-            {{ message }}
-        </div>
-    {% endfor %}#}
 {% endblock %}

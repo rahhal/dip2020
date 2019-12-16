@@ -2,10 +2,9 @@
     $(document).ready(function () {
         // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
         var $container = $('div#purchase_linePurchase');
-
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
         var index = $container.find(':input').length;
-
+        
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add_linePurchase').click(function (e) {
             addLinePurchase($container);
@@ -116,8 +115,8 @@
             });
         }
     });
-/*     ====================================================== */
-$("#register").click(function() {
+/*     ===========================test de reférence d'une article=========================== */
+/* $("#register").click(function() {
     var reference_stock = $('#article_reference_stock').val();
     console.log('La valeur récupéreé est:'+reference_stock)
     $('#article_reference_stock').removeClass("border_error");
@@ -138,7 +137,7 @@ $("#register").click(function() {
         return true;
     }
 });
-
+ */
 /*-------------------*/
 $("#exitt_save").click(function() {
     var quantity = $('#exitt_lineExitt_0quantity').val();
@@ -166,6 +165,8 @@ $("#exitt_save").click(function() {
 });
 
 
+
+
 /*
 
  $(function() {
@@ -176,7 +177,7 @@ $("#exitt_save").click(function() {
  });
  });
  */
-$(function() {
+/*$(function() {
     $('input[class="datepicker"]').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true
@@ -185,4 +186,13 @@ $(function() {
             var years = moment().diff(start, 'years');
             alert("You are " + years + " years old.");
         });
-});
+});*/
+/*
+$(function() {
+    $('#single_cal1').daterangepicker({
+        singleDatePicker: true,
+        singleClasses: "picker_1"
+    }, function (start, end, label) {
+        console.log(start.toISOString(), end.toISOString(), label);
+    });
+});*/

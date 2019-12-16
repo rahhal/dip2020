@@ -48,13 +48,9 @@ class CategoryController extends AbstractController
             $entityManager->persist($article);*/
             $entityManager->persist($category);
             $entityManager->flush();
-           /* $this->addFlash(
-                'notice',
-                'تمت العملية بنجاح!'
-            );*/
-            //$this->get('session')->getFlashBag()->add('info', 'تمت العملية بنجاح');
 
-            $this->addFlash('success', "تمت العملية بنجاح");
+
+            $this->addFlash('success', "تمت الاضافة بنجاح");
 
             return $this->redirectToRoute('category_index');
         }
@@ -85,11 +81,8 @@ class CategoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash(
-                'notice',
-                'تمت العملية بنجاح!'
-            );
 
+            $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('category_index');
         }
 
@@ -108,11 +101,9 @@ class CategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($category);
             $entityManager->flush();
-            $this->addFlash(
-                'notice',
-                'تمت العملية بنجاح!'
-            );
+
         }
+        $this->addFlash('success', "تم الحذف بنجاح");
 
         return $this->redirectToRoute('category_index');
     }

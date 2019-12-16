@@ -23,27 +23,55 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2>{{ "Create new article"|trans }}</h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a></li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
                                 <br/>
-
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
 
-                                <div class="form-group">
+                               {# <fieldset>
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <input type="text" class="form-control has-feedback-left"
+                                                       id="single_cal1" placeholder="First Name"
+                                                       aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left"
+                                                      aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>#}
+
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                                <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-4 col-sm-4 col-xs-6 xdisplay_inputx control-group has-feedback">
+
+                                                <input type="text" class="form-control has-feedback-left"
+                                                       id="single_cal1"
+                                                       aria-describedby="inputSuccess2Status">
+                                                <span class="fa fa-calendar-o form-control-feedback left"
+                                                      aria-hidden="true"></span>
+                                                <span id="inputSuccess2Status" class="sr-only">{{ form_widget(form.created_at) }}</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                               {# <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
                                         <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.created_at) }}
                                     </div>
-                                </div>
+                                </div>#}
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
@@ -72,7 +100,6 @@
                                         {{ form_widget(form.unit,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Category"|trans }}
                                         <span  class="required">*</span>
@@ -103,7 +130,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                         <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
-                                        <a href="{{ path('article_index') }}" class="btn btn-warning"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                        <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                     </div>
                                 </div>
                                 {{ form_end(form) }}

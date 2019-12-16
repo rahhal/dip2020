@@ -16,24 +16,16 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "Supplier" |trans }}</h3>
+                        <h3>{{ "Details of supplier" |trans }}</h3>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_title">
-                                <h2> {{ "Details" |trans }}</h2>
-                                <div class="clearfix"></div>
-                            </div>
                             <div class="x_content">
                                 <table class="table">
                                     <tbody>
-                                    <tr>
-                                        <th>{{ "Id" |trans }}</th>
-                                        <td>{{ supplier.id }}</td>
-                                    </tr>
                                     <tr>
                                         <th>{{ "Company" |trans }}</th>
                                         <td>{{ supplier.company }}</td>
@@ -78,8 +70,8 @@
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ supplier.id) }}">
                                             <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
-                                            <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-success"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                            <a href="{{ path('supplier_index') }}" class="btn btn-primary"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                            <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                            <a href="{{ path('supplier_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
 
                                         </form>
 

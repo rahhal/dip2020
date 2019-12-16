@@ -59,17 +59,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>{{ "Create new request supplied"|trans }}
-                                    </h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
+                            
                                 <div class="x_content">
                                     <br/>
                                     {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
@@ -79,10 +69,18 @@
                                             <div class="well">
 
                                                 {#{{ form_row(form.date) }}#}
+                                                {#<div class="form-group">
+                                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label', 'for': 'first-name'}}) }}
+                                                    #}{#{{ form_errors(form.date) }}#}{#
+                                                    <div class="col-sm-6 col-sm-6 col-xs-12 ">
+                                                        {{ form_widget(form.date) }}
+                                                    </div>
+                                                </div>#}
                                                 <div class="form-group">
-                                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    {{ form_errors(form.date) }}
-                                                    <div class="col-sm-6">
+                                                    <label class="control-label col-sm-2" for="first-name">{{ "Date"|trans }}
+                                                        {#<span class="required">*</span>#}
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                                         {{ form_widget(form.date) }}
                                                     </div>
                                                 </div>
@@ -113,11 +111,11 @@
 
                                                 <div id="requestSupplied_lineRequestSupplied"></div></br>
                                                 <a href="#" id="add_lineRequestSupplied" class="btn btn-success m-10">{{ "Add article"|trans }}</a>
-
+                                                 {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                                             </div>
                                         </div>
                                     </fieldset>
-                                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                                   
                                     {{ form_widget(form._token) }}
                                     {{ form_end(form, {'render_rest': false}) }}
                                 </div>

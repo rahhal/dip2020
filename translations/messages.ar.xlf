@@ -19,7 +19,7 @@
       </trans-unit>
       <trans-unit id="show" resname="show">
         <source>show</source>
-        <target>اظهار</target>
+        <target>عرض</target>
       </trans-unit>
       <trans-unit id="edit" resname="edit">
         <source>edit</source>
@@ -33,10 +33,7 @@
         <source>Delete</source>
         <target>حذف</target>
       </trans-unit>
-      <trans-unit id="Id" resname="Id">
-         <source>Id</source>
-         <target>الرقم</target>
-      </trans-unit>
+
             <trans-unit id="Actions" resname="Actions">
               <source>Actions</source>
               <target>اجراءات</target>
@@ -138,22 +135,36 @@
                             <source>Budget_Id</source>
                             <target> السنة المالية </target>
                       </trans-unit>
-                      <trans-unit id="Category" resname="Category">
-                          <source>Category</source>
-                          <target>الصنف</target>
-                     </trans-unit>
+     <trans-unit id="List of category" resname="List of category">
+       <source>List of category</source>
+       <target>قائمة الاصناف</target>
+     </trans-unit>
+     <trans-unit id="Category" resname="Category">
+            <source>Category</source>
+            <target>الصنف</target>
+          </trans-unit>
                      <trans-unit id="Details of categry" resname="Details of categry">
                                                <source>Details of categry</source>
                                                <target>تفاصيل صنف:  </target>
                                           </trans-unit>
-                     <trans-unit id="Create new category" resname="Create new category">
-                        <source>Create new category</source>
-                        <target>اضافة صنف جديد</target>
-                      </trans-unit>
-                    <trans-unit id="Liste of article" resname="Liste of article">
-                       <source>Liste of article</source>
-                       <target>قائمة المواد</target>
-                    </trans-unit>
+
+      <trans-unit id="Edit details of category" resname="Edit details of category">
+            <source>Edit details of category</source>
+             <target>تغيير معطيات الصنف </target>
+       </trans-unit>
+
+      <trans-unit id="Create new category" resname="Create new category">
+            <source>Create new category</source>
+            <target>اضافة صنف جديد</target>
+      </trans-unit>
+       <trans-unit id="Liste of article" resname="Liste of article">
+            <source>Liste of article</source>
+             <target>قائمة المواد</target>
+      </trans-unit>
+       <trans-unit id="Edit article" resname="Edit article">
+                  <source>Edit article</source>
+                   <target>تغيير المعطيات</target>
+            </trans-unit>
    <trans-unit id="Min quantity" resname="Min quantity">
       <source>Min quantity</source>
           <target>الكمية الدنيا</target>
@@ -236,22 +247,26 @@
           <source>Supplier</source>
           <target> المزود</target>
       </trans-unit>
+      <trans-unit id="Details of supplier" resname="Details of supplier">
+                <source>Details of supplier</source>
+                <target> بيانات المزود</target>
+            </trans-unit>
        <trans-unit id="Supplier liste" resname="Supplier liste">
             <source>Supplier liste</source>
             <target>قائمة المزودين</target>
         </trans-unit>
 <trans-unit id="Edit supplier " resname="Edit supplier">
             <source>Edit supplier</source>
-            <target>تعديل بيانات المتزودين</target>
+            <target>تغيير بيانات المزود</target>
         </trans-unit>
 
     <trans-unit id="Employee" resname=" Employe">
           <source> Employe</source>
           <target>الموظف</target>
        </trans-unit>
- <trans-unit id="Details" resname="Details">
-        <source>Details</source>
-        <target>بيانات </target>
+ <trans-unit id="Details of employee" resname="Details of employee">
+        <source>Details of employee</source>
+        <target> بيانات الموظف   </target>
     </trans-unit>
 <trans-unit id="Create new employee" resname="Create new employee">
              <source>Create new employee</source>
@@ -274,11 +289,6 @@
                 <source>Tax</source>
                 <target>TVA</target>
     </trans-unit>
-<trans-unit id="Id line Purchase" resname="Id line Purchase">
-                <source>Id line Purchase</source>
-               <target>معرف المشتريات</target>
-    </trans-unit>
-
  <trans-unit id=" Unit price" resname="Unit price">
                  <source>Unit price</source>
                  <target>الثمن الفردي</target>
@@ -312,9 +322,9 @@
                             <target>خروج جديد</target>
    </trans-unit>
     <trans-unit id="List of exit " resname="List of exit">
-                               <source>List of exit</source>
-                               <target>قائمة في خروج المواد </target>
-      </trans-unit>
+         <source>List of exit</source>
+         <target>قائمة في خروج المواد </target>
+     </trans-unit>
      <trans-unit id="Number of exit " resname="Number of exit">
                                   <source>Number of exit</source>
                                   <target>رقم وصل  الخروج </target>
@@ -324,8 +334,8 @@
                    <target>خروج المواد </target>
      </trans-unit>
       <trans-unit id="Create new exit " resname="Create new exit">
-                       <source>Create new exit</source>
-                        <target>اضافة خروج جديد </target>
+         <source>Create new exit</source>
+      <target>اضافة خروج جديد </target>
        </trans-unit>
     <trans-unit id="Fullname" resname="Fullname">
                           <source>Fullname</source>
@@ -629,7 +639,7 @@
       </trans-unit>
        <trans-unit id=" Show details of: " resname="Show details of:">
                             <source> Show details of:</source>
-                            <target> اظهار بيانات:  </target>
+                            <target> عرض بيانات:  </target>
        </trans-unit>
        <trans-unit id=" Commission edit " resname="Commission edit">
                                    <source> Commission edit</source>

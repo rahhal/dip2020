@@ -104,27 +104,6 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>{{ "New exit"|trans }}
-                                    </h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">تنظیمات 1</a>
-                                                </li>
-                                                <li><a href="#">تنظیمات 2</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
                                 <div class="x_content">
                                     <br/>
                                     {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
@@ -193,6 +172,7 @@
 
                                                 <div id="exitt_lineExitt"></div>
                                                 <a href="#" id="add_lineExitt" class="btn btn-success m-10">{{ "Create new exit"|trans }}</a>
+                                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
                                             </div>
                                         </div>
@@ -200,7 +180,6 @@
 
 {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
 
-                                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                                     {{ form_widget(form._token) }}
                                     {{ form_end(form, {'render_rest': false}) }}
 
@@ -212,21 +191,7 @@
                 {% include('layouts/footer.html.twig') %}
             </div>
 
-            <div id="lock_screen">
-                <table>
-                    <tr>
-                        <td>
-                            <div class="clock"></div>
-                            <span class="unlock">
-                    <span class="fa-stack fa-5x">
-                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
-                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                </span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        
         </div>
     </div>
 
