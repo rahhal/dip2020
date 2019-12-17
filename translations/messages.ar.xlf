@@ -635,7 +635,7 @@
     </trans-unit>
      <trans-unit id=" Validation articles " resname="Validation articles">
                       <source> Validation articles</source>
-                      <target> تواريخ صلوحية المواد  </target>
+                      <target> تاريخ صلوحية المواد  </target>
       </trans-unit>
        <trans-unit id=" Show details of: " resname="Show details of:">
                             <source> Show details of:</source>

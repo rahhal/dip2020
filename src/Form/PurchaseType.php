@@ -21,7 +21,16 @@ class PurchaseType extends AbstractType
     {
         $builder
             ->add('number')
-            ->add('date',DateType::class)
+            ->add('date',DateType::class,  [
+                'label' => 'التاريخ :',
+                'required' => true,
+                'widget' => 'single_text',
+                //'html5' => false,
+                // 'format' => 'dd/MM/yyyy',
+                'attr' => ['class' => 'js-datepicker',
+                    'autocomplete' => 'off'
+                ],
+            ])
             ->add('employee')
             ->add('supplier')
             ->add('linePurchases', CollectionType::class, array(

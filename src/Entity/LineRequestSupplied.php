@@ -31,8 +31,7 @@ class LineRequestSupplied
     private $remarque;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineRequestSupplieds")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineRequestSupplieds", cascade={"persist","remove"})
      */
     private $article;
 

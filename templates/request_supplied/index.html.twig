@@ -51,8 +51,8 @@
                                                 <a href="#" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>
                                                {# <a href="{{ path('request_supplied_show', {'id': requestSupplied.id}) }}" class="btn btn-success">{{ "show"|trans }}</a>
                                                 <a href="{{ path('modifier-request_supplied', {'id': requestSupplied.id}) }}" class="btn btn-warning">{{ "edit"|trans }}</a>#}
-                                                <a href="{{ path('lineRequestSupplied_detail', {'id': requestSupplied.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>
-                                                <a href="{{ path('print_pdf', {'id': requestSupplied.id}) }}" target="_blank" class="btn btn-danger"><i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }}</a>
+                                                <a href="{{ path('lineRequestSupplied_detail', {'id': requestSupplied.id}) }}" class="btn btn-info" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>
+                                                <a href="{{ path('print_pdf', {'id': requestSupplied.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }}</a>
                                             </td>
                                         </tr>
                                     {% else %}

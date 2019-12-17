@@ -75,7 +75,7 @@ class BudgetController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
 
-            $this->addFlash('success', "تم التعديل بنجاح");
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('budget_index');
         }
 

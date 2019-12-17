@@ -26,9 +26,16 @@
             {% if is_granted('ROLE_ADMIN') %}
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> معطيات عامة <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
-                        <li><a href="{{ path('budget_index') }}">الميزانية</a></li>
+                    <ul class="nav child_menu"  {% if  'institution_' in app.request.get('_route')
+                                                   or 'budget_' in app.request.get('_route')
+                                                   or 'category_' in app.request.get('_route')
+                                                   or 'article_' in app.request.get('_route')
+                                                   or 'supplier_' in app.request.get('_route')
+                                                   or 'employee_' in app.request.get('_route')%}
+                                                    style="display: block;"{% endif %}>
+
+                         <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
+                        <li ><a href="{{ path('budget_index') }}">الميزانية</a></li>
                         <li><a href="{{ path('category_index') }}">الاصناف</a></li>
                         <li><a href="{{ path('article_index') }}">المواد</a></li>
                         <li><a href="{{ path('supplier_index') }}">المزودين</a></li>
@@ -36,27 +43,35 @@
                     </ul>
                 </li>
                 <li><a><i class="fa fa-shopping-cart"></i> المشتريات <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                    <ul class="nav child_menu" {% if 'request_supplied_' in app.request.get('_route')
+                                                or 'commission_' in app.request.get('_route')
+                                                or 'purchase_' in app.request.get('_route') %}
+                                                style="display: block;"{% endif %}>
                         <li><a href="{{ path('request_supplied_index') }}">طلب تزوّد</a></li>
                         <li><a href="{{ path('commission_index') }}">لجنة قبول المواد</a></li>
                         <li><a href="{{ path('purchase_index') }}">جدول المشتريات</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-cubes"></i> المخزون <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                    <ul class="nav child_menu" {% if'line_stock_' in app.request.get('_route') %}
+                                                style="display: block;"{% endif %}>
                         <li><a href="{{ path('line_stock_stocki') }}">المخزون الاولي</a></li>
                         <li><a href="{{ path('line_stock_index') }}">كامل المخزون </a></li>
                         <li><a href="{{ path('line_stock_valid') }}">صلوحية المواد</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-arrow-up"></i> خروج المواد <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                    <ul class="nav child_menu" {% if'exitt_' in app.request.get('_route') %} style="display: block;"{% endif %}>
+
                         <li><a href="{{ path('exitt_index') }}">خروج جديد</a></li>
                         <li><a href="#">الخروج الشهري</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-cutlery"></i> الأكلات <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
+                    <ul class="nav child_menu" {% if 'menu_' in app.request.get('_route')
+                                                    or 'nb_meal_' in app.request.get('_route')
+                                                    or 'journal_' in app.request.get('_route') %}
+                                                    class= "curren" style="display: block;"{% endif %}>
                         <li><a href="{{ path('menu_index') }}">  جدول الاكلات </a></li>
                         <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
                         <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Exitt;
 use App\Entity\LineExitt;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +16,16 @@ class ExittType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
+            ->add('date', DateType::class, [
+                'label' => 'التاريخ :',
+                'required' => true,
+                'widget' => 'single_text',
+                //'html5' => false,
+                // 'format' => 'dd/MM/yyyy',
+                'attr' => ['class' => 'js-datepicker',
+                    'autocomplete' => 'off'
+                ],
+            ])
             ->add('number')
             ->add('total_price')
             ->add('employee')

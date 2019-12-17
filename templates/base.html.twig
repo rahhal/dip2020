@@ -25,7 +25,9 @@
 {% block javascripts %}
     {% include 'layout_footer.html.twig' %}
 <script>
-$("#register").click(function() {
+    /*     ===========================test de reférence d'une article=========================== */
+
+    $("#register").click(function() {
     var reference_stock = $('#article_reference_stock').val();
     console.log('La valeur récupéreé est:'+reference_stock)
     $('#article_reference_stock').removeClass("border_error");
@@ -47,13 +49,12 @@ $("#register").click(function() {
     }
 });
 
-$('#single_cal1').daterangepicker({
-    "singleDatePicker": true,
-    "startDate": "07/01/2017",
-    "endDate": "07/15/2017"
-}, function(start, end, label) {
-  console.log('New date range selected: ' + start.format('YYYY/MM/DD') + ' to ' + end.format('YYYY/MM/DD') + ' (predefined range: ' + label + ')');
+$(document).ready(function() {
+    $('.js-datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    });
 });
+
 </script>
 {% endblock %}
 

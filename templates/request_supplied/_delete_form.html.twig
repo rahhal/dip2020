@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('request_supplied_delete', {'id': purchase.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
+<form method="post" action="{{ path('request_supplied_delete', {'id': request_supplied.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ request_supplied.id) }}">
     <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>

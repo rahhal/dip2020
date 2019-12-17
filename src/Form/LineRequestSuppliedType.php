@@ -21,12 +21,13 @@ class LineRequestSuppliedType extends AbstractType
                 'class' => Article::class,
                 'multiple' => false
             ])
-            ->add('quantity')
-            ->add('remarque')
             ->add('requestSupplied', EntityType::class, [
                 'class' => RequestSupplied::class,
                 'multiple' => false
             ])
+            ->add('quantity')
+            ->add('remarque')
+
         ;
     }
 
