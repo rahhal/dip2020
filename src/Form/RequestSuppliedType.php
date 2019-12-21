@@ -6,6 +6,7 @@ use App\Entity\LineRequestSupplied;
 use App\Entity\RequestSupplied;
 
 
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -18,7 +19,16 @@ class RequestSuppliedType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
+            //->add('date')
+            ->add('date', DateType::class, [
+                'label' => 'Date :',
+                'format'=> 'mm/dd/yyyy',
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker',
+                    'autocomplete' => 'off'
+                ],
+            ])
             ->add('tranche')
             ->add('supplier')
             ->add('lineRequestSupplieds', CollectionType::class, array(

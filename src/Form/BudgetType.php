@@ -13,12 +13,13 @@ class BudgetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+             //->add('year')
             ->add('year', DateType::class, [
                 'label' => 'التاريخ :',
                 'required' => true,
                 'widget' => 'single_text',
-                //'html5' => false,
-                // 'format' => 'dd/MM/yyyy',
+                'html5' => false,
+                 'format' => 'mm/dd/yyyy',
                 'attr' => ['class' => 'js-datepicker',
                     'autocomplete' => 'off'
                 ],

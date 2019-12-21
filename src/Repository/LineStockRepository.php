@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\lineStock;
+use App\Entity\LineStock;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method lineStock|null find($id, $lockMode = null, $lockVersion = null)
- * @method lineStock|null findOneBy(array $criteria, array $orderBy = null)
- * @method lineStock[]    findAll()
- * @method lineStock[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method LineStock|null find($id, $lockMode = null, $lockVersion = null)
+ * @method LineStock|null findOneBy(array $criteria, array $orderBy = null)
+ * @method LineStock[]    findAll()
+ * @method LineStock[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class LineStockRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, lineStock::class);
+        parent::__construct($registry, LineStock::class);
     }
 
     // /**
-    //  * @return lineStock[] Returns an array of lineStock objects
+    //  * @return LineStock[] Returns an array of LineStock objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class LineStockRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?lineStock
+    public function findOneBySomeField($value): ?LineStock
     {
         return $this->createQueryBuilder('l')
             ->andWhere('l.exampleField = :val')

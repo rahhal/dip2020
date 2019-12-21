@@ -39,18 +39,28 @@ class JournalController extends AbstractController
     {
         $journal = new Journal();
         $exitt = new  Exitt();
+        $nbMeal = new NbMeal();
         $form = $this->createForm(JournalType::class, $journal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            /*  recuperation du prix total au journal   */
+            /*  calcul du prix total au journal   */
 
-            /*foreach ($exitt->getJournals() as $journal)
+            foreach ($exitt->getJournals() as $journal)
+            { $journal->setTotalCosts($exitt->getTotalPrice());}
 
-            { $journal->setTotalCosts($exitt->getTotalPrice());}*/
+            foreach ($nbMeal->getJournals() as $journal)
+            {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
+            }
+            /*  calcul du plat   */
+           if ($journal->getTotalMeals()!= 0)
+            $journal->setUnitCost($journal->getTotalCosts() / $journal->getTotalMeals());
 
+
+            $entityManager->persist($exitt);
+            $entityManager->persist($nbMeal);
         $entityManager->persist($journal);
         $entityManager->flush();
 

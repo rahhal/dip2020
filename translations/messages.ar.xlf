@@ -657,6 +657,46 @@
              <source> Update institution informations</source>
              <target> تغيير معطيات المؤسسة  </target>
   </trans-unit>
+   <trans-unit id=" FirstName " resname="FirstName">
+               <source> FirstName</source>
+               <target> الاسم  </target>
+    </trans-unit>
+    <trans-unit id=" LastName " resname="LastName">
+                   <source> LastName</source>
+                   <target> اللقب  </target>
+        </trans-unit>
+    <trans-unit id=" Password " resname="Password">
+           <source> Password</source>
+           <target> كلمة السر  </target>
+    </trans-unit>
+    <trans-unit id=" Roles " resname="Roles">
+               <source> Roles</source>
+               <target> الدور  </target>
+        </trans-unit>
+        <trans-unit id=" List of users " resname="List of users">
+                       <source> List of users</source>
+                       <target> قائمة المستخدمين  </target>
+        </trans-unit>
+     <trans-unit id=" Create new user " resname="Create new user">
+           <source> Create new user</source>
+           <target> اضافة مستخدم جديد  </target>
+     </trans-unit>
+     <trans-unit id=" Mobile " resname=" Mobile">
+                <source> Mobile</source>
+                <target> الجوال  </target>
+     </trans-unit>
+     <trans-unit id=" Admin " resname=" Admin">
+          <source> Admin</source>
+           <target> الادمين  </target>
+      </trans-unit>
+       <trans-unit id=" RIB " resname=" RIB">
+                      <source> RIB</source>
+                      <target> المعرف الجبائي  </target>
+           </trans-unit>
+           <trans-unit id=" Details of user " resname=" Details of user">
+                <source> Details of user</source>
+                 <target> بيانات المستخدم  </target>
+            </trans-unit>
 
     </body>
   </file>

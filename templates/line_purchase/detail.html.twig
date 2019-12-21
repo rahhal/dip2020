@@ -54,8 +54,8 @@
                                     <td>{{ linePurchase.unitPrice }}</td>
                                     <td>{{ linePurchase.tax }}</td>
                                     <td>{{ linePurchase.TotalPrice }}</td>
-                                    <td>{{ linePurchase.production }}</td>
-                                    <td>{{ linePurchase.validation }}</td>
+                                    <td>{{ linePurchase.production ? linePurchase.production|date('Y-m-d ') : '' }}</td>
+                                    <td>{{ linePurchase.validation ? linePurchase.validation|date('Y-m-d ') : '' }}</td>
                                     <td>{{ linePurchase.technicalConfirmity }}</td>
                                     <td>{{ linePurchase.remarque }}</td>
 

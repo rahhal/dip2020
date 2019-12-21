@@ -10,6 +10,8 @@
 
     {% block stylesheets %}
         {% include 'layout_header.html.twig' %}
+        {#<link href="{{ asset('Resources/public/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">#}
+
     {% endblock %}
 </head>
 
@@ -24,6 +26,10 @@
 
 {% block javascripts %}
     {% include 'layout_footer.html.twig' %}
+
+
+    {#<script src="{{ asset('Resources/js/moment.js') }}"></script>
+    <script src="{{ asset('Resources/js/bootstrap-datetimepicker.js') }}"></script>#}
 <script>
     /*     ===========================test de reférence d'une article=========================== */
 
@@ -49,11 +55,12 @@
     }
 });
 
-$(document).ready(function() {
-    $('.js-datepicker').datepicker({
+/*$(document).ready(function() {
+    $('.js-datepicker').daterangepicker({
         format: 'yyyy-mm-dd'
     });
-});
+});*/
+
 
 </script>
 {% endblock %}

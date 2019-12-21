@@ -65,19 +65,19 @@ class LinePurchase
     private $remarque;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="decimal", precision=15, scale=3)
+     */
+    private $total_price;
+
+    /**
+     * @ORM\Column(type="date")
      */
     private $production;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
     private $validation;
-
-    /**
-     * @ORM\Column(type="decimal", precision=15, scale=3)
-     */
-    private $total_price;
 
 
     public function __construct()
@@ -222,30 +222,6 @@ class LinePurchase
         return $this;
     }
 
-    public function getProduction(): ?string
-    {
-        return $this->production;
-    }
-
-    public function setProduction(string $production): self
-    {
-        $this->production = $production;
-
-        return $this;
-    }
-
-    public function getValidation(): ?string
-    {
-        return $this->validation;
-    }
-
-    public function setValidation(string $validation): self
-    {
-        $this->validation = $validation;
-
-        return $this;
-    }
-
     public function getTotalPrice(): ?string
     {
         return $this->total_price;
@@ -254,6 +230,30 @@ class LinePurchase
     public function setTotalPrice(string $total_price): self
     {
         $this->total_price = $total_price;
+
+        return $this;
+    }
+
+    public function getProduction(): ?\DateTimeInterface
+    {
+        return $this->production;
+    }
+
+    public function setProduction(\DateTimeInterface $production): self
+    {
+        $this->production = $production;
+
+        return $this;
+    }
+
+    public function getValidation(): ?\DateTimeInterface
+    {
+        return $this->validation;
+    }
+
+    public function setValidation(\DateTimeInterface $validation): self
+    {
+        $this->validation = $validation;
 
         return $this;
     }

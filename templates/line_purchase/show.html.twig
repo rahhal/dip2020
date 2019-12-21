@@ -7,13 +7,17 @@
 
     <table class="table">
         <tbody>
+        <tr>
+            <th>QuantityRequired</th>
+            <td>{{ line_purchase.quantityRequired }}</td>
+        </tr>
             <tr>
-                <th>Quantity</th>
-                <td>{{ line_purchase.quantity }}</td>
+                <th>QuantityDelivred</th>
+                <td>{{ line_purchase.quantityDelivred }}</td>
             </tr>
             <tr>
-                <th>Unit</th>
-                <td>{{ line_purchase.unit }}</td>
+                <th>total price</th>
+                <td>{{ line_purchase.totalPrice }}</td>
             </tr>
             <tr>
                 <th>Unit_price</th>
@@ -22,6 +26,14 @@
             <tr>
                 <th>Tax</th>
                 <td>{{ line_purchase.tax }}</td>
+            </tr>
+            <tr>
+                <th>تاريخ الانتهاء</th>
+                <td>{{ line_purchase.validation ? exitt.validation|date('Y-m-d ') : '' }}</td>
+            </tr>
+            <tr>
+                <th>تاريخ الصنع</th>
+                <td>{{ line_purchase.production ? exitt.production|date('Y-m-d ') : '' }}</td>
             </tr>
         </tbody>
     </table>

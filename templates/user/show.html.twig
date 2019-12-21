@@ -1,0 +1,85 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ " Details of user" |trans }}</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                {#{% if is_granted('ROLE_ENTREPRISE') %}#}
+
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>{{ "Company" |trans }}</th>
+                                        <td>{{ user.company }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Director" |trans }}</th>
+                                        <td>{{ user.director }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Fullname" |trans }}</th>
+                                        <td>{{ user.fullname }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ " RIB" |trans }}</th>
+                                        <td>{{ user.rIB }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Phone" |trans }}</th>
+                                        <td>{{ user.phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Address" |trans }}</th>
+                                        <td>{{ user.address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "City" |trans }}</th>
+                                        <td>{{ user.city }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Email" |trans }}</th>
+                                        <td>{{ user.email }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-3">
+                                        {{ include('user/_delete_form.html.twig') }}
+                                    </div>
+                                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                    <a href="{{ path('user_list') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
+{% endblock %}

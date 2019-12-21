@@ -5,7 +5,8 @@ namespace App\Form;
 use App\Entity\LinePurchase;
 use App\Entity\Purchase;
 use App\Entity\Article;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -38,10 +39,8 @@ class LinePurchaseType extends AbstractType
             ->add('total_price')
            ->add('remarque')
             //->add('production')
-            ->add('validation')
-            ->add('production', DateType::class, array('label' => 'Date de début', 'required' => true, 'format' => 'dd/MM/yyyy', 'widget' => 'single_text', 'html5' => false,
-                'attr' => ['class' => 'datepicker', 'autocomplete' => 'off'],
-            ))
+            ->add('validation',TextType::class)
+            ->add('production', TextType::class)
            // ->add('valid')
            // ->add('prod')
            //->add('exit_dte',TextType::class, array('widget' => 'single_text','required' => false,'empty_data'=>'null'))

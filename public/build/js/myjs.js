@@ -161,12 +161,16 @@ $("#exitt_save").click(function() {
     }else{
         return true;
     }
-
 });
+
+
 /*     ===========================js datepicker=========================== */
 
 
-$('#single_cal1').daterangepicker({
+
+
+
+$('.single_cal1').daterangepicker({
     "singleDatePicker": true,
     "startDate": "07/01/2017",
     "endDate": "07/15/2017"
