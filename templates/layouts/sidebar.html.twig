@@ -54,14 +54,14 @@
                     </ul>
                 </li>
                 <li><a><i class="fa fa-cubes"></i> المخزون <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" {% if'line_stock_' in route %} style="display: block;"{% endif %}>
+                    <ul class="nav child_menu" {% if 'line_stock_' in route %} style="display: block;"{% endif %}>
                         <li><a href="{{ path('line_stock_stocki') }}">المخزون الاولي</a></li>
                         <li><a href="{{ path('line_stock_index') }}">كامل المخزون </a></li>
                         <li><a href="{{ path('line_stock_valid') }}">صلوحية المواد</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-arrow-up"></i> خروج المواد <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" {% if'exitt_' in route %} style="display: block;"{% endif %}>
+                    <ul class="nav child_menu" {% if 'exitt_' in route %} style="display: block;"{% endif %}>
 
                         <li><a href="{{ path('exitt_index') }}">خروج جديد</a></li>
                         <li><a href="#">الخروج الشهري</a></li>
@@ -71,8 +71,8 @@
                     <ul class="nav child_menu" {% if 'menu_' in route or 'nb_meal_' in route or 'journal_' in route %}
                                                     class= "current" style="display: block;"{% endif %}>
                         <li><a href="{{ path('menu_index') }}">  جدول الاكلات </a></li>
-                        <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
                         <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>
+                        <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-clone"></i> الجرد <span class="fa fa-chevron-down"></span></a>
@@ -90,13 +90,16 @@
         <div class="menu_section">
             <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> الادارة <span class="fa fa-chevron-down"></span></a>
-                    {#<ul class="nav child_menu"  {% if  'user_' in route %} class= "current" style="display: block;"{% endif %}>#}
-                    <ul class="nav child_menu" >
-                        <li><a href="{{ path('admin') }}"><i class="fa fa-user"></i>الادمين</a></li>
+                    <ul class="nav child_menu"  {% if  'admin_' in route %} style="display: block;"{% endif %}>
+                        <li><a href="{{ path('admin_list') }}"><i class="fa fa-user"></i>الادمين</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ path('user_list') }}"><i class="fa fa-users"></i> قائمة المستخدمين <span class="fa fa-chevron-left"></span></a>
 
+                <li><a><i class="fa fa-users"></i> المستخدمين <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" {% if  'user_' in route %} class= "current" style="display: block;"{% endif %}>
+                        <li><a href="{{ path('user_list') }}"><i class="fa fa-user"></i>قائمة المستخدمين</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         {% endif %}

@@ -42,6 +42,7 @@
                                     {#{{ form_errors(form.created_at) }}#}
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.date) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
                                     </div>
                                 </div>
 
@@ -51,6 +52,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.std_resident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.std_resident) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -59,6 +61,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.std_semiResident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.std_semiResident) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -67,6 +70,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.std_granted,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.std_granted) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -75,6 +79,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.professor,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.professor) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -83,6 +88,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.curators,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.curators) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -91,6 +97,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.employee,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.employee) }}</div>
                                     </div>
                                 </div>
 
@@ -99,7 +106,7 @@
                                     <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                         {#<button type="submit" class="btn btn-success"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{ button_label|default('Update')|trans }}</button>#}
-                                        {#{{ include('nb_meal/_form.html.twig') }}#}
+                                        {{ include('nb_meal/_form.html.twig') }}
                                         <a href="{{ path('nb_meal_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
 
                                     </div>

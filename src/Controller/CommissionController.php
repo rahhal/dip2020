@@ -9,12 +9,14 @@ use App\Repository\EmployeeRepository;
 use App\Form\CommissionType;
 use App\Repository\CommissionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/commission")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class CommissionController extends AbstractController
 {

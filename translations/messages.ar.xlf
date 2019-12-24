@@ -143,10 +143,10 @@
             <source>Category</source>
             <target>الصنف</target>
           </trans-unit>
-                     <trans-unit id="Details of categry" resname="Details of categry">
-                                               <source>Details of categry</source>
-                                               <target>تفاصيل صنف:  </target>
-                                          </trans-unit>
+       <trans-unit id="Details of categry" resname="Details of categry">
+               <source>Details of categry</source>
+               <target>تفاصيل صنف:  </target>
+       </trans-unit>
 
       <trans-unit id="Edit details of category" resname="Edit details of category">
             <source>Edit details of category</source>
@@ -697,7 +697,30 @@
                 <source> Details of user</source>
                  <target> بيانات المستخدم  </target>
             </trans-unit>
-
+    <trans-unit id=" Create new admin " resname=" Create new admin">
+         <source> Create new admin</source>
+          <target> اضافة ادمين جديد  </target>
+     </trans-unit>
+   <trans-unit id=" List of admins " resname=" List of admins">
+        <source> List of admins</source>
+        <target> قائمة الادمينات  </target>
+   </trans-unit>
+    <trans-unit id=" Edit user " resname=" Edit user">
+           <source> Edit user</source>
+           <target> تغيير بيانات المستخدم  </target>
+      </trans-unit>
+     <trans-unit id=" Details of admin " resname=" Details of admin">
+              <source> Details of admin</source>
+               <target>  بيانات الادمين  </target>
+     </trans-unit>
+     <trans-unit id=" Profile of user " resname=" Profile of user">
+                   <source> Profile of user</source>
+                    <target>  الملف الشخصي للمستخدم  </target>
+     </trans-unit>
+<trans-unit id="Details of nb meal" resname="Details of nb meal">
+               <source>Details of nb meal</source>
+               <target>تفاصيل عدد الاكلات  </target>
+ </trans-unit>
     </body>
   </file>
 </xliff>

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\LineRequestSupplied;
 use App\Entity\RequestSupplied;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -26,7 +27,7 @@ class LineRequestSuppliedType extends AbstractType
                 'multiple' => false
             ])
             ->add('quantity')
-            ->add('remarque')
+            ->add('remarque',TextType::class)
 
         ;
     }

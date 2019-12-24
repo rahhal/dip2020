@@ -7,6 +7,7 @@ use App\Entity\LinePurchase;
 use App\Form\LinePurchaseType;
 use App\Repository\LinePurchaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +17,7 @@ use Dompdf\Options;
 
 /**
  * @Route("/line/purchase")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class LinePurchaseController extends AbstractController
 {

@@ -59,14 +59,14 @@
                                             <td>{{ journal.remarque }}</td>
 
                                             <td>
-                                                <a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-primary btn-block"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
-                                                <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
-                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-success btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>{{  "print" | trans }}</a>
+                                                <a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
+                                                <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>{{  "print" | trans }}</a>
 
                                             </td>
                                         </tr>
                                     {% else %}
-                                        <tr>
+                                        <tr class="text-center">
                                             <td colspan="6">{{  "no records found" | trans }}</td>
                                         </tr>
                                     {% endfor %}

@@ -42,6 +42,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.day,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.day) }}</div>
                                     </div>
                                 </div>
 
@@ -51,6 +52,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.breakfast,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.breakfast) }}</div>
                                     </div>
                                 </div>
 
@@ -60,6 +62,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.lunch,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.lunch) }}</div>
                                     </div>
                                 </div>
 
@@ -69,6 +72,7 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.dinner,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.dinner) }}</div>
                                     </div>
                                 </div>
 

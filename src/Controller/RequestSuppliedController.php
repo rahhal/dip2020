@@ -11,7 +11,7 @@ use App\Form\LineRequestSuppliedType;
 use App\Repository\RequestSuppliedRepository;
 use Symfony\Component\Form\FormTypeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/request/supplied")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class RequestSuppliedController extends AbstractController
 {
@@ -64,8 +65,7 @@ class RequestSuppliedController extends AbstractController
                 $em->persist($requestSupplied);
                 $em->flush();
 
-                dump($requestSupplied);
-                die();
+               // dump($requestSupplied);die();
 
                 $this->addFlash('success', "تمت العملية بنجاح");
                 return $this->redirectToRoute("request_supplied_index");

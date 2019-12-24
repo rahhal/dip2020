@@ -12,9 +12,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @Route("/line/exitt")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class LineExittController extends AbstractController
 {

@@ -18,11 +18,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 
 
 /**
  * @Route("/exitt")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class ExittController extends AbstractController
 {
@@ -82,8 +85,9 @@ class ExittController extends AbstractController
                 $exitt->setTotalPrice($totalPrice);
 
                 /*  recuperation du prix total au journal   */
-                $journal= new Journal();
-                /*foreach ($exitt->getJournals() as $journal)
+
+                /*$journal= new Journal();
+                foreach ($exitt->getJournals() as $journal)
 
                     $journal->setTotalCosts($exitt->getTotalPrice());
 
@@ -95,7 +99,6 @@ class ExittController extends AbstractController
                                  'success',
                                  'تمت العملية بنجاح');
                 return $this->redirectToRoute("exitt_index");
-
             }
         }
         $exitts=$em->getRepository(Exitt::class) ->findAll();

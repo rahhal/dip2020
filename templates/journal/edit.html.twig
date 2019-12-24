@@ -45,15 +45,16 @@
                                                 {#{{ form_errors(form.created_at) }}#}
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.nbMeal.date) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of resident studiants"|trans }}
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.nbMeal.std_resident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_resident) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -63,6 +64,8 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.nbMeal.std_semiResident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                 </div>
+                                                <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_semiResident) }}</div>
+
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of granted studiants"|trans }}
@@ -70,6 +73,7 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.nbMeal.std_granted,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_granted) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -78,6 +82,7 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.nbMeal.professor,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.professor) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -105,9 +110,10 @@
                                         <div class="well">
                                             <div class="form-group">
                                                 {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-md-3 col-sm-3 col-xs-12 control-label'}}) }}
-                                                {{ form_errors(form.date) }}
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.date) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+
                                                 </div>
                                             </div>
 
@@ -126,15 +132,16 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.exitt,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.exitt) }}</div>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total meals"|trans }}
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.total_meals,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.total_meals) }}</div>
                                                 </div>
                                             </div>
                                             {# <div class="form-group">
@@ -152,6 +159,7 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.unit_cost,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.unit_cost) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -160,6 +168,7 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.remarque,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.remarque) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -168,6 +177,7 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.menu,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.menu) }}</div>
                                                 </div>
                                             </div>
                                         </div>

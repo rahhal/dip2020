@@ -33,46 +33,13 @@ class LinePurchaseType extends AbstractType
               ])
             ->add('quantity_delivred')
             ->add('unit_price')
-            ->add('tax')
+            ->add('tax',TextType::class)
             ->add('quantity_required')
             ->add('technical_confirmity')
             ->add('total_price')
-           ->add('remarque')
-            //->add('production')
+           ->add('remarque',TextType::class)
             ->add('validation',TextType::class)
             ->add('production', TextType::class)
-           // ->add('valid')
-           // ->add('prod')
-           //->add('exit_dte',TextType::class, array('widget' => 'single_text','required' => false,'empty_data'=>'null'))
-          //  ->add('prod_dte',TextType::class, array('widget' => 'single_text','required' => false,'empty_data'=>'null'))
-           /* ->add('prod_dte', DateType::class, [
-               // 'label' => 'prod dte',
-               // 'widget' => 'single_text',
-               // 'html5' => false,
-                'empty_data' => null,
-                //'attr' => ['id' => 'purchase_linePurchase___name___prod_dte'],
-                'format' => 'y-M-d',
-                'input' => 'datetime',
-            ])
-           /* ->add('DateOfBirth', TextType::class, array(
-                'required' => false,
-                'empty_data' => null,
-                'attr' => array(
-                    'placeholder' => 'mm/dd/yyyy'
-                )))*/
-
-
-         /*   ->add('exit_dte', DateType::class, [
-               // 'label' => 'validity dte',
-               // 'widget' => 'single_text',
-               // 'html5' => false,
-               // 'attr' => ['id' => 'purchase_linePurchase___name___validity_dte'],
-                'format' => 'y/M/d',
-                'input' => 'datetime',
-            ])*/
-
-
-
         ;
     }
 
@@ -80,7 +47,6 @@ class LinePurchaseType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => LinePurchase::class,
-           // 'allow_extra_fields' => true,
         ]);
     }
 }

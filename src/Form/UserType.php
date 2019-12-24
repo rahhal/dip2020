@@ -6,6 +6,10 @@ use App\Entity\City;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,19 +19,18 @@ class UserType extends AbstractType
     {
         $builder
 
-            ->add('rIB')
-            ->add('email')
-            ->add('password')
-            ->add('company')
-            ->add('director')
-            ->add('address')
+            ->add('company',TextType::class)
+            ->add('director',TextType::class)
+            ->add('rIB', TextType::class)
+            ->add('address',TextType::class)
             ->add('city', EntityType::class, array(
                 'class' => City::class,
                 'choice_label' => 'name',
                 'attr' => array('placeholder' => 'المدينة'
                 )))
-            ->add('phone')
-            ->add('fullname')
+            ->add('phone',TelType::class)
+            ->add('email', EmailType::class)
+            ->add('password', PasswordType::class)
         ;
     }
 

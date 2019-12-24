@@ -70,12 +70,12 @@ class LinePurchase
     private $total_price;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $production;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $validation;
 
@@ -234,24 +234,24 @@ class LinePurchase
         return $this;
     }
 
-    public function getProduction(): ?\DateTimeInterface
+    public function getProduction(): ?string
     {
         return $this->production;
     }
 
-    public function setProduction(\DateTimeInterface $production): self
+    public function setProduction(string $production): self
     {
         $this->production = $production;
 
         return $this;
     }
 
-    public function getValidation(): ?\DateTimeInterface
+    public function getValidation(): ?string
     {
         return $this->validation;
     }
 
-    public function setValidation(\DateTimeInterface $validation): self
+    public function setValidation(string $validation): self
     {
         $this->validation = $validation;
 
@@ -259,4 +259,3 @@ class LinePurchase
     }
 
 }
-

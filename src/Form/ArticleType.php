@@ -21,16 +21,15 @@ class ArticleType extends AbstractType
 
          ->add('created_at', DateType::class, [
              'label' => 'Date :',
-             'format'=> 'mm/dd/yyyy',
+            // 'format'=> 'mm/dd/yyyy',
              'widget' => 'single_text',
-             'html5' => false,
-             'attr' => ['class' => 'js-datepicker',
-             'autocomplete' => 'off'
-        ],
+             //'html5' => false,
+             /* 'attr' => ['class' => 'js-datepicker',
+              'autocomplete' => 'off'
+         ],*/
              ])
 
             ->add('reference_stock', TextType::class, array('label' => 'المرجع بالمخزن :', 'attr' => array('placeholder' => 'المرجع بالمخزن')))
-           // ->add('created_at', DateType::class)
             ->add('name', TextType::class, array('label' => 'اسم المادة :', 'attr' => array('placeholder' => 'اسم المادة')))
             ->add('unit',EntityType::class, [
                 'class' => Unit::class,

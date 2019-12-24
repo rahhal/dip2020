@@ -31,8 +31,8 @@ class PurchaseType extends AbstractType
                     'autocomplete' => 'off'
                 ],
             ])
-            ->add('employee')
-            ->add('supplier')
+            ->add('employee',EmployeeType::class)
+            ->add('supplier',SupplierType::class)
             ->add('linePurchases', CollectionType::class, array(
                 'entry_type'   => LinePurchaseType::class,
                 'allow_add'    => true,

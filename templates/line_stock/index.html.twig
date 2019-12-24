@@ -1,48 +1,4 @@
-{#
-{% extends 'base.html.twig' %}
 
-{% block title %}LineStock index{% endblock %}
-
-{% block body %}
-    <h1>LineStock index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Initial_quantity</th>
-                <th>Quantity</th>
-                <th>Quantity_alerte</th>
-                <th>Valid_date</th>
-                <th>Prod_date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for line_stock in line_stocks %}
-            <tr>
-                <td>{{ line_stock.id }}</td>
-                <td>{{ line_stock.initialQuantity }}</td>
-                <td>{{ line_stock.quantity }}</td>
-                <td>{{ line_stock.quantityAlerte }}</td>
-                <td>{{ line_stock.validDate ? line_stock.validDate|date('Y-m-d') : '' }}</td>
-                <td>{{ line_stock.prodDate ? line_stock.prodDate|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('line_stock_show', {'id': line_stock.id}) }}">show</a>
-                    <a href="{{ path('line_stock_edit', {'id': line_stock.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('line_stock_new') }}">Create new</a>
-{% endblock %}
-#}
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ app.user.email|upper }} {% endblock %}
@@ -120,7 +76,6 @@
                                     {% endfor %}#}
                                    {% for line_stock in line_stocks %}
                                        <tr>
-                                           <td>{{ line_stock.id }}</td>
                                            <td>{{ line_stock.date ? line_stock.date|date('Y-m-d') : ''  }}</td>
 
                                                <td>{{ line_stock.linePurchase.article }}</td>
@@ -142,7 +97,7 @@
                                        </tr>
                                    {% else %}
                                        <tr class="text-center">
-                                           <td colspan="12">  {{ "no records found"|trans }}</td>
+                                           <td colspan="9">  {{ "no records found"|trans }}</td>
                                        </tr>
                                    {% endfor %}
                                     </tbody>

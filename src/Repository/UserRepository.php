@@ -61,4 +61,12 @@ class UserRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getResult();
     }
+    public function findOneByEmail($email)
+    {
+        $q = $this->createQueryBuilder('u')
+            ->where('u.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery();
+        return $q->getOneOrNullResult(); // will return only one result or null 'getResult' will return a collection
+    }
 }

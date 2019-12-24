@@ -87,17 +87,6 @@
                     <div class="title_left">
                         <h3>{{ "Create new exit"|trans }}</h3>
                     </div>
-
-                   {# <div class="title_right">
-                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="البحث عن...">
-                                <span class="input-group-btn">
-                                      <button class="btn btn-default" type="button">ابدأ البحث</button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>#}
                 </div>
 
                 <div class="clearfix">
@@ -113,54 +102,35 @@
                                             <div class="well">
                                                 <div class="form-group">
                                                     {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    {{ form_errors(form.date) }}
                                                     <div class="col-sm-4">
                                                         {{ form_widget(form.date) }}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-{# Génération manuelle et éclatée : #}
-
-                                                <div class="form-group">
-
-{# Génération du label. #}
-
+                                                {# Génération du label. #}
                                                     {{ form_label(form.number, "Reference exit"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-{# Affichage des erreurs pour ce champ précis. #}
-
-                                                    {{ form_errors(form.number) }}
                                                     <div class="col-sm-6">
-
-{# Génération de l'input. #}
-
+                                                {# Génération de l'input. #}
                                                         {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
+                                                {# Affichage des erreurs pour ce champ précis. #}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.number) }}</div>
                                                     </div>
                                                 </div>
-
-{# Idem pour un autre champ. #}
-
                                                 <div class="form-group">
                                                     {{ form_label(form.employee, "Benificiary"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    {{ form_errors(form.employee) }}
                                                     <div class="col-sm-6">
                                                         {{ form_widget(form.employee, {'attr': {'class': 'form-control'}}) }}
+                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.employee) }}</div>
                                                     </div>
                                                 </div>
                                                {# <div class="form-group">
-
-#}{#Génération du label.#}{#
-
                                                     {{ form_label(form.total_price, "Total price"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-#}{#Affichage des erreurs pour ce champ précis.#}{#
-
-                                                    {{ form_errors(form.total_price) }}
                                                     <div class="col-sm-6">
-
-#}{#Génération de l'input.#}{#
-
                                                         {{ form_widget(form.total_price, {'attr': {'class': 'form-control'}}) }}
+                                                        {# Affichage des erreurs pour ce champ précis.
+                                                    <div class="invalid-feedback text-danger"> {{ form_errors(form.total_price) }}</div>
                                                     </div>
                                                 </div>#}
                                             </div>
@@ -177,9 +147,8 @@
                                             </div>
                                         </div>
                                     </fieldset>
-
-{# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-
+                                    {# Pour le bouton, pas de label ni d'erreur,
+                                     on affiche juste le widget #}
                                     {{ form_widget(form._token) }}
                                     {{ form_end(form, {'render_rest': false}) }}
 

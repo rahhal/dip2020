@@ -7,6 +7,7 @@ use App\Entity\RequestSupplied;
 
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -29,8 +30,8 @@ class RequestSuppliedType extends AbstractType
                     'autocomplete' => 'off'
                 ],
             ])
-            ->add('tranche')
-            ->add('supplier')
+            ->add('tranche',TextType::class)
+            ->add('supplier',SupplierType::class)
             ->add('lineRequestSupplieds', CollectionType::class, array(
                 'entry_type'   => LineRequestSuppliedType::class,
                 'allow_add'    => true,
@@ -40,7 +41,6 @@ class RequestSuppliedType extends AbstractType
             ->add('save',      SubmitType::class)
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

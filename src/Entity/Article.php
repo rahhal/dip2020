@@ -27,7 +27,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * * @Assert\Length(max=2)
+     * * @Assert\Length(max=10)
      */
     private $unit;
 

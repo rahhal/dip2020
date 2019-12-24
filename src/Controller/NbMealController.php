@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\NbMeal;
 use App\Form\NbMealType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/nb/meal")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 
 class NbMealController extends AbstractController

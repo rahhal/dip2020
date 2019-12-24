@@ -7,12 +7,14 @@ use App\Entity\LineRequestSupplied;
 use App\Form\LineRequestSuppliedType;
 use App\Repository\LineRequestSuppliedRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/line/request/supplied")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class LineRequestSuppliedController extends AbstractController
 {

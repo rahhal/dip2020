@@ -7,12 +7,14 @@ use App\Entity\Category;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/article")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class ArticleController extends AbstractController
 {
@@ -23,9 +25,10 @@ class ArticleController extends AbstractController
     {
 
 
-        if (!$this->getUser()) {
+        /*-------la direction au page login en cas de non authentification------
+         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
-        }
+        }*/
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
         ]);

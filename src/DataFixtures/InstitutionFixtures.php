@@ -14,17 +14,17 @@ class InstitutionFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
         $institution = new Institution();
 
-        $institution->setMinistry('ministry');
-        $institution->setOffice('office');
-        $institution->setDirector('director');
-        $institution->setEconomist('economist');
-        $institution->setAdministrator('administrator');
-        $institution->setName('company');
-        $institution->setAddress('address');
-        $institution->setPhone('71000100');
-        $institution->setFax('71000100');
-        $institution->setYear('2019');
-        $institution->setCity('city');
+        $institution->setMinistry('اسم الوزارة');
+        $institution->setOffice('اسم الديوان');
+        $institution->setDirector('اسم المدير');
+        $institution->setEconomist('اسم المقتصد');
+        $institution->setAdministrator('اسم منسق المطعم');
+        $institution->setName('اسم المؤسسة');
+        $institution->setAddress('العنوان');
+        $institution->setPhone('00000000');
+        $institution->setFax('00000000');
+        $institution->setYear('السنة الدراسية');
+        $institution->setCity('المدينة');
         $institution->setType('company');
 
         $manager->persist($institution);

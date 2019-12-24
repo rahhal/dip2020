@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\Budget;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,17 +17,10 @@ class BudgetType extends AbstractType
         $builder
              //->add('year')
             ->add('year', DateType::class, [
-                'label' => 'التاريخ :',
-                'required' => true,
-                'widget' => 'single_text',
-                'html5' => false,
-                 'format' => 'mm/dd/yyyy',
-                'attr' => ['class' => 'js-datepicker',
-                    'autocomplete' => 'off'
-                ],
+	             'widget' => 'single_text',
             ])
-            ->add('amount')
-            ->add('name')
+            ->add('amount', NumberType::class)
+            ->add('name', TextType::class)
         ;
     }
 

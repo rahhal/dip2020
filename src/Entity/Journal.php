@@ -63,7 +63,6 @@ class Journal
     private $totalCosts;
 
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -146,7 +145,6 @@ class Journal
     {
         return $this->nbMeal;
     }
-
     public function setNbMeal(?NbMeal $nbMeal): self
     {
         $this->nbMeal = $nbMeal;

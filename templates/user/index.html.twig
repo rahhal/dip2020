@@ -26,7 +26,6 @@
                         <div class="x_panel">
 
                             {% include('layouts/flash-messages.html.twig') %}
-
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
                                     <a href="{{ path('user_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
@@ -40,11 +39,11 @@
 
                                         <th>{{  "Company" | trans }}</th>
                                         <th>{{  "Director" | trans }}</th>
-                                        <th>{{  "RIB" | trans }}</th>
-
+                                        <th>{{  " RIB" | trans }}</th>
                                         <th>{{  "Phone" | trans }}</th>
                                         <th>{{  "Address" | trans }}</th>
                                         <th>{{  "City" | trans }}</th>
+                                        <th>{{  "Email" | trans }}</th>
                                         <th>{{  "Actions" | trans }}</th>
                                     </tr>
                                     </thead>
@@ -57,6 +56,7 @@
                                             <td>{{ user.phone }}</td>
                                             <td>{{ user.address }}</td>
                                             <td>{{ user.city }}</td>
+                                            <td>{{ user.email }}</td>
 
                                             <td>
                                                 <a href="{{ path('user_show', {'id': user.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
@@ -64,8 +64,8 @@
                                             </td>
                                         </tr>
                                     {% else %}
-                                        <tr>
-                                            <td colspan="7">{{  "no records found" | trans }}</td>
+                                        <tr class="text-center">
+                                            <td colspan="8">{{  "no records found" | trans }}</td>
                                         </tr>
                                     {% endfor %}
 

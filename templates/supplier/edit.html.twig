@@ -33,6 +33,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.company,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.company) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -41,6 +43,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.name,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.name) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -49,6 +53,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.activity,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.activity) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,6 +63,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.tax_number,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.tax_number) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -65,6 +73,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.phone,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.phone) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -73,6 +83,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.address,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.address) }}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -81,6 +93,8 @@
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.email,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {# Affichage des erreurs pour ce champ précis. #}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.email) }}</div>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

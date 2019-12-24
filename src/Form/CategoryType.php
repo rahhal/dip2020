@@ -6,6 +6,7 @@ use App\Entity\Budget;
 use App\Entity\Category;
 use App\Entity\Type;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +20,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name',TextType::class)
             ->add('amount_allocated')
            // ->add('stock')
          /*   ->add('budget',EntityType::class, array(

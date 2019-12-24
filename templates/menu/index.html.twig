@@ -31,7 +31,6 @@
                                 <table id="datatable" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        {#<th>{{  "Date" | trans }}</th>#}
                                         <th>{{  "Day" | trans }}</th>
                                         <th>{{  "Breakfast" | trans }}</th>
                                         <th>{{  "Lunch" | trans }}</th>
@@ -42,7 +41,6 @@
                                     <tbody>
                                     {% for menu in menus %}
                                         <tr>
-                                            {#<td>{{ menu.date ? menu.date|date('Y-m-d') : '' }}</td>#}
                                             <td>{{ menu.day }}</td>
                                             <td>{{ menu.breakfast }}</td>
                                             <td>{{ menu.lunch }}</td>
@@ -55,8 +53,8 @@
                                             </td>
                                         </tr>
                                     {% else %}
-                                        <tr>
-                                            <td colspan="4">{{  "no records found" | trans }}</td>
+                                        <tr class="text-center">
+                                            <td colspan="5">{{  "no records found" | trans }}</td>
                                         </tr>
                                     {% endfor %}
 

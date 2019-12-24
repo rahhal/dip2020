@@ -6,12 +6,14 @@ use App\Entity\Employee;
 use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/employee")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class EmployeeController extends AbstractController
 {

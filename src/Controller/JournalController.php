@@ -39,42 +39,31 @@ class JournalController extends AbstractController
     {
         $journal = new Journal();
         $exitt = new  Exitt();
-        $nbMeal = new NbMeal();
         $form = $this->createForm(JournalType::class, $journal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            /*  calcul du prix total au journal   */
+            /*  recuperation du prix total au journal   */
 
-            foreach ($exitt->getJournals() as $journal)
-            { $journal->setTotalCosts($exitt->getTotalPrice());}
+            /*foreach ($exitt->getJournals() as $journal)
+             $journal->setTotalCosts($exitt->getTotalPrice());*/
 
-            foreach ($nbMeal->getJournals() as $journal)
-            {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
-            }
-            /*  calcul du plat   */
-           if ($journal->getTotalMeals()!= 0)
-            $journal->setUnitCost($journal->getTotalCosts() / $journal->getTotalMeals());
+            $entityManager->persist($journal);
+            $entityManager->flush();
 
-
-            $entityManager->persist($exitt);
-            $entityManager->persist($nbMeal);
-        $entityManager->persist($journal);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('journal_index');
-    }
+            return $this->redirectToRoute('journal_index');
+        }
 
 
-   // $journal->getLineExitt()->getTotalPrice();
-   // $lineExitt = $em->getRepository(LineExitt::class)->find($id);
-   /* $lineExitt=$this->getDoctrine()
-        ->getRepository(LineExitt::class)
-        ->findJournalByLineExitt($id);*/
+        // $journal->getLineExitt()->getTotalPrice();
+        // $lineExitt = $em->getRepository(LineExitt::class)->find($id);
+        /* $lineExitt=$this->getDoctrine()
+             ->getRepository(LineExitt::class)
+             ->findJournalByLineExitt($id);*/
 
-       // $lineExitts=$em->getRepository(LineExitt::class)->findOneById($id);
+        // $lineExitts=$em->getRepository(LineExitt::class)->findOneById($id);
         return $this->render('journal/new.html.twig', [
             'journal' => $journal,
             'form' => $form->createView(),
@@ -144,7 +133,7 @@ class JournalController extends AbstractController
             ->findMenutByJournal($id);
 
 
-       //var_dump($lineExitt);die();
+        //var_dump($lineExitt);die();
 
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();

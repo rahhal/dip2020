@@ -4,10 +4,12 @@ namespace App\Form;
 
 use App\Entity\Exitt;
 use App\Entity\LineExitt;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,7 +28,7 @@ class ExittType extends AbstractType
                     'autocomplete' => 'off'
                 ],
             ])
-            ->add('number')
+            ->add('number',TextType::class)
             ->add('total_price')
             ->add('employee')
             ->add('lineExitts', CollectionType::class, array(

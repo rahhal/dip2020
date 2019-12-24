@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Institution;
 use App\Form\InstitutionType;
 use App\Repository\InstitutionRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/institution")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class InstitutionController extends AbstractController
 {

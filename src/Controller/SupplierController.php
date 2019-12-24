@@ -6,12 +6,14 @@ use App\Entity\Supplier;
 use App\Form\SupplierType;
 use App\Repository\SupplierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/supplier")
+ * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
  */
 class SupplierController extends AbstractController
 {

@@ -7,6 +7,7 @@ use App\Entity\Exitt;
 use App\Entity\Article;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -25,13 +26,12 @@ class LineExittType extends AbstractType
             ])
             ->add('quantity')
             ->add('unit_price')
-            ->add('tax')
+            ->add('tax',TextType::class)
             ->add('total_price')
             //->add('journal')
            // ->add('lineStocks')
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

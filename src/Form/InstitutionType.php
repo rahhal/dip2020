@@ -6,6 +6,7 @@ use App\Entity\City;
 use App\Entity\Institution;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,8 +25,8 @@ class InstitutionType extends AbstractType
             ->add('administrator', TextType::class, array('label' => 'اسم المؤسسة   :', 'attr' => array('placeholder' => 'اسم المؤسسة')))
             ->add('address', TextareaType::class, array('label' => 'العنوان  :', 'attr' => array('placeholder' => 'العنوان')))
             ->add('city', EntityType::class, array('class' => City::class, 'choice_label' => 'name', 'attr' => array('placeholder' => 'المدينة')))
-            ->add('phone', TextType::class, array('label' => 'الهاتف :', 'attr' => array('placeholder' => 'الهاتف')))
-            ->add('fax', TextType::class, array('label' => 'الفاكس :', 'attr' => array('placeholder' => 'الفاكس')))
+            ->add('phone', TelType::class, array('label' => 'الهاتف :', 'attr' => array('placeholder' => 'الهاتف')))
+            ->add('fax', TelType::class, array('label' => 'الفاكس :', 'attr' => array('placeholder' => 'الفاكس')))
             ->add('year', TextType::class, array('label' => 'السنة الدراسية :', 'attr' => array('placeholder' => 'السنة الدراسية')))
         ;
     }

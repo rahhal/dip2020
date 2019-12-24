@@ -6,7 +6,9 @@ use App\Entity\Journal;
 use App\Entity\LineExitt;
 use App\Entity\Menu;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +17,16 @@ class JournalType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
+            //->add('date')
+            ->add('date', DateType::class, [
+                'label' => 'Date :',
+                // 'format'=> 'mm/dd/yyyy',
+                'widget' => 'single_text',
+                //'html5' => false,
+                /* 'attr' => ['class' => 'js-datepicker',
+                 'autocomplete' => 'off'
+            ],*/
+            ])
             ->add('total_meals')
             ->add('totalCosts')
             ->add('unit_cost')
@@ -23,8 +34,7 @@ class JournalType extends AbstractType
             ->add('menu')
             ->add('nbMeal',NbMealType::class)
            ->add('exitt')
-
-            ->add('save',  SubmitType::class)
+            ->add('save',SubmitType::class)
         ;
     }
 
