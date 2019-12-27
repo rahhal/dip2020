@@ -4,38 +4,53 @@
 {% block body_class %} class="nav-md" {% endblock %}
 
 {% block body %}
-
     <div hidden id="template_tmp">
-        <div id="requestSupplied_lineRequestSupplied___name__">
-            <label class="required">__name__label__</label>
-            <div class="row">
-                <div class="col-md-3">
-                    <label for="requestSupplied_lineRequestSupplied___name___article" class="required ">المادة</label><select
-                            id="requestSupplied_lineRequestSupplied___name___article" class="form-control"
-                            name="requestSupplied[lineRequestSupplieds][__name__][article]">
-                        {% for article in articles %}
-                            <option value="{{ article.id }}">{{ article.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
+        <table   class="table  table-bordered" >
+        {#<div id="requestSupplied_lineRequestSupplied___name__">#}
+                 <tr>
+                    <td></td>
+                       <td>
+                          <label >المادة</label>
+                        </td>
+                        <td>
+                            <label >ملاحظة</label>
+                        </td>
+                        <td>
+                            <label> الكمية  </label>
+                        </td>
+                 </tr>
+                 <tr>
+                       <td> <label class="required">__name__label__</label>
+                       </td>
 
-                <div class="col-md-3">
-                    <label for="requestSupplied_lineRequestSupplied___name___quantity" class="required"> الكمية  </label>
-                    <input type="text" id="requestSupplied_lineRequestSupplied___name___quantity" class=" form-control"
-                            name="requestSupplied[lineRequestSupplieds][__name__][quantity]" required="required"/>
-                </div>
+                        <td>
+                            <select id="requestSupplied_lineRequestSupplied___name___article" class="form-control"
+                                    name="requestSupplied[lineRequestSupplieds][__name__][article]">
+                                {% for article in articles %}
+                                    <option value="{{ article.id }}">{{ article.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
 
-                <div class="col-md-3">
-                    <label for="requestSupplied_lineRequestSupplied___name___remarque" class="required">ملاحظة</label>
-                    <input type="text" id="requestSupplied_lineRequestSupplied___name___remarque" class=" form-control"
-                                   name="requestSupplied[lineRequestSupplieds][__name__][remarque]"
-                                   required="required"/>
-                </div>
+                                    <input type="text" id="requestSupplied_lineRequestSupplied___name___quantity" class=" form-control"
+                                            name="requestSupplied[lineRequestSupplieds][__name__][quantity]" required="required"/>
 
-                <div class="col-md-1">
-                    <label></label>
-                    <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
-                </div>
+                         </td>
+                        <td>
+
+
+                                <input type="text" id="requestSupplied_lineRequestSupplied___name___remarque" class=" form-control"
+                                       name="requestSupplied[lineRequestSupplieds][__name__][remarque]"
+                                       required="required"/>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
+                        </td>
+                    </tr>
+
+                </table>
             </div>
 
         </div>

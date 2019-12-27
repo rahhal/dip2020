@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\LinePurchase;
 use App\Entity\Purchase;
 use App\Entity\Article;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -31,12 +32,12 @@ class LinePurchaseType extends AbstractType
                'class' => Purchase::class,
               'multiple' => false
               ])
-            ->add('quantity_delivred')
-            ->add('unit_price')
+            ->add('quantity_delivred',TextType::class)
+            ->add('unit_price',TextType::class)
             ->add('tax',TextType::class)
-            ->add('quantity_required')
-            ->add('technical_confirmity')
-            ->add('total_price')
+            ->add('quantity_required',TextType::class)
+            ->add('technical_confirmity',CheckboxType::class, array('required' => false))
+            ->add('total_price',TextType::class)
            ->add('remarque',TextType::class)
             ->add('validation',TextType::class)
             ->add('production', TextType::class)

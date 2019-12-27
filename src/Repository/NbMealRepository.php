@@ -54,8 +54,17 @@ class NbMealRepository extends ServiceEntityRepository
             ->andWhere('j.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            // ->getOneOrNullResult();
-            ->getResult();
+            ->getOneOrNullResult();
+          //  ->getResult();
 
+    }
+    public function findNbMealByDate($date)
+    { return $this->createQueryBuilder('n')
+        ->andWhere('n.journals = :date')
+        ->setParameter('date', new \Datetime(date('d-m-Y')))
+        //->setParameter('datecourant', new \Datetime(date('d-m-Y')))
+        ->getQuery()
+        ->getOneOrNullResult()
+        ;
     }
 }

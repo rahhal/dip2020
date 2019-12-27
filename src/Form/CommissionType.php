@@ -16,7 +16,9 @@ class CommissionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date',DateType::Class)
+            ->add('date',DateType::Class,[
+                'widget' => 'single_text',
+            ])
             //->add('employee', EmployeeType::class)
             ->add('employee', EntityType::class, [
                 'class' => Employee::class,

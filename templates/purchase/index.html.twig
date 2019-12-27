@@ -47,17 +47,17 @@
                                                 <td>{{ purchase.date ? purchase.date|date('Y-m-d') : '' }}</td>
                                                 <td>{{ purchase.totalPrice }}</td>
                                                 <td>
-                                                    <a href="{{ path('purchase_show', {'id': purchase.id}) }}" class="btn btn-success">{{ "show"|trans }}</a>
-                                                    <a href="{{ path('modifier-purchase', {'id': purchase.id}) }}" class="btn btn-warning">{{ "edit"|trans }}</a>
-                                                    <a href="{{ path('linePurchase_detail', {'id': purchase.id}) }}" class="btn btn-info">{{ "detail"|trans }}</a>
-                                                    <a href="{{ path('purchase_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-danger">{{ "print"|trans }}</a>
-                                                    <a href="{{ path('receive_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-success">{{ "Print article receipt session"|trans }}</a>
+                                                    <a href="{{ path('purchase_show', {'id': purchase.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
+                                                    {#<a href="{{ path('modifier-purchase', {'id': purchase.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>#}
+                                                    <a href="{{ path('linePurchase_detail', {'id': purchase.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>
+                                                    <a href="{{ path('purchase_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 1rem"></i>{{ "print"|trans }}</a>
+                                                    <a href="{{ path('receive_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 1rem"></i>{{ "Print article receipt session"|trans }}</a>
 
                                                 </td>
                                             </tr>
                                         {% else %}
-                                            <tr>
-                                                <td colspan="5">{{ "no records found"|trans }}</td>
+                                            <tr class="text-center">
+                                                <td colspan="6">{{ "no records found"|trans }}</td>
                                             </tr>
                                                                         
                                         {% endfor %}

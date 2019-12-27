@@ -19,16 +19,16 @@ class UserType extends AbstractType
     {
         $builder
 
-            ->add('company',TextType::class)
-            ->add('director',TextType::class)
-            ->add('rIB', TextType::class)
-            ->add('address',TextType::class)
+            ->add('company',TextType::class,['required'=> false])
+            ->add('director',TextType::class,['required'=> false])
+            ->add('rIB', TextType::class,['required'=> false])
+            ->add('address',TextType::class,['required'=> false])
             ->add('city', EntityType::class, array(
                 'class' => City::class,
                 'choice_label' => 'name',
                 'attr' => array('placeholder' => 'المدينة'
                 )))
-            ->add('phone',TelType::class)
+            ->add('phone',TelType::class,['required'=> false])
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
         ;

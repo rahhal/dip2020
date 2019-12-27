@@ -66,7 +66,7 @@ class UserController extends AbstractController
     /** modifier user
      * @Route("/edit/{id}", name="user_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, $id, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em= $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
@@ -76,6 +76,10 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
+            $em->persist($user);
             $em->flush();
 
             $this->addFlash('success', "تم تغيير معطيات المستخدم بنجاح");
@@ -174,7 +178,7 @@ class UserController extends AbstractController
     /** modifier admin
      * @Route("/admin/edit/{id}", name="admin_edit")
      */
-    public function editAdminAction(Request $request, $id)
+    public function editAdminAction(Request $request, $id, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em= $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
@@ -184,6 +188,10 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
+
+            $em->persist($user);
             $em->flush();
             $this->addFlash('success', "تم تغيير بيانات الادمين بنجاح");
 

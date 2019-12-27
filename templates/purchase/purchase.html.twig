@@ -18,18 +18,18 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___quantity_delivred" class="required"> الكمية  المسلمة</label><input
+                <div class="col-md-1">
+                    <label for="purchase_linePurchase___name___quantity_delivred" class="required"> ك.مسلمة</label><input
                             type="text" id="purchase_linePurchase___name___quantity_delivred" class=" form-control"
                             name="purchase[linePurchases][__name__][quantity_delivred]" required="required"/>
                 </div>
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___quantity_required" class="required"> الكمية  المطلوبة</label><input
+                <div class="col-md-1">
+                    <label for="purchase_linePurchase___name___quantity_required" class="required"> ك.مطلوبة</label><input
                             type="text" id="purchase_linePurchase___name___quantity_required" class=" form-control"
                             name="purchase[linePurchases][__name__][quantity_required]" required="required"/>
                 </div>
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___unit_price" class="required">السعر الفردي
+                <div class="col-md-1">
+                    <label for="purchase_linePurchase___name___unit_price" class="required">س.فردي
                     </label><input type="text" id="purchase_linePurchase___name___unit_price"
                                    class=" form-control"
                                    name="purchase[linePurchases][__name__][unit_price]"
@@ -42,6 +42,16 @@
                                    name="purchase[linePurchases][__name__][tax]"
                                    required="required"/>
                 </div>
+                <div class="col-md-3">
+                    <label for="purchase_linePurchase___name___production" class="required"> تاريخ الصنع</label><input
+                            type="date" id="purchase_linePurchase___name___production" class=" form-control"
+                            name="purchase[linePurchases][__name__][production]" required="required"/>
+                </div>
+                <div class="col-md-3">
+                    <label for="purchase_linePurchase___name___validation" class="required"> تاريخ الانتهاء</label><input
+                            type="date" id="purchase_linePurchase___name___validation" class=" form-control"
+                            name="purchase[linePurchases][__name__][validation]" required="required"/>
+                </div>
                 <div class="col-md-1">
                     <label for="purchase_linePurchase___name___technical_confirmity" class="required">م.فنيــة</label>
                     <input type="checkbox" id="purchase_linePurchase___name___technical_confirmity"
@@ -49,38 +59,16 @@
                            name="purchase[linePurchases][__name__][technical_confirmity]"
                            required="required"/>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="purchase_linePurchase___name___remarque" class="required">ملاحظة
                     </label><input type="text" id="purchase_linePurchase___name___remarque"
                                    class=" form-control"
                                    name="purchase[linePurchases][__name__][remarque]"
                                    required="required"/>
                 </div>
-                {#<div class="col-md-2">
-                    <label for="purchase_linePurchase___name___production" >تاريخ الصنع
-                    </label><input type="date" id="purchase_linePurchase___name___production"
-                                   class=" form-control"
-                                   name="purchase[linePurchase][__name__][production]" required="required"/>
-                </div>
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___validation" >تاريخ الانتهاء
-                    </label><input type="date" id="purchase_linePurchase___name___validation"
-                                   class=" form-control"
-                                   name="purchase[linePurchase][__name__][validation]"
-                                   required="required"/>
-                </div>#}
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___production" class="required"> تاريخ الصنع</label><input
-                            type="date" id="purchase_linePurchase___name___production" class=" form-control"
-                            name="purchase[linePurchases][__name__][production]" required="required"/>
-                </div>
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___validation" class="required"> تاريخ الانتهاء</label><input
-                            type="date" id="purchase_linePurchase___name___validation" class=" form-control"
-                            name="purchase[linePurchases][__name__][validation]" required="required"/>
-                </div>
 
                 <div class="col-md-1">
+                    <label></label>
                     <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
                 </div>
             </div>
@@ -169,14 +157,14 @@
                                         <div class="row">
                                             <div class="well">
                                                 {#{{ form_row(form.linePurchase) }}#}
-                                                <div id="purchase_linePurchase"></div>
+                                                <div id="purchase_linePurchase"></div></br>
                                                 <a href="#" id="add_linePurchase" class="btn btn-success m-10">{{ "Add new purchases"|trans }}</a>
-
+                                                {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                                                {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                                             </div>
                                         </div>
                                     </fieldset>
-                                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-                                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
                                     {{ form_widget(form._token) }}
                                     {{ form_end(form, {'render_rest': false}) }}
                                 </div>

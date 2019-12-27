@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SupplierRepository")
+ * @UniqueEntity(fields={"email"})
  */
 class Supplier
 {
@@ -22,11 +24,6 @@ class Supplier
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $company;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $name;
 
     /**
@@ -35,24 +32,24 @@ class Supplier
     private $activity;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private $tax_number;
 
     /**
      * @Assert\Regex("/^[0-9]{8}/")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * * @Assert\Email()
+     * @ORM\Column(type="string", length=180, nullable=true, unique=true)
+     * @Assert\Email
      */
     private $email;
 
@@ -75,18 +72,6 @@ class Supplier
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCompany(): ?string
-    {
-        return $this->company;
-    }
-
-    public function setCompany(string $company): self
-    {
-        $this->company = $company;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -193,7 +178,7 @@ class Supplier
     }
     public function __toString()
     {
-        return $this->company;   // TODO: Implement __toString() method.
+        return $this->name;   // TODO: Implement __toString() method.
     }
 
     /**

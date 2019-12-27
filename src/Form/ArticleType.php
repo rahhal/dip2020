@@ -28,22 +28,21 @@ class ArticleType extends AbstractType
               'autocomplete' => 'off'
          ],*/
              ])
-
             ->add('reference_stock', TextType::class, array('label' => 'المرجع بالمخزن :', 'attr' => array('placeholder' => 'المرجع بالمخزن')))
             ->add('name', TextType::class, array('label' => 'اسم المادة :', 'attr' => array('placeholder' => 'اسم المادة')))
             ->add('unit',EntityType::class, [
                 'class' => Unit::class,
                 'label' => ' الوحدة :',
                 'choice_label' => 'name',
+                'required'=> false,
                 // 'multiple' => true,
                 // 'expanded' => true,
             ])
             ->add('Category', EntityType::class, array('class' => Category::class,'label' => ' الصنف :', 'attr' => array('placeholder' => ' الصنف')))
             ->add('ini_qty', TextType::class, array('label' => ' الكمية الاولية :', 'attr' => array('placeholder' => ' الكمية الاولية')))
-            ->add('min_qty', TextType::class, array('label' => ' الكمية الدنيا :', 'attr' => array('placeholder' => ' الكمية الدنيا')))
+            ->add('min_qty', TextType::class, array('label' => ' كمية الانذار :', 'attr' => array('placeholder' => ' الكمية الدنيا')))
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

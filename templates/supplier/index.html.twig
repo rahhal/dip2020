@@ -21,9 +21,10 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="row">
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
+                            {% include('layouts/flash-messages.html.twig') %}
+
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
                                     <a href="{{ path('supplier_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
@@ -31,8 +32,7 @@
                                     <table  id="datatable" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>{{ "Company"|trans }}</th>
-                                        <th>{{ "Name"|trans }}</th>
+                                        <th>{{ "Supplier name"|trans }}</th>
                                         <th>{{ "Activity"|trans }}</th>
                                         <th>{{ "Tax_number"|trans }}</th>
                                         <th>{{ "Phone"|trans }}</th>
@@ -44,7 +44,6 @@
                                     <tbody>
                                     {% for supplier in suppliers %}
                                         <tr>
-                                            <td>{{ supplier.company }}</td>
                                             <td>{{ supplier.name }}</td>
                                             <td>{{ supplier.activity }}</td>
                                             <td>{{ supplier.taxNumber }}</td>

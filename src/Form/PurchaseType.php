@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Employee;
 use App\Entity\Purchase;
 use App\Entity\LinePurchase;
+use App\Entity\Supplier;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -20,7 +22,7 @@ class PurchaseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('number')
+            ->add('number',TextType::class)
             ->add('date',DateType::class,  [
                 'label' => 'التاريخ :',
                 'required' => true,
@@ -31,14 +33,14 @@ class PurchaseType extends AbstractType
                     'autocomplete' => 'off'
                 ],
             ])
-            ->add('employee',EmployeeType::class)
-            ->add('supplier',SupplierType::class)
+            ->add('employee',EntityType::class,['class' => Employee::class,])
+            ->add('supplier',EntityType::class,['class' => Supplier::class,])
             ->add('linePurchases', CollectionType::class, array(
                 'entry_type'   => LinePurchaseType::class,
                 'allow_add'    => true,
                 'allow_delete' => true
             ))
-            ->add('totalPrice')
+            ->add('totalPrice',TextType::class)
            ->add('save',      SubmitType::class)
         ;
     }

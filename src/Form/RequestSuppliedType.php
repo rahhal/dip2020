@@ -6,6 +6,8 @@ use App\Entity\LineRequestSupplied;
 use App\Entity\RequestSupplied;
 
 
+use App\Entity\Supplier;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormTypeInterface;
@@ -23,15 +25,16 @@ class RequestSuppliedType extends AbstractType
             //->add('date')
             ->add('date', DateType::class, [
                 'label' => 'Date :',
-                'format'=> 'mm/dd/yyyy',
+               // 'format'=> 'mm/dd/yyyy',
                 'widget' => 'single_text',
-                'html5' => false,
-                'attr' => ['class' => 'js-datepicker',
+                'required'=> false,
+                //'html5' => false,
+                /*'attr' => ['class' => 'js-datepicker',
                     'autocomplete' => 'off'
-                ],
+                ],*/
             ])
-            ->add('tranche',TextType::class)
-            ->add('supplier',SupplierType::class)
+            ->add('tranche',TextType::class,['required'=> false,])
+            ->add('supplier',EntityType::class,['class'=>Supplier::class])
             ->add('lineRequestSupplieds', CollectionType::class, array(
                 'entry_type'   => LineRequestSuppliedType::class,
                 'allow_add'    => true,

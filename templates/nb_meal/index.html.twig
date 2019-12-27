@@ -23,12 +23,12 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            {#{% include('layouts/flash-messages.html.twig') %}#}
+                            {% include('layouts/flash-messages.html.twig') %}
 
                             <div class="x_content">
-                               {# <p class="text-muted font-13 m-b-30">
-                                    <a href="{{ path('article_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
-                                </p>#}
+                                <p class="text-muted font-13 m-b-30">
+                                    <a href="{{ path('nb_meal_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
+                                </p>
 
                                 <table id="datatable" class="table table-striped table-bordered">
                                     <thead>
@@ -40,7 +40,7 @@
                                         <th>{{ "Number of professors"|trans }}</th>
                                         <th>{{ "Number of curators"|trans }}</th>
                                         <th>{{ "Number of employees"|trans }}</th>
-                                        {#<th>{{ "Actions"|trans }}</th>#}
+                                        <th>{{ "Actions"|trans }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -54,10 +54,10 @@
                                             <td>{{ nbMeal.curators }}</td>
                                             <td>{{ nbMeal.employee }}</td>
 
-                                            {#<td>
+                                            <td>
                                                 <a href="{{ path('nb_meal_show', {'id': nbMeal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
                                                 <a href="{{ path('nb_meal_edit', {'id': nbMeal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
-                                            </td>#}
+                                            </td>
                                         </tr>
                                     {% else %}
                                         <tr class="text-center" >

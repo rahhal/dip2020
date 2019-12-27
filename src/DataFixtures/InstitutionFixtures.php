@@ -23,7 +23,7 @@ class InstitutionFixtures extends Fixture
         $institution->setAddress('العنوان');
         $institution->setPhone('00000000');
         $institution->setFax('00000000');
-        $institution->setYear('السنة الدراسية');
+        $institution->setYear('2019');
         $institution->setCity('المدينة');
         $institution->setType('company');
 

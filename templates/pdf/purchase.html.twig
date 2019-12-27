@@ -79,16 +79,18 @@
                 <td style="text-align: center">{{ line_purchase.quantityDelivred }}</td>
                 <td style="text-align: center">{{ line_purchase.unitPrice }}</td>
                 <td style="text-align: center">{{ line_purchase.tax }}</td>
-                <td style="text-align: center">{% set total = line_purchase.quantityDelivred * line_purchase.unitPrice *(1+(line_purchase.tax)/ 100) %} {{total}} </td>
+                <td style="text-align: center">{{ line_purchase.totalPrice }}</td>
+                {#<td style="text-align: center">{% set total = line_purchase.quantityDelivred * line_purchase.unitPrice *(1+(line_purchase.tax)/ 100) %} {{total}} </td>#}
             </tr>
         {% endfor %}
+        {% for purchase in purchases %}
         <tr>
             <td colspan="4" style="text-align: center">{{ "Total price"|trans }}</td>
-            {#<td> {% set somme = total + somme %}
-                {{somme}}</td>#}
-            <td ></td>
+            <td style="text-align: center">
+               {{ purchase.totalPrice }}
+                 </td>
         </tr>
-
+        {% endfor %}
         </tbody>
     </table>
 <br>

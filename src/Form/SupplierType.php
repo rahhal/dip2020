@@ -15,14 +15,12 @@ class SupplierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('company',TextType::class)
-            ->add('name',TextType::class)
-            ->add('activity',TextType::class)
-            ->add('tax_number',TextType::class)
-            ->add('phone',TelType::class)
-            ->add('address',TextType::class)
-            ->add('email',EmailType::class)
-           // ->add('purchase')
+            ->add('name',TextType::class,['required'=>true])
+            ->add('activity',TextType::class,['required'=>true])
+            ->add('tax_number',TextType::class,['required'=>false])
+            ->add('phone',TelType::class,['required'=>false])
+            ->add('address',TextType::class,['required'=>false])
+            ->add('email',EmailType::class,['required'=>false])
         ;
     }
 

@@ -37,7 +37,7 @@
                                                     style="display: block;"{% endif %}>
 
                          <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
-                        <li ><a href="{{ path('budget_index') }}">الميزانية</a></li>
+                        {#<li ><a href="{{ path('budget_index') }}">الميزانية</a></li>#}
                         <li><a href="{{ path('category_index') }}">الاصناف</a></li>
                         <li><a href="{{ path('article_index') }}">المواد</a></li>
                         <li><a href="{{ path('supplier_index') }}">المزودين</a></li>
@@ -75,11 +75,11 @@
                         <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
                     </ul>
                 </li>
-                <li><a><i class="fa fa-clone"></i> الجرد <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-clone"></i> جرد المخزون <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="#">الجرد اليومي</a></li>
-                        <li><a href="#">الجرد الشهري</a></li>
-                        <li><a href="#">الجرد السنوي</a></li>
+                        <li><a href="{{ path('inventory_index') }}">الجرد اليومي</a></li>
+                        {#<li><a href="#">الجرد الشهري</a></li>
+                        <li><a href="#">الجرد السنوي</a></li>#}
                     </ul>
                 </li>
             </ul>
@@ -105,22 +105,4 @@
         {% endif %}
 
     </div>
-    <!-- /sidebar menu -->
-
-    <!-- /menu footer buttons -->
-    <div class="sidebar-footer hidden-small">
-        <a data-toggle="tooltip" data-placement="top" title="تنظیمات">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="تمام صفحه" onclick="toggleFullScreen();">
-            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
-            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="خروج" href="login.html">
-            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-        </a>
-    </div>
-    <!-- /menu footer buttons -->
 </div>

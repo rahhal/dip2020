@@ -47,10 +47,10 @@
                                             <td>{{ exitt.employee }}</td>
                                             <td>{{ exitt.TotalPrice }}</td>
                                             <td>
-                                                <a href="{{ path('exitt_show', {'id': exitt.id}) }}" class="btn btn-default" data-toggle="popover">{{ "show"|trans }}</a>
-                                                <a href="{{ path('modifier-exitt', {'id': exitt.id}) }}" class="btn btn-primary">{{ "edit"|trans }}</a>
-                                                <a href="{{ path('lineExitt_detail', {'id': exitt.id}) }}" class="btn btn-info">{{ "detail"|trans }}</a>
-                                                <a href="{{ path('exitt_pdf', {'id': exitt.id}) }}" target="_blank" class="btn btn-danger">{{ "print"|trans }}</a>
+                                                <a href="{{ path('exitt_show', {'id': exitt.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
+                                                <a href="{{ path('lineExitt_detail', {'id': exitt.id}) }}" class="btn btn-default"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>
+                                                <a href="{{ path('modifier-exitt', {'id': exitt.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>
+                                                <a href="{{ path('exitt_pdf', {'id': exitt.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "print"|trans }}</a>
                                             </td>
                                         </tr>
                                     {% else %}

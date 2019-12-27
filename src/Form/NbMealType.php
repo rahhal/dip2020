@@ -23,12 +23,12 @@ class NbMealType extends AbstractType
                  'autocomplete' => 'off'
             ],*/
             ])
-            ->add('std_resident',NumberType::class)
-            ->add('std_semiResident',NumberType::class)
-            ->add('std_granted',NumberType::class)
-            ->add('professor',NumberType::class)
-            ->add('curators',NumberType::class)
-            ->add('employee',NumberType::class)
+            ->add('std_resident',NumberType::class,['required'=>false])
+            ->add('std_semiResident',NumberType::class,['required'=>false])
+            ->add('std_granted',NumberType::class,['required'=>false])
+            ->add('professor',NumberType::class,['required'=>false])
+            ->add('curators',NumberType::class,['required'=>false])
+            ->add('employee',NumberType::class,['required'=>false])
         ;
     }
 

@@ -47,7 +47,16 @@ class ExittRepository extends ServiceEntityRepository
         ;
     }
     */
-
+    public function findExittByJournal($id)
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.journals', 'j')
+            ->andWhere('j.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 
 
 }

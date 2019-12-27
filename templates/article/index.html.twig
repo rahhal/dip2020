@@ -40,7 +40,7 @@
                                         <th>{{  "Category" | trans }}</th>
                                         <th>{{  "Unit" | trans }}</th>
                                         <th>{{  "Initial quantity" | trans }}</th>
-                                        <th>{{  "Min quantity" | trans }}</th>
+                                        <th>{{  "Quantity alerte" | trans }}</th>
                                         <th>{{  "Actions" | trans }}</th>
                                     </tr>
                                     </thead>
@@ -61,10 +61,9 @@
                                         </tr>
                                     {% else %}
                                         <tr class="text-center">
-                                            <td colspan="6">{{  "no records found" | trans }}</td>
+                                            <td colspan="8">{{  "no records found" | trans }}</td>
                                         </tr>
                                     {% endfor %}
-
                                     </tbody>
                                 </table>
                             </div>

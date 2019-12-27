@@ -47,17 +47,16 @@ class JournalRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function findJournalByLineExitt($id)
+
+    public function findJournalByNbMeal($id)
     {
         return $this->createQueryBuilder('j')
-            ->innerJoin('j.lineExitt', 'l')
-            ->andWhere('l.id = :id')
+            ->innerJoin('j.nbMeal', 'n')
+            ->andWhere('n.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
             // ->getOneOrNullResult();
             ->getResult();
-
     }
-
 
 }

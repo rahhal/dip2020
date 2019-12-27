@@ -20,9 +20,8 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class)
-            ->add('amount_allocated')
-           // ->add('stock')
+            ->add('name',TextType::class, ['required'=> true])
+           // ->add('amount_allocated')
          /*   ->add('budget',EntityType::class, array(
                 'class' => 'App:Budget',
                 'choice_label' => 'budget',

@@ -74,9 +74,9 @@ class ArticleController extends AbstractController
      */
     public function show($id): Response
     {
-        if (!$this->getUser()) {
+        /*if (!$this->getUser()) {
         return $this->redirectToRoute('app_login');
-    }
+    }*/
 
      /*  $category = $this->getDoctrine()
             ->getRepository(Category::class)

@@ -49,6 +49,7 @@ class CommissionController extends AbstractController
             $entityManager->persist($commission);
             $entityManager->flush();
 
+            $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('commission_index');
         }
         $employees=$this->getDoctrine()
@@ -81,6 +82,7 @@ class CommissionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', "تم التغيير بنجاح");
 
             return $this->redirectToRoute('commission_index');
         }
@@ -101,6 +103,7 @@ class CommissionController extends AbstractController
             $entityManager->remove($commission);
             $entityManager->flush();
         }
+        $this->addFlash('success', "تم الحذف بنجاح");
 
         return $this->redirectToRoute('commission_index');
     }

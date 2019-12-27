@@ -171,7 +171,7 @@
    </trans-unit>
    <trans-unit id="Article name" resname="Article name">
          <source>Article name</source>
-             <target>اسم المواد</target>
+             <target>اسم المادة</target>
     </trans-unit>
    <trans-unit id="Create new article" resname="Create new article">
                         <source>Create new article</source>
@@ -242,11 +242,14 @@
         <source>Liste of Employee</source>
         <target>قائمة الموظفين</target>
     </trans-unit>
-
+<trans-unit id="Supplier name" resname="Supplier name">
+          <source>Supplier name</source>
+          <target> اسم المزود</target>
+</trans-unit>
     <trans-unit id="Supplier" resname="Supplier">
           <source>Supplier</source>
           <target> المزود</target>
-      </trans-unit>
+    </trans-unit>
       <trans-unit id="Details of supplier" resname="Details of supplier">
                 <source>Details of supplier</source>
                 <target> بيانات المزود</target>
@@ -513,7 +516,7 @@
     </trans-unit>
  <trans-unit id=" Print article receipt session " resname="Print article receipt session">
                             <source>Print article receipt session</source>
-                            <target> طباعة محضر جلسة  </target>
+                            <target> ط.محضر جلسة  </target>
     </trans-unit>
     <trans-unit id=" Member of commission " resname="Member of commission">
                                 <source>Member of commission</source>
@@ -557,7 +560,7 @@
     </trans-unit>
     <trans-unit id=" Number of meals today " resname="Number of meals today">
                        <source> Number of meals today</source>
-                       <target> عدد الاكلات </target>
+                       <target> التقرير اليومي للاكلات </target>
      </trans-unit>
      <trans-unit id=" Number of curators " resname="Number of curators">
                             <source> Number of curators</source>
@@ -721,6 +724,38 @@
                <source>Details of nb meal</source>
                <target>تفاصيل عدد الاكلات  </target>
  </trans-unit>
+      <trans-unit id=" Qty inventory " resname=" Qty inventory">
+               <source> Qty inventory</source>
+                <target>  كمية الجرد  </target>
+      </trans-unit>
+      <trans-unit id=" Qty stock " resname=" Qty stock">
+                    <source> Qty stock</source>
+                     <target>  الكمية بالمخزن  </target>
+      </trans-unit>
+ <trans-unit id="State" resname="State">
+                <source>State</source>
+                <target>الفارق  </target>
+  </trans-unit>
+  <trans-unit id="List of inventory" resname="List of inventory">
+                  <source>List of inventory</source>
+                  <target>جرد المخزون  </target>
+    </trans-unit>
+    <trans-unit id="Edit inventory" resname="Edit inventory">
+            <source>Edit inventory</source>
+             <target>تغيير بيانات المخزون  </target>
+    </trans-unit>
+  <trans-unit id="Edit employee" resname="Edit employee">
+      <source>Edit employee</source>
+       <target>تغيير بيانات الموظف  </target>
+  </trans-unit>
+  <trans-unit id="Create new inventory" resname="Create new inventory">
+        <source>Create new inventory</source>
+         <target>جرد جديد  </target>
+    </trans-unit>
+    <trans-unit id="Statistic of studiant" resname="Statistic of studiant">
+        <source>Statistic of studiant</source>
+        <target>ادخال المعطيات  </target>
+    </trans-unit>
     </body>
   </file>
 </xliff>

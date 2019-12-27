@@ -20,10 +20,10 @@ class UserAdminType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-			->add('fullname', TextType::class)
+			->add('fullname', TextType::class,['required'=> false])
            // ->add('phone', TelType::class)
-			->add('email', EmailType::class)
-			->add('password', PasswordType::class)
+			->add('email', EmailType::class,['required'=> true])
+			->add('password', PasswordType::class,['required'=> true])
 		;
 	}
 
