@@ -21,6 +21,7 @@ class LineStockType extends AbstractType
             ->add('prod_date',DateType::class)
             ->add('article',ArticleType::class)
             ->add('line_purchase',LinePurchaseType::class)
+            ->add('stock')
         ;
     }
 

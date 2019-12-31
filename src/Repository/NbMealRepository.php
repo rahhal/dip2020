@@ -47,7 +47,7 @@ class NbMealRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function NbMealtByJournal($id)
+    public function findNbMealtByJournal($id)
     {
         return $this->createQueryBuilder('n')
             ->innerJoin('n.journals', 'j')

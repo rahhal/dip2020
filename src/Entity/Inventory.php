@@ -42,6 +42,12 @@ class Inventory
      */
     private $qty_stk;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LineStock", inversedBy="inventories")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $lineStock;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Inventory
     public function setQtyStk(int $qty_stk): self
     {
         $this->qty_stk = $qty_stk;
+
+        return $this;
+    }
+
+    public function getLineStock(): ?LineStock
+    {
+        return $this->lineStock;
+    }
+
+    public function setLineStock(?LineStock $lineStock): self
+    {
+        $this->lineStock = $lineStock;
 
         return $this;
     }

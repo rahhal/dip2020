@@ -154,8 +154,8 @@ class NbMeal
     public function __toString()
     {     //  return (string)(std_granted);
         return  " ";
-       // return  $this->std_resident;
-            //. " " .$this->std_semiResident. " " .$this->std_granted. " " .$this->professor. " " .$this->curators. " " .$this->employee;
+        /*$s=$this->std_resident + $this->std_semiResident + $this->std_granted + $this->professor + $this->curators + $this->employee;
+       return  $this->strval($s);*/
     }
 
     /**

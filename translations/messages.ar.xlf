@@ -756,6 +756,11 @@
         <source>Statistic of studiant</source>
         <target>ادخال المعطيات  </target>
     </trans-unit>
+
+     <trans-unit id="Create new line purchase" resname="Create new line purchase">
+            <source>Create new line purchase</source>
+             <target>اضافة مشتريات جديدة</target>
+        </trans-unit>
     </body>
   </file>
 </xliff>

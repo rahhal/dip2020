@@ -32,7 +32,7 @@ class JournalType extends AbstractType
             ->add('unit_cost')
             ->add('remarque')
             ->add('menu')
-            ->add('nbMeal',NbMealType::class)
+            ->add('nbMeal')
            ->add('exitt')
             ->add('save',SubmitType::class)
         ;

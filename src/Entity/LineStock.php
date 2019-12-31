@@ -53,7 +53,7 @@ class LineStock
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Stock", inversedBy="lineStocks")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Stock", inversedBy="lineStocks",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $stock;
@@ -68,11 +68,17 @@ class LineStock
      */
     private $date;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Inventory", mappedBy="lineStock")
+     */
+    private $inventories;
+
 
     public function __construct()
     {
 
         $this->lineExit = new ArrayCollection();
+        $this->inventories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,8 +157,6 @@ class LineStock
         return $this;
     }
 
-
-
     public function getStock(): ?Stock
     {
         return $this->stock;
@@ -189,6 +193,37 @@ public function getDate(): ?\DateTimeInterface
 public function setDate(\DateTimeInterface $date): self
 {
     $this->date = $date;
+
+    return $this;
+}
+
+/**
+ * @return Collection|Inventory[]
+ */
+public function getInventories(): Collection
+{
+    return $this->inventories;
+}
+
+public function addInventory(Inventory $inventory): self
+{
+    if (!$this->inventories->contains($inventory)) {
+        $this->inventories[] = $inventory;
+        $inventory->setLineStock($this);
+    }
+
+    return $this;
+}
+
+public function removeInventory(Inventory $inventory): self
+{
+    if ($this->inventories->contains($inventory)) {
+        $this->inventories->removeElement($inventory);
+        // set the owning side to null (unless already changed)
+        if ($inventory->getLineStock() === $this) {
+            $inventory->setLineStock(null);
+        }
+    }
 
     return $this;
 }

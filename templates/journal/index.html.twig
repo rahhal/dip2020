@@ -40,7 +40,7 @@
                                         <th>{{  "Date" | trans }}</th>
                                         <th>{{  "Day" | trans }}</th>
                                         <th>{{  "Number of exit" | trans }}</th>
-                                        {#<th>{{  "Number of meals" | trans }}</th>#}
+                                        <th>{{  "Number of meals" | trans }}</th>
                                         <th>{{  "Total costs" | trans }}</th>
                                         <th>{{  "Unit meal costs" | trans }}</th>
                                         <th>{{  "Remarque" | trans }}</th>
@@ -53,9 +53,29 @@
                                             <td>{{ journal.date ? journal.date|date('y/m/d') : ''}}</td>
                                             <td>{{ journal.menu }}</td>
                                             <td>{{ journal.exitt }}</td>
-                                            <td>{{ journal.totalCosts }}</td>
-                                            {#<td>{{ journal.totalStudents }}</td>#}
-                                            <td>{{ journal.unitCost }}</td>
+                                            <td>
+                                                {#{% set total_meals = 0 %}
+                                                {% for nbMeal in journal.nbMeal  %}
+                                                    {% set total_meals = nbMeal.stdResident + nbMeal.stdSemiResident+ nbMeal.stdGranted+ nbMeal.professor + nbMeal.employee+ nbMeal.curators %}
+                                                {%endfor%}#}
+                                                {{ journal.totalMeals }}</td>
+                                            <td>
+                                                {#{% set totalCosts = 0 %}
+                                                {% for exitt in journal.exitt  %}
+                                                    {% set totalCosts = exitt.totalPrice %}
+                                                {%endfor%}#}
+                                                {{ journal.totalCosts }}
+                                            </td>
+                                            <td>
+                                                {#{% set unitCost = 0 %}
+                                                {% for journal in journals  %}
+                                                    {% if journal.nbMeal > 0 %}
+                                                    {% set unitCost = journal.totalCosts / journal.nbMeal %}
+                                                 {% endif %}
+                                                {%endfor%}#}
+
+                                                {{ journal.unitCost }}
+                                            </td>
                                             <td>{{ journal.remarque }}</td>
 
                                             <td>

@@ -49,40 +49,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                   {# {% for line_stock in line_stocks %}
-                                        <tr>
-                                            <td>{{ line_stock.id }}</td>
-
-                                            {% for linePurchase in linePurchases %}
-                                               <td>{{ line_stock.linePurchase.article }}</td>
-                                                <td>{{ line_stock.linePurchase.article.reference }}</td>
-                                            {% endfor %}
-                                            <td>{{ line_stock.prodDate ? line_stock.prodDate|date('Y-m-d') : ''  }}</td>
-                                            <td>{{ line_stock.validDate ? line_stock.validDate|date('Y-m-d') : ''  }}</td>
-                                            <td>{{ line_stock.oldQty }}</td>
-                                            <td>{{ line_stock.qtyUpdate }}</td>
-                                            <td>{{ line_stock.quantityAlerte }}</td>
-
-                                            <td>
-                                                <a href="{{ path('line_stock_show', {'id': line_stock.id}) }} " class="btn btn-primary btn-block"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
-                                                <a href="{{ path('line_stock_edit', {'id': line_stock.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
-                                            </td>
-                                        </tr>
-                                    {% else %}
-                                        <tr class="text-center">
-                                            <td colspan="12">  {{ "no records found"|trans }}</td>
-                                        </tr>
-                                    {% endfor %}#}
                                    {% for line_stock in line_stocks %}
                                        <tr>
                                            <td>{{ line_stock.date ? line_stock.date|date('Y-m-d') : ''  }}</td>
 
                                                <td>{{ line_stock.linePurchase.article }}</td>
-                                               <td>{{ line_stock.reference }}</td>
+                                               <td>{{ line_stock.linePurchase.article.referenceStock }}</td>
 
-                                           <td>{{ line_stock.prodDate ? line_stock.prodDate|date('Y-m-d') : ''  }}</td>
-                                           <td>{{ line_stock.validDate ? line_stock.validDate|date('Y-m-d') : ''  }}</td>
+                                           <td>{{ line_stock.linePurchase.production ? line_stock.linePurchase.production|date('Y-m-d') : ''  }}</td>
+                                           <td>{{ line_stock.linePurchase.validation ? line_stock.linePurchase.validation|date('Y-m-d') : ''  }}</td>
                                            <td>{{ line_stock.oldQty }}</td>
                                            <td>{{ line_stock.qtyUpdate }}</td>
                                            <td>{{ line_stock.quantityAlerte }}</td>

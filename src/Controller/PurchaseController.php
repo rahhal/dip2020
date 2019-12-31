@@ -45,94 +45,85 @@ class PurchaseController extends AbstractController
         if (is_null($id))
         {
             $purchase = new Purchase();
-            $lineStock = new LineStock();
             $stock = new stock();
             //$article = new Article();
+
         }
         else
         {    $purchase = $em->find(Purchase::class, $id);
         }
         $form = $this->createForm(PurchaseType::class, $purchase);
         $oldLinePurchase = new ArrayCollection();
-        foreach ($purchase->getLinePurchases() as $linePurchase)
-            $oldLinePurchase->add($linePurchase);
+        foreach ($purchase->getLinePurchases() as $linePurchase) {
+	        $oldLinePurchase->add($linePurchase);
+        }
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()) {
-                foreach ($oldLinePurchase as $linePurchase)
-                    if (false === $purchase->getLinePurchases()->contains($linePurchase))
-                        $em->remove($linePurchase);
+	            foreach ($oldLinePurchase as $linePurchase) {
+		            if (false === $purchase->getLinePurchases()->contains($linePurchase))
+			            $em->remove($linePurchase);
+	            }
 
+	           $stock->setName('stoki');
+                $stock->setType('stock produit alimentaires');
+	            $em->persist($stock);
 
-                /* ----  calcul du prix total de chaque line_purchase    ------*/
-                foreach ($purchase->getLinePurchases() as $linePurchase)
-                    $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred()*$linePurchase->getUnitPrice()*(1+($linePurchase->getTax()/ 100)));
+	            /* ----  calcul du prix total de chaque line_purchase    ------*/
+	            foreach ($purchase->getLinePurchases() as $linePurchase) {
+		            $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred()*$linePurchase->getUnitPrice()*(1+($linePurchase->getTax()/ 100)));
+		            $linePurchase->setPurchase($purchase);
+		            // find Line Purchase By Article: faire mise à jour du stock
+		            $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
+		            $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+		            $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $linePurchase->getArticle()]);
+		            $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
 
-                /* ------ calcul du prix total de chaque purchase -------*/
+		            if ($findLineStockByLinePurchase) {
+			            $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
+			            //$new_quantity = $linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty();
+                        $new_quantity = $linePurchase->getQuantityDelivred();
+                        $findLineStockByLinePurchase->setQtyUpdate($old_quantity+ $new_quantity);
+                        $findLineStockByLinePurchase->setOldQty($old_quantity);
 
-                   $totalPrice=0;
-                   foreach ($purchase->getLinePurchases() as $linePurchase)
-                   {
-                       $totalPrice += $linePurchase->getTotalPrice();
-                   }
-                   $purchase->setTotalPrice($totalPrice);
+                       /* $findLineStockByLinePurchase ->setDate(new \DateTime('now'));
+                        $findLineStockByLinePurchase->setProdDate(new \DateTime('now'));
+                        $findLineStockByLinePurchase->setValidDate(new \DateTime('now'));
+                        $findLineStockByLinePurchase->setReference($linePurchase->getArticle()->getReferenceStock());
+                        $findLineStockByLinePurchase->setStock($stock);*/
+			            $em->flush();
+		            } else {
+		            	$lineStock = new LineStock();
+		            	$lineStock->setLinePurchase($linePurchase);
+		            	$lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
+		            	$lineStock->setDate(new \DateTime('now'));
+		            	$lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
+		            	$lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
+		            	$lineStock->setProdDate(new \DateTime('now'));
+		            	$lineStock->setValidDate(new \DateTime('now'));
+                       /*$lineStock->setProdDate($linePurchase->getProduction());
+                        $lineStock->setValidDate($linePurchase->getValidation());*/
+		            	$lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
+		            	$lineStock->setStock($stock);
 
+		            	$em->persist($lineStock);
+		            }
+	            }
 
-                /* insertion des données dans le stock */
+	            /* ------ calcul du prix total de chaque purchase -------*/
+	            $totalPrice=0;
+	            foreach ($purchase->getLinePurchases() as $linePurchase) {
+		            $totalPrice += $linePurchase->getTotalPrice();
+	            }
+	            $purchase->setTotalPrice($totalPrice);
 
-                $stock->setName('magasin');
-                $linePurchase = new ArrayCollection();
-
-                /*$purchase=$this->getDoctrine()
-                    ->getRepository(Purchase::class)
-                   ->getPurchaseFromDate($max = 5);*/
-
-                $linePurchase=$this->getDoctrine()
-                    ->getRepository(LinePurchase::class)
-                    ->findLinePurchaseByPurchase($id);
-
-               // $article-> setName($article);
-              foreach ($purchase->getLinePurchases() as $linePurchase)
-                    $linePurchase->setPurchase($purchase);
-
-                foreach ($stock->getLineStocks() as $lineStock)
-                    $lineStock->getLinePurchases($linePurchase);
-
-                $lineStock->setLinePurchase($linePurchase);
-
-                foreach ($purchase->getLinePurchases() as $linePurchase)
-                {
-                    $lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
-                //  $lineStock->setDate($purchase->getDate());
-                $lineStock->setDate(new \DateTime('now'));
-                $lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
-                $lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
-                $lineStock->setProdDate(new \DateTime('now'));
-                $lineStock->setValidDate(new \DateTime('now'));
-
-                /*$lineStock->setProdDate($linePurchase->getProduction());
-                $lineStock->setValidDate($linePurchase->getValidation());*/
-
-                $lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
-                $lineStock->setStock($stock);
-                }
-
-                $em->persist($stock);
-                $em->persist($purchase);
-              //  $em->persist($article);
-                $em->persist($lineStock);
-
-              //  dump($purchase);
-               // die();
-
-                $em->flush();
-               /* dump($purchase);die();*/
-
-                $this->addFlash('success', "تمت العملية بنجاح");
+	            $em->persist($purchase);
+	            $em->flush();
+                $this->addFlash('success', "تمت الاضافة بنجاح");
                 return $this->redirectToRoute("purchase_index");
             }
         }
-        //$Purchases=$em->getRepository(Purchase::class)->findLine($id);
         $purchases = $em->getRepository(Purchase::class)->findAll();
         $articles = $em->getRepository(Article::class)->findAll();
         $linePurchase=$this->getDoctrine()
@@ -144,48 +135,7 @@ class PurchaseController extends AbstractController
             'articles' => $articles,
             'linePurchases' => $linePurchase,
         ));
-
     }
-    /**
-     * @Route("/{id}, name="detail_purchase")
-     */
-    /*
-        public function detail($id )
-        {     $em = $this->getDoctrine()->getManager();
-              $purchases=$em->getRepository(Purchase::class)->findLine($id);
-            return $this->render('purchase/detail.html.twig', array(
-               // 'form' => $form->createView(),
-                'purchases' => $purchases,
-            ));
-        }*/
-    /**
-     * @Route("/detail/{id}", name="purchase_detail")
-     *
-     */
-    /* public function detail( $id)
-     {
-         $purchase=$this->getDoctrine()
-                      ->getRepository(Purchase::class)
-                       ->findLinePurchaseByPurchase($id);
-        /* $items = $purchase->getLinePurchase();
-         foreach ($items  as  $item)
-         { Var_dump($items) ;}*/
-    // var_dump($purchase);
-    //   die();*/
-    /*return $this->render('purchase/detail.html.twig', array(
-        // 'form' => $form->createView(),
-        'purchases' => $purchase,
-    ));*/
-    // }
-    /* public function showById($id)
-     {
-         $purchase = $this->getDoctrine()
-                          ->getRepository(Purchase::class)
-                          ->find($id);
-         $items = $purchase->getLinePurchase();
-          foreach ($items  as  $item)
-         { Var_dump($items) ;}
-     }*/
     /**
      * @Route("/{id}", name="purchase_show", methods={"GET"})
      */
@@ -204,6 +154,7 @@ class PurchaseController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($id);
         $em->flush();
+        $this->addFlash('success', "تم الحذف بنجاح");
         return new Response(1);
     }
 
@@ -214,8 +165,6 @@ class PurchaseController extends AbstractController
 
     public function pdf($id = null)
     {
-        /*$purchases =$this->getDoctrine()
-            ->getRepository(Purchase::class)->findAll();*/
         $purchases = $this->getDoctrine()
             ->getRepository(Purchase::class)
             ->myFindOne($id);
@@ -240,18 +189,7 @@ class PurchaseController extends AbstractController
         $mpdf->WriteHTML($html);
         // Output a PDF file directly to the browser
         $mpdf->Output();
-
-
-	   /*
-
-        // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('pdf/purchase.html.twig', [
-            'title' => $purchase->getNumber(),
-	        'instution' => $institusion
-        ]); */
-
     }
-
     /**
      * * @Route("/receive/purchase/{id}", name="receive_pdf")
      *

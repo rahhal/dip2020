@@ -28,6 +28,11 @@ class Stock
      */
     private $lineStocks;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $type;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -81,8 +86,20 @@ class Stock
 
         return $this;
     }
-    public function __toString()
+    /*public function __toString()
     {
        return $this-> name;// TODO: Implement __toString() method.
+    }*/
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $type;
+
+        return $this;
     }
 }

@@ -26,19 +26,26 @@ class JournalController extends AbstractController
     /**
      * @Route("/", name="journal_index", methods={"GET"})
      */
-    public function index(JournalRepository $journalRepository)
+    public function index(JournalRepository $journalRepository, $id=null)
     {
+        $exitt=$this->getDoctrine()
+            ->getRepository(Exitt::class)
+            ->findExittByJournal($id);
+        $nbMeal = $this->getDoctrine()
+            ->getRepository(NbMeal::class)
+            ->findNbMealtByJournal($id);
         return $this->render('journal/index.html.twig', [
             'journals' => $journalRepository->findAll(),
+            'exitts'=> $exitt,
+            'nbMeals' => $nbMeal,
         ]);
     }
     /**
      * @Route("/ajout/journal", name="ajout-journal")
-     * @Route("/modifier/journal/{id}", name="modifier-journal")
      * @Route("/new", name="journal_new", methods={"GET","POST"})
      */
 
-    public function journal( Request $request)
+    public function journal( Request $request, $id=null)
     {
         $journal = new Journal();
         $exitt = new  Exitt();
@@ -46,23 +53,25 @@ class JournalController extends AbstractController
         $form = $this->createForm(JournalType::class, $journal);
         $form->handleRequest($request);
 
+        /*  calcul du prix total au journal */
+        foreach ($exitt->getJournals() as $journal)
+        { $journal->setTotalCosts($exitt->getTotalPrice());}
+        foreach ($nbMeal->getJournals() as $journal)
+        {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
+        }
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
             /*  calcul du prix total au journal   */
 
-            foreach ($exitt->getJournals() as $journal)
-            { $journal->setTotalCosts($exitt->getTotalPrice());}
+            /*foreach ($exitt->getJournals() as $journal)
+            { $journal->setTotalCosts($exitt->getTotalPrice());}*/
 
-            foreach ($nbMeal->getJournals() as $journal)
+            /*foreach ($nbMeal->getJournals() as $journal)
             {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
             }
-            /*  calcul du plat   */
-            /* if ($journal->getTotalMeals()!= 0)
-              $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
-             else
-               return "impossible,division par zero";*/
-            //$attacker->ratio = $attacker->rep > 0 ? $defender->rep / $attacker->rep : 1;
 
             /*  calcul du plat   */
 
@@ -70,6 +79,11 @@ class JournalController extends AbstractController
                 $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
             else
                 throw new NotFoundHttpException("impossible,division par zero");
+            /*  calcul du plat   */
+            /* if ($journal->getTotalMeals()!= 0)
+              $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
+             else
+               return "impossible,division par zero";*/
 
             /*================== */
             /*foreach ($nbMeal->getJournals() as $journal)
@@ -92,10 +106,13 @@ class JournalController extends AbstractController
 
         // $journal->getLineExitt()->getTotalPrice();
         // $lineExitt = $em->getRepository(LineExitt::class)->find($id);
-        /* $lineExitt=$this->getDoctrine()
-             ->getRepository(LineExitt::class)
-             ->findJournalByLineExitt($id);*/
+         $exitt=$this->getDoctrine()
+             ->getRepository(Exitt::class)
+             ->findExittByJournal($id);
 
+        $nbMeal=$this->getDoctrine()
+            ->getRepository(NbMeal::class)
+            ->findNbMealtByJournal($id);
         // $lineExitts=$em->getRepository(LineExitt::class)->findOneById($id);
         return $this->render('journal/new.html.twig', [
             'journal' => $journal,

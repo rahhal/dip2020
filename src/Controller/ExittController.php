@@ -5,6 +5,7 @@ use App\Entity\Article;
 use App\Entity\Commission;
 use App\Entity\Institution;
 use App\Entity\Journal;
+use App\Entity\LinePurchase;
 use App\Entity\lineStock;
 use App\Entity\Exitt;
 use App\Entity\LineExitt;
@@ -64,19 +65,35 @@ class ExittController extends AbstractController
         {
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()){
-                foreach ($oldLineExitt as $lineExitt)
-                    if (false=== $exitt->getLineExitts()->contains($lineExitt))
-                        $em->remove($lineExitt);
-                foreach ($exitt->getLineExitts() as $lineExitt)
-                    $lineExitt->setExitt($exitt);
+                foreach ($oldLineExitt as $lineExitt) {
+	                if (false=== $exitt->getLineExitts()->contains($lineExitt))
+		                $em->remove($lineExitt);
+                }
+
+//                foreach ($exitt->getLineExitts() as $lineExitt) {
+//	                $lineExitt->setExitt($exitt);
+//                }
 
                 /* calcul du prix total de chaque line_exitt*/
+                foreach ($exitt->getLineExitts() as $lineExitt) {
+	                $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+	                $lineExitt->setExitt($exitt);
 
-                foreach ($exitt->getLineExitts() as $lineExitt)
-                $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+	                // find Line Purchase By Article: mise à jour du stock
+	                $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
+	                $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+	                $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $lineExitt->getArticle()]);
+	                $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
+	                if ($findLineStockByLinePurchase) {
+		                $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
+		                $new_quantity = $lineExitt->getQuantity();
+		                $findLineStockByLinePurchase->setQtyUpdate($old_quantity-$new_quantity);
+                        $findLineStockByLinePurchase->setOldQty($old_quantity);
+		                $em->flush();
+	                }
+                }
 
                 /* calcul du prix total de chaque exitt*/
-
                $totalPrice=0;
                 foreach ($exitt->getLineExitts() as $lineExitt)
                 {
@@ -84,15 +101,7 @@ class ExittController extends AbstractController
                 }
                 $exitt->setTotalPrice($totalPrice);
 
-                /*  recuperation du prix total au journal   */
 
-                /*$journal= new Journal();
-                foreach ($exitt->getJournals() as $journal)
-
-                    $journal->setTotalCosts($exitt->getTotalPrice());
-
-
-                $em->persist($journal);*/
                 $em->persist($exitt);
                 $em->flush();
                 $this->addFlash(
