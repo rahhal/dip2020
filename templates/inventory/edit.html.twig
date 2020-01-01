@@ -1,18 +1,4 @@
-{#
-{% extends 'base.html.twig' %}
 
-{% block title %}Edit Inventory{% endblock %}
-
-{% block body %}
-    <h1>Edit Inventory</h1>
-
-    {{ include('inventory/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('inventory_index') }}">back to list</a>
-
-    {{ include('inventory/_delete_form.html.twig') }}
-{% endblock %}
-#}
 
 {% extends 'base.html.twig' %}
 
@@ -46,44 +32,6 @@
                                     <div class="col-md-4 col-sm-4 col-xs-8">
                                         <span id="js-datepicker">{{ form_widget(form.date) }}</span>
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Article name"|trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.article,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ " Qty inventory"|trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.qty_inv,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                    </div>
-                                    <span data-color="red" id="reference_result"></span>
-                                    <div class="invalid-feedback text-danger">{{ form_errors(form.qty_inv) }}</div>
-
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ " Qty stock"|trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.qty_stk,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "State"|trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.state,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                     </div>
                                 </div>
 

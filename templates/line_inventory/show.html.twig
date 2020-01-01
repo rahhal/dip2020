@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineInventory{% endblock %}
+
+{% block body %}
+    <h1>LineInventory</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ line_inventory.id }}</td>
+            </tr>
+            <tr>
+                <th>Qty_th</th>
+                <td>{{ line_inventory.qtyTh }}</td>
+            </tr>
+            <tr>
+                <th>Qty_inv</th>
+                <td>{{ line_inventory.qtyInv }}</td>
+            </tr>
+            <tr>
+                <th>Difference</th>
+                <td>{{ line_inventory.difference }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_inventory_index') }}">back to list</a>
+
+    <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}">edit</a>
+
+    {{ include('line_inventory/_delete_form.html.twig') }}
+{% endblock %}

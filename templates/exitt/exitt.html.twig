@@ -5,24 +5,24 @@
 {% block body_class %} class="nav-md" {% endblock %}
 
 {% block body %}
+   {# <style>
 
+        .border_error {
+            border: 1px solid red;
+        }
+        .error_style {
+            color: red;
+        }
+
+    </style>#}
     <div hidden id="template_tmp">
         <div id="exitt_lineExitt___name__">
             <label class="required">__name__label__</label>
             <div class="row">
 
-              {#<div class="col-md-2">
-                    <label for="exitt_lineExitt___name__lineStocks" class="required ">مرجع الخزن</label>
-                    <select id="exitt_lineExitt___name___lineStocks" class="form-control"
-                            name="exitt[lineExitt][__name__][lineStocks]">
-                        {% for lineStock in lineStocks %}
-                            <option value="{{ lineStock.id }}">{{ lineStock.reference }}</option>
-                        {% endfor %}
-                    </select>
-                </div>#}
-
                 <div class="col-md-3">
-                    <label for="exitt_lineExitt___name__article" class="required ">{{ "Article"|trans }}</label>
+                    <label for="exitt_lineExitt___name__article" class="required ">{{ "Article name"|trans }}</label>
+                    <span class="required">*</span>
                     <select id="exitt_lineExitt___name___article" class="form-control"
                             name="exitt[lineExitts][__name__][article]">
                         {% for article in articles %}
@@ -31,43 +31,13 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label for="exitt_lineExitt___name__quantity" class="required"> {{ "Quantity"|trans }}  </label><input
+                    <label for="exitt_lineExitt___name__quantity" class="required"> {{ "Quantity"|trans }}  </label>
+                    <span class="required">*</span>
+                    <input
                             type="text" id="exitt_lineExitt___name__quantity" class=" form-control"
                             name="exitt[lineExitts][__name__][quantity]" required="required"/>
-                    <span data-color="red" id="quantity_result"></span>
+                    {#<span data-color="red" id="quantity_result"></span>#}
                 </div>
-
-                <div class="col-md-3">
-                    <label for="exitt_lineExitt___name___unit_price" class="required">{{ "Unit price"|trans }}</label>
-                    <input type="text" id="exitt_lineExitt___name___unit_price"
-                           class=" form-control"
-                           name="exitt[lineExitts][__name__][unit_price]"
-                           required="required"/>
-                </div>
-
-                <div class="col-md-1">
-                    <label for="exitt_lineExitt___name___tax" class="required">{{ "TVA"|trans }}</label>
-                    <input type="text" id="exitt_lineExitt___name___tax"
-                           class=" form-control"
-                           name="exitt[lineExitts][__name__][tax]"
-                           required="required"/>
-                </div>
-
-               {# <div class="col-md-2">
-                    <label for="exitt_lineExitt___name___journal" class="required">{{ "Journal"|trans }}</label>
-                    <input type="text" id="exitt_lineExitt___name___journal"
-                           class=" form-control"
-                           name="exitt[lineExitts][__name__][journal]"
-                           required="required"/>
-                </div>#}
-
-               {# <div class="col-md-2">
-                    <label for="exitt_lineExitt___name___total_price" >{{ "Total price"|trans }}</label>
-                    <input type="text" id="exitt_lineExitt___name___total_price"
-                           class=" form-control"
-                           name="exitt[lineExitts][__name__][total_price]"
-                           disabled="disabled"/>
-                </div>#}
 
                 <div class="col-md-1">
                     <label></label>
@@ -141,8 +111,9 @@
                                         <div class="row">
                                             <div class="well">
 
+                                                {#<div id="exitt_lineExitt" class="register"></div></br>#}
                                                 <div id="exitt_lineExitt"></div></br>
-                                                <a href="#" id="add_lineExitt" class="btn btn-success m-10">{{ "Create new exit"|trans }}</a>
+                                                <a href="#" id="add_lineExitt" class="btn btn-success m-10">{{ "Create new article"|trans }}</a>
                                                  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 
                                             </div>
@@ -167,6 +138,41 @@
 
 
 {% endblock %}
+{#
+{% block javascripts %}
+    <script>
+    $(".register").click(function() {
+    var quantity = $('#exitt_lineExitt_0quantity').val();
+    console.log('La valeur récupéreé est:'+quantity)
+    $('#exitt_lineExitt_0quantity').removeClass("border_error");
+    console.log('Ref : '+quantity);
+    var response = $.ajax({
+    type: "GET",
+    url: "{{ url('quantity_check_disponibility') }}",
+    data: {quantity: quantity},//(parametre: valeur)
+    async: false
+    }).responseText;
 
+    console.log(response);
 
+    if(response == 'indisponible'){
+    $('#exitt_lineExitt_0quantity').addClass("border_error");
+    $('#quantity_result').addClass("error_style");
+    $("#quantity_result").text("لا يمكن:هذه الكمية غير متوفرة بالمخزن");
+    return false;
+    }
+    else if(response == 'notice'){
+        $('#exitt_lineExitt_0quantity').addClass("border_error");
+        $('#quantity_result').addClass("error_style");
+        $("#quantity_result").text("لقد تجاوزت كمية الانذار");
+        return true;
+    }
+        else{
+    return true;
+    }
+    });
+    </script>
+{% endblock %}
+
+#}
 

@@ -25,21 +25,6 @@ class LineExitt
     private $quantity;
 
     /**
-     * @ORM\Column(type="decimal", precision=15, scale=3)
-     */
-    private $unit_price;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $tax;
-
-    /**
-     * @ORM\Column(type="decimal", precision=15, scale=3)
-     */
-    private $total_price;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Exitt", inversedBy="lineExitts",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
@@ -78,41 +63,6 @@ class LineExitt
         return $this;
     }
 
-    public function getUnitPrice(): ?string
-    {
-        return $this->unit_price;
-    }
-
-    public function setUnitPrice(string $unit_price): self
-    {
-        $this->unit_price = $unit_price;
-
-        return $this;
-    }
-
-    public function getTax(): ?int
-    {
-        return $this->tax;
-    }
-
-    public function setTax(int $tax): self
-    {
-        $this->tax = $tax;
-
-        return $this;
-    }
-
-    public function getTotalPrice(): ?string
-    {
-        return $this->total_price;
-    }
-
-    public function setTotalPrice(string $total_price): self
-    {
-        $this->total_price = $total_price;
-
-        return $this;
-    }
 
     public function getExitt(): ?Exitt
     {
@@ -166,7 +116,7 @@ class LineExitt
 
     public function __toString()
     {
-        return  $this->total_price;
+        return " ";
             //. " " .$this->exitt. " " .$this->quantity. " " .$this->unit_price. " " .$this->tax. " " .$this->total_price;
     }
 }

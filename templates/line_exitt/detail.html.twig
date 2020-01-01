@@ -32,9 +32,6 @@
                                     <tr>
                                         <th>{{ "Article"|trans }}</th>
                                         <th>{{ "Quantity"|trans }}</th>
-                                        <th>{{ "Unit price"|trans }}</th>
-                                        <th>{{ "Tax"|trans }}</th>
-                                        <th>{{ "Total price"|trans }}</th>
                                         {#<th>{{ "Actions"|trans }}</th>#}
                                     </tr>
                                     </thead>
@@ -43,9 +40,6 @@
                                         <tr>
                                             <td>{{ line_exitt.article }}</td>
                                             <td>{{ line_exitt.quantity }}</td>
-                                            <td>{{ line_exitt.unitPrice }}</td>
-                                            <td>{{ line_exitt.tax }}</td>
-                                            <td>{{ line_exitt.totalPrice }}</td>
                                             <td>
                                                 {#<td>
                                                 <a href="{{ path('line_exitt_show', {'id': line_exitt.id}) }}" class="btn btn-success">show</a>
@@ -54,7 +48,7 @@
                                         </tr>
                                     {% else %}
                                         <tr class="text-center">
-                                            <td colspan="5">{{ "no records found"|trans }}</td>
+                                            <td colspan="3">{{ "no records found"|trans }}</td>
                                         </tr>
                                     {% endfor %}
 

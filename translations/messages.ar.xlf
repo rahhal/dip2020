@@ -171,11 +171,11 @@
    </trans-unit>
    <trans-unit id="Article name" resname="Article name">
          <source>Article name</source>
-             <target>اسم المادة</target>
+             <target>المادة</target>
     </trans-unit>
    <trans-unit id="Create new article" resname="Create new article">
                         <source>Create new article</source>
-                        <target>اضافة مواد جديدة</target>
+                        <target>اضافة مادة جديدة</target>
                      </trans-unit>
         <trans-unit id="Reference stock" resname="Reference stock">
                                  <source>Reference stock</source>
@@ -761,6 +761,26 @@
             <source>Create new line purchase</source>
              <target>اضافة مشتريات جديدة</target>
         </trans-unit>
+        <trans-unit id="Create new line inventory" resname="Create new line inventory">
+                    <source>Create new line inventory</source>
+                     <target>اضافة مواد جديدة للجرد</target>
+        </trans-unit>
+         <trans-unit id="Qty th" resname="Qty_th">
+                            <source>Qty th</source>
+                             <target>الكمية النظرية</target>
+         </trans-unit>
+         <trans-unit id="Qty_inv" resname="Qty_inv">
+                                     <source>Qty_inv</source>
+                                      <target>كمية الجرد</target>
+                  </trans-unit>
+          <trans-unit id="Difference" resname="Difference">
+                    <source>Difference</source>
+                    <target>الفارق</target>
+          </trans-unit>
+           <trans-unit id="Details of inventories" resname="Details of inventories">
+                 <source>Details of inventories</source>
+                 <target>معطيات الجرد</target>
+            </trans-unit>
     </body>
   </file>
 </xliff>

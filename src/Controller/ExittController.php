@@ -70,14 +70,14 @@ class ExittController extends AbstractController
 		                $em->remove($lineExitt);
                 }
 
-//                foreach ($exitt->getLineExitts() as $lineExitt) {
-//	                $lineExitt->setExitt($exitt);
-//                }
-
-                /* calcul du prix total de chaque line_exitt*/
-                foreach ($exitt->getLineExitts() as $lineExitt) {
-	                $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+                /*foreach ($exitt->getLineExitts() as $lineExitt) {
 	                $lineExitt->setExitt($exitt);
+                }*/
+
+                /* ----calcul du prix total de chaque line_exitt----*/
+                foreach ($exitt->getLineExitts() as $lineExitt) {
+//                      $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+                      $lineExitt->setExitt($exitt);
 
 	                // find Line Purchase By Article: mise à jour du stock
 	                $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
@@ -93,14 +93,13 @@ class ExittController extends AbstractController
 	                }
                 }
 
-                /* calcul du prix total de chaque exitt*/
-               $totalPrice=0;
+                /* ---calcul du prix total de chaque exitt---*/
+               /*$totalPrice=0;
                 foreach ($exitt->getLineExitts() as $lineExitt)
                 {
                     $totalPrice += $lineExitt->getTotalPrice();
                 }
-                $exitt->setTotalPrice($totalPrice);
-
+                $exitt->setTotalPrice($totalPrice);*/
 
                 $em->persist($exitt);
                 $em->flush();
@@ -158,7 +157,8 @@ class ExittController extends AbstractController
 
             $exitt = new Exitt();
         foreach ($exitt->getLineExitts() as $lineExitt) {
-            { $lineExitt->getQuantity();}
+            foreach ($lineExitt->getLineStocks() as $lineS)
+             $lineExitt->getQuantity();
             $etat_stock=$lineExitt->getQuantity()- $quantity;
             if ($etat_stock > 1) {
                 $response = new Response(

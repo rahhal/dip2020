@@ -40,13 +40,8 @@ class InstitutionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-           /* $this->get('session')->getFlashBag()->add(
-                    'sucess', array(
-                'alert' => 'success',
-                'title' => '',
-                'message' => 'Informations de société modifiées'
-            ));*/
-            $this->addFlash('success', "تمت العملية بنجاح");
+
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('institution_show');
         }
 

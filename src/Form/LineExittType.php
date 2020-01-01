@@ -25,9 +25,6 @@ class LineExittType extends AbstractType
                 'multiple' => false
             ])
             ->add('quantity')
-            ->add('unit_price')
-            ->add('tax',TextType::class)
-            ->add('total_price')
             //->add('journal')
            // ->add('lineStocks')
         ;

@@ -139,7 +139,7 @@
 });
  */
 /*-------------------*/
-$("#exitt_save").click(function() {
+/*$("#exitt_save").click(function() {
     var quantity = $('#exitt_lineExitt_0quantity').val();
     console.log('La valeur récupéreé est:'+quantity)
     $('#exitt_lineExitt_0quantity').removeClass("border_error");
@@ -161,7 +161,7 @@ $("#exitt_save").click(function() {
     }else{
         return true;
     }
-});
+});*/
 
 
 /*     ===========================js datepicker=========================== */

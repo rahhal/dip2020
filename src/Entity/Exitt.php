@@ -34,11 +34,6 @@ class Exitt
     private $employee;
 
     /**
-     * @ORM\Column(type="decimal", precision=15, scale=3)
-     */
-    private $total_price;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\LineExitt", mappedBy="exitt",cascade={"persist"}, orphanRemoval=true)
      */
     private $lineExitts;
@@ -90,18 +85,6 @@ class Exitt
     public function setEmployee(?Employee $employee): self
     {
         $this->employee = $employee;
-
-        return $this;
-    }
-
-    public function getTotalPrice(): ?string
-    {
-        return $this->total_price;
-    }
-
-    public function setTotalPrice(string $total_price): self
-    {
-        $this->total_price = $total_price;
 
         return $this;
     }

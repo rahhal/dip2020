@@ -73,6 +73,11 @@ class Article
      */
     private $created_at;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="article")
+     */
+    private $lineInventories;
+
 
 
     public function __construct()
@@ -80,6 +85,7 @@ class Article
         $this->linePurchases = new ArrayCollection();
         $this->lineRequestSupplieds = new ArrayCollection();
         $this->lineExitts = new ArrayCollection();
+        $this->lineInventories = new ArrayCollection();
     }
 
 
@@ -272,6 +278,37 @@ class Article
     {
         // TODO: Implement __toString() method.
         return  $this->name;
+    }
+
+    /**
+     * @return Collection|LineInventory[]
+     */
+    public function getLineInventories(): Collection
+    {
+        return $this->lineInventories;
+    }
+
+    public function addLineInventory(LineInventory $lineInventory): self
+    {
+        if (!$this->lineInventories->contains($lineInventory)) {
+            $this->lineInventories[] = $lineInventory;
+            $lineInventory->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLineInventory(LineInventory $lineInventory): self
+    {
+        if ($this->lineInventories->contains($lineInventory)) {
+            $this->lineInventories->removeElement($lineInventory);
+            // set the owning side to null (unless already changed)
+            if ($lineInventory->getArticle() === $this) {
+                $lineInventory->setArticle(null);
+            }
+        }
+
+        return $this;
     }
 
 }

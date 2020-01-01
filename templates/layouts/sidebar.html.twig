@@ -71,8 +71,8 @@
                     <ul class="nav child_menu" {% if 'menu_' in route or 'nb_meal_' in route or 'journal_' in route %}
                                                     class= "current" style="display: block;"{% endif %}>
                         <li><a href="{{ path('menu_index') }}">  جدول الاكلات </a></li>
-                        <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>
                         <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
+                        <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-clone"></i> جرد المخزون <span class="fa fa-chevron-down"></span></a>

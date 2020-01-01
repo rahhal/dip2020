@@ -10,9 +10,6 @@
             <tr>
                 <th>Id</th>
                 <th>Quantity</th>
-                <th>Unit_price</th>
-                <th>Tax</th>
-                <th>Total_price</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,9 +18,6 @@
             <tr>
                 <td>{{ line_exitt.id }}</td>
                 <td>{{ line_exitt.quantity }}</td>
-                <td>{{ line_exitt.unitPrice }}</td>
-                <td>{{ line_exitt.tax }}</td>
-                <td>{{ line_exitt.totalPrice }}</td>
                 <td>
                     <a href="{{ path('line_exitt_show', {'id': line_exitt.id}) }}">show</a>
                     <a href="{{ path('line_exitt_edit', {'id': line_exitt.id}) }}">edit</a>

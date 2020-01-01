@@ -35,7 +35,6 @@
                                         <th>{{ "Date"|trans }}</th>
                                         <th>{{ "Reference exit"|trans }}</th>
                                         <th>{{ "Benificiary"|trans }}</th>
-                                        <th>{{ "Total price"|trans }}</th>
                                         <th>{{ "Actions"|trans }}</th>
                                     </tr>
                                     </thead>
@@ -45,7 +44,6 @@
                                             <td>{{ exitt.date ? exitt.date|date('Y-m-d') : '' }}</td>
                                             <td>{{ exitt.number }}</td>
                                             <td>{{ exitt.employee }}</td>
-                                            <td>{{ exitt.TotalPrice }}</td>
                                             <td>
                                                 <a href="{{ path('exitt_show', {'id': exitt.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
                                                 <a href="{{ path('lineExitt_detail', {'id': exitt.id}) }}" class="btn btn-default"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>

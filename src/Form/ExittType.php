@@ -29,7 +29,6 @@ class ExittType extends AbstractType
                 ],
             ])
             ->add('number',TextType::class)
-            ->add('total_price')
             ->add('employee')
             ->add('lineExitts', CollectionType::class, array(
                 'entry_type'   => LineExittType::class,

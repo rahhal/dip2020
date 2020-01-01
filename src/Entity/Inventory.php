@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,31 +24,15 @@ class Inventory
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="inventory")
      */
-    private $article;
+    private $lineInventories;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $state;
+    public function __construct()
+    {
+        $this->lineInventories = new ArrayCollection();
+    }
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $qty_inv;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $qty_stk;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\LineStock", inversedBy="inventories")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $lineStock;
 
     public function getId(): ?int
     {
@@ -65,63 +51,38 @@ class Inventory
         return $this;
     }
 
-    public function getArticle(): ?Article
+    /**
+     * @return Collection|LineInventory[]
+     */
+    public function getLineInventories(): Collection
     {
-        return $this->article;
+        return $this->lineInventories;
     }
 
-    public function setArticle(?Article $article): self
+    public function addLineInventory(LineInventory $lineInventory): self
     {
-        $this->article = $article;
+        if (!$this->lineInventories->contains($lineInventory)) {
+            $this->lineInventories[] = $lineInventory;
+            $lineInventory->setInventory($this);
+        }
 
         return $this;
     }
 
-    public function getState(): ?float
+    public function removeLineInventory(LineInventory $lineInventory): self
     {
-        return $this->state;
-    }
-
-    public function setState(float $state): self
-    {
-        $this->state = $state;
+        if ($this->lineInventories->contains($lineInventory)) {
+            $this->lineInventories->removeElement($lineInventory);
+            // set the owning side to null (unless already changed)
+            if ($lineInventory->getInventory() === $this) {
+                $lineInventory->setInventory(null);
+            }
+        }
 
         return $this;
     }
-
-    public function getQtyInv(): ?int
+    public function __toString()
     {
-        return $this->qty_inv;
-    }
-
-    public function setQtyInv(int $qty_inv): self
-    {
-        $this->qty_inv = $qty_inv;
-
-        return $this;
-    }
-
-    public function getQtyStk(): ?int
-    {
-        return $this->qty_stk;
-    }
-
-    public function setQtyStk(int $qty_stk): self
-    {
-        $this->qty_stk = $qty_stk;
-
-        return $this;
-    }
-
-    public function getLineStock(): ?LineStock
-    {
-        return $this->lineStock;
-    }
-
-    public function setLineStock(?LineStock $lineStock): self
-    {
-        $this->lineStock = $lineStock;
-
-        return $this;
+        return "";
     }
 }

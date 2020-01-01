@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineInventory index{% endblock %}
+
+{% block body %}
+    <h1>LineInventory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Article name</th>
+                <th>Qty_th</th>
+                <th>Qty_inv</th>
+                <th>Difference</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for line_inventory in line_inventories %}
+            <tr>
+                <td>{{ line_inventory.article }}</td>
+                <td>{{ line_inventory.qtyTh }}</td>
+                <td>{{ line_inventory.qtyInv }}</td>
+                <td>{{ line_inventory.difference }}</td>
+                <td>
+                    <a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}">show</a>
+                    <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_inventory_new') }}">Create new</a>
+{% endblock %}
