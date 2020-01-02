@@ -36,10 +36,13 @@ class InventoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+        
             $entityManager->persist($inventory);
             $entityManager->flush();
 
-            return $this->redirectToRoute('inventory_index');
+            return $this->redirectToRoute('inventory_show',array('id'=>$inventory->getId()));
+            // return $this->redirectToRoute('inventory_show');
         }
 
         return $this->render('inventory/new.html.twig', [

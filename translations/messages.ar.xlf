@@ -780,7 +780,11 @@
            <trans-unit id="Details of inventories" resname="Details of inventories">
                  <source>Details of inventories</source>
                  <target>معطيات الجرد</target>
-            </trans-unit>
+          </trans-unit>
+          <trans-unit id="print purchase" resname="print purchase">
+                 <source>print purchase</source>
+                 <target>طباعة وصل دخول</target>
+          </trans-unit>
     </body>
   </file>
 </xliff>

@@ -28,10 +28,6 @@ class Stock
      */
     private $lineStocks;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
 
     public function __construct()
     {
@@ -90,16 +86,4 @@ class Stock
     {
        return $this-> name;// TODO: Implement __toString() method.
     }*/
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
 }

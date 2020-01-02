@@ -54,16 +54,16 @@
                                             <td>{{ journal.menu }}</td>
                                             <td>{{ journal.exitt }}</td>
                                             <td>
-                                                {#{% set total_meals = 0 %}
+                                                {# {% set total_meals = 0 %}
                                                 {% for nbMeal in journal.nbMeal  %}
                                                     {% set total_meals = nbMeal.stdResident + nbMeal.stdSemiResident+ nbMeal.stdGranted+ nbMeal.professor + nbMeal.employee+ nbMeal.curators %}
-                                                {%endfor%}#}
+                                                {%endfor%} #}
                                                 {{ journal.totalMeals }}</td>
                                             <td>
-                                                {#{% set totalCosts = 0 %}
-                                                {% for exitt in journal.exitt  %}
-                                                    {% set totalCosts = exitt.totalPrice %}
-                                                {%endfor%}#}
+                                                {# {% set totalCosts = 0 %}
+                                                {% for lineStock in journal.exitt.lineExitts.lineStock  %}
+                                                    {% set totalCosts+ = exitt.totalPrice %}
+                                                {%endfor%} #}
                                                 {{ journal.totalCosts }}
                                             </td>
                                             <td>
@@ -81,7 +81,8 @@
                                             <td>
                                                 <a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
                                                 <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
-                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>{{  "print" | trans }}</a>
+                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>{{  "print" | trans }}
+                                                </a>
 
                                             </td>
                                         </tr>

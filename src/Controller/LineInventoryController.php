@@ -37,8 +37,12 @@ class LineInventoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $lineInventory->setInventory($inventory);
+
+
+
+
+
             $entityManager->persist($lineInventory);
             $entityManager->flush();
 

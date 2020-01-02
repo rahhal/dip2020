@@ -67,7 +67,7 @@ class PurchaseController extends AbstractController
 	            }
 
 	           $stock->setName('stoki');
-                $stock->setType('stock produit alimentaires');
+               // $stock->setType('stock produit alimentaires');
 	            $em->persist($stock);
 
 	            /* ----  calcul du prix total de chaque line_purchase    ------*/
@@ -119,7 +119,8 @@ class PurchaseController extends AbstractController
 	            $purchase->setTotalPrice($totalPrice);
 
 	            $em->persist($purchase);
-	            $em->flush();
+                $em->flush();
+                
                 $this->addFlash('success', "تمت الاضافة بنجاح");
                 return $this->redirectToRoute("purchase_index");
             }
