@@ -21,9 +21,9 @@ class InventoryType extends AbstractType
                 // 'format'=> 'mm/dd/yyyy',
                 'widget' => 'single_text',
             ])
-           /* ->add('article',EntityType::class,[
-                'class' => Article::class,
-            ])*/
+            ->add('invNumber',textType::class,[
+                'required' => false,
+            ])
         ;
     }
 

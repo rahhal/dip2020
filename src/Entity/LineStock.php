@@ -69,10 +69,17 @@ class LineStock
     private $date;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="lineStock")
+     */
+    private $lineInventories;
+
+
     public function __construct()
     {
 
         $this->lineExit = new ArrayCollection();
+        $this->lineInventories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -176,7 +183,7 @@ class LineStock
     }
 public function __toString()
 {
-    return $this-> reference;// TODO: Implement __toString() method.
+    return "";// TODO: Implement __toString() method.
 }
 
 public function getDate(): ?\DateTimeInterface
@@ -187,6 +194,37 @@ public function getDate(): ?\DateTimeInterface
 public function setDate(\DateTimeInterface $date): self
 {
     $this->date = $date;
+
+    return $this;
+}
+
+/**
+ * @return Collection|LineInventory[]
+ */
+public function getLineInventories(): Collection
+{
+    return $this->lineInventories;
+}
+
+public function addLineInventory(LineInventory $lineInventory): self
+{
+    if (!$this->lineInventories->contains($lineInventory)) {
+        $this->lineInventories[] = $lineInventory;
+        $lineInventory->setLineStock($this);
+    }
+
+    return $this;
+}
+
+public function removeLineInventory(LineInventory $lineInventory): self
+{
+    if ($this->lineInventories->contains($lineInventory)) {
+        $this->lineInventories->removeElement($lineInventory);
+        // set the owning side to null (unless already changed)
+        if ($lineInventory->getLineStock() === $this) {
+            $lineInventory->setLineStock(null);
+        }
+    }
 
     return $this;
 }

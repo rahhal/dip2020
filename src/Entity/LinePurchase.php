@@ -45,12 +45,12 @@ class LinePurchase
     private $purchase;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $quantity_required;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $technical_confirmity;
 
@@ -60,7 +60,7 @@ class LinePurchase
     private $lineStocks;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $remarque;
 
@@ -70,12 +70,12 @@ class LinePurchase
     private $total_price;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $production;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $validation;
 

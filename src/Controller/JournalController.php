@@ -75,10 +75,10 @@ class JournalController extends AbstractController
 
             /*  calcul du plat   */
 
-            if ($journal->getTotalMeals() != 0)
+            /*if ($journal->getTotalMeals() != 0)
                 $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
             else
-                throw new NotFoundHttpException("impossible,division par zero");
+                throw new NotFoundHttpException("impossible,division par zero");*/
             /*  calcul du plat   */
             /* if ($journal->getTotalMeals()!= 0)
               $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());

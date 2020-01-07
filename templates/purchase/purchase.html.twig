@@ -9,35 +9,39 @@
         <div id="purchase_linePurchase___name__">
             <label class="required" >__name__label__ </label>
             <div class="row">
-                <div class="col-md-2">
-                    <label for="purchase_linePurchase___name___article" class="required ">المادة</label><select
-                            id="purchase_linePurchase___name___article" class="form-control"
+                <div class="col-md-3">
+                    <label for="purchase_linePurchase___name___article" class="required ">المادة</label>
+                    <span class="required">*</span>
+                    <select id="purchase_linePurchase___name___article" class="form-control"
                             name="purchase[linePurchases][__name__][article]">
                          {% for article in articles %}
                              <option value="{{ article.id }}">{{ article.name }}</option> 
                         {% endfor %}
                     </select>
                 </div>
-                <div class="col-md-1">
-                    <label for="purchase_linePurchase___name___quantity_delivred" class="required"> ك.مسلمة</label><input
-                            type="text" id="purchase_linePurchase___name___quantity_delivred" class=" form-control"
+                <div class="col-md-2">
+                    <label for="purchase_linePurchase___name___quantity_delivred" class="required"> ك.مسلمة</label>
+                    <span class="required">*</span>
+                    <input type="text" id="purchase_linePurchase___name___quantity_delivred" class=" form-control"
                             name="purchase[linePurchases][__name__][quantity_delivred]" required="required"/>
                 </div>
-                <div class="col-md-1">
-                    <label for="purchase_linePurchase___name___quantity_required" class="required"> ك.مطلوبة</label><input
-                            type="text" id="purchase_linePurchase___name___quantity_required" class=" form-control"
-                            name="purchase[linePurchases][__name__][quantity_required]" required="required"/>
+                <div class="col-md-2">
+                    <label for="purchase_linePurchase___name___quantity_required" class="required"> ك.مطلوبة</label>
+                    <input type="text" id="purchase_linePurchase___name___quantity_required" class=" form-control"
+                            name="purchase[linePurchases][__name__][quantity_required]"/>
                 </div>
-                <div class="col-md-1">
-                    <label for="purchase_linePurchase___name___unit_price" class="required">س.فردي
-                    </label><input type="text" id="purchase_linePurchase___name___unit_price"
+                <div class="col-md-2">
+                    <label for="purchase_linePurchase___name___unit_price" class="required">س.فردي</label>
+                    <span class="required">*</span>
+                    <input type="text" id="purchase_linePurchase___name___unit_price"
                                    class=" form-control"
                                    name="purchase[linePurchases][__name__][unit_price]"
                                    required="required"/>
                 </div>
-                <div class="col-md-1">
-                    <label for="purchase_linePurchase___name___tax" class="required">TVA
-                    </label><input type="text" id="purchase_linePurchase___name___tax"
+                <div class="col-md-2">
+                    <label for="purchase_linePurchase___name___tax" class="required">TVA</label>
+                    <span class="required">*</span>
+                    <input type="text" id="purchase_linePurchase___name___tax"
                                    class=" form-control"
                                    name="purchase[linePurchases][__name__][tax]"
                                    required="required"/>
@@ -45,26 +49,24 @@
                 <div class="col-md-3">
                     <label for="purchase_linePurchase___name___production" class="required"> تاريخ الصنع</label><input
                             type="date" id="purchase_linePurchase___name___production" class=" form-control"
-                            name="purchase[linePurchases][__name__][production]" required="required"/>
+                            name="purchase[linePurchases][__name__][production]"/>
                 </div>
                 <div class="col-md-3">
                     <label for="purchase_linePurchase___name___validation" class="required"> تاريخ الانتهاء</label><input
                             type="date" id="purchase_linePurchase___name___validation" class=" form-control"
-                            name="purchase[linePurchases][__name__][validation]" required="required"/>
+                            name="purchase[linePurchases][__name__][validation]"/>
                 </div>
                 <div class="col-md-1">
                     <label for="purchase_linePurchase___name___technical_confirmity" class="required">م.فنيــة</label>
                     <input type="checkbox" id="purchase_linePurchase___name___technical_confirmity"
                            class=" form-control"
-                           name="purchase[linePurchases][__name__][technical_confirmity]"
-                           required="required"/>
+                           name="purchase[linePurchases][__name__][technical_confirmity]"/>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label for="purchase_linePurchase___name___remarque" class="required">ملاحظة
                     </label><input type="text" id="purchase_linePurchase___name___remarque"
                                    class=" form-control"
-                                   name="purchase[linePurchases][__name__][remarque]"
-                                   required="required"/>
+                                   name="purchase[linePurchases][__name__][remarque]"/>
                 </div>
 
                 <div class="col-md-1">
@@ -106,40 +108,49 @@
                                         <div class="row">
                                             <div class="well">
                                                 {#{{ form_row(form.date) }}#}
-                                                <div class="form-group">
+                                                {#<div class="form-group">
+
                                                     {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
                                                     <div class="col-sm-4">
                                                         {{ form_widget(form.date) }}
                                                         <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
                                                     </div>
-                                                </div>
-                                                {# Génération manuelle et éclatée : #}
+                                                </div>#}
                                                 <div class="form-group">
-                                                    {# Génération du label. #}
-                                                    {{ form_label(form.number, "Number of purchase"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    <div class="col-sm-6">
-                                                        {# Génération de l'input. #}
-                                                        {{ form_widget(form.number, {'attr': {'class': 'form-control'}}) }}
-                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        {{ form_widget(form.date,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of purchase"|trans }}
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(form.number,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                         <div class="invalid-feedback text-danger">{{ form_errors(form.number) }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    {# Génération du label. #}
-                                                    {{ form_label(form.supplier, "Supplier"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    <div class="col-sm-6">
-                                                        {# Génération de l'input. #}
-                                                        {{ form_widget(form.supplier, {'attr': {'class': 'form-control'}}) }}
-                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Supplier"|trans }}
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(form.supplier,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                         <div class="invalid-feedback text-danger">{{ form_errors(form.supplier) }}</div>
                                                     </div>
                                                 </div>
-                                                {# Idem pour un autre champ. #}
+
                                                 <div class="form-group">
-                                                    {{ form_label(form.employee, "Benificiary"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    <div class="col-sm-6">
-                                                        {{ form_widget(form.employee, {'attr': {'class': 'form-control'}}) }}
-                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Benificiary"|trans }}
+                                                        <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(form.employee,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                         <div class="invalid-feedback text-danger">{{ form_errors(form.employee) }}</div>
                                                     </div>
                                                 </div>

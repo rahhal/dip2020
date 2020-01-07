@@ -12,11 +12,12 @@ class LineInventoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('qty_th')
+           // ->add('qty_th')
             ->add('qty_inv')
-            ->add('difference')
+            //->add('difference')
             ->add('article')
            // ->add('inventory')
+         //  ->add('lineStock')
         ;
     }
 

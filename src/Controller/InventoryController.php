@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Inventory;
+use App\Entity\LineInventory;
+use App\Entity\LineStock;
 use App\Form\InventoryType;
 use App\Repository\InventoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +39,7 @@ class InventoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
+
         
             $entityManager->persist($inventory);
             $entityManager->flush();
@@ -56,15 +59,40 @@ class InventoryController extends AbstractController
      */
     public function show(Inventory $inventory): Response
     {
+        $lineStock= new LineStock();
+        foreach ($inventory->getLineInventories() as $lineInventory) {
+          //  $lineInventory->setQtyTh($lineInventory->getLineStock()->getQtyUpdate);
+           // $lineInventory->setInventory($Inventory);
+             // find Line Stock By Article:
+             $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+             $repositoryLineInventory = $this->getDoctrine()->getRepository(LineInventory::class);
+             $findLineStockByArticle = $repositoryLineStock->findOneBy(['article' => $lineStock->getLinePurchase()->getArticle()]);
+             $findLineInventoryByLineStock = $repositoryLineInventory->findOneBy(['line_stock' => $findLineStockByArticle]);
+
+
+        $QtyTh=$findLineInventoryByLineStock->setQtyTh($findLineStockByArticle->getQtyUpdate());
+// persist($lineStock);
+        }
+       /* foreach ($inventory->getLineInventories() as $lineInventory)
+
+        {  $id = $lineInventory->getId();}
+          $lineStock=$this->getDoctrine()
+            ->getRepository(LineStock::class)
+            ->findLineStockByLineInventory($id);
+           */
+
+     //  dump($inventory);die();
         return $this->render('inventory/show.html.twig', [
             'inventory' => $inventory,
+            'lineStocks' => $lineStock,
+            //'QtyTh' => $QtyTh,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="inventory_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Inventory $inventory): Response
+    public function edit(Request $request, Inventory $inventory, $id): Response
     {
         $form = $this->createForm(InventoryType::class, $inventory);
         $form->handleRequest($request);
@@ -74,10 +102,13 @@ class InventoryController extends AbstractController
 
             return $this->redirectToRoute('inventory_index');
         }
-
+        /*$lineStock=$this->getDoctrine()
+            ->getRepository(LineStock::class)
+            ->findLineStockByLineInventory($id);*/
         return $this->render('inventory/edit.html.twig', [
             'inventory' => $inventory,
             'form' => $form->createView(),
+          //  'lineStocks'=> $lineStock,
         ]);
     }
 

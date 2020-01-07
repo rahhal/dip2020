@@ -35,6 +35,7 @@
                                     <thead>
                                     <tr>
                                         <th>{{ "Date"|trans }}</th>
+                                        <th>{{ "Inv number"|trans }}</th>
                                         <th>{{ "Actions"|trans }}</th>
                                     </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                     {% for inventory in inventories %}
                                         <tr>
                                             <td>{{ inventory.date ? inventory.date|date('Y-m-d') : '' }}</td>
+                                            <td>{{ inventory.invNumber }}</td>
                                             <td>
                                                 <a href="{{ path('inventory_show', {'id': inventory.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
                                                 <a href="{{ path('inventory_edit', {'id': inventory.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>

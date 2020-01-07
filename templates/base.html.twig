@@ -22,6 +22,11 @@
             {{ message }}
         </div>
     {% endfor %}
+    {% block form_label %}
+        {% if required %}
+            <span class="required" title="Ce champ est obligatoire">*</span>
+        {% endif %}
+    {% endblock %}
 {% endblock %}
 
 {% block javascripts %}

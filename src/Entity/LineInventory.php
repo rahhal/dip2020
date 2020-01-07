@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,17 +21,8 @@ class LineInventory
     /**
      * @ORM\Column(type="integer")
      */
-    private $qty_th;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $qty_inv;
 
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $difference;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineInventories")
@@ -38,26 +31,21 @@ class LineInventory
     private $article;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Inventory", inversedBy="lineInventories")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Inventory", inversedBy="lineInventories",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $inventory;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LineStock", inversedBy="lineInventories")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $lineStock;
+
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getQtyTh(): ?int
-    {
-        return $this->qty_th;
-    }
-
-    public function setQtyTh(int $qty_th): self
-    {
-        $this->qty_th = $qty_th;
-
-        return $this;
     }
 
     public function getQtyInv(): ?int
@@ -68,18 +56,6 @@ class LineInventory
     public function setQtyInv(int $qty_inv): self
     {
         $this->qty_inv = $qty_inv;
-
-        return $this;
-    }
-
-    public function getDifference(): ?float
-    {
-        return $this->difference;
-    }
-
-    public function setDifference(float $difference): self
-    {
-        $this->difference = $difference;
 
         return $this;
     }
@@ -107,4 +83,30 @@ class LineInventory
 
         return $this;
     }
+
+    public function getLineStock(): ?LineStock
+    {
+        return $this->lineStock;
+    }
+
+    public function setLineStock(?LineStock $lineStock): self
+    {
+        $this->lineStock = $lineStock;
+
+        return $this;
+    }
+
+
+    /*public function getQtyTh(): ?int
+    {
+        return $this->qty_th;
+    }
+
+
+    public function setQtyTh(int $qty_th): self
+    {
+        $this->qty_th = $qty_th;
+
+        return $this;
+    }*/
 }

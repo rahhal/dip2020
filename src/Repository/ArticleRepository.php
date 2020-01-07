@@ -80,4 +80,11 @@ class ArticleRepository extends ServiceEntityRepository
             // ->getOneOrNullResult();
             ->getResult();
     }
+    public function search($searchParam) {
+        extract($searchParam);
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.category','cat')
+            ->addSelect('cat');
+        return $qb->getQuery();
+    }
 }

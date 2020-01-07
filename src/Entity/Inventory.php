@@ -24,9 +24,14 @@ class Inventory
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="inventory")
+     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="inventory", cascade={"persist"}, orphanRemoval=true)
      */
     private $lineInventories;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $inv_number;
 
     public function __construct()
     {
@@ -84,5 +89,17 @@ class Inventory
     public function __toString()
     {
         return "";
+    }
+
+    public function getInvNumber(): ?string
+    {
+        return $this->inv_number;
+    }
+
+    public function setInvNumber(?string $inv_number): self
+    {
+        $this->inv_number = $inv_number;
+
+        return $this;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\LineInventory;
+use App\Entity\LineStock;
 use App\Form\LineInventoryType;
 use App\Repository\LineInventoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,16 +32,45 @@ class LineInventoryController extends AbstractController
     public function new(Request $request, $id): Response
     {  $entityManager = $this->getDoctrine()->getManager();
         $lineInventory = new LineInventory();
+        $lineStock = new LineStock();
+
         $inventory=$entityManager->getRepository('App:Inventory')->find($id);
+      //  $lineStock=$entityManager->getRepository('LineStock')->find($id);
+
+        /*$qtyTh = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository(LineStock::class)
+            ->getQtyUpdate();*/
+
 
         $form = $this->createForm(LineInventoryType::class, $lineInventory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /*$lineStock=new LineStock();
+            foreach ($inventory->getLineInventories() as $lineInventory) {
+                //  $lineInventory->setQtyTh($lineInventory->getLineStock()->getQtyUpdate);
+                // $lineInventory->setInventory($Inventory);
+                // find Line Stock By Article:
+                $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+                $repositoryLineInventory = $this->getDoctrine()->getRepository(LineInventory::class);
+                $findLineStockByArticle = $repositoryLineStock->findOneBy(['article' => $lineStock->getLinePurchase()->getArticle()]);
+                $findLineInventoryByLineStock = $repositoryLineInventory->findOneBy(['line_stock' => $findLineStockByArticle]);
+
+
+                $findLineInventoryByLineStock->setQtyTh($findLineStockByArticle->getQtyUpdate());
+
+            }*/
+//            foreach ($lineInventory->getLineStock() as $lineStock) {
+                /*$lineInventory->setQtyTh($lineStock->getQtyUpdate());
+                $entityManager->persist($lineStock);*/
+
+
+
+
             $lineInventory->setInventory($inventory);
-
-
-
 
 
             $entityManager->persist($lineInventory);
@@ -48,9 +78,12 @@ class LineInventoryController extends AbstractController
 
             return $this->redirectToRoute('inventory_show',array('id'=>$inventory->getId()));
         }
-
+       /* $lineStock=$this->getDoctrine()
+            ->getRepository(LineStock::class)
+            ->findLineStockByLineInventory($id);*/
         return $this->render('line_inventory/new.html.twig', [
             'line_inventory' => $lineInventory,
+            //'lineStocks'=> $lineStock,
             'form' => $form->createView(),
         ]);
     }
@@ -77,6 +110,7 @@ class LineInventoryController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('line_inventory_index');
+            //return $this->redirectToRoute('inventory_show',array('id'=>$inventory->getId()));
         }
 
         return $this->render('line_inventory/edit.html.twig', [

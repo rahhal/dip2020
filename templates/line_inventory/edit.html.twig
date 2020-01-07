@@ -37,16 +37,16 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                {#<div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Qty_th"|trans }}
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.qty_th,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.qty_th) }}</div>
                                     </div>
-                                </div>
+                                </div>#}
 
-                                <div class="form-group">
+                                {#<div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Difference"|trans }}
                                         <span class="required">*</span>
                                     </label>
@@ -54,14 +54,14 @@
                                         {{ form_widget(form.difference,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.difference) }}</div>
                                     </div>
-                                </div>
+                                </div>#}
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
                                         {{ include('line_inventory/_form.html.twig') }}
 
-                                        <a href="{{ path('line_inventory_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
+                                        <a href="{{ path('inventory_show', {'id': line_inventory.inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
                                     </div>
                                 </div>
 

@@ -152,10 +152,9 @@ class NbMeal
         return $this;
     }
     public function __toString()
-    {     //  return (string)(std_granted);
-        return  " ";
-        /*$s=$this->std_resident + $this->std_semiResident + $this->std_granted + $this->professor + $this->curators + $this->employee;
-       return  $this->strval($s);*/
+    {
+	    $calc = $this->std_resident + $this->std_granted + $this->std_semiResident + $this->professor + $this->employee + $this->curators;
+        return  (string)$calc;
     }
 
     /**
@@ -188,4 +187,5 @@ class NbMeal
 
         return $this;
     }
+
 }

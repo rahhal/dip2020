@@ -579,7 +579,7 @@
           <source> Number of meals</source>
           <target> عدد الوجبات </target>
       </trans-unit>
-    <trans-unit id=" Total costs " resname="Total costs">
+    <trans-unit id="Total costs" resname="Total costs">
               <source> Total costs</source>
               <target> جملة التكاليف </target>
     </trans-unit>
@@ -785,6 +785,14 @@
                  <source>print purchase</source>
                  <target>طباعة وصل دخول</target>
           </trans-unit>
+           <trans-unit id="Inv number" resname="Inv number">
+                  <source>Inv number</source>
+                  <target>رقم الجرد</target>
+           </trans-unit>
+           <trans-unit id="Edit line purchase" resname="Edit line purchase">
+                 <source>Edit line purchase</source>
+                 <target>تغيير معطيات المُشتَرى</target>
+           </trans-unit>
     </body>
   </file>
 </xliff>

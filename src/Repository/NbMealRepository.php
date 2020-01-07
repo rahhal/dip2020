@@ -67,4 +67,11 @@ class NbMealRepository extends ServiceEntityRepository
         ->getOneOrNullResult()
         ;
     }
+
+    public function findByCurrentDate()
+    {
+    	return $this
+		    ->createQueryBuilder('n')
+		    ->andWhere('n.date = :date')->setParameter('date', '2020-01-04');
+    }
 }

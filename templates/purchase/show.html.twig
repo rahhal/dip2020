@@ -1,3 +1,4 @@
+{#
 
 {% extends 'base.html.twig' %}
 
@@ -72,5 +73,144 @@
             </div>
             {% include('layouts/footer.html.twig') %}
         </div>
+    </div>
+{% endblock %}
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Details of purchases N°"|trans }}{{ purchase.number }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>{{ "Date"|trans }}</th>
+                                        <td>{{ purchase.date ? purchase.date|date('Y-m-d ') : '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Number of purchase"|trans }}</th>
+                                        <td>{{ purchase.number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Supplier"|trans }}</th>
+                                        <td>{{ purchase.supplier }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Benificiary"|trans }}</th>
+                                        <td>{{ purchase.employee }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Total price"|trans }}</th>
+                                        <td>{{ purchase.totalPrice }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="form-group col-lg-12">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <form method="post" action="{{ path('purchase_delete', {'id': purchase.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ purchase.id) }}">
+                                            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
+                                            <a href="{{ path('modifier-purchase', {'id': purchase.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                            <a href="{{ path('purchase_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <p class="text-muted font-13 m-b-30">
+                                    {#<a href="{{ path('purchase_index') }}" class="btn btn-success"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "retour"|trans }}</a>#}
+                                </p>
+                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ "Article"|trans }}</th>
+                                        <th>{{ "Quantity required"|trans }}</th>
+                                        <th>{{ "Quantity delivred"|trans }}</th>
+                                        {#<th>{{ "Unit"|trans }}</th>#}
+                                        <th>{{ "Unit price"|trans }}</th>
+                                        <th>{{ "Tax"|trans }}</th>
+                                        <th>{{ "Total price"|trans }}</th>
+                                        <th>{{ "Prod date"|trans }}</th>
+                                        <th>{{ "Valid date"|trans }}</th>
+                                        <th>{{ "Technical confirmity"|trans }}</th>
+                                        <th>{{ "Remarque"|trans }}</th>
+                                        <td></td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for linePurchase in purchase.linePurchases %}
+                                        <tr>
+                                            <td>{{ linePurchase.article }}</td>
+                                            <td>{{ linePurchase.quantityRequired }}</td>
+                                            <td>{{ linePurchase.quantityDelivred }}</td>
+                                            {#<td>{{ linePurchase.unit }}</td>#}
+                                            <td>{{ linePurchase.unitPrice }}</td>
+                                            <td>{{ linePurchase.tax }}</td>
+                                            <td>{{ linePurchase.TotalPrice }}</td>
+                                            <td>{{ linePurchase.production ? linePurchase.production|date('Y-m-d ') : '' }}</td>
+                                            <td>{{ linePurchase.validation ? linePurchase.validation|date('Y-m-d ') : '' }}</td>
+                                            <td>{{ linePurchase.technicalConfirmity }}</td>
+                                            <td>{{ linePurchase.remarque }}</td>
+
+                                            <td>
+                                            {#<a href="{{ path('line_purchase_show', {'id': line_purchase.id}) }}" class="btn btn-success">show</a>#}
+                                            <a href="{{ path('line_purchase_edit', {'id': linePurchase.id}) }}" class="btn btn-primary">
+                                                <i class="fa fa-edit" style="margin-left: 2rem"></i>
+                                                {#{{ "edit"|trans }}#}
+                                            </a>
+
+                                        </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr class="text-center">
+                                            <td colspan="10">{{ "no records found"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% include('layouts/footer.html.twig') %}
+    </div>
     </div>
 {% endblock %}

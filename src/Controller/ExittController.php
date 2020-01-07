@@ -76,7 +76,7 @@ class ExittController extends AbstractController
 
                 /* ----calcul du prix total de chaque line_exitt----*/
                 foreach ($exitt->getLineExitts() as $lineExitt) {
-//                      $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+                    // $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
                       $lineExitt->setExitt($exitt);
 
 	                // find Line Purchase By Article: mise à jour du stock

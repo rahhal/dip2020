@@ -84,14 +84,11 @@ class PurchaseController extends AbstractController
 			            $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
 			            //$new_quantity = $linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty();
                         $new_quantity = $linePurchase->getQuantityDelivred();
-                        $findLineStockByLinePurchase->setQtyUpdate($old_quantity+ $new_quantity);
+                       // $unit_price = $linePurchase->getUnitPrice();
+                        $findLineStockByLinePurchase->setQtyUpdate($old_quantity + $new_quantity);
                         $findLineStockByLinePurchase->setOldQty($old_quantity);
+                       // $findLineStockByLinePurchase->setUnitPrice($unit_price);
 
-                       /* $findLineStockByLinePurchase ->setDate(new \DateTime('now'));
-                        $findLineStockByLinePurchase->setProdDate(new \DateTime('now'));
-                        $findLineStockByLinePurchase->setValidDate(new \DateTime('now'));
-                        $findLineStockByLinePurchase->setReference($linePurchase->getArticle()->getReferenceStock());
-                        $findLineStockByLinePurchase->setStock($stock);*/
 			            $em->flush();
 		            } else {
 		            	$lineStock = new LineStock();
