@@ -1,0 +1,116 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Details of demand"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr>
+                                        <th>{{ "Date"|trans }}</th>
+                                        <td>{{ demand.date ? demand.date|date('Y-m-d ') : '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Supplier"|trans }}</th>
+                                        <td>{{ demand.supplier }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Tranche"|trans }}</th>
+                                        <td>{{ demand.tranche }}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <div class="form-group col-lg-12">
+                                    <div class="ln_solid"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <form method="post" action="{{ path('demand_delete', {'id': demand.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ demand.id) }}">
+                                            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
+                                            <a href="{{ path('demand_edit', {'id': demand.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                            <a href="{{ path('demand_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-forward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <p class="text-muted font-13 m-b-30">
+                                    {#<a href="{{ path('purchase_index') }}" class="btn btn-success"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "retour"|trans }}</a>#}
+                                    <a href="{{ path('line_demand_new',{'id': demand.id}) }}" class="btn btn-success left"><i class="fa fa-plus-square"></i> {{"Create new line demand"|trans}}</a>
+
+                                </p>
+                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ "Article"|trans }}</th>
+                                        <th>{{ "Quantity"|trans }}</th>
+                                        <th>{{ "Remarque"|trans }}</th>
+                                        <td></td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for lineDemand in demand.lineDemands %}
+                                        <tr>
+                                            <td>{{ lineDemand.article }}</td>
+                                            <td>{{ lineDemand.quantity }}</td>
+                                            <td>{{ lineDemand.remarque }}</td>
+
+                                            <td>
+                                                {#<a href="{{ path('line_purchase_show', {'id': line_purchase.id}) }}" class="btn btn-success">show</a>#}
+                                                <a href="{{ path('line_demand_edit', {'id': lineDemand.id}) }}" class="btn btn-primary">
+                                                    <i class="fa fa-edit" style="margin-left: 2rem"></i>
+                                                    {#{{ "edit"|trans }}#}
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr class="text-center">
+                                            <td colspan="10">{{ "no records found"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% include('layouts/footer.html.twig') %}
+    </div>
+    </div>
+{% endblock %}

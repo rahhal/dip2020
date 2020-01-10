@@ -15,7 +15,7 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "List of request supplied"|trans }}</h3>
+                        <h3>{{ "List of demand"|trans }}</h3>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
 
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
-                                    <a href="{{ path('ajout-request_supplied') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
+                                    <a href="{{ path('demand_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
                                 </p>
                                 <table id="datatable" class="table table-striped table-bordered">
                                     <thead>
@@ -40,20 +40,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for requestSupplied in requestSupplieds %}
+                                    {% for demand in demands %}
                                         <tr>
-                                            <td>{{ requestSupplied.date ? requestSupplied.date|date('Y-m-d  h:m') : '' }}</td>
-                                            <td>{{ requestSupplied.supplier }}</td>
-                                            <td>{{ requestSupplied.tranche }}</td>
+                                            <td>{{ demand.date ? demand.date|date('Y-m-d') : '' }}</td>
+                                            <td>{{ demand.supplier }}</td>
+                                            <td>{{ demand.tranche }}</td>
 
 
                                             <td>
-                                                <a href="#" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
+                                                <a href="{{ path('demand_show', {'id': demand.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
                                                 <a href="#" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>
-                                               {# <a href="{{ path('request_supplied_show', {'id': requestSupplied.id}) }}" class="btn btn-success">{{ "show"|trans }}</a>
-                                                <a href="{{ path('modifier-request_supplied', {'id': requestSupplied.id}) }}" class="btn btn-warning">{{ "edit"|trans }}</a>#}
-                                                <a href="{{ path('lineRequestSupplied_detail', {'id': requestSupplied.id}) }}" class="btn btn-info" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>
-                                                <a href="{{ path('print_pdf', {'id': requestSupplied.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }}</a>
+                                                {#<a href="{{ path('demand_show', {'id': demand.id}) }}" class="btn btn-success">{{ "show"|trans }}</a>#}
+                                                {# <a href="{{ path('modifier-demand', {'id': demand.id}) }}" class="btn btn-warning">{{ "edit"|trans }}</a>#}
+                                                {#<a href="{{ path('demand_detail', {'id': demand.id}) }}" class="btn btn-info" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>#}
+                                                {# <a href="{{ path('print_pdf', {'id': demand.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }}</a> #}
                                             </td>
                                         </tr>
                                     {% else %}

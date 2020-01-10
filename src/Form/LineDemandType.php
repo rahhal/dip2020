@@ -2,40 +2,36 @@
 
 namespace App\Form;
 
+use App\Entity\LineDemand;
+use App\Entity\Demand;
 use App\Entity\Article;
-use App\Entity\LineRequestSupplied;
-use App\Entity\RequestSupplied;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LineRequestSuppliedType extends AbstractType
+class LineDemandType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
             ->add('article', EntityType::class, [
                 'class' => Article::class,
                 'multiple' => false
             ])
-            ->add('requestSupplied', EntityType::class, [
-                'class' => RequestSupplied::class,
+           /* ->add('demand', EntityType::class, [
+                'class' => Demand::class,
                 'multiple' => false
-            ])
+            ])*/
             ->add('quantity')
-            ->add('remarque',TextType::class)
-
+            ->add('remarque')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => LineRequestSupplied::class,
+            'data_class' => LineDemand::class,
         ]);
     }
 }

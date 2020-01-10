@@ -59,14 +59,16 @@ class Supplier
     private $purchases;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\RequestSupplied", mappedBy="supplier", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Demand", mappedBy="supplier")
      */
-    private $requestSupplieds;
+    private $demands;
+
+
 
     public function __construct()
     {
         $this->purchases = new ArrayCollection();
-        $this->requestSupplieds = new ArrayCollection();
+        $this->demands = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -182,30 +184,30 @@ class Supplier
     }
 
     /**
-     * @return Collection|RequestSupplied[]
+     * @return Collection|Demand[]
      */
-    public function getRequestSupplieds(): Collection
+    public function getDemands(): Collection
     {
-        return $this->requestSupplieds;
+        return $this->demands;
     }
 
-    public function addRequestSupplied(RequestSupplied $requestSupplied): self
+    public function addDemand(Demand $demand): self
     {
-        if (!$this->requestSupplieds->contains($requestSupplied)) {
-            $this->requestSupplieds[] = $requestSupplied;
-            $requestSupplied->setSupplier($this);
+        if (!$this->demands->contains($demand)) {
+            $this->demands[] = $demand;
+            $demand->setSupplier($this);
         }
 
         return $this;
     }
 
-    public function removeRequestSupplied(RequestSupplied $requestSupplied): self
+    public function removeDemand(Demand $demand): self
     {
-        if ($this->requestSupplieds->contains($requestSupplied)) {
-            $this->requestSupplieds->removeElement($requestSupplied);
+        if ($this->demands->contains($demand)) {
+            $this->demands->removeElement($demand);
             // set the owning side to null (unless already changed)
-            if ($requestSupplied->getSupplier() === $this) {
-                $requestSupplied->setSupplier(null);
+            if ($demand->getSupplier() === $this) {
+                $demand->setSupplier(null);
             }
         }
 

@@ -454,12 +454,12 @@
            <source>Quantity delivred</source>
            <target>الكمية المسلمة</target>
       </trans-unit>
-      <trans-unit id="List of request supplied" resname="List of request supplied">
-                 <source>List of request supplied</source>
+      <trans-unit id="List of demand" resname="List of demand">
+                 <source>List of demand</source>
                  <target>قائمة في طلبات التزود</target>
       </trans-unit>
-      <trans-unit id="Request supplied" resname="Request supplied">
-                       <source>Request supplied</source>
+      <trans-unit id="demand" resname="demand">
+                       <source>demand</source>
                        <target> طلب تزود</target>
             </trans-unit>
        <trans-unit id="Tranche" resname="Tranche">
@@ -470,18 +470,19 @@
                      <source>Remarque</source>
                       <target> ملاحظة</target>
        </trans-unit>
-     <trans-unit id="Details of request supplied" resname="Details of request supplied">
-           <source>Details of request supplied</source>
+     <trans-unit id="Details of demand" resname="Details of demand">
+           <source>Details of demand</source>
             <target> تفاصيل طلب التزود</target>
       </trans-unit>
       <trans-unit id="retour" resname="retour">
             <source>retour</source>
             <target> رجوع</target>
       </trans-unit>
-      <trans-unit id="Create new request supplied" resname="Create new request supplied">
-                  <source>Create new request supplied</source>
-                  <target> اضافة طلب تزوّد</target>
-       </trans-unit>
+
+       <trans-unit id="Create new line demand" resname="Create new line demand">
+                         <source>Create new line demand</source>
+                         <target> اضافة مواد للتزوّد</target>
+              </trans-unit>
         <trans-unit id="Create new purchases" resname="Create new purchases">
                          <source>Create new purchases</source>
                          <target> اضافة مشتريات</target>
@@ -792,6 +793,10 @@
            <trans-unit id="Edit line purchase" resname="Edit line purchase">
                  <source>Edit line purchase</source>
                  <target>تغيير معطيات المُشتَرى</target>
+           </trans-unit>
+           <trans-unit id="Create new demand" resname="Create new demand">
+                    <source>Create new demand</source>
+                     <target> اضافة طلب تزوّد  </target>
            </trans-unit>
     </body>
   </file>

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineDemand{% endblock %}
+
+{% block body %}
+    <h1>LineDemand</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ line_demand.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ line_demand.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Remarque</th>
+                <td>{{ line_demand.remarque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_demand_index') }}">back to list</a>
+
+    <a href="{{ path('line_demand_edit', {'id': line_demand.id}) }}">edit</a>
+
+    {{ include('line_demand/_delete_form.html.twig') }}
+{% endblock %}

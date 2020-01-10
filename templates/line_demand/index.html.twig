@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LineDemand index{% endblock %}
+
+{% block body %}
+    <h1>LineDemand index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantity</th>
+                <th>Remarque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for line_demand in line_demands %}
+            <tr>
+                <td>{{ line_demand.id }}</td>
+                <td>{{ line_demand.quantity }}</td>
+                <td>{{ line_demand.remarque }}</td>
+                <td>
+                    <a href="{{ path('line_demand_show', {'id': line_demand.id}) }}">show</a>
+                    <a href="{{ path('line_demand_edit', {'id': line_demand.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('line_demand_new') }}">Create new</a>
+{% endblock %}

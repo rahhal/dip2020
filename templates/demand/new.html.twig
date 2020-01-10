@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ app.user.email|upper }} {% endblock %}
@@ -14,51 +15,57 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "create new Line request supplied" |trans }}</h3>
+                        <h3>{{ "Create new demand"|trans }}</h3>
                     </div>
                 </div>
+
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_content row">
+                            <div class="x_content">
                                 <br/>
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
 
-                                <div class="form-group col-lg-6">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Article" |trans }}
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
                                         <span class="required">*</span>
                                     </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.article,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Quantity" |trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.quantity,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    <div class=" col-md-4 col-sm-4 col-xs-6">
+                                        {{ form_widget(form.date,{'attr': {'class':'js-datepicker '} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+
                                     </div>
                                 </div>
 
-                                <div class="form-group col-lg-6">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Remarque" |trans }}
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Tranche"|trans }}
                                         <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.remarque,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        {{ form_widget(form.tranche,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.tranche) }}</div>
                                     </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reference_stock">{{ "Supplier"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.supplier,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                    <div class="invalid-feedback text-danger">{{ form_errors(form.supplier) }}</div>
+
                                 </div>
 
                                 <div class="form-group col-lg-12">
                                     <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
-                                        <a href="{{ path('line_requestSupplied_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                        <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
+                                        <a href="{{ path('demand_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                     </div>
                                 </div>
-
                                 {{ form_end(form) }}
 
                             </div>
@@ -69,19 +76,6 @@
             {% include('layouts/footer.html.twig') %}
         </div>
     </div>
-    <div id="lock_screen">
-        <table>
-            <tr>
-                <td>
-                    <div class="clock"></div>
-                    <span class="unlock">
-                    <span class="fa-stack fa-5x">
-                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
-                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                </span>
-                </td>
-            </tr>
-        </table>
-    </div>
 {% endblock %}
+
+

@@ -107,9 +107,7 @@ class LinePurchaseController extends AbstractController
      * @Route("/{id}/edit", name="line_purchase_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, LinePurchase $linePurchase): Response
-    {   // $linePurchase = new LinePurchase();
-         $entityManager = $this->getDoctrine()->getManager();
-        // $purchase=$entityManager->getRepository('App:Purchase')->find($id);
+    {         $entityManager = $this->getDoctrine()->getManager();
 
         $form = $this->createForm(LinePurchaseType::class, $linePurchase);
         $form->handleRequest($request);
@@ -117,8 +115,6 @@ class LinePurchaseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-           /* $linePurchase->setPurchase($purchase);
-            $entityManager->persist($linePurchase);*/
             $id= $linePurchase->getPurchase()->getId();
             return $this->redirectToRoute('purchase_show',array('id'=>$id));
 

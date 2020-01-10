@@ -15,65 +15,59 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "Introducing the members of the committee"|trans }}</h3>
+                        <h3>{{ "Create new line demand"|trans }}</h3>
                     </div>
                 </div>
+
                 <div class="clearfix"></div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
                                 <br/>
-
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Article name"|trans }}
                                         <span class="required">*</span>
                                     </label>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        {{ form_widget(form.date) }}
-                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+                                    <div class=" col-md-4 col-sm-4 col-xs-6">
+                                        {{ form_widget(form.article,{'attr': {'class':'js-datepicker '} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.article) }}</div>
 
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Fullname"|trans }}
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Quantity"|trans }}
                                         <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.employee,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                        <div class="invalid-feedback text-danger">{{ form_errors(form.employee) }}</div>
-
+                                        {{ form_widget(form.quantity,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.quantity) }}</div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Activity"|trans }}
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Remarque"|trans }}
                                         <span class="required">*</span>
                                     </label>
-                                    {#<div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select id="" class="form-control col-md-7 col-xs-12" name="">
-                                        {% for employee in employees %}
-                                            <option value="{{ employee.activity }}">{{ employee.activity }}</option>
-                                         {% endfor %}
-                                        </select>
-                                    </div>#}
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select id="" class="form-control col-md-7 col-xs-12" name="">
-                                            {% for employee in employees %}
-                                                {{ employee.activity }}
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_widget(form.remarque,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                     </div>
+                                    <div class="invalid-feedback text-danger">{{ form_errors(form.remarque) }}</div>
+
                                 </div>
 
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
+                                <div class="form-group col-lg-12">
+                                    <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                         <button type="submit" class="btn btn-primary"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
-                                        <a href="{{ path('commission_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                        {#<a href="{{ path('demand_show',{'id': line_demand.demand.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>#}
                                     </div>
                                 </div>
                                 {{ form_end(form) }}
+
                             </div>
                         </div>
                     </div>
@@ -83,4 +77,5 @@
         </div>
     </div>
 {% endblock %}
+
 

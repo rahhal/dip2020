@@ -3,15 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use Symfony\Component\Form\FormTypeInterface;
-use Symfony\Component\Validator\Constraints as Assert;
-
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\LineRequestSuppliedRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\LineDemandRepository")
  */
-class LineRequestSupplied
+class LineDemand
 {
     /**
      * @ORM\Id()
@@ -26,20 +22,21 @@ class LineRequestSupplied
     private $quantity;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
     private $remarque;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineRequestSupplieds", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineDemands")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $article;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\RequestSupplied", inversedBy="lineRequestSupplieds")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Demand", inversedBy="lineDemands")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $requestSupplied;
+    private $demand;
 
     public function getId(): ?int
     {
@@ -82,14 +79,14 @@ class LineRequestSupplied
         return $this;
     }
 
-    public function getRequestSupplied(): ?RequestSupplied
+    public function getDemand(): ?Demand
     {
-        return $this->requestSupplied;
+        return $this->demand;
     }
 
-    public function setRequestSupplied(?RequestSupplied $requestSupplied): self
+    public function setDemand(?Demand $demand): self
     {
-        $this->requestSupplied = $requestSupplied;
+        $this->demand = $demand;
 
         return $this;
     }

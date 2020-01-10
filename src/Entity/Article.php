@@ -54,10 +54,6 @@ class Article
      */
     private $reference_stock;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineRequestSupplied", mappedBy="article")
-     */
-    private $lineRequestSupplieds;
 
     /**
      * @ORM\Column(type="integer")
@@ -79,14 +75,19 @@ class Article
      */
     private $lineInventories;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\LineDemand", mappedBy="article")
+     */
+    private $lineDemands;
+
 
 
     public function __construct()
     {
         $this->linePurchases = new ArrayCollection();
-        $this->lineRequestSupplieds = new ArrayCollection();
         $this->lineExitts = new ArrayCollection();
         $this->lineInventories = new ArrayCollection();
+        $this->lineDemands = new ArrayCollection();
     }
 
 
@@ -208,38 +209,6 @@ class Article
         return $this;
     }
 
-
-    /**
-     * @return Collection|LineRequestSupplied[]
-     */
-    public function getLineRequestSupplieds(): Collection
-    {
-        return $this->lineRequestSupplieds;
-    }
-
-    public function addLineRequestSupplied(LineRequestSupplied $lineRequestSupplied): self
-    {
-        if (!$this->lineRequestSupplieds->contains($lineRequestSupplied)) {
-            $this->lineRequestSupplieds[] = $lineRequestSupplied;
-            $lineRequestSupplied->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLineRequestSupplied(LineRequestSupplied $lineRequestSupplied): self
-    {
-        if ($this->lineRequestSupplieds->contains($lineRequestSupplied)) {
-            $this->lineRequestSupplieds->removeElement($lineRequestSupplied);
-            // set the owning side to null (unless already changed)
-            if ($lineRequestSupplied->getArticle() === $this) {
-                $lineRequestSupplied->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getIniQty(): ?int
     {
         return $this->ini_qty;
@@ -306,6 +275,37 @@ class Article
             // set the owning side to null (unless already changed)
             if ($lineInventory->getArticle() === $this) {
                 $lineInventory->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LineDemand[]
+     */
+    public function getLineDemands(): Collection
+    {
+        return $this->lineDemands;
+    }
+
+    public function addLineDemand(LineDemand $lineDemand): self
+    {
+        if (!$this->lineDemands->contains($lineDemand)) {
+            $this->lineDemands[] = $lineDemand;
+            $lineDemand->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLineDemand(LineDemand $lineDemand): self
+    {
+        if ($this->lineDemands->contains($lineDemand)) {
+            $this->lineDemands->removeElement($lineDemand);
+            // set the owning side to null (unless already changed)
+            if ($lineDemand->getArticle() === $this) {
+                $lineDemand->setArticle(null);
             }
         }
 
