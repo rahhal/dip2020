@@ -58,5 +58,43 @@ class ExittRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findByCurrentDate()
+    {
+        return $this
+            ->createQueryBuilder('e')
+            ->andWhere('e.date = :date')
+            ->setParameter('date', new \Datetime(date('d-m-Y')))
+        ;
+    }
+
+    public function myFindByCurrentDate()
+    {
+        return $this
+            ->createQueryBuilder('e')
+            ->andWhere('e.date = :date')
+            ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->getQuery()
+            //->getOneOrNullResult()
+            ->getResult();
+    }
+
+    public function checkOneExitByDate()
+    {
+	    $current_date = new \DateTime();
+	    $current_date_format = $current_date->format('Y-m-d');
+
+	    $query = $this
+		    ->createQueryBuilder('e')
+		    ->andWhere('e.date = :date')
+		    ->setParameter('date', $current_date_format)
+		    ->getQuery()
+		    ->getResult();
+
+	    if (!empty($query)) {
+	    	return true;
+	    }
+
+	    return false;
+    }
 
 }

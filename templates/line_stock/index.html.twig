@@ -36,6 +36,8 @@
                                     <thead>
                                         <tr>
                                             <th>{{ "Date"|trans }}</th>
+                                            <th>{{ "Category"|trans }}</th>
+
                                             <th>{{ "Article in stock"|trans }}</th>
                                             <th>{{ "Reference stock"|trans }}</th>
                                             <th>{{ "Prod date"|trans }}</th>
@@ -43,7 +45,7 @@
                                             <th>{{ "Old quantity"|trans }}</th>
                                             <th>{{ "Update quantity"|trans }}</th>
                                             <th>{{ "Quantity alerte"|trans }}</th>
-                                            {#<th>{{ "Unit price"|trans }}</th>#}
+                                            <th>{{ "Unit price"|trans }}</th>
                                             {#<th>{{ "Total price"|trans }}</th>#}
                                             {#<th>{{ "Actions"|trans }}</th>#}
                                         </tr>
@@ -52,16 +54,21 @@
                                    {% for line_stock in line_stocks %}
                                        <tr>
                                            <td>{{ line_stock.date ? line_stock.date|date('Y-m-d') : ''  }}</td>
+                                           <td>{{ line_stock.linePurchase.article.category }}</td>
 
                                                <td>{{ line_stock.linePurchase.article }}</td>
                                                <td>{{ line_stock.linePurchase.article.referenceStock }}</td>
 
-                                           <td>{{ line_stock.linePurchase.production ? line_stock.linePurchase.production|date('Y-m-d') : ''  }}</td>
-                                           <td>{{ line_stock.linePurchase.validation ? line_stock.linePurchase.validation|date('Y-m-d') : ''  }}</td>
+                                           {#<td>{{ line_stock.linePurchase.production ? line_stock.linePurchase.production|date('Y-m-d') : ''  }}</td>
+                                           <td>{{ line_stock.linePurchase.validation ? line_stock.linePurchase.validation|date('Y-m-d') : ''  }}</td>#}
+                                           <td>{{ line_stock.prodDate ? line_stock.prodDate|date('Y-m-d') : ''  }}</td>
+                                           <td>{{ line_stock.validDate ? line_stock.validDate|date('Y-m-d') : ''  }}</td>
+
                                            <td>{{ line_stock.oldQty }}</td>
                                            <td>{{ line_stock.qtyUpdate }}</td>
                                            <td>{{ line_stock.quantityAlerte }}</td>
-                                           {#<td>{{ line_stock.unitPrice }}</td>#}
+{#                                           <td>{{ line_stock.linePurchase.unitPrice }}</td>#}
+                                           <td>{{ line_stock.unitPrice }}</td>
 
                                            {#<td></td>#}
 

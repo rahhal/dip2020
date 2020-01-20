@@ -60,31 +60,32 @@ class InventoryController extends AbstractController
     public function show(Inventory $inventory): Response
     {
         $lineStock= new LineStock();
-        foreach ($inventory->getLineInventories() as $lineInventory) {
+      //  foreach ($inventory->getLineInventories() as $lineInventory) {
+
           //  $lineInventory->setQtyTh($lineInventory->getLineStock()->getQtyUpdate);
-           // $lineInventory->setInventory($Inventory);
+         //  $lineInventory->setInventory($Inventory);
              // find Line Stock By Article:
-             $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
-             $repositoryLineInventory = $this->getDoctrine()->getRepository(LineInventory::class);
-             $findLineStockByArticle = $repositoryLineStock->findOneBy(['article' => $lineStock->getLinePurchase()->getArticle()]);
-             $findLineInventoryByLineStock = $repositoryLineInventory->findOneBy(['line_stock' => $findLineStockByArticle]);
+            //   $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+            //  $repositoryLineInventory = $this->getDoctrine()->getRepository(LineInventory::class);
+            //  $findLineStockByArticle = $repositoryLineStock->findOneBy(['article' => $lineStock->getLinePurchase()->getArticle()]);
+            //  $findLineInventoryByLineStock = $repositoryLineInventory->findOneBy(['line_stock' => $findLineStockByArticle]); 
 
 
-        $QtyTh=$findLineInventoryByLineStock->setQtyTh($findLineStockByArticle->getQtyUpdate());
+       // $QtyTh=$findLineInventoryByLineStock->setQtyTh($findLineStockByArticle->getQtyUpdate());
 // persist($lineStock);
-        }
-       /* foreach ($inventory->getLineInventories() as $lineInventory)
+      //  }
+        // foreach ($inventory->getLineInventories() as $lineInventory)
 
-        {  $id = $lineInventory->getId();}
-          $lineStock=$this->getDoctrine()
-            ->getRepository(LineStock::class)
-            ->findLineStockByLineInventory($id);
-           */
+        // {  $id = $lineInventory->getId();}
+        //   $lineStock=$this->getDoctrine()
+        //     ->getRepository(LineStock::class)
+        //     ->findLineStockByLineInventory($id);
+           
 
      //  dump($inventory);die();
         return $this->render('inventory/show.html.twig', [
             'inventory' => $inventory,
-            'lineStocks' => $lineStock,
+            // 'lineStocks' => $lineStock,
             //'QtyTh' => $QtyTh,
         ]);
     }

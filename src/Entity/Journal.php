@@ -23,13 +23,10 @@ class Journal
      */
     private $date;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $total_meals;
+
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=15, scale=3)
      */
     private $unit_cost;
 
@@ -38,12 +35,6 @@ class Journal
      */
     private $remarque;
 
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Menu", inversedBy="journals")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $menu;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Exitt", inversedBy="journals")
@@ -61,6 +52,12 @@ class Journal
      * @ORM\Column(type="decimal", precision=15, scale=3)
      */
     private $totalCosts;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $totalMeals;
+
 
 
     public function getId(): ?int
@@ -80,25 +77,14 @@ class Journal
         return $this;
     }
 
-    public function getTotalMeals(): ?int
-    {
-        return $this->total_meals;
-    }
-
-    public function setTotalMeals(int $total_meals): self
-    {
-        $this->total_meals = $total_meals;
-
-        return $this;
-    }
 
 
-    public function getUnitCost(): ?int
+    public function getUnitCost(): ?string
     {
         return $this->unit_cost;
     }
 
-    public function setUnitCost(int $unit_cost): self
+    public function setUnitCost(string $unit_cost): self
     {
         $this->unit_cost = $unit_cost;
 
@@ -113,18 +99,6 @@ class Journal
     public function setRemarque(string $remarque): self
     {
         $this->remarque = $remarque;
-
-        return $this;
-    }
-
-    public function getMenu(): ?Menu
-    {
-        return $this->menu;
-    }
-
-    public function setMenu(?Menu $menu): self
-    {
-        $this->menu = $menu;
 
         return $this;
     }
@@ -160,6 +134,18 @@ class Journal
     public function setTotalCosts(string $totalCosts): self
     {
         $this->totalCosts = $totalCosts;
+
+        return $this;
+    }
+
+    public function getTotalMeals(): ?int
+    {
+        return $this->totalMeals;
+    }
+
+    public function setTotalMeals(int $totalMeals): self
+    {
+        $this->totalMeals = $totalMeals;
 
         return $this;
     }

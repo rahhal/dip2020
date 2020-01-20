@@ -47,4 +47,15 @@ class LineDemandRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findLineDemandByDemand($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.demand', 'd')
+            ->andWhere('d.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+
+    }
 }

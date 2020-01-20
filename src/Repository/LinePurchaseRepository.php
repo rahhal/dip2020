@@ -57,9 +57,18 @@ class LinePurchaseRepository extends ServiceEntityRepository
             ->getQuery()
             // ->getOneOrNullResult();
             ->getResult();
+    }
+    public function findLinePurchaseByStock($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.lineStocks', 'ls')
+            ->andWhere('ls.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
 
     }
-
 
    /* public function findLinePurchaseByStock($date)
     {

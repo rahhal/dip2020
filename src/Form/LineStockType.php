@@ -16,6 +16,7 @@ class LineStockType extends AbstractType
             ->add('qty_update')
             ->add('date',DateType::class)
             ->add('old_qty')
+            ->add('unitPrice')
             ->add('quantity_alerte')
             ->add('valid_date',DateType::class)
             ->add('prod_date',DateType::class)

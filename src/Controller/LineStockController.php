@@ -53,14 +53,17 @@ class LineStockController extends AbstractController
     public function stockvalid(Request $request): Response
     {
         // $em = $this->getDoctrine()->getManager();
-        $linePurchases=$this->getDoctrine()
-            ->getRepository(LinePurchase::class)
+        $lineStocks=$this->getDoctrine()
+            ->getRepository(LineStock::class)
             ->findAll();
-
+        /*$linePurchases=$this->getDoctrine()
+            ->getRepository(LinePurchase::class)
+            ->findAll();*/
         // var_dump($article);die();
         // $stck_ini= $em->getRepository(Article::class)->stockIni();
         return $this->render('line_stock/stckvalid.html.twig', [
-            'linePurchases' => $linePurchases,
+//            'linePurchases' => $linePurchases,
+            'lineStocks' => $lineStocks,
         ]);
     }
 

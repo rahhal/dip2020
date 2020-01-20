@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Exitt;
 use App\Entity\Journal;
 use App\Entity\LineExitt;
 use App\Entity\Menu;
 use App\Entity\NbMeal;
+use App\Entity\User;
+use App\Repository\ExittRepository;
 use App\Repository\NbMealRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -34,24 +37,32 @@ class JournalType extends AbstractType
             ],*/
             ])
             ->add('totalCosts')
+            ->add('total_meals')
             ->add('unit_cost')
             ->add('remarque')
-            ->add('menu')
-            ->add('nbMeal')
-            ->add('exitt')
+            // ->add('nbMeal')
+            //->add('exitt')
             ->add('save',SubmitType::class)
         ;
 
 	    $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
 		    $form = $event->getForm();
-		    $form->add('total_meals', EntityType::class, [
+		    $form->add('nbMeal', EntityType::class, [
 		    	'class' => NbMeal::class,
 			    'query_builder' => function (NbMealRepository $mealRepository) {
 				      return $mealRepository->findByCurrentDate();
 			    },
 		    ]);
-
 	    });
+         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+             $form = $event->getForm();
+             $form->add('exitt', EntityType::class, [
+	             'class' => Exitt::class,
+	             'choice_label' => function(Exitt $user) {
+		             return sprintf($user->getTotalPrice());
+	             }
+            ]);
+         });
     }
 
     public function configureOptions(OptionsResolver $resolver)

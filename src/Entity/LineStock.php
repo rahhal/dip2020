@@ -74,6 +74,11 @@ class LineStock
      */
     private $lineInventories;
 
+    /**
+     * @ORM\Column(type="decimal", precision=15, scale=3)
+     */
+    private $unitPrice;
+
 
     public function __construct()
     {
@@ -183,7 +188,7 @@ class LineStock
     }
 public function __toString()
 {
-    return "";// TODO: Implement __toString() method.
+    return $this-> reference;// TODO: Implement __toString() method.
 }
 
 public function getDate(): ?\DateTimeInterface
@@ -225,6 +230,18 @@ public function removeLineInventory(LineInventory $lineInventory): self
             $lineInventory->setLineStock(null);
         }
     }
+
+    return $this;
+}
+
+public function getUnitPrice(): ?string
+{
+    return $this->unitPrice;
+}
+
+public function setUnitPrice(string $unitPrice): self
+{
+    $this->unitPrice = $unitPrice;
 
     return $this;
 }

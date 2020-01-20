@@ -36,11 +36,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for linePurchase in linePurchases %}
+                                    {% for lineStock in lineStocks %}
                                         <tr>
-                                            <td>{{ linePurchase.article }}</td>
-                                            <td>{{ linePurchase.production }}</td>
-                                            <td>{{ linePurchase.validation }}</td>
+                                            <td>{{ lineStock.linePurchase.article }}</td>
+                                            <td>{{ lineStock.prodDate? lineStock.prodDate|date('Y-m-d') :'' }}</td>
+                                            <td>{{ lineStock.validDate? lineStock.validDate|date('Y-m-d') : '' }}</td>
 
                                             {# <td>
                                                  <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-success">show</a>

@@ -47,4 +47,13 @@ class DemandRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function myFindOne($id)
+    {
+        return $this->createQueryBuilder('d')
+                    ->where('d.id = :id')
+                    ->setParameter('id', $id)
+                    ->getQuery()
+                    ->getResult()
+                    ;
+    }
 }

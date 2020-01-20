@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div hidden id="template_tmp">
+        <table   class="table  table-bordered" >
+        {#<div id="requestSupplied_lineRequestSupplied___name__">#}
+                 <tr>
+                    <td></td>
+                       <td>
+                          <label >المادة</label>
+                        </td>
+                        <td>
+                            <label >ملاحظة</label>
+                        </td>
+                        <td>
+                            <label> الكمية  </label>
+                        </td>
+                 </tr>
+                 <tr>
+                       <td> <label class="required">__name__label__</label>
+                       </td>
+
+                        <td>
+                            <select id="requestSupplied_lineRequestSupplied___name___article" class="form-control"
+                                    name="requestSupplied[lineRequestSupplieds][__name__][article]">
+                                {% for article in articles %}
+                                    <option value="{{ article.id }}">{{ article.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+
+                                    <input type="text" id="requestSupplied_lineRequestSupplied___name___quantity" class=" form-control"
+                                            name="requestSupplied[lineRequestSupplieds][__name__][quantity]" required="required"/>
+
+                         </td>
+                        <td>
+
+
+                                <input type="text" id="requestSupplied_lineRequestSupplied___name___remarque" class=" form-control"
+                                       name="requestSupplied[lineRequestSupplieds][__name__][remarque]"
+                                       required="required"/>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Create new request supplied"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                            
+                                <div class="x_content">
+                                    <br/>
+                                    {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="well">
+
+                                                {#{{ form_row(form.date) }}#}
+                                                {#<div class="form-group">
+                                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label', 'for': 'first-name'}}) }}
+                                                    #}{#{{ form_errors(form.date) }}#}{#
+                                                    <div class="col-sm-6 col-sm-6 col-xs-12 ">
+                                                        {{ form_widget(form.date) }}
+                                                    </div>
+                                                </div>#}
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="first-name">{{ "Date"|trans }}
+                                                        {#<span class="required">*</span>#}
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        {{ form_widget(form.date) }}
+                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    {# Génération du label. #}
+                                                    {{ form_label(form.supplier, "المزود", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                                                    <div class="col-sm-6">
+                                                        {# Génération de l'input. #}
+                                                        {{ form_widget(form.supplier, {'attr': {'class': 'form-control'}}) }}
+                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.supplier) }}</div>
+                                                    </div>
+                                                </div>
+                                                {# Idem pour un autre champ. #}
+                                                <div class="form-group">
+                                                    {{ form_label(form.tranche, "القسط", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                                                    <div class="col-sm-6">
+                                                        {{ form_widget(form.tranche, {'attr': {'class': 'form-control'}}) }}
+                                                        {# Affichage des erreurs pour ce champ précis. #}
+                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.tranche) }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="well">
+
+                                                <div id="requestSupplied_lineRequestSupplied"></div></br>
+                                                <a href="#" id="add_lineRequestSupplied" class="btn btn-success m-10">{{ "Add article"|trans }}</a>
+                                                 {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                   
+                                    {{ form_widget(form._token) }}
+                                    {{ form_end(form, {'render_rest': false}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include('layouts/footer.html.twig') %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+

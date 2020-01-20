@@ -39,9 +39,14 @@ class Exitt
     private $lineExitts;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Journal", mappedBy="exitt",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Journal", mappedBy="exitt",cascade={"persist"}, orphanRemoval=true)
      */
     private $journals;
+
+    /**
+     * @ORM\Column(type="decimal", precision=15, scale=3)
+     */
+    private $totalPrice;
 
     public function __construct()
     {
@@ -121,7 +126,8 @@ class Exitt
     }
     public function __toString()
     {
-       return $this-> number; // TODO: Implement __toString() method.
+       return $this-> totalPrice; // TODO: Implement __toString() method.
+       // return $this-> number;
     }
 
     /**
@@ -151,6 +157,18 @@ class Exitt
                 $journal->setExitt(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTotalPrice(): ?string
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(string $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
 
         return $this;
     }

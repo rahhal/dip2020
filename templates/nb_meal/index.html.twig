@@ -40,6 +40,7 @@
                                         <th>{{ "Number of professors"|trans }}</th>
                                         <th>{{ "Number of curators"|trans }}</th>
                                         <th>{{ "Number of employees"|trans }}</th>
+                                        <th>{{ "Number of meals"|trans }}</th>
                                         <th>{{ "Actions"|trans }}</th>
                                     </tr>
                                     </thead>
@@ -53,7 +54,7 @@
                                             <td>{{ nbMeal.professor }}</td>
                                             <td>{{ nbMeal.curators }}</td>
                                             <td>{{ nbMeal.employee }}</td>
-
+                                            <td>{{ nbMeal.stdResident + nbMeal.employee + nbMeal.stdSemiResident + nbMeal.stdGranted + nbMeal.professor + nbMeal.curators }}</td>
                                             <td>
                                                 <a href="{{ path('nb_meal_show', {'id': nbMeal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
                                                 <a href="{{ path('nb_meal_edit', {'id': nbMeal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>

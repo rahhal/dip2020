@@ -9,7 +9,20 @@
     body
     {
         color:#73879c;
-        background:#34495e;
+        background:#4267b2;
         font-size:16px;font-weight:400;
         line-height:1.471
+    }
+    #datatable_info {
+        display: none;
+    }
+    .left_col{
+        background:#4267b2;
+    }
+    .nav_title{
+        background-color: #0a0f9e70;
+    }
+    .nav.side-menu>li.active>a{
+        background:linear-gradient(#0a0f9e70,#0a0f9e70),#0a0f9e70;
+        background-color: #2940a9;
     }

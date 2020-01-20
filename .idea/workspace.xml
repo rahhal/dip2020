@@ -2,36 +2,263 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a77a8da8-e0d5-4b80-9891-f015183e90a7" name="Default" comment="xcv">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/LineRequestSuppliedController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Controller/RequestSuppliedController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/LineRequestSupplied.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Entity/RequestSupplied.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Form/LineRequestSuppliedType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Form/RequestSuppliedType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200106193535.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107075325.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107101025.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Repository/LineRequestSuppliedRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Repository/RequestSuppliedRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/line_request_supplied/_delete_form.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/line_request_supplied/_form.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/line_request_supplied/detail.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/line_request_supplied/index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/line_request_supplied/new.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/request_supplied/_delete_form.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/request_supplied/_form.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/request_supplied/index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/request_supplied/request_supplied.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/images/background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107144738.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107215923.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200108124208.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/myjs.js" afterPath="$PROJECT_DIR$/public/build/js/myjs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/css/style.css" afterPath="$PROJECT_DIR$/public/build/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/custom.js" afterPath="$PROJECT_DIR$/public/build/js/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/BudgetController.php" afterPath="$PROJECT_DIR$/src/Controller/BudgetController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CategoryController.php" afterPath="$PROJECT_DIR$/src/Controller/CategoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CommissionController.php" afterPath="$PROJECT_DIR$/src/Controller/CommissionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/DemandController.php" afterPath="$PROJECT_DIR$/src/Controller/DemandController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/EmployeeController.php" afterPath="$PROJECT_DIR$/src/Controller/EmployeeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ExittController.php" afterPath="$PROJECT_DIR$/src/Controller/ExittController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/InstitutionController.php" afterPath="$PROJECT_DIR$/src/Controller/InstitutionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/InventoryController.php" afterPath="$PROJECT_DIR$/src/Controller/InventoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/JournalController.php" afterPath="$PROJECT_DIR$/src/Controller/JournalController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineDemandController.php" afterPath="$PROJECT_DIR$/src/Controller/LineDemandController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineExittController.php" afterPath="$PROJECT_DIR$/src/Controller/LineExittController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineInventoryController.php" afterPath="$PROJECT_DIR$/src/Controller/LineInventoryController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LinePurchaseController.php" afterPath="$PROJECT_DIR$/src/Controller/LinePurchaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineStockController.php" afterPath="$PROJECT_DIR$/src/Controller/LineStockController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MenuController.php" afterPath="$PROJECT_DIR$/src/Controller/MenuController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/NbMealController.php" afterPath="$PROJECT_DIR$/src/Controller/NbMealController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PurchaseController.php" afterPath="$PROJECT_DIR$/src/Controller/PurchaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ResettingController.php" afterPath="$PROJECT_DIR$/src/Controller/ResettingController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SupplierController.php" afterPath="$PROJECT_DIR$/src/Controller/SupplierController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/CityFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/CityFixtures.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/InstitutionFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/InstitutionFixtures.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/UnitFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/UnitFixtures.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Article.php" afterPath="$PROJECT_DIR$/src/Entity/Article.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Budget.php" afterPath="$PROJECT_DIR$/src/Entity/Budget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Category.php" afterPath="$PROJECT_DIR$/src/Entity/Category.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/City.php" afterPath="$PROJECT_DIR$/src/Entity/City.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Commission.php" afterPath="$PROJECT_DIR$/src/Entity/Commission.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Demand.php" afterPath="$PROJECT_DIR$/src/Entity/Demand.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Employee.php" afterPath="$PROJECT_DIR$/src/Entity/Employee.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Exitt.php" afterPath="$PROJECT_DIR$/src/Entity/Exitt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Institution.php" afterPath="$PROJECT_DIR$/src/Entity/Institution.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Inventory.php" afterPath="$PROJECT_DIR$/src/Entity/Inventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Journal.php" afterPath="$PROJECT_DIR$/src/Entity/Journal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineDemand.php" afterPath="$PROJECT_DIR$/src/Entity/LineDemand.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineExitt.php" afterPath="$PROJECT_DIR$/src/Entity/LineExitt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineInventory.php" afterPath="$PROJECT_DIR$/src/Entity/LineInventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LinePurchase.php" afterPath="$PROJECT_DIR$/src/Entity/LinePurchase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineStock.php" afterPath="$PROJECT_DIR$/src/Entity/LineStock.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Menu.php" afterPath="$PROJECT_DIR$/src/Entity/Menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/NbMeal.php" afterPath="$PROJECT_DIR$/src/Entity/NbMeal.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Purchase.php" afterPath="$PROJECT_DIR$/src/Entity/Purchase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Supplier.php" afterPath="$PROJECT_DIR$/src/Entity/Supplier.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Unit.php" afterPath="$PROJECT_DIR$/src/Entity/Unit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/BudgetType.php" afterPath="$PROJECT_DIR$/src/Form/BudgetType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/CategoryType.php" afterPath="$PROJECT_DIR$/src/Form/CategoryType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/CommissionType.php" afterPath="$PROJECT_DIR$/src/Form/CommissionType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/DemandType.php" afterPath="$PROJECT_DIR$/src/Form/DemandType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/EmployeeType.php" afterPath="$PROJECT_DIR$/src/Form/EmployeeType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ExittType.php" afterPath="$PROJECT_DIR$/src/Form/ExittType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/InstitutionType.php" afterPath="$PROJECT_DIR$/src/Form/InstitutionType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/InventoryType.php" afterPath="$PROJECT_DIR$/src/Form/InventoryType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/JournalType.php" afterPath="$PROJECT_DIR$/src/Form/JournalType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineDemandType.php" afterPath="$PROJECT_DIR$/src/Form/LineDemandType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineExittType.php" afterPath="$PROJECT_DIR$/src/Form/LineExittType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineInventoryType.php" afterPath="$PROJECT_DIR$/src/Form/LineInventoryType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LinePurchaseType.php" afterPath="$PROJECT_DIR$/src/Form/LinePurchaseType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineStockType.php" afterPath="$PROJECT_DIR$/src/Form/LineStockType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/MenuType.php" afterPath="$PROJECT_DIR$/src/Form/MenuType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/NbMealType.php" afterPath="$PROJECT_DIR$/src/Form/NbMealType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ProfileType.php" afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/PurchaseType.php" afterPath="$PROJECT_DIR$/src/Form/PurchaseType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/SupplierType.php" afterPath="$PROJECT_DIR$/src/Form/SupplierType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/UserType.php" afterPath="$PROJECT_DIR$/src/Form/UserType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel.php" afterPath="$PROJECT_DIR$/src/Kernel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/BudgetRepository.php" afterPath="$PROJECT_DIR$/src/Repository/BudgetRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CityRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CityRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CommissionRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CommissionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/DemandRepository.php" afterPath="$PROJECT_DIR$/src/Repository/DemandRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/EmployeeRepository.php" afterPath="$PROJECT_DIR$/src/Repository/EmployeeRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/ExittRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ExittRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/InstitutionRepository.php" afterPath="$PROJECT_DIR$/src/Repository/InstitutionRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/InventoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/InventoryRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/JournalRepository.php" afterPath="$PROJECT_DIR$/src/Repository/JournalRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineDemandRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineDemandRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineExittRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineExittRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineInventoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineInventoryRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineMealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineMealRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LinePurchaseRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LinePurchaseRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineStockRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineStockRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/MealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/MealRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/MenuRepository.php" afterPath="$PROJECT_DIR$/src/Repository/MenuRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/NbMealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/NbMealRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/PurchaseRepository.php" afterPath="$PROJECT_DIR$/src/Repository/PurchaseRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/StockRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/UnitRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UnitRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/article/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/_form.html.twig" afterPath="$PROJECT_DIR$/templates/article/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/edit.html.twig" afterPath="$PROJECT_DIR$/templates/article/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/index.html.twig" afterPath="$PROJECT_DIR$/templates/article/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/new.html.twig" afterPath="$PROJECT_DIR$/templates/article/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/show.html.twig" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/budget/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/_form.html.twig" afterPath="$PROJECT_DIR$/templates/budget/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/edit.html.twig" afterPath="$PROJECT_DIR$/templates/budget/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/index.html.twig" afterPath="$PROJECT_DIR$/templates/budget/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/new.html.twig" afterPath="$PROJECT_DIR$/templates/budget/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/show.html.twig" afterPath="$PROJECT_DIR$/templates/budget/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/category/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/_form.html.twig" afterPath="$PROJECT_DIR$/templates/category/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/edit.html.twig" afterPath="$PROJECT_DIR$/templates/category/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/index.html.twig" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/new.html.twig" afterPath="$PROJECT_DIR$/templates/category/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/show.html.twig" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/commission/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/_form.html.twig" afterPath="$PROJECT_DIR$/templates/commission/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/commission.html.twig" afterPath="$PROJECT_DIR$/templates/commission/commission.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/edit.html.twig" afterPath="$PROJECT_DIR$/templates/commission/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/index.html.twig" afterPath="$PROJECT_DIR$/templates/commission/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/new.html.twig" afterPath="$PROJECT_DIR$/templates/commission/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/show.html.twig" afterPath="$PROJECT_DIR$/templates/commission/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/demand/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/_form.html.twig" afterPath="$PROJECT_DIR$/templates/demand/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/edit.html.twig" afterPath="$PROJECT_DIR$/templates/demand/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/index.html.twig" afterPath="$PROJECT_DIR$/templates/demand/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/new.html.twig" afterPath="$PROJECT_DIR$/templates/demand/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/show.html.twig" afterPath="$PROJECT_DIR$/templates/demand/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/employee/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/_form.html.twig" afterPath="$PROJECT_DIR$/templates/employee/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/edit.html.twig" afterPath="$PROJECT_DIR$/templates/employee/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/index.html.twig" afterPath="$PROJECT_DIR$/templates/employee/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/new.html.twig" afterPath="$PROJECT_DIR$/templates/employee/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/show.html.twig" afterPath="$PROJECT_DIR$/templates/employee/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/_form.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/edit.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/exitt.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/exitt.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/index.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/new.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/new.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/show.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index/index.html.twig" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/institution/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/_form.html.twig" afterPath="$PROJECT_DIR$/templates/institution/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/edit.html.twig" afterPath="$PROJECT_DIR$/templates/institution/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/show.html.twig" afterPath="$PROJECT_DIR$/templates/institution/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/_form.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/edit.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/index.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/new.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/show.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/journal/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/_form.html.twig" afterPath="$PROJECT_DIR$/templates/journal/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/edit.html.twig" afterPath="$PROJECT_DIR$/templates/journal/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/index.html.twig" afterPath="$PROJECT_DIR$/templates/journal/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/new.html.twig" afterPath="$PROJECT_DIR$/templates/journal/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/show.html.twig" afterPath="$PROJECT_DIR$/templates/journal/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout_footer.html.twig" afterPath="$PROJECT_DIR$/templates/layout_footer.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout_header.html.twig" afterPath="$PROJECT_DIR$/templates/layout_header.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/content.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/content.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/flash-messages.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/flash-messages.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/footer.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/footer.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/navbar.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/navbar.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/sidebar.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/sidebar.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/detail.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/detail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/translations/messages.ar.xlf" afterPath="$PROJECT_DIR$/translations/messages.ar.xlf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/commi.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/commi.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/detail.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/detail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/stckIni.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/stckIni.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/menu/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/_form.html.twig" afterPath="$PROJECT_DIR$/templates/menu/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/edit.html.twig" afterPath="$PROJECT_DIR$/templates/menu/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/index.html.twig" afterPath="$PROJECT_DIR$/templates/menu/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/new.html.twig" afterPath="$PROJECT_DIR$/templates/menu/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/show.html.twig" afterPath="$PROJECT_DIR$/templates/menu/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/_form.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/edit.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/index.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/new.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/show.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/commission.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/commission.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/exitt.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/exitt.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/journal.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/journal.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/purchase.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/purchase.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/receive.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/receive.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/request.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/request.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/profile/_form.html.twig" afterPath="$PROJECT_DIR$/templates/profile/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/_form.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/detail.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/detail.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/edit.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/index.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/new.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/purchase.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/purchase.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/show.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reset/reset.html.twig" afterPath="$PROJECT_DIR$/templates/reset/reset.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/security/login.html.twig" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/_form.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/edit.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/index.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/new.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/show.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_delete_form1.html.twig" afterPath="$PROJECT_DIR$/templates/user/_delete_form1.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/admin.html.twig" afterPath="$PROJECT_DIR$/templates/user/admin.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/admin_list.html.twig" afterPath="$PROJECT_DIR$/templates/user/admin_list.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/index.html.twig" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/new.html.twig" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/show.html.twig" afterPath="$PROJECT_DIR$/templates/user/show.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,64 +271,97 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/inventory/show.html.twig">
+      <file leaf-file-name="ExittController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ExittController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1078">
-              <caret line="88" column="88" lean-forward="false" selection-start-line="88" selection-start-column="88" selection-end-line="88" selection-end-column="88" />
+            <state relative-caret-position="490">
+              <caret line="115" column="63" lean-forward="false" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
               <folding>
-                <element signature="e#13#27#0#Twig" expanded="false" />
-                <element signature="e#319#344#0#Twig" expanded="false" />
-                <element signature="e#393#417#0#Twig" expanded="false" />
-                <element signature="e#2840#2855#0#Twig" expanded="false" />
-                <element signature="e#3288#3302#0#Twig" expanded="false" />
-                <element signature="e#3850#3868#0#Twig" expanded="false" />
-                <element signature="e#7254#7273#0#Twig" expanded="false" />
-                <element signature="e#8049#8073#0#Twig" expanded="false" />
+                <element signature="e#3843#3856#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/demand/show.html.twig">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/build/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
-              <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/article/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
-                <element signature="e#13#27#0#Twig" expanded="false" />
-                <element signature="e#319#344#0#Twig" expanded="false" />
-                <element signature="e#393#417#0#Twig" expanded="false" />
-                <element signature="e#2927#2939#0#Twig" expanded="false" />
-                <element signature="e#3843#3858#0#Twig" expanded="false" />
-                <element signature="e#5241#5257#0#Twig" expanded="false" />
-                <element signature="e#6204#6228#0#Twig" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/inventory/new.html.twig">
+      <file leaf-file-name="purchase.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/purchase/purchase.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-396">
-              <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+            <state relative-caret-position="306">
+              <caret line="187" column="53" lean-forward="false" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
               <folding>
-                <element signature="e#13#27#0#Twig" expanded="false" />
-                <element signature="e#319#344#0#Twig" expanded="false" />
-                <element signature="e#393#417#0#Twig" expanded="false" />
-                <element signature="e#2851#2866#0#Twig" expanded="false" />
-                <element signature="e#3314#3338#0#Twig" expanded="false" />
+                <element signature="e#12#26#0#Twig" expanded="true" />
+                <element signature="n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#fieldset#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#12089#12113#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/line_inventory/new.html.twig">
+      <file leaf-file-name="login.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="39" column="121" lean-forward="false" selection-start-line="39" selection-start-column="121" selection-end-line="39" selection-end-column="121" />
+            <state relative-caret-position="1760">
+              <caret line="80" column="11" lean-forward="true" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_header.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/layout_header.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-464">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exitt.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/exitt/exitt.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="133" column="53" lean-forward="false" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -111,7 +371,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pr</find>
       <find>Details of user</find>
       <find>Admin</find>
       <find>user</find>
@@ -140,7 +399,8 @@
       <find>article</find>
       <find>Request</find>
       <find>purchase</find>
-      <find>إظهار</find>
+      <find>datatable_filter</find>
+      <find>.left_col</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,36 +409,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/inventory/index.html.twig" />
-        <option value="$PROJECT_DIR$/templates/article/new.html.twig" />
-        <option value="$PROJECT_DIR$/templates/inventory/new.html.twig" />
-        <option value="$PROJECT_DIR$/templates/inventory/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/Inventory.php" />
-        <option value="$PROJECT_DIR$/templates/line_inventory/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/LineInventoryController.php" />
-        <option value="$PROJECT_DIR$/templates/inventory/show.html.twig" />
-        <option value="$PROJECT_DIR$/templates/layouts/footer.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/LineInventoryType.php" />
-        <option value="$PROJECT_DIR$/src/Entity/LineInventory.php" />
-        <option value="$PROJECT_DIR$/src/Controller/PurchaseController.php" />
-        <option value="$PROJECT_DIR$/src/Entity/LineStock.php" />
-        <option value="$PROJECT_DIR$/templates/line_stock/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Repository/LineStockRepository.php" />
-        <option value="$PROJECT_DIR$/src/Controller/InventoryController.php" />
-        <option value="$PROJECT_DIR$/src/Entity/LinePurchase.php" />
-        <option value="$PROJECT_DIR$/templates/exitt/exitt.html.twig" />
-        <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/PurchaseType.php" />
-        <option value="$PROJECT_DIR$/templates/purchase/purchase.html.twig" />
-        <option value="$PROJECT_DIR$/templates/purchase/detail.html.twig" />
-        <option value="$PROJECT_DIR$/templates/purchase/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Form/LinePurchaseType.php" />
-        <option value="$PROJECT_DIR$/templates/line_purchase/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/Supplier.php" />
-        <option value="$PROJECT_DIR$/src/Entity/RequestSupplied.php" />
-        <option value="$PROJECT_DIR$/src/Entity/LineRequestSupplied.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Article.php" />
-        <option value="$PROJECT_DIR$/src/Form/LineRequestSuppliedType.php" />
         <option value="$PROJECT_DIR$/src/Form/RequestSuppliedType.php" />
         <option value="$PROJECT_DIR$/templates/layouts/sidebar.html.twig" />
         <option value="$PROJECT_DIR$/public/build/js/myjs.js" />
@@ -197,9 +427,39 @@
         <option value="$PROJECT_DIR$/src/Controller/LinePurchaseController.php" />
         <option value="$PROJECT_DIR$/translations/messages.ar.xlf" />
         <option value="$PROJECT_DIR$/templates/commission/new.html.twig" />
-        <option value="$PROJECT_DIR$/templates/exitt/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/demand/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/line_inventory/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Journal.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Menu.php" />
+        <option value="$PROJECT_DIR$/src/Entity/LineExitt.php" />
+        <option value="$PROJECT_DIR$/templates/exitt/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/LineExittType.php" />
+        <option value="$PROJECT_DIR$/templates/line_exitt/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/ExittType.php" />
+        <option value="$PROJECT_DIR$/templates/exitt/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/layouts/footer.html.twig" />
+        <option value="$PROJECT_DIR$/templates/nb_meal/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/JournalType.php" />
+        <option value="$PROJECT_DIR$/src/Controller/JournalController.php" />
+        <option value="$PROJECT_DIR$/templates/layouts/content.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/ExittRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/NbMealRepository.php" />
+        <option value="$PROJECT_DIR$/templates/line_stock/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/PurchaseController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/LineStockController.php" />
+        <option value="$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/NbMeal.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Exitt.php" />
+        <option value="$PROJECT_DIR$/templates/journal/new.html.twig" />
+        <option value="$PROJECT_DIR$/templates/journal/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/journal/show.html.twig" />
+        <option value="$PROJECT_DIR$/public/build/js/custom.js" />
+        <option value="$PROJECT_DIR$/public/build/css/custom.css" />
+        <option value="$PROJECT_DIR$/public/build/css/style.css" />
+        <option value="$PROJECT_DIR$/src/Controller/ExittController.php" />
+        <option value="$PROJECT_DIR$/templates/purchase/purchase.html.twig" />
+        <option value="$PROJECT_DIR$/templates/exitt/exitt.html.twig" />
+        <option value="$PROJECT_DIR$/templates/security/login.html.twig" />
       </list>
     </option>
   </component>
@@ -220,7 +480,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.1" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
+    <option name="width" value="1358" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -241,7 +501,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -297,7 +556,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="line_inventory" />
+              <option name="myItemId" value="security" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,7 +574,61 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="inventory" />
+              <option name="myItemId" value="purchase" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nb_meal" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="line_stock" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,7 +664,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="demand" />
+              <option name="myItemId" value="exitt" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,43 +732,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DataFixtures" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -527,164 +804,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-scroller-bs" />
+              <option name="myItemId" value="datatables.net" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-responsive" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-responsive" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataTables.responsive.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-keytable" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-keytable" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataTables.keyTable.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-bs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dip2020" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendors" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net-bs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataTables.bootstrap.js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -724,16 +845,65 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom.js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dip2020" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stock" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.splitter.proportion" value="0.23212537" />
@@ -945,25 +1115,34 @@
       <workItem from="1578433089517" duration="3063000" />
       <workItem from="1578487154763" duration="18374000" />
       <workItem from="1578553227564" duration="6117000" />
+      <workItem from="1578641392032" duration="102000" />
+      <workItem from="1578728997838" duration="776000" />
+      <workItem from="1578755253710" duration="3006000" />
+      <workItem from="1578764372223" duration="26844000" />
+      <workItem from="1578914357657" duration="13204000" />
+      <workItem from="1579020426490" duration="587000" />
+      <workItem from="1579180079597" duration="1707000" />
+      <workItem from="1579250993830" duration="72000" />
+      <workItem from="1579252797477" duration="26394000" />
+      <workItem from="1579449874992" duration="9725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1414134000" />
+    <option name="totallyTimeSpent" value="1496551000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <frame x="0" y="0" width="1358" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2325926" sideWeight="0.8560606" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2071535" sideWeight="0.8560606" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19419643" sideWeight="0.14393939" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5464567" sideWeight="0.48535872" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.13836017" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08885299" sideWeight="0.8777453" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10339257" sideWeight="0.8777453" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -972,6 +1151,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5464567" sideWeight="0.48535872" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="CSS-X-Fire" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1025,437 +1205,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Form/PurchaseType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="36" column="32" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/purchase/purchase.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="78" column="6" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="78" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ExittType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/build/js/myjs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="113" column="70" lean-forward="false" selection-start-line="113" selection-start-column="70" selection-end-line="113" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout_header.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demand/demand.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="117" column="46" lean-forward="false" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout_footer.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="78" column="14" lean-forward="true" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Demand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="121" column="47" lean-forward="false" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/LineExittType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/LineDemand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layouts/sidebar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="46" lean-forward="false" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/purchase/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/DemandType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/LineDemandType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/article/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demand/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="57" column="45" lean-forward="false" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_purchase/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/journal/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/translations/messages.ar.xlf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="797" column="45" lean-forward="false" selection-start-line="797" selection-start-column="45" selection-end-line="797" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/purchase/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="141" column="38" lean-forward="false" selection-start-line="141" selection-start-column="38" selection-end-line="141" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_demand/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="61" column="84" lean-forward="false" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demand/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="10" column="58" lean-forward="true" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_demand/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LineDemandController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
-          <folding>
-            <element signature="e#1040#1052#1#PHP" expanded="false" />
-            <element signature="e#1537#1550#0#PHP" expanded="false" />
-            <element signature="e#2465#2478#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/DemandController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="50" column="54" lean-forward="false" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-          <folding>
-            <element signature="e#1468#1481#0#PHP" expanded="false" />
-            <element signature="e#1549#1571#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_demand/_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LinePurchaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding>
-            <element signature="e#3815#3830#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_purchase/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="50" column="42" lean-forward="false" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-          <folding>
-            <marker date="1578406252142" expanded="false" signature="236:255" ph="/line/purchase/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/commission/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="65" column="42" lean-forward="false" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/EmployeeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="45" column="43" lean-forward="false" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-          <folding>
-            <element signature="e#732#758#0#PHP" expanded="false" />
-            <element signature="e#1436#1452#1#PHP" expanded="false" />
-            <element signature="e#1495#1519#0#PHP" expanded="false" />
-            <element signature="e#1790#1815#0#PHP" expanded="false" />
-            <element signature="e#2369#2385#1#PHP" expanded="false" />
-            <element signature="e#2428#2453#0#PHP" expanded="false" />
-            <element signature="e#3073#3089#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/exitt/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/exitt/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/exitt/exitt.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/exitt/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_exitt/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_exitt/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_exitt/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_exitt/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/line_exitt/detail.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1056">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/exitt/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-477">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#2435#2447#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/institution/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1559">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inventory/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="88" column="88" lean-forward="false" selection-start-line="88" selection-start-column="88" selection-end-line="88" selection-end-column="88" />
-          <folding>
-            <element signature="e#13#27#0#Twig" expanded="false" />
-            <element signature="e#319#344#0#Twig" expanded="false" />
-            <element signature="e#393#417#0#Twig" expanded="false" />
-            <element signature="e#2840#2855#0#Twig" expanded="false" />
-            <element signature="e#3288#3302#0#Twig" expanded="false" />
-            <element signature="e#3850#3868#0#Twig" expanded="false" />
-            <element signature="e#7254#7273#0#Twig" expanded="false" />
-            <element signature="e#8049#8073#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/demand/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-          <folding>
-            <element signature="e#13#27#0#Twig" expanded="false" />
-            <element signature="e#319#344#0#Twig" expanded="false" />
-            <element signature="e#393#417#0#Twig" expanded="false" />
-            <element signature="e#2927#2939#0#Twig" expanded="false" />
-            <element signature="e#3843#3858#0#Twig" expanded="false" />
-            <element signature="e#5241#5257#0#Twig" expanded="false" />
-            <element signature="e#6204#6228#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/inventory/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding>
-            <element signature="e#13#27#0#Twig" expanded="false" />
-            <element signature="e#319#344#0#Twig" expanded="false" />
-            <element signature="e#393#417#0#Twig" expanded="false" />
-            <element signature="e#2851#2866#0#Twig" expanded="false" />
-            <element signature="e#3314#3338#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendors/datatables.net/js/jquery.dataTables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendors/datatables.net-bs/js/dataTables.bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vendors/datatables.net-buttons/js/dataTables.buttons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-862">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/vendors/datatables.net-keytable/js/dataTables.keyTable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23260">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1463,16 +1216,431 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9108">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/line_inventory/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="858">
           <caret line="39" column="121" lean-forward="false" selection-start-line="39" selection-start-column="121" selection-end-line="39" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/LineStock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/NbMealType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-364">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/LineExitt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2285">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/line_exitt/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exitt/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="89" column="70" lean-forward="false" selection-start-line="89" selection-start-column="70" selection-end-line="89" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/LineExittType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/line_exitt/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="48" column="108" lean-forward="false" selection-start-line="48" selection-start-column="108" selection-end-line="48" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/ExittType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/commission/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exitt/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exitt/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1034">
+          <caret line="47" column="67" lean-forward="false" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/JournalRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-673">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layouts/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="72" lean-forward="false" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LineDemandController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="49" column="55" lean-forward="false" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layouts/content.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="97" column="73" lean-forward="false" selection-start-line="97" selection-start-column="73" selection-end-line="97" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/NbMealRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="74" column="40" lean-forward="false" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ExittRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Journal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="103" column="5" lean-forward="false" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/JournalType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LineStockController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/line_stock/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="64" column="71" lean-forward="false" selection-start-line="64" selection-start-column="71" selection-end-line="64" selection-end-column="112" />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+            <element signature="e#319#344#0#Twig" expanded="false" />
+            <element signature="e#393#417#0#Twig" expanded="false" />
+            <element signature="e#5430#5454#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+            <element signature="e#319#344#0#Twig" expanded="false" />
+            <element signature="e#393#417#0#Twig" expanded="false" />
+            <element signature="e#3214#3238#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PurchaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="103" column="24" lean-forward="false" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NbMeal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="156" column="31" lean-forward="false" selection-start-line="156" selection-start-column="31" selection-end-line="156" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Exitt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="129" column="9" lean-forward="false" selection-start-line="129" selection-start-column="9" selection-end-line="129" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/journal/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="80" column="137" lean-forward="false" selection-start-line="80" selection-start-column="137" selection-end-line="80" selection-end-column="137" />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+            <element signature="e#319#344#0#Twig" expanded="false" />
+            <element signature="e#393#417#0#Twig" expanded="false" />
+            <element signature="e#8032#8056#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/journal/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="75" column="93" lean-forward="false" selection-start-line="75" selection-start-column="93" selection-end-line="75" selection-end-column="93" />
+          <folding>
+            <element signature="e#14#28#0#Twig" expanded="false" />
+            <element signature="e#320#345#0#Twig" expanded="false" />
+            <element signature="e#394#418#0#Twig" expanded="false" />
+            <element signature="e#1074#1085#0#Twig" expanded="false" />
+            <element signature="e#4741#4753#0#Twig" expanded="false" />
+            <element signature="e#4980#4992#0#Twig" expanded="false" />
+            <element signature="e#5199#5210#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/journal/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="38" column="65" lean-forward="false" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+            <element signature="e#319#344#0#Twig" expanded="false" />
+            <element signature="e#393#417#0#Twig" expanded="false" />
+            <element signature="e#3503#3517#0#Twig" expanded="false" />
+            <element signature="e#4064#4076#0#Twig" expanded="false" />
+            <element signature="e#4281#4294#0#Twig" expanded="false" />
+            <element signature="e#4774#4798#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exitt/_delete_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/nb_meal/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1232">
+          <caret line="56" column="169" lean-forward="false" selection-start-line="56" selection-start-column="169" selection-end-line="56" selection-end-column="169" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/JournalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="67" column="44" lean-forward="false" selection-start-line="67" selection-start-column="44" selection-end-line="67" selection-end-column="44" />
+          <folding>
+            <element signature="e#34#60#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/css/custom.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/css/custom.css.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/js/custom.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="6592" lean-forward="false" selection-start-line="1" selection-start-column="6592" selection-end-line="1" selection-end-column="6592" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vendors/datatables.net/.bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="3010" column="48" lean-forward="false" selection-start-line="3010" selection-start-column="48" selection-end-line="3010" selection-end-column="48" />
+          <folding>
+            <marker date="1579388318245" expanded="true" signature="36006:36038" ph="..." />
+            <marker date="1579388318245" expanded="true" signature="37562:37569" ph="×" />
+            <marker date="1579388318245" expanded="true" signature="62234:62246" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2948">
+          <caret line="0" column="11477" lean-forward="false" selection-start-line="0" selection-start-column="11477" selection-end-line="0" selection-end-column="11506" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ExittController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="115" column="63" lean-forward="false" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
+          <folding>
+            <element signature="e#3843#3856#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/purchase/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/build/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/article/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exitt/exitt.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="133" column="53" lean-forward="false" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/purchase/purchase.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="187" column="53" lean-forward="false" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#fieldset#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#12089#12113#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout_header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-464">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="80" column="11" lean-forward="true" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
           <folding />
         </state>
       </provider>

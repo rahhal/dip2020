@@ -20,14 +20,17 @@ class LineExittType extends AbstractType
                 'class' => Article::class,
                 'multiple' => false
             ])
-            ->add('exitt', EntityType::class, [
+           /* ->add('exitt', EntityType::class, [
                 'class' => Exitt::class,
                 'multiple' => false
-            ])
+            ])*/
             ->add('quantity')
+            ->add('unitPrice')
+
             //->add('journal')
            // ->add('lineStocks')
         ;
+
     }
     public function configureOptions(OptionsResolver $resolver)
     {

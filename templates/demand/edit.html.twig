@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Edit Demand{% endblock %}
 
@@ -10,4 +10,91 @@
     <a href="{{ path('demand_index') }}">back to list</a>
 
     {{ include('demand/_delete_form.html.twig') }}
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Edit Demand"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <br/>
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class=" col-md-4 col-sm-4 col-xs-6">
+                                        {{ form_widget(form.date,{'attr': {'class':'js-datepicker '} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Tranche"|trans }}
+                                        {# <span class="required">*</span> #}
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.tranche,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.tranche) }}</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reference_stock">{{ "Supplier"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.supplier,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                    <div class="invalid-feedback text-danger">{{ form_errors(form.supplier) }}</div>
+
+                                </div>
+
+                                {# <div class="form-group col-lg-12">
+                                    <div class="ln_solid"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
+                                        <a href="{{ path('demand_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                    </div>
+                                </div> #}
+                                 <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                        {{ include('demand/_form.html.twig') }}
+
+                                        <a href="{{ path('demand_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
+                                    </div>
+                                </div>
+                                {{ form_end(form) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
 {% endblock %}
+
+

@@ -104,7 +104,7 @@ class LineExittController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('line_exitt_index');
+            return $this->redirectToRoute('exitt_show',['id'=>$lineExitt->getExitt()->getId()]);
         }
 
         return $this->render('line_exitt/edit.html.twig', [

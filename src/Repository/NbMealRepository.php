@@ -72,6 +72,18 @@ class NbMealRepository extends ServiceEntityRepository
     {
     	return $this
 		    ->createQueryBuilder('n')
-		    ->andWhere('n.date = :date')->setParameter('date', '2020-01-04');
+		    ->andWhere('n.date = :date')
+            ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ;
+    }
+    public function myFindByCurrentDate()
+    {
+        return $this
+            ->createQueryBuilder('n')
+            ->andWhere('n.date = :date')
+            ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
     }
 }

@@ -40,6 +40,11 @@ class LineExitt
      */
     private $lineStocks;
 
+    /**
+     * @ORM\Column(type="decimal", precision=15, scale=3)
+     */
+    private $unitPrice;
+
 
     public function __construct()
     {
@@ -118,5 +123,17 @@ class LineExitt
     {
         return " ";
             //. " " .$this->exitt. " " .$this->quantity. " " .$this->unit_price. " " .$this->tax. " " .$this->total_price;
+    }
+
+    public function getUnitPrice(): ?string
+    {
+        return $this->unitPrice;
+    }
+
+    public function setUnitPrice(string $unitPrice): self
+    {
+        $this->unitPrice = $unitPrice;
+
+        return $this;
     }
 }

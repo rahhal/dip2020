@@ -38,8 +38,8 @@
                                     <thead>
                                     <tr>
                                         <th>{{  "Date" | trans }}</th>
-                                        <th>{{  "Day" | trans }}</th>
-                                        <th>{{  "Number of exit" | trans }}</th>
+                                        {#<th>{{  "Day" | trans }}</th>#}
+                                        {#<th>{{  "Number of exit" | trans }}</th>#}
                                         <th>{{  "Number of meals" | trans }}</th>
                                         <th>{{  "Total costs" | trans }}</th>
                                         <th>{{  "Unit meal costs" | trans }}</th>
@@ -51,8 +51,7 @@
                                     {% for journal in journals %}
                                         <tr>
                                             <td>{{ journal.date ? journal.date|date('y/m/d') : ''}}</td>
-                                            <td>{{ journal.menu }}</td>
-                                            <td>{{ journal.exitt }}</td>
+                                            {#<td>{{ journal.exitt }}</td>#}
                                             <td>
                                                 {# {% set total_meals = 0 %}
                                                 {% for nbMeal in journal.nbMeal  %}
@@ -64,24 +63,25 @@
                                                 {% for lineStock in journal.exitt.lineExitts.lineStock  %}
                                                     {% set totalCosts+ = exitt.totalPrice %}
                                                 {%endfor%} #}
-                                                {{ journal.totalCosts }}
+                                                {{ journal.totalCosts|number_format(3, ',',' ') }}
                                             </td>
                                             <td>
-                                                {#{% set unitCost = 0 %}
+                                                {# {% set unitCost = 0 %}
                                                 {% for journal in journals  %}
                                                     {% if journal.nbMeal > 0 %}
-                                                    {% set unitCost = journal.totalCosts / journal.nbMeal %}
+                                                    {% set unitCost = journal.totalCosts|number_format(3, ',',' ') / journal.nbMeal|number_format(3, ',',' ') %}
                                                  {% endif %}
-                                                {%endfor%}#}
+                                                {%endfor%} #}
 
-                                                {{ journal.unitCost }}
+                                                {{ journal.unitCost|number_format(3, ',',' ') }}
                                             </td>
                                             <td>{{ journal.remarque }}</td>
 
                                             <td>
                                                 <a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
                                                 <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
-                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-warning btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>{{  "print" | trans }}
+                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-info btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>
+                                                    {#{{  "print" | trans }}#}
                                                 </a>
 
                                             </td>

@@ -38,15 +38,6 @@ class Menu
      */
     private $dinner;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Journal", mappedBy="menu")
-     */
-    private $journals;
-
-    public function __construct()
-    {
-        $this->journals = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -105,36 +96,5 @@ class Menu
         return  $this->day;
         //. " " .$this->lunch." ".$this->dinner;
 
-    }
-
-    /**
-     * @return Collection|Journal[]
-     */
-    public function getJournals(): Collection
-    {
-        return $this->journals;
-    }
-
-    public function addJournal(Journal $journal): self
-    {
-        if (!$this->journals->contains($journal)) {
-            $this->journals[] = $journal;
-            $journal->setMenu($this);
-        }
-
-        return $this;
-    }
-
-    public function removeJournal(Journal $journal): self
-    {
-        if ($this->journals->contains($journal)) {
-            $this->journals->removeElement($journal);
-            // set the owning side to null (unless already changed)
-            if ($journal->getMenu() === $this) {
-                $journal->setMenu(null);
-            }
-        }
-
-        return $this;
     }
 }

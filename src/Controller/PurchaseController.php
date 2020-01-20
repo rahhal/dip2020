@@ -81,14 +81,20 @@ class PurchaseController extends AbstractController
 		            $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
 
 		            if ($findLineStockByLinePurchase) {
-			            $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
+		                /* unit price */
+                     //   $old_price = $findLineStockByLinePurchase->getUnitPrice();
+                       // $new_price=$linePurchase->getUnitPrice();
+                        $findLineStockByLinePurchase->setUnitPrice($linePurchase->getUnitPrice());
+                        $findLineStockByLinePurchase->setProdDate(new \DateTime($linePurchase->getProduction()));
+                        $findLineStockByLinePurchase->setValidDate(new \DateTime($linePurchase->getValidation()));
+
+                        $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
 			            //$new_quantity = $linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty();
                         $new_quantity = $linePurchase->getQuantityDelivred();
-                       // $unit_price = $linePurchase->getUnitPrice();
                         $findLineStockByLinePurchase->setQtyUpdate($old_quantity + $new_quantity);
                         $findLineStockByLinePurchase->setOldQty($old_quantity);
-                       // $findLineStockByLinePurchase->setUnitPrice($unit_price);
-
+                        /*$findLineStockByLinePurchase->setProdDate(new \DateTime($findLinePurchaseByArticle->getProduction()));
+                        $findLineStockByLinePurchase->setValidDate(new \DateTime($findLinePurchaseByArticle->getValidation()));*/
 			            $em->flush();
 		            } else {
 		            	$lineStock = new LineStock();
@@ -97,13 +103,14 @@ class PurchaseController extends AbstractController
 		            	$lineStock->setDate(new \DateTime('now'));
 		            	$lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
 		            	$lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
-		            	$lineStock->setProdDate(new \DateTime('now'));
-		            	$lineStock->setValidDate(new \DateTime('now'));
-                       /*$lineStock->setProdDate($linePurchase->getProduction());
-                        $lineStock->setValidDate($linePurchase->getValidation());*/
+		            	/*$lineStock->setProdDate(new \DateTime('now'));
+		            	$lineStock->setValidDate(new \DateTime('now'));*/
+                       /*$lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
+                        $lineStock->setValidDate(new \DateTime($linePurchase->getValidation()));*/
 		            	$lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
-		            	$lineStock->setStock($stock);
+                        $lineStock->setUnitPrice($linePurchase->getUnitPrice());
 
+		            	$lineStock->setStock($stock);
 		            	$em->persist($lineStock);
 		            }
 	            }

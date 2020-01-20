@@ -28,97 +28,78 @@ class JournalController extends AbstractController
      */
     public function index(JournalRepository $journalRepository, $id=null)
     {
-        $exitt=$this->getDoctrine()
+        /*$exitt=$this->getDoctrine()
             ->getRepository(Exitt::class)
             ->findExittByJournal($id);
         $nbMeal = $this->getDoctrine()
             ->getRepository(NbMeal::class)
-            ->findNbMealtByJournal($id);
+            ->findNbMealtByJournal($id);*/
         return $this->render('journal/index.html.twig', [
             'journals' => $journalRepository->findAll(),
-            'exitts'=> $exitt,
-            'nbMeals' => $nbMeal,
+            /*'exitts'=> $exitt,
+            'nbMeals' => $nbMeal,*/
         ]);
     }
     /**
-     * @Route("/ajout/journal", name="ajout-journal")
      * @Route("/new", name="journal_new", methods={"GET","POST"})
      */
 
     public function journal( Request $request, $id=null)
     {
         $journal = new Journal();
-        $exitt = new  Exitt();
-        $nbMeal = new NbMeal();
+        //$exitt = new  Exitt();
+         $nbMeal = new NbMeal();
+        //die();
         $form = $this->createForm(JournalType::class, $journal);
         $form->handleRequest($request);
 
-        /*  calcul du prix total au journal */
-        foreach ($exitt->getJournals() as $journal)
-        { $journal->setTotalCosts($exitt->getTotalPrice());}
-        foreach ($nbMeal->getJournals() as $journal)
-        {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
-        }
-
-
         if ($form->isSubmitted() && $form->isValid()) {
+            // dump($form->getData());
+            // die();
             $entityManager = $this->getDoctrine()->getManager();
 
-            /*  calcul du prix total au journal   */
-
-            /*foreach ($exitt->getJournals() as $journal)
-            { $journal->setTotalCosts($exitt->getTotalPrice());}*/
-
-            /*foreach ($nbMeal->getJournals() as $journal)
-            {$journal->setTotalMeals($nbMeal->getStdSemiResident()+ $nbMeal->getStdResident()+ $nbMeal->getStdGranted()+ $nbMeal->getCurators() +$nbMeal->getProfessor());
-            }
-
-            /*  calcul du plat   */
-
-            /*if ($journal->getTotalMeals() != 0)
-                $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
+            /* ------- calcul du plat 2eme methode-------  */
+            //  foreach($journal->getExitt() as $exitt)
+            $nbMeal= $journal->getNbMeal();
+            $exitt = $journal ->getExitt();
+            $journal->setTotalCosts(floatval($exitt->getTotalPrice()));
+            $journal->setTotalMeals($nbMeal->getStdSemiResident() + $nbMeal->getStdResident() + $nbMeal->getStdGranted() + $nbMeal->getCurators() + $nbMeal->getProfessor()+ $nbMeal->getEmployee());
+           // $journal->setTotalMeals(100);
+            $tm = $journal->getTotalMeals();
+            $tc = $journal->getTotalCosts();
+            if ($tm != 0)
+                $journal->setUnitCost($tc / $tm);
             else
-                throw new NotFoundHttpException("impossible,division par zero");*/
-            /*  calcul du plat   */
-            /* if ($journal->getTotalMeals()!= 0)
-              $journal->setUnitCost($exitt->getTotalPrice() / $journal->getTotalMeals());
-             else
-               return "impossible,division par zero";*/
+                throw new NotFoundHttpException("impossible,division par zero");
 
-            /*================== */
-            /*foreach ($nbMeal->getJournals() as $journal)
-            { //$date = $journal->getDate();
-            //$nbMeal = $this->getDoctrine()->getRepository(NbMeal::class)->findOneBy(['date'=>$date]);
-            $totalMeals=$nbMeal->getStdSemiResident() + $nbMeal->getStdResident() + $nbMeal->getStdGranted() + $nbMeal->getCurators() + $nbMeal->getProfessor();
-            $journal->setTotalMeals($totalMeals);}*/
-/* =================== */
+            /* test de calcul du plat 3eme methode */
+            /*  $tc= $journal->setTotalCosts(6000);
+              $tm= $journal->setTotalMeals(5);
+               if ($tm != 0)
+                   $journal->setUnitCost($tc / $tm);
+               else
+                   throw new NotFoundHttpException("impossible,division par zero");*/
 
 
-//dump($journal);die;
-            $entityManager->persist($exitt);
-            $entityManager->persist($nbMeal);
+            //dump($journal);die;
+            /*$entityManager->persist($exitt);
+            $entityManager->persist($nbMeal);*/
             $entityManager->persist($journal);
             $entityManager->flush();
 
             return $this->redirectToRoute('journal_index');
         }
-
-
-        // $journal->getLineExitt()->getTotalPrice();
-        // $lineExitt = $em->getRepository(LineExitt::class)->find($id);
-         $exitt=$this->getDoctrine()
-             ->getRepository(Exitt::class)
-             ->findExittByJournal($id);
-
-        $nbMeal=$this->getDoctrine()
+        $nbMeals=$this->getDoctrine()
             ->getRepository(NbMeal::class)
-            ->findNbMealtByJournal($id);
-        // $lineExitts=$em->getRepository(LineExitt::class)->findOneById($id);
-        return $this->render('journal/new.html.twig', [
+            ->myFindByCurrentDate();
+        $exitts=$this->getDoctrine()
+            ->getRepository(Exitt::class)
+            ->myFindByCurrentDate();
+     return $this->render('journal/new.html.twig', [
             'journal' => $journal,
             'form' => $form->createView(),
-            'exitt' => $exitt,
-            'nbMeal'=>$nbMeal,
+             'exitt' => $exitts,
+             'nbMeal'=> $nbMeals,
         ]);
     }
 

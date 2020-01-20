@@ -35,7 +35,7 @@ class ExittType extends AbstractType
                 'allow_add'    => true,
                 'allow_delete' => true
             ))
-
+            ->add('totalPrice',TextType::class)
             ->add('save',      SubmitType::class)
 
         ;

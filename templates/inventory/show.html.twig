@@ -78,6 +78,7 @@
                                     <thead>
                                     <tr>
                                         <th>{{ "Article name"|trans }}</th>
+                                         <th>{{ "Reference"|trans }}</th>
                                         <th>{{ "Qty_inv"|trans }}</th>
                                         <th>{{ "Qty_th"|trans }}</th>
                                         <th>{{ "Difference"|trans }}   </th>
@@ -86,20 +87,21 @@
                                     </thead>
                                     <tbody>
                                     {% for line_inventory in inventory.lineInventories %}
-                                    {#{% for lineStock in line_inventory.lineStocks %}#}
-                                            {# <tr>
+                                    {# {% for lineStock in line_inventory.lineStocks %}#} 
+                                             <tr>
                                                  <td>{{ line_inventory.article }}</td>
-                                                 <td>{{ line_inventory.qtyInv }}</td>
                                                  <td>{{ line_inventory.lineStock }}</td>
+                                                 <td>{{ line_inventory.qtyInv }}</td>
+                                                 <td>{{ line_inventory.lineStock.qtyUpdate }}</td>
                                                  <td> {{line_inventory.qtyInv - line_inventory.lineStock.qtyUpdate }}
                                                  </td>
                                                  <td>
-                                                     #}{#<a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>#}{#
+                                                    {# <a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a> #}
                                                      <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i></a>
 
                                                  </td>
-                                             </tr>#}
-                                        <tr>
+                                             </tr>
+                                        {# <tr>
                                             <td>{{ line_inventory.article }}</td>
                                             <td>{{ line_inventory.qtyInv }}</td>
                                             <td>{% for lineStock in line_inventory.lineStock %}
@@ -114,11 +116,11 @@
                                                 </td>
 
                                             <td>
-                                                {#<a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>#}
+                                                <a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
                                                 <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i></a>
 
                                             </td>
-                                        </tr>
+                                        </tr> #}
 
 
                                     {% else %}

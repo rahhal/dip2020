@@ -34,7 +34,10 @@
                                         <th> {{ "Total meals"|trans }}</th>
                                         <td>{{ journal.totalMeals }}</td>
                                     </tr>
-
+                                    <tr>
+                                        <th>{{ "Total costs"|trans }}</th>
+                                        <td>{{ journal.totalCosts }}</td>
+                                    </tr>
                                     <tr>
                                         <th>{{ "Unit meal costs"|trans }}</th>
                                         <td>{{ journal.unitCost }} </td>
@@ -43,19 +46,6 @@
                                         <th>{{ "Remarque"|trans }}</th>
                                         <td>{{ journal.remarque }}</td>
                                     </tr>
-                                   {# <tr>
-                                        <th>{{ "Menu today"|trans }}</th>
-                                        <td>{{ journal.menu }} </td>
-                                    </tr>#}
-                                    <tr>
-                                        <th>{{ "Number of meals"|trans }}</th>
-                                        <td>{{ journal.nbMeal }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>{{ "Total price"|trans }}</th>
-                                        <td>{{ journal.exitt }}</td>
-                                    </tr>
-
                                     </tbody>
                                 </table>
 
@@ -91,21 +81,6 @@
             </div>
             {% include('layouts/footer.html.twig') %}
         </div>
-    </div>
-    <div id="lock_screen">
-        <table>
-            <tr>
-                <td>
-                    <div class="clock"></div>
-                    <span class="unlock">
-                    <span class="fa-stack fa-5x">
-                      <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
-                      <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                </span>
-                </td>
-            </tr>
-        </table>
     </div>
 {% endblock %}
 

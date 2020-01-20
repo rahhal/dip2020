@@ -153,8 +153,10 @@ class NbMeal
     }
     public function __toString()
     {
-	    $calc = $this->std_resident + $this->std_granted + $this->std_semiResident + $this->professor + $this->employee + $this->curators;
-        return  (string)$calc;
+	     $calc = $this->std_resident + $this->std_granted + $this->std_semiResident + $this->professor + $this->employee + $this->curators;
+         return  (string)$calc;
+        /*$calc = $this->std_resident + $this->std_granted + $this->std_semiResident;
+        return  (string)$calc;*/
     }
 
     /**

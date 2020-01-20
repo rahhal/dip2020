@@ -18,6 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
@@ -42,13 +43,15 @@ class ExittController extends AbstractController
     }
 
     /**
-     * @Route("ajout/exitt", name="ajout-exitt")
+     * @Route("/ajout/exitt", name="ajout-exitt")
      * @Route("/modifier/exitt/{id}", name="modifier-exitt" )
      * @Route("/new", name="exitt_new")
      *
      */
     public  function exitt($id=null, Request $request)
     {
+	    $data_exit = $this->getDoctrine()->getRepository(Exitt::class)->checkOneExitByDate();
+
         $em = $this->getDoctrine()->getManager();
         if (is_null($id))
             $exitt = new Exitt();
@@ -63,6 +66,9 @@ class ExittController extends AbstractController
 
         if ($request->isMethod('POST'))
         {
+
+
+           /****/
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()){
                 foreach ($oldLineExitt as $lineExitt) {
@@ -74,10 +80,11 @@ class ExittController extends AbstractController
 	                $lineExitt->setExitt($exitt);
                 }*/
 
-                /* ----calcul du prix total de chaque line_exitt----*/
                 foreach ($exitt->getLineExitts() as $lineExitt) {
+                    /* ----calcul du prix total de chaque line_exitt----*/
                     // $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
-                      $lineExitt->setExitt($exitt);
+
+                    $lineExitt->setExitt($exitt);
 
 	                // find Line Purchase By Article: mise à jour du stock
 	                $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
@@ -87,19 +94,34 @@ class ExittController extends AbstractController
 	                if ($findLineStockByLinePurchase) {
 		                $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
 		                $new_quantity = $lineExitt->getQuantity();
-		                $findLineStockByLinePurchase->setQtyUpdate($old_quantity-$new_quantity);
-                        $findLineStockByLinePurchase->setOldQty($old_quantity);
-		                $em->flush();
+		                $etat=$old_quantity-$new_quantity;
+		                if ($etat < $findLineStockByLinePurchase->getQuantityAlerte()) {
+			                $this->addFlash(
+				                'danger',
+				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اقل من الكمية المتوفرة بالمخزون '.$old_quantity);
+			                return $this->redirectToRoute("ajout-exitt");
+                        }
+                        else {
+                            $findLineStockByLinePurchase->setQtyUpdate($etat);
+                            $findLineStockByLinePurchase->setOldQty($old_quantity);
+                       }
+
+                // le prix unitaire de line exitt
+                        $lineExitt->setUnitPrice($findLineStockByLinePurchase->getUnitPrice());
+
+                        $em->flush();
 	                }
                 }
 
                 /* ---calcul du prix total de chaque exitt---*/
-               /*$totalPrice=0;
+               $totalPrice=0;
                 foreach ($exitt->getLineExitts() as $lineExitt)
                 {
-                    $totalPrice += $lineExitt->getTotalPrice();
+                    //$lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+
+                    $totalPrice += $lineExitt->getQuantity()*$lineExitt->getUnitPrice();
                 }
-                $exitt->setTotalPrice($totalPrice);*/
+                $exitt->setTotalPrice($totalPrice);
 
                 $em->persist($exitt);
                 $em->flush();
@@ -116,6 +138,7 @@ class ExittController extends AbstractController
             'form'=> $form->createView(),
             'exitts' => $exitts,
             'articles' =>$article,
+	        'data_exit' => $data_exit
         ]);
     }
 
@@ -157,7 +180,7 @@ class ExittController extends AbstractController
 
             $exitt = new Exitt();
         foreach ($exitt->getLineExitts() as $lineExitt) {
-            foreach ($lineExitt->getLineStocks() as $lineS)
+            foreach ($lineExitt->getLineStocks() as $lineStock)
              $lineExitt->getQuantity();
             $etat_stock=$lineExitt->getQuantity()- $quantity;
             if ($etat_stock > 1) {

@@ -98,4 +98,37 @@ class DemandController extends AbstractController
 
         return $this->redirectToRoute('demand_index');
     }
+
+      /**
+     * @Route("/print/{id}", name="print_pdf")
+     *
+     */
+    public function print( $id)
+    {
+        $demands = $this->getDoctrine()
+            ->getRepository(Demand::class)
+            ->myFindOne($id);
+        $lineDemand=$this->getDoctrine()
+            ->getRepository(LineDemand::class)
+            ->findLineDemandByDemand($id);
+
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+
+        $html = $this->renderView('pdf/demand.html.twig', array(
+            'demands' => $demands,
+            'lineDemands' => $lineDemand,
+            'title' => "طلب تزوّد",
+            'institution'=> $institution,
+        ));
+
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
+    }
+
 }
