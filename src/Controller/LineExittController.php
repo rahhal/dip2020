@@ -37,22 +37,12 @@ class LineExittController extends AbstractController
     public function new(Request $request): Response
     {
         $lineExitt = new LineExitt();
-        $journal= new Journal();
 
         $form = $this->createForm(LineExittType::class, $lineExitt);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-
-            /*foreach ($lineExitt->)
-            $journal->setLineExitt($lineExitt);
-            $journal->setTotalPrice($lineExitt->getTotalPrice());*/
-
-            $journal->setLineExitt->getTotalPrice();
-
-           // $journal->setLineExitt($lineExitt);
-
 
             $entityManager->persist($lineExitt);
             $entityManager->flush();
@@ -155,5 +145,33 @@ class LineExittController extends AbstractController
 	    $mpdf->WriteHTML($html);
 	    // Output a PDF file directly to the browser
 	    $mpdf->Output();
+    }
+    /**
+     * @Route("/permit/{id}", name="exitt_permit")
+     *
+     */
+    public function permit( $id)
+    {
+        $lineExitt=$this->getDoctrine()
+            ->getRepository(LineExitt::class)
+            ->findLineExittByExitt($id);
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+
+        $html = $this->renderView('pdf/permit.html.twig', array(
+            // 'form' => $form->createView(),
+            'line_exitts' => $lineExitt,
+            // 'exitts' => $exitt,
+            'title' =>"إذن وقتي ",
+            'institution'=> $institution,
+        ));
+
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
     }
 }

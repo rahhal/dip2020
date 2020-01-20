@@ -22,11 +22,11 @@
 
 {% for vb in institution %}
 
-{% if loop.first %}
-    <h4 style="text-align: right">   {{ vb.ministry }} </h4>
-    <h4 style="text-align: right">    {{ vb.office }}</h4>
-    <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
-{% endif %}
+    {% if loop.first %}
+        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
+    {% endif %}
 {% endfor %}
 {#   {% for line_purchase in line_purchases %}
 
@@ -47,14 +47,11 @@
 
 {% for line_exitt in line_exitts %}
     {% if loop.first %}
-    <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date ? line_exitt.exitt.date|date('Y/m/d') : '' }}</h3>
+        <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date ? line_exitt.exitt.date|date('Y/m/d') : '' }}</h3>
 
-    <h2 style="text-align: center">وصل خروج</h2>
-    <h3 style="text-align: right"> وصل خروج عدد: {{ line_exitt.exitt.number }}</h3>
+        <h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
 
-
-    <h3 style="text-align: right"> المستفيد: {{ line_exitt.exitt.employee }}</h3>
-{% endif %}
+    {% endif %}
 {% endfor  %}
 
 <br>
@@ -66,25 +63,22 @@
     <tr>
 
         <th style="text-align: center" >{{ "Name of article"|trans }}</th>
-        {#<th align="center">{{ "Quantity in stock"|trans }}</th>#}
-        <th style="text-align: center">{{ "Quantity"|trans }}</th>
-        {#<th>{{ "Quantity remaining"|trans }}</th>#}
-        <th style="text-align: center">{{ "Unit price"|trans }}</th>
-        {#<th style="text-align: center">{{ "Tax"|trans }}</th>#}
-        <th style="text-align: center">{{ "Total price"|trans }}</th>
+        <th align="center">{{ "Quantity in stock"|trans }}</th>
+        <th>{{ "Quantity"|trans }}</th>
+        <th style="text-align: center">{{ "Quantity remaining"|trans }}</th>
 
     </tr>
     </thead>
 
 
     <tbody>
-   {# {% set toal = 0 %}
-    {% set somme = 0 %}#}
+    {# {% set toal = 0 %}
+     {% set somme = 0 %}#}
     {% for line_exitt in line_exitts %}
 
         <tr>
 
-             <td style="text-align: center">{{ line_exitt.article }}</td>
+            <td style="text-align: center">{{ line_exitt.article }}</td>
 
             {#<td>{{ line_stock.quantity }}</td>#}
 
@@ -96,14 +90,14 @@
             {#<td style="text-align: center">{{ line_exitt.totalPrice }}</td>#}
 
         </tr>
-   {% if loop.last %}
-        <tr>
-            <td colspan="3" style="text-align: center">{{ "Total price"|trans }}</td>
-               {#<td> {% set somme = total + somme %}
-                   {{somme}}</td>#}
-            <td style="text-align: center">{{ line_exitt.exitt.totalPrice }}</td>
-        </tr>
-   {% endif %}
+        {% if loop.last %}
+            <tr>
+                <td colspan="3" style="text-align: center">{{ "Total price"|trans }}</td>
+                {#<td> {% set somme = total + somme %}
+                    {{somme}}</td>#}
+                <td style="text-align: center">{{ line_exitt.exitt.totalPrice }}</td>
+            </tr>
+        {% endif %}
     {% endfor %}
     </tbody>
 </table>

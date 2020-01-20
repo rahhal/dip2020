@@ -798,6 +798,19 @@
                     <source>Create new demand</source>
                      <target> اضافة طلب تزوّد  </target>
            </trans-unit>
+
+           <trans-unit id="Edit line exitt" resname="Edit line exitt">
+                     <source>Edit line exitt</source>
+                     <target> تعديل المعطيات </target>
+           </trans-unit>
+           <trans-unit id="print exit" resname="print exit">
+                    <source>print exit</source>
+                    <target> طباعة وصل دخول </target>
+            </trans-unit>
+            <trans-unit id="Print permission" resname="Print permission">
+                      <source>Print permission</source>
+                       <target> طباعة اذن وقتي لخروج المواد </target>
+             </trans-unit>
     </body>
   </file>
 </xliff>

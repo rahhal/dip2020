@@ -100,7 +100,7 @@ class DemandController extends AbstractController
     }
 
       /**
-     * @Route("/print/{id}", name="print_pdf")
+     * @Route("/print/{id}", name="printt_pdf")
      *
      */
     public function print( $id)

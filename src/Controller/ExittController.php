@@ -41,7 +41,6 @@ class ExittController extends AbstractController
             'exitts' =>$exittRepository->findAll()
         ]);
     }
-
     /**
      * @Route("/ajout/exitt", name="ajout-exitt")
      * @Route("/modifier/exitt/{id}", name="modifier-exitt" )
@@ -66,24 +65,13 @@ class ExittController extends AbstractController
 
         if ($request->isMethod('POST'))
         {
-
-
-           /****/
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()){
                 foreach ($oldLineExitt as $lineExitt) {
 	                if (false=== $exitt->getLineExitts()->contains($lineExitt))
 		                $em->remove($lineExitt);
                 }
-
-                /*foreach ($exitt->getLineExitts() as $lineExitt) {
-	                $lineExitt->setExitt($exitt);
-                }*/
-
                 foreach ($exitt->getLineExitts() as $lineExitt) {
-                    /* ----calcul du prix total de chaque line_exitt----*/
-                    // $lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
-
                     $lineExitt->setExitt($exitt);
 
 	                // find Line Purchase By Article: mise à jour du stock
@@ -141,8 +129,6 @@ class ExittController extends AbstractController
 	        'data_exit' => $data_exit
         ]);
     }
-
-
     /**
      * @Route("/{id}", name="exitt_show", methods={"GET"})
      */
@@ -166,38 +152,4 @@ class ExittController extends AbstractController
 
         return $this->redirectToRoute('exitt_index');
     }
-
-    /**
-     * check quantity disponibility
-     *
-     * @Route("/exitts/check_quantity", name="quantity_check_disponibility")
-     */
-    public function checkQuantityDisponibilityAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $quantity=$request->get('quantity');
-        //$lineExitt= $em->getRepository(LineExitt::class)->findOneBy(['quantity' => $quantity]);
-
-            $exitt = new Exitt();
-        foreach ($exitt->getLineExitts() as $lineExitt) {
-            foreach ($lineExitt->getLineStocks() as $lineStock)
-             $lineExitt->getQuantity();
-            $etat_stock=$lineExitt->getQuantity()- $quantity;
-            if ($etat_stock > 1) {
-                $response = new Response(
-                    'disponible',
-                    Response::HTTP_OK,
-                    ['content-type' => 'text/plain']
-                );
-            } else {
-                $response = new Response(
-                    'indisponible',
-                    Response::HTTP_OK,
-                    ['content-type' => 'text/plain']
-                );
-            }
-
-        return $response;}
-    }
-
 }
