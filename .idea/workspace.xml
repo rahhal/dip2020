@@ -2,263 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a77a8da8-e0d5-4b80-9891-f015183e90a7" name="Default" comment="xcv">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/build/images/background.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107144738.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200107215923.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200108124208.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200118202725.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Migrations/Version20200118214925.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/css/style.css" afterPath="$PROJECT_DIR$/public/build/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/custom.js" afterPath="$PROJECT_DIR$/public/build/js/custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/BudgetController.php" afterPath="$PROJECT_DIR$/src/Controller/BudgetController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CategoryController.php" afterPath="$PROJECT_DIR$/src/Controller/CategoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CommissionController.php" afterPath="$PROJECT_DIR$/src/Controller/CommissionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/DemandController.php" afterPath="$PROJECT_DIR$/src/Controller/DemandController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/EmployeeController.php" afterPath="$PROJECT_DIR$/src/Controller/EmployeeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ExittController.php" afterPath="$PROJECT_DIR$/src/Controller/ExittController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/InstitutionController.php" afterPath="$PROJECT_DIR$/src/Controller/InstitutionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/InventoryController.php" afterPath="$PROJECT_DIR$/src/Controller/InventoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/JournalController.php" afterPath="$PROJECT_DIR$/src/Controller/JournalController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineDemandController.php" afterPath="$PROJECT_DIR$/src/Controller/LineDemandController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineExittController.php" afterPath="$PROJECT_DIR$/src/Controller/LineExittController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineInventoryController.php" afterPath="$PROJECT_DIR$/src/Controller/LineInventoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LinePurchaseController.php" afterPath="$PROJECT_DIR$/src/Controller/LinePurchaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/LineStockController.php" afterPath="$PROJECT_DIR$/src/Controller/LineStockController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MenuController.php" afterPath="$PROJECT_DIR$/src/Controller/MenuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/NbMealController.php" afterPath="$PROJECT_DIR$/src/Controller/NbMealController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/PurchaseController.php" afterPath="$PROJECT_DIR$/src/Controller/PurchaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ResettingController.php" afterPath="$PROJECT_DIR$/src/Controller/ResettingController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SupplierController.php" afterPath="$PROJECT_DIR$/src/Controller/SupplierController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/CityFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/CityFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/InstitutionFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/InstitutionFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/UnitFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/UnitFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Article.php" afterPath="$PROJECT_DIR$/src/Entity/Article.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Budget.php" afterPath="$PROJECT_DIR$/src/Entity/Budget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Category.php" afterPath="$PROJECT_DIR$/src/Entity/Category.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/City.php" afterPath="$PROJECT_DIR$/src/Entity/City.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Commission.php" afterPath="$PROJECT_DIR$/src/Entity/Commission.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Demand.php" afterPath="$PROJECT_DIR$/src/Entity/Demand.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Employee.php" afterPath="$PROJECT_DIR$/src/Entity/Employee.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Exitt.php" afterPath="$PROJECT_DIR$/src/Entity/Exitt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Institution.php" afterPath="$PROJECT_DIR$/src/Entity/Institution.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Inventory.php" afterPath="$PROJECT_DIR$/src/Entity/Inventory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Journal.php" afterPath="$PROJECT_DIR$/src/Entity/Journal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineDemand.php" afterPath="$PROJECT_DIR$/src/Entity/LineDemand.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineExitt.php" afterPath="$PROJECT_DIR$/src/Entity/LineExitt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineInventory.php" afterPath="$PROJECT_DIR$/src/Entity/LineInventory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LinePurchase.php" afterPath="$PROJECT_DIR$/src/Entity/LinePurchase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/LineStock.php" afterPath="$PROJECT_DIR$/src/Entity/LineStock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Menu.php" afterPath="$PROJECT_DIR$/src/Entity/Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/NbMeal.php" afterPath="$PROJECT_DIR$/src/Entity/NbMeal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Purchase.php" afterPath="$PROJECT_DIR$/src/Entity/Purchase.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Entity/Stock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Supplier.php" afterPath="$PROJECT_DIR$/src/Entity/Supplier.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Unit.php" afterPath="$PROJECT_DIR$/src/Entity/Unit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/User.php" afterPath="$PROJECT_DIR$/src/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/BudgetType.php" afterPath="$PROJECT_DIR$/src/Form/BudgetType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/CategoryType.php" afterPath="$PROJECT_DIR$/src/Form/CategoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/CommissionType.php" afterPath="$PROJECT_DIR$/src/Form/CommissionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/DemandType.php" afterPath="$PROJECT_DIR$/src/Form/DemandType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/EmployeeType.php" afterPath="$PROJECT_DIR$/src/Form/EmployeeType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ExittType.php" afterPath="$PROJECT_DIR$/src/Form/ExittType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/InstitutionType.php" afterPath="$PROJECT_DIR$/src/Form/InstitutionType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/InventoryType.php" afterPath="$PROJECT_DIR$/src/Form/InventoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/JournalType.php" afterPath="$PROJECT_DIR$/src/Form/JournalType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineDemandType.php" afterPath="$PROJECT_DIR$/src/Form/LineDemandType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineExittType.php" afterPath="$PROJECT_DIR$/src/Form/LineExittType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineInventoryType.php" afterPath="$PROJECT_DIR$/src/Form/LineInventoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LinePurchaseType.php" afterPath="$PROJECT_DIR$/src/Form/LinePurchaseType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/LineStockType.php" afterPath="$PROJECT_DIR$/src/Form/LineStockType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/MenuType.php" afterPath="$PROJECT_DIR$/src/Form/MenuType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/NbMealType.php" afterPath="$PROJECT_DIR$/src/Form/NbMealType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ProfileType.php" afterPath="$PROJECT_DIR$/src/Form/ProfileType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/PurchaseType.php" afterPath="$PROJECT_DIR$/src/Form/PurchaseType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/SupplierType.php" afterPath="$PROJECT_DIR$/src/Form/SupplierType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/UserType.php" afterPath="$PROJECT_DIR$/src/Form/UserType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel.php" afterPath="$PROJECT_DIR$/src/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ArticleRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/BudgetRepository.php" afterPath="$PROJECT_DIR$/src/Repository/BudgetRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CityRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CityRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/CommissionRepository.php" afterPath="$PROJECT_DIR$/src/Repository/CommissionRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/DemandRepository.php" afterPath="$PROJECT_DIR$/src/Repository/DemandRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/EmployeeRepository.php" afterPath="$PROJECT_DIR$/src/Repository/EmployeeRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/ExittRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ExittRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/InstitutionRepository.php" afterPath="$PROJECT_DIR$/src/Repository/InstitutionRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/InventoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/InventoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/JournalRepository.php" afterPath="$PROJECT_DIR$/src/Repository/JournalRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineDemandRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineDemandRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineExittRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineExittRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineInventoryRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineInventoryRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineMealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineMealRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LinePurchaseRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LinePurchaseRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/LineStockRepository.php" afterPath="$PROJECT_DIR$/src/Repository/LineStockRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/MealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/MealRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/MenuRepository.php" afterPath="$PROJECT_DIR$/src/Repository/MenuRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/NbMealRepository.php" afterPath="$PROJECT_DIR$/src/Repository/NbMealRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/PurchaseRepository.php" afterPath="$PROJECT_DIR$/src/Repository/PurchaseRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/StockRepository.php" afterPath="$PROJECT_DIR$/src/Repository/StockRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" afterPath="$PROJECT_DIR$/src/Repository/SupplierRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/UnitRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UnitRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/article/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/_form.html.twig" afterPath="$PROJECT_DIR$/templates/article/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/edit.html.twig" afterPath="$PROJECT_DIR$/templates/article/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/index.html.twig" afterPath="$PROJECT_DIR$/templates/article/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/new.html.twig" afterPath="$PROJECT_DIR$/templates/article/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/article/show.html.twig" afterPath="$PROJECT_DIR$/templates/article/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/budget/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/_form.html.twig" afterPath="$PROJECT_DIR$/templates/budget/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/edit.html.twig" afterPath="$PROJECT_DIR$/templates/budget/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/index.html.twig" afterPath="$PROJECT_DIR$/templates/budget/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/new.html.twig" afterPath="$PROJECT_DIR$/templates/budget/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/budget/show.html.twig" afterPath="$PROJECT_DIR$/templates/budget/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/category/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/_form.html.twig" afterPath="$PROJECT_DIR$/templates/category/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/edit.html.twig" afterPath="$PROJECT_DIR$/templates/category/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/index.html.twig" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/new.html.twig" afterPath="$PROJECT_DIR$/templates/category/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/category/show.html.twig" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/commission/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/_form.html.twig" afterPath="$PROJECT_DIR$/templates/commission/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/commission.html.twig" afterPath="$PROJECT_DIR$/templates/commission/commission.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/edit.html.twig" afterPath="$PROJECT_DIR$/templates/commission/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/index.html.twig" afterPath="$PROJECT_DIR$/templates/commission/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/new.html.twig" afterPath="$PROJECT_DIR$/templates/commission/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/commission/show.html.twig" afterPath="$PROJECT_DIR$/templates/commission/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/demand/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/_form.html.twig" afterPath="$PROJECT_DIR$/templates/demand/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/edit.html.twig" afterPath="$PROJECT_DIR$/templates/demand/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/index.html.twig" afterPath="$PROJECT_DIR$/templates/demand/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/new.html.twig" afterPath="$PROJECT_DIR$/templates/demand/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/demand/show.html.twig" afterPath="$PROJECT_DIR$/templates/demand/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/employee/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/_form.html.twig" afterPath="$PROJECT_DIR$/templates/employee/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/edit.html.twig" afterPath="$PROJECT_DIR$/templates/employee/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/index.html.twig" afterPath="$PROJECT_DIR$/templates/employee/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/new.html.twig" afterPath="$PROJECT_DIR$/templates/employee/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/employee/show.html.twig" afterPath="$PROJECT_DIR$/templates/employee/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/_form.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/edit.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/exitt.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/exitt.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/index.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/new.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/exitt/show.html.twig" afterPath="$PROJECT_DIR$/templates/exitt/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index/index.html.twig" afterPath="$PROJECT_DIR$/templates/index/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/institution/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/_form.html.twig" afterPath="$PROJECT_DIR$/templates/institution/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/edit.html.twig" afterPath="$PROJECT_DIR$/templates/institution/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/institution/show.html.twig" afterPath="$PROJECT_DIR$/templates/institution/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/_form.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/edit.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/index.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/new.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inventory/show.html.twig" afterPath="$PROJECT_DIR$/templates/inventory/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/journal/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/_form.html.twig" afterPath="$PROJECT_DIR$/templates/journal/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/edit.html.twig" afterPath="$PROJECT_DIR$/templates/journal/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/index.html.twig" afterPath="$PROJECT_DIR$/templates/journal/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/new.html.twig" afterPath="$PROJECT_DIR$/templates/journal/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/journal/show.html.twig" afterPath="$PROJECT_DIR$/templates/journal/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout_footer.html.twig" afterPath="$PROJECT_DIR$/templates/layout_footer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout_header.html.twig" afterPath="$PROJECT_DIR$/templates/layout_header.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/content.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/flash-messages.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/flash-messages.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/footer.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/footer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/navbar.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/navbar.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/sidebar.html.twig" afterPath="$PROJECT_DIR$/templates/layouts/sidebar.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_demand/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_demand/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/detail.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/detail.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_exitt/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_exitt/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_inventory/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_inventory/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/commi.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/commi.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/detail.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/detail.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_purchase/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_purchase/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/_form.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/edit.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/index.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/new.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/show.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/stckIni.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/stckIni.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig" afterPath="$PROJECT_DIR$/templates/line_stock/stckvalid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/menu/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/_form.html.twig" afterPath="$PROJECT_DIR$/templates/menu/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/edit.html.twig" afterPath="$PROJECT_DIR$/templates/menu/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/index.html.twig" afterPath="$PROJECT_DIR$/templates/menu/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/new.html.twig" afterPath="$PROJECT_DIR$/templates/menu/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menu/show.html.twig" afterPath="$PROJECT_DIR$/templates/menu/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/_form.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/edit.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/index.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/new.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/nb_meal/show.html.twig" afterPath="$PROJECT_DIR$/templates/nb_meal/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/commission.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/commission.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/exitt.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/exitt.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/journal.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/journal.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/purchase.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/purchase.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/receive.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/receive.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pdf/request.html.twig" afterPath="$PROJECT_DIR$/templates/pdf/request.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/profile/_form.html.twig" afterPath="$PROJECT_DIR$/templates/profile/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/_form.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/detail.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/detail.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/edit.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/index.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/new.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/purchase.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/purchase.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/purchase/show.html.twig" afterPath="$PROJECT_DIR$/templates/purchase/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reset/reset.html.twig" afterPath="$PROJECT_DIR$/templates/reset/reset.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/security/login.html.twig" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/_form.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/edit.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/index.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/new.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/supplier/show.html.twig" afterPath="$PROJECT_DIR$/templates/supplier/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" afterPath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_delete_form1.html.twig" afterPath="$PROJECT_DIR$/templates/user/_delete_form1.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/admin.html.twig" afterPath="$PROJECT_DIR$/templates/user/admin.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/admin_list.html.twig" afterPath="$PROJECT_DIR$/templates/user/admin_list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/index.html.twig" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/new.html.twig" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/show.html.twig" afterPath="$PROJECT_DIR$/templates/user/show.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -277,7 +23,11 @@
             <state relative-caret-position="490">
               <caret line="115" column="63" lean-forward="false" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
               <folding>
-                <element signature="e#3843#3856#1#PHP" expanded="true" />
+                <element signature="e#1086#1109#0#PHP" expanded="false" />
+                <element signature="e#5046#5059#1#PHP" expanded="false" />
+                <element signature="e#5244#5267#0#PHP" expanded="false" />
+                <element signature="e#5594#5616#0#PHP" expanded="false" />
+                <element signature="e#6119#6132#1#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -299,9 +49,17 @@
             <state relative-caret-position="166">
               <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
               <folding>
+                <element signature="e#14#28#0#Twig" expanded="false" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="e#320#345#0#Twig" expanded="false" />
+                <element signature="e#394#418#0#Twig" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <element signature="e#937#969#0#Twig" expanded="false" />
+                <element signature="e#1152#1163#0#Twig" expanded="false" />
+                <element signature="e#3036#3048#0#Twig" expanded="false" />
+                <element signature="e#3275#3287#0#Twig" expanded="false" />
+                <element signature="e#4076#4100#0#Twig" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -313,15 +71,15 @@
             <state relative-caret-position="306">
               <caret line="187" column="53" lean-forward="false" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
               <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
                 <element signature="n#div#0;n#!!top" expanded="false" />
+                <element signature="e#4721#4746#0#Twig" expanded="false" />
+                <element signature="e#4795#4819#0#Twig" expanded="false" />
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#fieldset#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="e#12089#12113#0#Twig" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -331,8 +89,12 @@
         <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1760">
-              <caret line="80" column="11" lean-forward="true" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-              <folding />
+              <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="false" />
+                <element signature="e#901#911#0#Twig" expanded="false" />
+                <element signature="e#1879#1890#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -342,7 +104,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#389#412#0#Twig" expanded="false" />
+                <element signature="e#993#1016#0#Twig" expanded="false" />
+                <element signature="e#1625#1649#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -362,7 +128,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="133" column="53" lean-forward="false" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
-              <folding />
+              <folding>
+                <element signature="e#13#27#0#Twig" expanded="false" />
+                <element signature="e#1832#1857#0#Twig" expanded="false" />
+                <element signature="e#1906#1930#0#Twig" expanded="false" />
+                <element signature="e#8156#8180#0#Twig" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1124,16 +895,15 @@
       <workItem from="1579180079597" duration="1707000" />
       <workItem from="1579250993830" duration="72000" />
       <workItem from="1579252797477" duration="26394000" />
-      <workItem from="1579449874992" duration="9725000" />
+      <workItem from="1579449874992" duration="10285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1496551000" />
+    <option name="totallyTimeSpent" value="1497111000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1358" height="728" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2071535" sideWeight="0.8560606" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1142,7 +912,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.13836017" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10339257" sideWeight="0.8777453" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4555735" sideWeight="0.8777453" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1562,7 +1332,11 @@
         <state relative-caret-position="490">
           <caret line="115" column="63" lean-forward="false" selection-start-line="115" selection-start-column="63" selection-end-line="115" selection-end-column="63" />
           <folding>
-            <element signature="e#3843#3856#1#PHP" expanded="true" />
+            <element signature="e#1086#1109#0#PHP" expanded="false" />
+            <element signature="e#5046#5059#1#PHP" expanded="false" />
+            <element signature="e#5244#5267#0#PHP" expanded="false" />
+            <element signature="e#5594#5616#0#PHP" expanded="false" />
+            <element signature="e#6119#6132#1#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1588,9 +1362,17 @@
         <state relative-caret-position="166">
           <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
           <folding>
+            <element signature="e#14#28#0#Twig" expanded="false" />
             <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#320#345#0#Twig" expanded="false" />
+            <element signature="e#394#418#0#Twig" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#937#969#0#Twig" expanded="false" />
+            <element signature="e#1152#1163#0#Twig" expanded="false" />
+            <element signature="e#3036#3048#0#Twig" expanded="false" />
+            <element signature="e#3275#3287#0#Twig" expanded="false" />
+            <element signature="e#4076#4100#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1599,7 +1381,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="133" column="53" lean-forward="false" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
-          <folding />
+          <folding>
+            <element signature="e#13#27#0#Twig" expanded="false" />
+            <element signature="e#1832#1857#0#Twig" expanded="false" />
+            <element signature="e#1906#1930#0#Twig" expanded="false" />
+            <element signature="e#8156#8180#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1608,15 +1395,15 @@
         <state relative-caret-position="306">
           <caret line="187" column="53" lean-forward="false" selection-start-line="187" selection-start-column="53" selection-end-line="187" selection-end-column="53" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
             <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="e#4721#4746#0#Twig" expanded="false" />
+            <element signature="e#4795#4819#0#Twig" expanded="false" />
             <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#fieldset#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#div#0;n#fieldset#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#12089#12113#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1625,7 +1412,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#389#412#0#Twig" expanded="false" />
+            <element signature="e#993#1016#0#Twig" expanded="false" />
+            <element signature="e#1625#1649#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1640,8 +1431,12 @@
     <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1760">
-          <caret line="80" column="11" lean-forward="true" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-          <folding />
+          <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="false" />
+            <element signature="e#901#911#0#Twig" expanded="false" />
+            <element signature="e#1879#1890#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
