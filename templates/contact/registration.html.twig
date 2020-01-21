@@ -1,0 +1,81 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>{{ "Contact us"|trans }}</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                        {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Fullname"|trans }} <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.fullname, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Phone"|trans }} <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.phone, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Email"|trans }} <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                {{ form_widget(form.email, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Message"|trans }} <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                {{ form_widget(form.message, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                            </div>
+                                        </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <div class="ln_solid"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-send" style="margin-left: 2rem"></i>{{ button_label|default('Send')|trans }}</button>
+                                            <a href="{{ path('contact_ajout') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-refresh" style="margin-left: 2rem"></i>{{ "annuler"|trans }}</a>
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
+{% endblock %}

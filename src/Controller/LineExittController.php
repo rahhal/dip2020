@@ -6,6 +6,7 @@ use App\Entity\Exitt;
 use App\Entity\Institution;
 use App\Entity\Journal;
 use App\Entity\LineExitt;
+use App\Entity\LineStock;
 use App\Form\LineExittType;
 use App\Repository\LineExittRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -155,13 +156,14 @@ class LineExittController extends AbstractController
         $lineExitt=$this->getDoctrine()
             ->getRepository(LineExitt::class)
             ->findLineExittByExitt($id);
+        $lineStock=$this->getDoctrine()->getRepository(LineStock::class)->findLineStockByLineExitt();
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
 
         $html = $this->renderView('pdf/permit.html.twig', array(
             // 'form' => $form->createView(),
             'line_exitts' => $lineExitt,
-            // 'exitts' => $exitt,
+            'lineStock' => $lineStock,
             'title' =>"إذن وقتي ",
             'institution'=> $institution,
         ));

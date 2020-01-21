@@ -1,0 +1,9 @@
+<div class=" form-group">
+{{ form_start(form) }}
+
+    {{ form_widget(form) }}
+</div>
+
+<button class="btn btn-primary" id="register"><i class="fa fa-save" style="margin-left: 2rem"></i>
+    {{ button_label|default('Save')|trans }}</button>
+{{ form_end(form) }}

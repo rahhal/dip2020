@@ -57,7 +57,7 @@
                                     <br/>
                                     {% if data_exit %}
                                     <div class="alert alert-danger" role="alert">
-                                        لا يمكنك القيام الا بخروج واحد في اليوم
+  لا يمكنك القيام الا بخروج واحد في اليوم
                                         {#This is a danger alert—check it out!#}
                                     </div>
                                     {% endif %}
@@ -96,22 +96,13 @@
                                                         <div class="invalid-feedback text-danger">{{ form_errors(form.employee) }}</div>
                                                     </div>
                                                 </div>
-                                               {# <div class="form-group">
-                                                    {{ form_label(form.total_price, "Total price"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-                                                    <div class="col-sm-6">
-                                                        {{ form_widget(form.total_price, {'attr': {'class': 'form-control'}}) }}
-                                                        {# Affichage des erreurs pour ce champ précis.
-                                                    <div class="invalid-feedback text-danger"> {{ form_errors(form.total_price) }}</div>
-                                                    </div>
-                                                </div>#}
+
                                             </div>
                                         </div>
                                     </fieldset>
                                     <fieldset>
                                         <div class="row">
                                             <div class="well">
-
-                                                {#<div id="exitt_lineExitt" class="register"></div></br>#}
                                                 <div id="exitt_lineExitt"></div></br>
                                                 <a href="#" id="add_lineExitt" class="btn btn-success m-10">{{ "Create new article"|trans }}</a>
                                                  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary', 'disabled': data_exit}}) }}
@@ -138,41 +129,5 @@
 
 
 {% endblock %}
-{#
-{% block javascripts %}
-    <script>
-    $(".register").click(function() {
-    var quantity = $('#exitt_lineExitt_0quantity').val();
-    console.log('La valeur récupéreé est:'+quantity)
-    $('#exitt_lineExitt_0quantity').removeClass("border_error");
-    console.log('Ref : '+quantity);
-    var response = $.ajax({
-    type: "GET",
-    url: "{{ url('quantity_check_disponibility') }}",
-    data: {quantity: quantity},//(parametre: valeur)
-    async: false
-    }).responseText;
 
-    console.log(response);
-
-    if(response == 'indisponible'){
-    $('#exitt_lineExitt_0quantity').addClass("border_error");
-    $('#quantity_result').addClass("error_style");
-    $("#quantity_result").text("لا يمكن:هذه الكمية غير متوفرة بالمخزن");
-    return false;
-    }
-    else if(response == 'notice'){
-        $('#exitt_lineExitt_0quantity').addClass("border_error");
-        $('#quantity_result').addClass("error_style");
-        $("#quantity_result").text("لقد تجاوزت كمية الانذار");
-        return true;
-    }
-        else{
-    return true;
-    }
-    });
-    </script>
-{% endblock %}
-
-#}
 

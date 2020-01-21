@@ -77,16 +77,14 @@
     {% for line_exitt in line_exitts %}
 
         <tr>
-
             <td style="text-align: center">{{ line_exitt.article }}</td>
-
             {#<td>{{ line_stock.quantity }}</td>#}
 
             <td style="text-align: center">{{ line_exitt.quantity }}</td>
-            {#<td>{{ line_stock.unit }}</td>#}
-            <td style="text-align: center">{{ line_exitt.unitPrice }}</td>
-            {#<td style="text-align: center">{{ line_exitt.tax }}</td>#}
-            <td style="text-align: center">{% set total = line_exitt.quantity * line_exitt.unitPrice %} {{total}} </td>
+            {% for line_exitt.lineStock in line_stocks %}
+            <td style="text-align: center">{{ lineStock.qty_update }}</td>
+            <td style="text-align: center">{{ lineStock.qty_update - line_exitt.quantity  }}</td>
+            {#<td style="text-align: center">{% set total = line_exitt.quantity * line_exitt.unitPrice %} {{total}} </td>#}
             {#<td style="text-align: center">{{ line_exitt.totalPrice }}</td>#}
 
         </tr>

@@ -57,4 +57,10 @@ class LineStockRepository extends ServiceEntityRepository
             // ->getOneOrNullResult();
             ->getResult();
     }
+    /*public function findLineStockByLineExitt($id)
+    {
+
+        return $this->createQueryBuilder('l')
+            ->innerJoin(('l.line'))
+    }*/
 }

@@ -83,7 +83,7 @@ class LineStock
     public function __construct()
     {
 
-        $this->lineExit = new ArrayCollection();
+//        $this->lineExit = new ArrayCollection();
         $this->lineInventories = new ArrayCollection();
     }
 

@@ -48,7 +48,7 @@ class ExittController extends AbstractController
      *
      */
     public  function exitt($id=null, Request $request)
-    {
+    {  /*  pourqu'on fait un seul exit par jour */
 	    $data_exit = $this->getDoctrine()->getRepository(Exitt::class)->checkOneExitByDate();
 
         $em = $this->getDoctrine()->getManager();
@@ -81,12 +81,13 @@ class ExittController extends AbstractController
 	                $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
 	                if ($findLineStockByLinePurchase) {
 		                $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
-		                $new_quantity = $lineExitt->getQuantity();
-		                $etat=$old_quantity-$new_quantity;
-		                if ($etat < $findLineStockByLinePurchase->getQuantityAlerte()) {
+		                $quantity = $lineExitt->getQuantity();
+		                $etat=$old_quantity-$quantity;
+		                if ($etat < 0) {
+//                            if ($etat < $findLineStockByLinePurchase->getQuantityAlerte())
 			                $this->addFlash(
 				                'danger',
-				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اقل من الكمية المتوفرة بالمخزون '.$old_quantity);
+				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اكثر من الكمية المتوفرة بالمخزون '.$old_quantity);
 			                return $this->redirectToRoute("ajout-exitt");
                         }
                         else {

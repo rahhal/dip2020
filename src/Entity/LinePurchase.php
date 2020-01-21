@@ -19,7 +19,7 @@ class LinePurchase
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="linePurchases" , cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="linePurchases" )
      */
     private $article;
 
@@ -55,7 +55,7 @@ class LinePurchase
     private $technical_confirmity;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineStock", mappedBy="line_purchase")
+     * @ORM\OneToMany(targetEntity="App\Entity\LineStock", mappedBy="line_purchase",cascade={"persist"}, orphanRemoval=true)
      */
     private $lineStocks;
 

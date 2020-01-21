@@ -22,7 +22,7 @@ class InstitutionType extends AbstractType
             ->add('name', TextType::class, array('label' => 'اسم المؤسسة   :', 'attr' => array('placeholder' => 'اسم المدير')))
             ->add('director', TextType::class, array('label' => 'اسم المدير  :', 'attr' => array('placeholder' => 'اسم المقتصد')))
             ->add('economist', TextType::class, array('label' => 'اسم المقتصد   :', 'attr' => array('placeholder' => 'اسم المقتصد')))
-            ->add('administrator', TextType::class, array('label' => 'اسم المؤسسة   :', 'attr' => array('placeholder' => 'اسم المؤسسة')))
+            ->add('administrator', TextType::class, array('label' => 'اسم المنسق   :', 'attr' => array('placeholder' => 'اسم المؤسسة')))
             ->add('address', TextareaType::class, array('label' => 'العنوان  :', 'attr' => array('placeholder' => 'العنوان')))
             ->add('city', EntityType::class, array('class' => City::class, 'choice_label' => 'name', 'attr' => array('placeholder' => 'المدينة')))
             ->add('phone', TelType::class, array('label' => 'الهاتف :', 'attr' => array('placeholder' => 'الهاتف')))

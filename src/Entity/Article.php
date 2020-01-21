@@ -39,7 +39,7 @@ class Article
      */
     private $Category;
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LinePurchase", mappedBy="article")
+     * @ORM\OneToMany(targetEntity="App\Entity\LinePurchase", mappedBy="article", cascade={"persist","remove"})
      */
     private $linePurchases;
 
