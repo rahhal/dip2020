@@ -55,7 +55,7 @@ class LinePurchase
     private $technical_confirmity;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineStock", mappedBy="line_purchase",cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\LineStock", mappedBy="line_purchase",cascade={"persist","remove"})
      */
     private $lineStocks;
 

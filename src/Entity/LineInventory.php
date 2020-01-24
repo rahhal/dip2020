@@ -97,16 +97,4 @@ class LineInventory
     }
 
 
-    /*public function getQtyTh(): ?int
-    {
-        return $this->qty_th;
-    }
-
-
-    public function setQtyTh(int $qty_th): self
-    {
-        $this->qty_th = $qty_th;
-
-        return $this;
-    }*/
 }

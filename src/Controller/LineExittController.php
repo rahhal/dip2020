@@ -56,24 +56,6 @@ class LineExittController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * * @Route ("/detail/{id}", name="lineExitt_detail")
-     */
-
-    public  function detail($id)
-    {
-        $lineExitt= $this->getDoctrine()
-                         ->getRepository(LineExitt::class)
-                         ->findLineExittByExitt($id);
-
-
-
-        return $this->render('line_exitt/detail.html.twig',array(
-            'lineExitts'=> $lineExitt,
-        ));
-    }
-
     /**
      * @Route("/{id}", name="line_exitt_show", methods={"GET"})
      */

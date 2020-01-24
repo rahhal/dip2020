@@ -811,6 +811,30 @@
                       <source>Print permission</source>
                        <target> طباعة اذن وقتي لخروج المواد </target>
              </trans-unit>
+             <trans-unit id="Contact us" resname="Contact us">
+                         <source>Contact us</source>
+                         <target> ارسال رسالة </target>
+              </trans-unit>
+               <trans-unit id="send" resname="send">
+                          <source>send</source>
+                           <target> ارسال </target>
+              </trans-unit>
+              <trans-unit id="annuler" resname="annuler">
+                            <source>annuler</source>
+                             <target> الغاء </target>
+              </trans-unit>
+              <trans-unit id="Message" resname="Message">
+                           <source>Message</source>
+                            <target> محتوى الرسالة </target>
+              </trans-unit>
+               <trans-unit id="Object" resname="Object">
+                      <source>Object</source>
+                       <target> الموضوع </target>
+             </trans-unit>
+             <trans-unit id="Edit Demand" resname="Edit Demand">
+                     <source>Edit Demand</source>
+                     <target> تغيير معطيات طلب التزوّد </target>
+             </trans-unit>
     </body>
   </file>
 </xliff>

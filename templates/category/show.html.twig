@@ -27,23 +27,13 @@
                             <div class="x_content">
                                 <table class="table table-hover">
                                     <tbody>
-                                    <tr>
-                                        <th>{{ "Name of category"|trans }}</th>
-                                        <td>{{ category.name }}</td>
-                                    </tr>
+                                        <tr>
+                                            <th>{{ "Name of category"|trans }}</th>
+                                            <td>{{ category.name }}</td>
+                                        </tr>
                                     </tbody>
-                                    <tr>
-                                        <th>{{ "Amount_allocated"|trans }}</th>
-                                        <td>{{ category.amountAllocated }}</td>
-                                    </tr>
-
                                 </table>
 
-                               {# <a href="{{ path('category_index') }}" class="btn btn-primary">{% trans %} back to list {% endtrans %}</a>
-
-                                <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-success">{% trans %} Update {% endtrans %}</a>
-
-                                {{ include('category/_delete_form.html.twig') }}#}
                                 <div class="form-group col-lg-12">
                                     <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -53,7 +43,6 @@
                                             <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
                                             <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
                                             <a href="{{ path('category_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
-                                            {#class="btn btn-default btn-block" data-toggle="popover#}
                                         </form>
 
                                     </div>

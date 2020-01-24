@@ -28,16 +28,8 @@ class JournalController extends AbstractController
      */
     public function index(JournalRepository $journalRepository, $id=null)
     {
-        /*$exitt=$this->getDoctrine()
-            ->getRepository(Exitt::class)
-            ->findExittByJournal($id);
-        $nbMeal = $this->getDoctrine()
-            ->getRepository(NbMeal::class)
-            ->findNbMealtByJournal($id);*/
         return $this->render('journal/index.html.twig', [
             'journals' => $journalRepository->findAll(),
-            /*'exitts'=> $exitt,
-            'nbMeals' => $nbMeal,*/
         ]);
     }
     /**
@@ -47,7 +39,6 @@ class JournalController extends AbstractController
     public function journal( Request $request, $id=null)
     {
         $journal = new Journal();
-        //$exitt = new  Exitt();
          $nbMeal = new NbMeal();
         //die();
         $form = $this->createForm(JournalType::class, $journal);
@@ -58,13 +49,11 @@ class JournalController extends AbstractController
             // die();
             $entityManager = $this->getDoctrine()->getManager();
 
-            /* ------- calcul du plat 2eme methode-------  */
-            //  foreach($journal->getExitt() as $exitt)
+            /* ------- calcul du plat (unitCost)-------  */
             $nbMeal= $journal->getNbMeal();
             $exitt = $journal ->getExitt();
             $journal->setTotalCosts(floatval($exitt->getTotalPrice()));
             $journal->setTotalMeals($nbMeal->getStdSemiResident() + $nbMeal->getStdResident() + $nbMeal->getStdGranted() + $nbMeal->getCurators() + $nbMeal->getProfessor()+ $nbMeal->getEmployee());
-           // $journal->setTotalMeals(100);
             $tm = $journal->getTotalMeals();
             $tc = $journal->getTotalCosts();
             if ($tm != 0)
@@ -72,18 +61,6 @@ class JournalController extends AbstractController
             else
                 throw new NotFoundHttpException("impossible,division par zero");
 
-            /* test de calcul du plat 3eme methode */
-            /*  $tc= $journal->setTotalCosts(6000);
-              $tm= $journal->setTotalMeals(5);
-               if ($tm != 0)
-                   $journal->setUnitCost($tc / $tm);
-               else
-                   throw new NotFoundHttpException("impossible,division par zero");*/
-
-
-            //dump($journal);die;
-            /*$entityManager->persist($exitt);
-            $entityManager->persist($nbMeal);*/
             $entityManager->persist($journal);
             $entityManager->flush();
 

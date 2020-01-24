@@ -43,9 +43,6 @@ class LineInventoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $lineInventory->setInventory($inventory);
 
-
-
-
             $entityManager->persist($lineInventory);
             $entityManager->flush();
             $this->addFlash('success', 'تمت الاضافة بنجاح ');

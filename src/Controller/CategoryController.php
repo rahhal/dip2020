@@ -41,13 +41,6 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-           /* $article= new Article();
-            foreach ($category->getArticles( )as $article)
-            {
-                $article->setCategory->getName();
-            }
-
-            $entityManager->persist($article);*/
             $entityManager->persist($category);
             $entityManager->flush();
 

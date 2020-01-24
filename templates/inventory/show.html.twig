@@ -39,16 +39,6 @@
                                         </tbody>
                                     </table>
                                 </fieldset>
-                               {# <div class="form-group">
-                                    <div class="ln_solid"></div>
-                                    #}{#<a href="{{ path('line_inventory_new',{'id': inventory.id}) }}"class="btn btn-primary"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new line inventory"|trans }}</a>#}{#
-                                    <a href="{{ path('inventory_edit', {'id': inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-
-                                    {{ include('inventory/_delete_form.html.twig') }}
-
-                                    <a href="{{ path('inventory_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
-
-                                </div>#}
                                 <hr>
                                 <div class="form-group">
                                      <a href="{{ path('inventory_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-forward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
@@ -78,7 +68,7 @@
                                     <thead>
                                     <tr>
                                         <th>{{ "Article name"|trans }}</th>
-                                         <th>{{ "Reference"|trans }}</th>
+                                         <th>{{ "Reference stock"|trans }}</th>
                                         <th>{{ "Qty_inv"|trans }}</th>
                                         <th>{{ "Qty_th"|trans }}</th>
                                         <th>{{ "Difference"|trans }}   </th>
@@ -101,27 +91,6 @@
 
                                                  </td>
                                              </tr>
-                                        {# <tr>
-                                            <td>{{ line_inventory.article }}</td>
-                                            <td>{{ line_inventory.qtyInv }}</td>
-                                            <td>{% for lineStock in line_inventory.lineStock %}
-                                                {{ lineStock.qtyUpdate }}
-                                                {% endfor %}
-                                               </td>
-
-                                            <td>
-                                                {% for lineStock in line_inventory.lineStock %}
-                                                {{line_inventory.qtyInv - lineStock.qtyUpdate }}
-                                               {% endfor %}
-                                                </td>
-
-                                            <td>
-                                                <a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
-                                                <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i></a>
-
-                                            </td>
-                                        </tr> #}
-
 
                                     {% else %}
                                         <tr class="text-center">

@@ -52,22 +52,13 @@ class LineStockController extends AbstractController
      */
     public function stockvalid(Request $request): Response
     {
-        // $em = $this->getDoctrine()->getManager();
         $lineStocks=$this->getDoctrine()
             ->getRepository(LineStock::class)
             ->findAll();
-        /*$linePurchases=$this->getDoctrine()
-            ->getRepository(LinePurchase::class)
-            ->findAll();*/
-        // var_dump($article);die();
-        // $stck_ini= $em->getRepository(Article::class)->stockIni();
         return $this->render('line_stock/stckvalid.html.twig', [
-//            'linePurchases' => $linePurchases,
             'lineStocks' => $lineStocks,
         ]);
     }
-
-
     /**
      * @Route("/new", name="line_stock_new", methods={"GET","POST"})
      */
@@ -84,13 +75,11 @@ class LineStockController extends AbstractController
 
             return $this->redirectToRoute('line_stock_index');
         }
-
         return $this->render('line_stock/new.html.twig', [
             'line_stock' => $lineStock,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="line_stock_show", methods={"GET"})
      */
@@ -120,7 +109,6 @@ class LineStockController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="line_stock_delete", methods={"DELETE"})
      */

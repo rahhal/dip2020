@@ -35,12 +35,12 @@ class LineStock
     private $quantity_alerte;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $valid_date;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $prod_date;
 
@@ -70,7 +70,7 @@ class LineStock
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="lineStock")
+     * @ORM\OneToMany(targetEntity="App\Entity\LineInventory", mappedBy="lineStock",cascade={"persist","remove"})
      */
     private $lineInventories;
 
@@ -186,10 +186,6 @@ class LineStock
 
         return $this;
     }
-public function __toString()
-{
-    return $this-> reference;// TODO: Implement __toString() method.
-}
 
 public function getDate(): ?\DateTimeInterface
 {
@@ -245,5 +241,8 @@ public function setUnitPrice(string $unitPrice): self
 
     return $this;
 }
-
+    public function __toString()
+    {
+        return $this->reference;// TODO: Implement __toString() method.
+}
 }

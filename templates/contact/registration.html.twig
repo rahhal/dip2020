@@ -26,6 +26,7 @@
                                 </div>
                                 <div class="x_content">
 
+                                    {% include('layouts/flash-messages.html.twig') %}
                                         {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
 
                                         <div class="item form-group">
@@ -50,7 +51,13 @@
                                                 {{ form_widget(form.email, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
                                             </div>
                                         </div>
-
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Object"|trans }} <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            {{ form_widget(form.object, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+                                        </div>
+                                    </div>
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">{{ "Message"|trans }} <span class="required">*</span>
                                             </label>
@@ -62,7 +69,7 @@
                                     <div class="form-group col-lg-12">
                                         <div class="ln_solid"></div>
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-send" style="margin-left: 2rem"></i>{{ button_label|default('Send')|trans }}</button>
+                                            <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-send" style="margin-left: 2rem"></i>{{ button_label|default('send')|trans }}</button>
                                             <a href="{{ path('contact_ajout') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-refresh" style="margin-left: 2rem"></i>{{ "annuler"|trans }}</a>
                                         </div>
                                     </div>

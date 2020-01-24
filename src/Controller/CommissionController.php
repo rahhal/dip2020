@@ -114,10 +114,10 @@ class CommissionController extends AbstractController
      */
 
     public function printc()
-    { $commission=$this->getDoctrine()
+    {
+        $commission=$this->getDoctrine()
         ->getRepository(Commission::class)
         ->findAll();
-
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
 

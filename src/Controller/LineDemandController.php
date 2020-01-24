@@ -24,7 +24,6 @@ class LineDemandController extends AbstractController
             'line_demands' => $lineDemandRepository->findAll(),
         ]);
     }
-
     /**
      * @Route("/{id}/new", name="line_demand_new", methods={"GET","POST"})
      */

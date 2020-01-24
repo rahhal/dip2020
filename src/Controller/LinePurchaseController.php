@@ -71,28 +71,6 @@ class LinePurchaseController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/detail/{id}", name="linePurchase_detail")
-     *
-     */
-    public function detail( $id)
-    {
-        $linePurchase=$this->getDoctrine()
-            ->getRepository(LinePurchase::class)
-            ->findLinePurchaseByPurchase($id);
-        /* $items = $purchase->getLinePurchase();
-         foreach ($items  as  $item)
-         { Var_dump($items) ;}*/
-      /*  var_dump($linePurchase);
-        die();*/
-        return $this->render('line_purchase/detail.html.twig', array(
-            // 'form' => $form->createView(),
-            'linePurchases' => $linePurchase,
-        ));
-    }
-
-
     /**
      * @Route("/{id}", name="line_purchase_show", methods={"GET"})
      */
@@ -138,46 +116,6 @@ class LinePurchaseController extends AbstractController
         }
 
         return $this->redirectToRoute('line_purchase_index');
-    }
-
-    /**
-     * @Route("/pdf/{id}", name="purchase_pdf")
-     *
-     */
-    public function pdf( $id)
-    {
-     // $em = $this->getDoctrine()->getManager();
-        /* if (is_null($id))
-             $linePurchase = new LinePurchase();
-         else
-             $linePurchase = $em->find(LinePurchase::class, $id);
-
-         $oldLinePurchase = new ArrayCollection();
-         foreach ($linePurchase->getLinePurchase() as $linePurchase)
-             $oldLinePurchase->add($linePurchase);*/
-/*
-         $linePurchase = $this->getDoctrine()
-             ->getRepository(LinePurchase::class)
-             ->find($id);
-      /*   foreach ($linePurchase->getLinePurchase() as $linePurchase)
-             $linePurchase->setPurchase($purchase);*/
-
-         // Retrieve the HTML generated in our twig file
-       /*  $html = $this->renderView('pdf/purchase.html.twig', [
-             'line_purchases' => "$linePurchase"
-         ]);*/
-/*
-        $linePurchase = $this->getDoctrine()
-            ->getRepository(LinePurchase::class)
-//            ->find($id);
-            ->findLinePurchaseByPurchase($id);
-        // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('pdf/purchase.html.twig', [
-            'line_purchases' => "$linePurchase"
-        ]);*/
-
-
-
     }
 
 }

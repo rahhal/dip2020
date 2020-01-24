@@ -23,8 +23,6 @@ class ArticleController extends AbstractController
      */
     public function index(ArticleRepository $articleRepository): Response
     {
-
-
         /*-------la direction au page login en cas de non authentification------
          if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
@@ -50,12 +48,6 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-           /* $category = $this->getDoctrine()
-                ->getRepository(Category::class)
-                ->findCategoryByArticle($article);
-            $article->setCategory();*/
-
-
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -77,13 +69,6 @@ class ArticleController extends AbstractController
         /*if (!$this->getUser()) {
         return $this->redirectToRoute('app_login');
     }*/
-
-     /*  $category = $this->getDoctrine()
-            ->getRepository(Category::class)
-            ->findCategoryByArticle($id);*/
-
-        //dump($category);die();
-
         $em= $this->getDoctrine()->getManager();
         $article = $em->getRepository(Article::class)->find($id);
         // dump($article);die;
@@ -99,9 +84,9 @@ class ArticleController extends AbstractController
     public function edit(Request $request, Article $article): Response
     {
         /*  redirection to login page */
-        if (!$this->getUser()) {
+       /* if (!$this->getUser()) {
         return $this->redirectToRoute('app_login');
-    }
+    }*/
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 

@@ -28,84 +28,8 @@
                                 <br/>
 
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
-                                <fieldset>
+                               {# <fieldset>
                                     <legend>{{ "Number of meals"|trans }}</legend>
-                                    <div class="row">
-                                        <div class="well">
-                                            {#<div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of meals"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                </div>
-                                            </div>#}
-                                            <div class="form-group">
-                                                {{ form_label(form.nbMeal.date, "Date"|trans, {'label_attr': {'class': 'col-md-3 col-sm-3 col-xs-12 control-label'}}) }}
-                                                {#{{ form_errors(form.created_at) }}#}
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.date) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of resident studiants"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.std_resident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_resident) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of semi-resident studiants"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.std_semiResident,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                </div>
-                                                <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_semiResident) }}</div>
-
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of granted studiants"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.std_granted,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.std_granted) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of professors"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.professor,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.nbMeal.professor) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of curators"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.curators,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Number of employees"|trans }}
-                                                    <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.nbMeal.employee,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <fieldset>
-                                    <legend>{{ "Journal of meals"|trans }}</legend>
                                     <div class="row">
                                         <div class="well">
                                             <div class="form-group">
@@ -113,26 +37,15 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.date) }}
                                                     <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
-
                                                 </div>
                                             </div>
-
-                                            {# <div class="form-group">
-                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Day"|trans }}
-                                                     <span class="required">*</span>
-                                                 </label>
-                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                     {{ form_widget(form.menu,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                 </div>
-                                             </div>#}
-
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total costs"|trans }}
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.exitt,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.exitt) }}</div>
+                                                    {{ form_widget(form.totalCosts,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.totalCosts) }}</div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -141,18 +54,10 @@
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.total_meals,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.total_meals) }}</div>
                                                 </div>
-                                            </div>
-                                            {# <div class="form-group">
-                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total students"|trans }}
-                                                     <span class="required">*</span>
-                                                 </label>
-                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                     {{ form_widget(form.totalStudents,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                 </div>
-                                             </div>#}
+                                                <div class="invalid-feedback text-danger">{{ form_errors(form.total_meals) }}</div>
 
+                                            </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit meal costs"|trans }}
                                                     <span class="required">*</span>
@@ -164,20 +69,82 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Remarque"|trans }}
-                                                    <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     {{ form_widget(form.remarque,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                     <div class="invalid-feedback text-danger">{{ form_errors(form.remarque) }}</div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </fieldset>#}
+                                <fieldset>
+                                    <legend>{{ "Journal of meals"|trans }}</legend>
+                                    <div class="row">
+                                        <div class="well">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Day"|trans }}
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class=" col-md-4 col-sm-4 col-xs-6">
+                                                    {{ form_widget(form.date) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total costs"|trans }}
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    {{ form_widget(form.menu,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.menu) }}</div>
+                                                    {{ form_widget(form.exitt,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit meal costs"|trans }}
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.unit_cost,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                    <div class="invalid-feedback text-danger">{{ form_errors(form.unit_cost) }}</div>
+                                                </div>
+                                            </div>
+                                            {# <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total meals"|trans }}
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.total_meals,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                </div>
+                                            </div> #}
+
+
+                                            {# <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total costs"|trans }}
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.totalCosts,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                </div>
+                                            </div> #}
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Total meals"|trans }}
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.nbMeal,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                </div>
+                                            </div>
+                                            {# <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit cost"|trans }}
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.unit_cost,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                                </div>
+                                            </div> #}
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Remarque"|trans }}
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    {{ form_widget(form.remarque,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
                                                 </div>
                                             </div>
                                         </div>
@@ -188,7 +155,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
-                                        {{ include('journal/_form.html.twig') }}
+                                        {#{{ include('journal/_form.html.twig') }}#}
 
                                         <a href="{{ path('journal_index') }}" class="btn btn-warning"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
                                     </div>

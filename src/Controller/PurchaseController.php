@@ -67,11 +67,11 @@ class PurchaseController extends AbstractController
 	           $stock->setName('stoki');
 	            $em->persist($stock);
 
-	            /* ----  calcul du prix total de chaque line_purchase    ------*/
 	            foreach ($purchase->getLinePurchases() as $linePurchase) {
+                    // calcul du prix total de chaque line_purchase
 		            $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred()*$linePurchase->getUnitPrice()*(1+($linePurchase->getTax()/ 100)));
 		            $linePurchase->setPurchase($purchase);
-		            // find Line Purchase By Article: faire mise à jour du stock
+		            //  faire mise à jour du stock: find Line Purchase By Article
 		            $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
 		            $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
 		            $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $linePurchase->getArticle()]);
@@ -122,14 +122,14 @@ class PurchaseController extends AbstractController
         }
         $purchases = $em->getRepository(Purchase::class)->findAll();
         $articles = $em->getRepository(Article::class)->findAll();
-        $linePurchase=$this->getDoctrine()
+        /*$linePurchase=$this->getDoctrine()
             ->getRepository(LinePurchase::class)
-            ->findLinePurchaseByPurchase($id);
+            ->findLinePurchaseByPurchase($id);*/
         return $this->render('purchase/purchase.html.twig', array(
             'form' => $form->createView(),
             'purchases' => $purchases,
             'articles' => $articles,
-            'linePurchases' => $linePurchase,
+           // 'linePurchases' => $linePurchase,
         ));
     }
     /**
@@ -151,7 +151,9 @@ class PurchaseController extends AbstractController
         $em->remove($id);
         $em->flush();
         $this->addFlash('success', "تم الحذف بنجاح");
-        return new Response(1);
+       // return new Response(1);
+
+        return $this->redirectToRoute('purchase_index');
     }
 
     /**

@@ -36,8 +36,8 @@ class JournalType extends AbstractType
                  'autocomplete' => 'off'
             ],*/
             ])
-            ->add('totalCosts')
-            ->add('total_meals')
+          //  ->add('totalCosts')
+           // ->add('total_meals')
             ->add('unit_cost')
             ->add('remarque')
             // ->add('nbMeal')

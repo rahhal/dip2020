@@ -53,8 +53,6 @@ class DemandController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
     /**
      * @Route("/{id}", name="demand_show", methods={"GET"})
      */
@@ -72,13 +70,11 @@ class DemandController extends AbstractController
     {
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('demand_index');
         }
-
         return $this->render('demand/edit.html.twig', [
             'demand' => $demand,
             'form' => $form->createView(),

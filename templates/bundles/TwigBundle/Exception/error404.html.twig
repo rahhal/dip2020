@@ -1,0 +1,214 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style>
+        /*body
+        {
+
+            background:#bfb9bf;
+        }*/
+
+
+        /* GENERAL * -------------------------- */
+
+       /* ::-moz-selection {
+            color: white;
+            text-shadow: none;
+            background: #222222;
+        }
+        ::selection {
+            color: white;
+            text-shadow: none;
+            background: #222222;
+        }*/
+        /*img::selection {
+            color: white;
+            background: transparent;
+        }
+        img::-moz-selection {
+            color: white;
+            background: transparent;
+        }*/
+        body{
+            margin:0;
+            font-family: 'Roboto', sans-serif;
+            font-weight:300;
+            overflow-x:hidden;
+            color:#fff;
+            font-size:14px;
+
+        }
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background: #AA076B;
+            background: -webkit-linear-gradient(to top, #aa076b, #61045f);
+            background: linear-gradient(to top, #aa076b, #61045f);
+            letter-spacing: 1px;
+        }
+        a {
+            -webkit-transition: all 0.35s;
+            -moz-transition: all 0.35s;
+            transition: all 0.35s;
+            color: #f39c12;
+        }
+        a:hover,
+        a:focus {
+            color: #f39c12;
+            text-decoration:none;
+        }
+        h1,
+        h2
+        {
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+
+        h1.head{
+            font-size: 250px;
+            font-weight: 900;
+            letter-spacing: 25px;
+            margin: 10px 0 0 0;
+        }
+        h1.head span {
+            position: relative;
+            display: inline-block;
+        }
+        h1.head span:before, h1.head span:after{
+            position: absolute;
+            top:50%;
+            width: 50%;
+            height: 1px;
+            background: #fff;
+            content: '';
+        }
+        h1.head span:before{
+            left: -55%;
+        }
+        h1.head span:after{
+            right: -55%;
+        }
+        .btn-outline{
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 12px 40px;
+            border-radius: 25px;
+            margin-top: 25px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .btn-outline:hover{
+            color: #aa076b;
+            background: #fff;
+        }
+
+       /* @media (max-width: 1024px) {
+
+            h1.head {
+                font-size: 200px;
+                letter-spacing: 25px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            h1.head {
+                font-size: 150px;
+                letter-spacing: 25px;
+            }
+
+        }
+
+        @media (max-width: 640px) {
+
+            h1.head {
+                font-size: 150px;
+                letter-spacing: 0;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            h1.head {
+                font-size: 130px;
+                letter-spacing: 0;
+            }
+            h1.head span:before, h1.head span:after {
+                width: 40%;
+            }
+            h1.head span:before {
+                left: -45%;
+            }
+            h1.head span:after {
+                right: -45%;
+            }
+            p {
+                font-size: 18px;
+            }
+
+        }
+
+        @media (max-width: 320px) {
+
+
+            h1.head {
+                font-size: 100px;
+                letter-spacing: 0;
+            }
+            h1.head span:before, h1.head span:after {
+                width: 25%;
+            }
+            h1.head span:before {
+                left: -30%;
+            }
+            h1.head span:after {
+                right: -30%;
+            }
+
+        }*/
+    </style>
+{% endblock %}
+{% block body %}
+    {#<div>
+       <div class="container" align="center">
+          <div class="row" align="center">
+           <h2> خطأ 404 !</h2>
+
+           <h2> الصفحة التي تبحث عنها غير موجودة !</h2>
+           <h3> بامكانك الرجوع للصفحة الرئيسية </h3>
+           <a href="{{ path('institution_show') }}" class="btn btn-default btn-block" >{{ "retour"|trans }}</a>
+       </div>
+       </div>
+    </div>#}
+    <div class="container text-center">
+
+        <div class="row" align="center">
+        <h1 class="head" ><span>404</span></h1>
+        <p>الصفحة التي تبحث عنها غير موجودة !</p>
+        <a href="{{ path('institution_show') }}" class="btn-outline"> {{ "retour"|trans }}</a>
+    </div>
+    </div>
+   {# <div class="bwt-footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 copyright">
+                    <div class="left-text">Copyright &copy;  All Rights Reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>#}
+
+
+
+{% endblock %}

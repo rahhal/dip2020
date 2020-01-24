@@ -25,13 +25,6 @@
                                 <br/>
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
 
-                                {#<div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
-                                    </label>
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        {{ form_widget(form.created_at) }}
-                                    </div>
-                                </div>#}
                                 <div class="form-group"> <!-- Date input -->
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
                                         <span class="required">*</span>
@@ -41,23 +34,7 @@
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.created_at) }}</div>
                                     </div>
                                 </div>
-                                 {#<div class="form-group">
-                                        <div class="controls">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
-                                                <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-4 col-sm-4 col-xs-6 xdisplay_inputx control-group has-feedback">
 
-                                                <input type="text" class="form-control has-feedback-left"
-                                                       id="single_cal1"
-                                                       aria-describedby="inputSuccess2Status">
-                                                <span class="fa fa-calendar-o form-control-feedback left"
-                                                      aria-hidden="true"></span>
-                                                <span id="inputSuccess2Status" class="sr-only">{{ form_widget(form.created_at) }}</span>
-
-                                            </div>
-                                        </div>
-                                    </div>#}
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
                                         <span class="required">*</span>
@@ -68,15 +45,6 @@
 
                                     </div>
                                 </div>
-
-                                {#<div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Reference stock"|trans }}
-                                        <span class="required">*</span>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{ form_widget(form.reference_stock,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                    </div>
-                                </div>#}
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reference_stock">{{ "Reference stock"|trans }}
                                         <span class="required">*</span>
@@ -134,9 +102,7 @@
                                         <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
                                     </div>
                                 </div>
-
                                 {{ form_end(form) }}
-
                             </div>
                         </div>
                     </div>
@@ -146,28 +112,4 @@
         </div>
     </div>
 
-{% endblock %}
-
-{% block javascripts %}
-
-
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script>
-        $(document).ready(function(){
-
-            $('.js-datepicker').datepicker({
-                format: 'mm/dd/yyyy',
-                todayHighlight: true,
-                datesDisabled: ['11/06/2017', '11/21/2017']
-            });
-            // Getter
-            // var dateFormat = $( '.selector' ).datepicker( 'option', 'dateFormat' );
-            // Setter
-            //$( '.selector' ).datepicker( 'option', 'dateFormat', 'dd/mm/yyyy' );
-        });
-    </script>
 {% endblock %}

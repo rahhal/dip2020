@@ -110,9 +110,6 @@ class NbMealController extends AbstractController
     {
         $em= $this->getDoctrine()->getManager();
         $nbMeal = $em->getRepository(NbMeal::class)->find($id);
-        // dump($categories);
-        //die;
-
         if($nbMeal) {
             $em->remove($nbMeal);
             $em->flush();

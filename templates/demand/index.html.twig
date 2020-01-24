@@ -33,7 +33,6 @@
                                     <thead>
                                     <tr>
                                         <th>{{ "Date"|trans }}</th>
-                                        {#<th>{{ "Number"|trans }}</th>#}
                                         <th>{{ "Supplier"|trans }}</th>
                                         <th>{{ "Tranche"|trans }}</th>
                                         <th>{{ "Actions"|trans }}</th>
@@ -50,9 +49,6 @@
                                             <td>
                                                 <a href="{{ path('demand_show', {'id': demand.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
                                                 <a href="{{ path('demand_edit', {'id': demand.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>
-                                                {#<a href="{{ path('demand_show', {'id': demand.id}) }}" class="btn btn-success">{{ "show"|trans }}</a>#}
-                                                {# <a href="{{ path('demand_edit', {'id': demand.id}) }}" class="btn btn-warning">{{ "edit"|trans }}</a>#}
-                                                {#<a href="{{ path('demand_detail', {'id': demand.id}) }}" class="btn btn-info" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>#}
                                                 <a href="{{ path('printt_pdf', {'id': demand.id}) }}" target="_blank" class="btn btn-info"><i class="fa fa-print" style="margin-left: 2rem"></i>
                                                 {# {{ "print"|trans }} #}
                                                 </a>

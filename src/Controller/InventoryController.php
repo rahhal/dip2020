@@ -26,7 +26,6 @@ class InventoryController extends AbstractController
             'inventories' => $inventoryRepository->findAll(),
         ]);
     }
-
     /**
      * @Route("/new", name="inventory_new", methods={"GET","POST"})
      */
@@ -39,13 +38,10 @@ class InventoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-
-        
             $entityManager->persist($inventory);
             $entityManager->flush();
 
             return $this->redirectToRoute('inventory_show',array('id'=>$inventory->getId()));
-            // return $this->redirectToRoute('inventory_show');
         }
 
         return $this->render('inventory/new.html.twig', [
@@ -59,34 +55,8 @@ class InventoryController extends AbstractController
      */
     public function show(Inventory $inventory): Response
     {
-        $lineStock= new LineStock();
-      //  foreach ($inventory->getLineInventories() as $lineInventory) {
-
-          //  $lineInventory->setQtyTh($lineInventory->getLineStock()->getQtyUpdate);
-         //  $lineInventory->setInventory($Inventory);
-             // find Line Stock By Article:
-            //   $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
-            //  $repositoryLineInventory = $this->getDoctrine()->getRepository(LineInventory::class);
-            //  $findLineStockByArticle = $repositoryLineStock->findOneBy(['article' => $lineStock->getLinePurchase()->getArticle()]);
-            //  $findLineInventoryByLineStock = $repositoryLineInventory->findOneBy(['line_stock' => $findLineStockByArticle]); 
-
-
-       // $QtyTh=$findLineInventoryByLineStock->setQtyTh($findLineStockByArticle->getQtyUpdate());
-// persist($lineStock);
-      //  }
-        // foreach ($inventory->getLineInventories() as $lineInventory)
-
-        // {  $id = $lineInventory->getId();}
-        //   $lineStock=$this->getDoctrine()
-        //     ->getRepository(LineStock::class)
-        //     ->findLineStockByLineInventory($id);
-           
-
-     //  dump($inventory);die();
         return $this->render('inventory/show.html.twig', [
             'inventory' => $inventory,
-            // 'lineStocks' => $lineStock,
-            //'QtyTh' => $QtyTh,
         ]);
     }
 
@@ -103,13 +73,9 @@ class InventoryController extends AbstractController
 
             return $this->redirectToRoute('inventory_index');
         }
-        /*$lineStock=$this->getDoctrine()
-            ->getRepository(LineStock::class)
-            ->findLineStockByLineInventory($id);*/
         return $this->render('inventory/edit.html.twig', [
             'inventory' => $inventory,
             'form' => $form->createView(),
-          //  'lineStocks'=> $lineStock,
         ]);
     }
 

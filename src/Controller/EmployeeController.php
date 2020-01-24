@@ -26,7 +26,6 @@ class EmployeeController extends AbstractController
             'employees' => $employeeRepository->findAll(),
         ]);
     }
-
     /**
      * @Route("/new", name="employee_new", methods={"GET","POST"})
      */
@@ -72,7 +71,6 @@ class EmployeeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
 
             $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('employee_index');
