@@ -85,9 +85,11 @@ class ExittController extends AbstractController
 		                $etat=$old_quantity-$quantity;
 		                if ($etat < 0) {
 //                            if ($etat < $findLineStockByLinePurchase->getQuantityAlerte())
+
 			                $this->addFlash(
 				                'danger',
-				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اكثر من الكمية المتوفرة بالمخزون '.$old_quantity);
+//				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اكثر من الكمية المتوفرة بالمخزون '.$old_quantity);
+			                '   الكمية المتوفرة بالمخزون من مادة: '.$lineExitt->getArticle()->getName().' تقدر بـ:  '.$old_quantity.' ،لا يمكنك القيام بهذا الخروج  ');
 			                return $this->redirectToRoute("ajout-exitt");
                         }
                         else {

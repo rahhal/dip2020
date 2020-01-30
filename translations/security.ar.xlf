@@ -19,8 +19,9 @@
       </trans-unit>
       <trans-unit id="qr0aiUo" resname="Invalid credentials.">
         <source>Invalid credentials.</source>
-        <target>معلومات الدخول خاطئة.</target>
+        <target>كلمة المرور خاطئة.</target>
       </trans-unit>
+
       <trans-unit id="zrJWK0F" resname="Cookie has already been used by someone else.">
         <source>Cookie has already been used by someone else.</source>
         <target>ملفات تعريف الارتباط(cookies) تم استخدامها من قبل شخص اخر.</target>
@@ -65,6 +66,10 @@
         <source>Account is locked.</source>
         <target>الحساب مغلق.</target>
       </trans-unit>
+      <trans-unit id="O5Zy" resname="Email could not be found.">
+              <source>Email could not be found.</source>
+              <target>البريد الالكتروني غير موجود.</target>
+            </trans-unit>
     </body>
   </file>
 </xliff>

@@ -124,4 +124,14 @@ class LineExittRepository extends ServiceEntityRepository
         LEFT JOIN exitt
         ON   exitt.id = line_exitt.exitt_id
         where exitt.date = CURRENT_DATE*/
+    public function findLineExittByLineStock($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.lineStocks', 'li')
+            ->andWhere('li.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

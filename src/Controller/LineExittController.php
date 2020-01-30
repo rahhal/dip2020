@@ -6,7 +6,9 @@ use App\Entity\Exitt;
 use App\Entity\Institution;
 use App\Entity\Journal;
 use App\Entity\LineExitt;
+use App\Entity\LinePurchase;
 use App\Entity\LineStock;
+use App\Entity\Menu;
 use App\Form\LineExittType;
 use App\Repository\LineExittRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -133,21 +135,44 @@ class LineExittController extends AbstractController
      * @Route("/permit/{id}", name="exitt_permit")
      *
      */
-    public function permit( $id)
+    public function permit($id)
     {
+      //  $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
+       // $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+        //$findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $lineExitt->getArticle()]);
+        //$lineStock = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
+        //dump($lineStock);die();
+
+
+        /* $repositoryLineExitt = $this->getDoctrine()->getRepository(LineExitt::class);
+        $findLineExittById = $repositoryLineExitt->findOneBy(['id' => $id]);*/
+
+       /* $date= $lineExitt->getExitt()->getDate();
+        $d=date_format($date, 'l');
+        //dump($d);die();
+        $menu=$this->getDoctrine()
+            ->getRepository(Menu::class)
+            ->findBy(['day' => $d]);*/
+
         $lineExitt=$this->getDoctrine()
             ->getRepository(LineExitt::class)
             ->findLineExittByExitt($id);
-        $lineStock=$this->getDoctrine()->getRepository(LineStock::class)->findLineStockByLineExitt();
+
+
+        $lineStock=$this->getDoctrine()
+            ->getRepository(LineStock::class)
+            ->findAll();
+
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
 
         $html = $this->renderView('pdf/permit.html.twig', array(
             // 'form' => $form->createView(),
             'line_exitts' => $lineExitt,
-            'lineStock' => $lineStock,
+            'line_stocks' => $lineStock,
             'title' =>"إذن وقتي ",
             'institution'=> $institution,
+            //'menus'=> $menu,
         ));
 
         // Create an instance of the class:

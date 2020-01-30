@@ -58,5 +58,14 @@ class JournalRepository extends ServiceEntityRepository
             // ->getOneOrNullResult();
             ->getResult();
     }
-
+    public function findJournalByCurrentDate()
+    {
+        return $this
+            ->createQueryBuilder('j')
+            ->andWhere('j.date = :date')
+            ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->getQuery()
+            //->getOneOrNullResult()
+            ->getResult();
+    }
 }

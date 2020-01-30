@@ -129,7 +129,7 @@ class JournalController extends AbstractController
      * * @Route("/pdf/journal/{id}", name="journal_pdf")
      *
      */
-    public function journalp($id = null)
+    public function journalp($id = null,Journal $journal)
     {
         $exitts =$this->getDoctrine()
             ->getRepository(Exitt::class)->findAll();
@@ -137,26 +137,31 @@ class JournalController extends AbstractController
         $lineExitt=$this->getDoctrine()
             ->getRepository(LineExitt::class)
             ->findLineExittByJournal($id);
+        $date= $journal->getDate();
+        $d=date_format($date, 'l');
+        //dump($d);die();
         $menu=$this->getDoctrine()
             ->getRepository(Menu::class)
-            ->findMenutByJournal($id);
-
-
-        //var_dump($lineExitt);die();
-
+           ->findBy(['day' => $d]);
+        //dump($menu);die();
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
-
         $nbMeal=$this->getDoctrine()
-            ->getRepository(NbMeal::class)->NbMealtByJournal($id);
+            ->getRepository(NbMeal::class)
+            ->findBy(['date' => $journal->getDate()]);
+        $journal=$this->getDoctrine()
+            ->getRepository(Journal::class)
+            ->findBy(['date' => $journal->getDate()]);
         $commission= $this->getDoctrine()
             ->getRepository(Commission::class)->findAll();
+
         $html = $this->renderView('pdf/journal.html.twig', array(
             'exitts' => $exitts,
             'lineExitts' => $lineExitt,
             'title' =>"التقرير اليومي للاكلة",
             'menus'=>$menu,
-            'nbMeals'=>$nbMeal,
+           'journals' =>$journal,
+           'nbMeals'=>$nbMeal,
             'institution'=> $institution,
         ));
         // Create an instance of the class:

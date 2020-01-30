@@ -63,7 +63,8 @@
                                                 {% for lineStock in journal.exitt.lineExitts.lineStock  %}
                                                     {% set totalCosts+ = exitt.totalPrice %}
                                                 {%endfor%} #}
-                                                {{ journal.totalCosts|number_format(3, ',',' ') }}
+                                                {{ journal.totalCosts }}
+                                                {#{{ journal.totalCosts|number_format(3, ',',' ') }}#}
                                             </td>
                                             <td>
                                                 {# {% set unitCost = 0 %}
@@ -72,8 +73,8 @@
                                                     {% set unitCost = journal.totalCosts|number_format(3, ',',' ') / journal.nbMeal|number_format(3, ',',' ') %}
                                                  {% endif %}
                                                 {%endfor%} #}
-
-                                                {{ journal.unitCost|number_format(3, ',',' ') }}
+                                                {{ journal.unitCost }}
+                                                {#{{ journal.unitCost|number_format(3, ',',' ') }}#}
                                             </td>
                                             <td>{{ journal.remarque }}</td>
 

@@ -24,7 +24,15 @@
                             <div class="x_content">
                                 <br/>
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
-
+                                {#<div class="form-group" >
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Fullname"|trans }}
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.fullname,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                         Affichage des erreurs pour ce champ précis.
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.fullname) }}</div>
+                                    </div>
+                                </div>#}
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Company"|trans }}
                                     </label>
@@ -98,11 +106,11 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Password"|trans }}
                                         <span class="required">*</span>
                                     </label>
-                                   {# <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                         {{ form_widget(form.password,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
-                                        #}{# Affichage des erreurs pour ce champ précis. #}{#
+                                        {# Affichage des erreurs pour ce champ précis. #}
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.password) }}</div>
-                                    </div>#}
+                                    </div>
                                 </div>
 
                                 <div class="ln_solid"></div>
@@ -111,7 +119,7 @@
 
                                         {{ include('profile/_form.html.twig') }}
 
-                                        <a href="{{ path('profile') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back "|trans }}</a>
+                                        <a href="{{ path('profile') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "retour"|trans }}</a>
                                     </div>
                                 </div>
                                 {{ form_end(form) }}

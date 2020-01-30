@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MenuRepository")
+ * @UniqueEntity(fields={"day"}, message="لقد قمت بادخال المعطيات الخاصة بهذا اليوم")
  */
 class Menu
 {
@@ -19,7 +21,7 @@ class Menu
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $day;
 

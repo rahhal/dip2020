@@ -78,12 +78,14 @@ class LineStock
      * @ORM\Column(type="decimal", precision=15, scale=3)
      */
     private $unitPrice;
-
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\LineExitt", mappedBy="lineStocks")
+     */
+    private $lineExitts;
 
     public function __construct()
     {
-
-//        $this->lineExit = new ArrayCollection();
+       $this->lineExitts = new ArrayCollection();
         $this->lineInventories = new ArrayCollection();
     }
 
@@ -241,6 +243,32 @@ public function setUnitPrice(string $unitPrice): self
 
     return $this;
 }
+    /**
+     * @return Collection|lineExitt[]
+     */
+    public function getLineExitts(): Collection
+    {
+        return $this->lineExitts;
+    }
+
+    public function addLineExitt(lineExitt $lineExitt): self
+    {
+        if (!$this->lineExitts->contains($lineExitt)) {
+            $this->lineExitts[] = $lineExitt;
+        }
+
+        return $this;
+    }
+
+    public function removeLineExitt(lineExitt $lineExitt): self
+    {
+        if ($this->lineExitts->contains($lineExitt)) {
+            $this->lineExitts->removeElement($lineExitt);
+        }
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->reference;// TODO: Implement __toString() method.

@@ -37,7 +37,6 @@
                                                     style="display: block;"{% endif %}>
 
                          <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
-                        {#<li ><a href="{{ path('budget_index') }}">الميزانية</a></li>#}
                         <li><a href="{{ path('category_index') }}">الاصناف</a></li>
                         <li><a href="{{ path('article_index') }}">المواد</a></li>
                         <li><a href="{{ path('supplier_index') }}">المزودين</a></li>
@@ -62,9 +61,7 @@
                 </li>
                 <li><a><i class="fa fa-arrow-up"></i> خروج المواد <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" {% if 'exitt_' in route %} style="display: block;"{% endif %}>
-
                         <li><a href="{{ path('exitt_index') }}">خروج جديد</a></li>
-{#                        <li><a href="#">الخروج الشهري</a></li>#}
                     </ul>
                 </li>
                 <li><a><i class="fa fa-cutlery"></i> الأكلات <span class="fa fa-chevron-down"></span></a>
@@ -78,8 +75,6 @@
                 <li><a><i class="fa fa-clone"></i> جرد المخزون <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{ path('inventory_index') }}">الجرد اليومي</a></li>
-                        {#<li><a href="#">الجرد الشهري</a></li>
-                        <li><a href="#">الجرد السنوي</a></li>#}
                     </ul>
                 </li>
             </ul>

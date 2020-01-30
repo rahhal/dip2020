@@ -805,7 +805,7 @@
            </trans-unit>
            <trans-unit id="print exit" resname="print exit">
                     <source>print exit</source>
-                    <target> طباعة وصل دخول </target>
+                    <target> طباعة وصل خروج </target>
             </trans-unit>
             <trans-unit id="Print permission" resname="Print permission">
                       <source>Print permission</source>
@@ -835,6 +835,46 @@
                      <source>Edit Demand</source>
                      <target> تغيير معطيات طلب التزوّد </target>
              </trans-unit>
+             <trans-unit id="Monday" resname="Monday">
+                      <source>Monday</source>
+                       <target> الاثنين </target>
+              </trans-unit>
+              <trans-unit id="Tuesday" resname="Tuesday">
+                                    <source>Tuesday</source>
+                                     <target> الثلاثاء </target>
+              </trans-unit>
+              <trans-unit id="Wednesday" resname="Wednesday">
+                        <source>Wednesday</source>
+                         <target> الأربعاء </target>
+               </trans-unit>
+               <trans-unit id="Thursday" resname="Thursday">
+                      <source>Thursday</source>
+                       <target> الخميس </target>
+               </trans-unit>
+               <trans-unit id="Friday" resname="Friday">
+                     <source>Friday</source>
+                     <target> الجمعة </target>
+               </trans-unit>
+                <trans-unit id="Saturday" resname="Saturday">
+                      <source>Saturday</source>
+                      <target> السبت </target>
+               </trans-unit>
+               <trans-unit id="Sunday" resname="Sunday">
+                        <source>Sunday</source>
+                        <target> الأحد </target>
+               </trans-unit>
+               <trans-unit id="Print date validation articles" resname="Print date validation articles">
+                        <source>Print date validation articles</source>
+                         <target> طباعة تواريخ صلوحية المواد </target>
+                </trans-unit>
+                <trans-unit id="Print stock today" resname="Print stock today">
+                          <source>Print stock today</source>
+                          <target> طباعة محتويات المخزن </target>
+                 </trans-unit>
+               <trans-unit id="logout" resname="logout">
+                       <source>logout</source>
+                        <target> خروج </target>
+                </trans-unit>
     </body>
   </file>
 </xliff>

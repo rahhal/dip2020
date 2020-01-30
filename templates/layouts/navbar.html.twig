@@ -15,34 +15,24 @@
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="{{ path('profile') }}"> الملف الشخصي</a></li>
-                        <li><a href="{{ path('app_logout') }}"><i class="fa fa-sign-out pull-right"></i> خروج</a></li>
+                        <li><a href="{{ path('app_logout') }}"><i class="fa fa-sign-out pull-right"></i>{{ "logout"|trans }} </a></li>
                     </ul>
                 </li>
+                {% if is_granted('ROLE_ENTREPRISE') %}
                <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
                        aria-expanded="false">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="badge bg-green">1</span>
+                        <span class="badge bg-green"></span>
                     </a>
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
                             <a> <span class="image"><img src="../build/images/logo.png" alt="logo Image"/></span></a>
-                                <span> <a href="{{ path('contact_ajout') }}">{{ "contact us"|trans }}</a> </span>
+                                <span> <a href="{{ path('contact_ajout') }}">{{ "Contact us"|trans }}</a> </span>
                         </li>
-                       {# <li>
-                            <a> <span class="image"><img src="../build/images/img.jpg"
-                                                                 alt="Profile Image"/></span>
-                                <span>
-                          <span>Nom prenom</span>
-                          <span class="time">منذ 3 دقائق</span>
-                        </span>
-                                <span class="message">
-                          message1....
-                        </span>
-                            </a>
-                        </li>#}
                     </ul>
                 </li>
+                {% endif %}
             </ul>
         </nav>
     </div>

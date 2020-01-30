@@ -58,8 +58,9 @@ class JournalType extends AbstractType
              $form = $event->getForm();
              $form->add('exitt', EntityType::class, [
 	             'class' => Exitt::class,
-	             'choice_label' => function(Exitt $user) {
-		             return sprintf($user->getTotalPrice());
+	             'query_builder' => function(ExittRepository $exittRepository) {
+		             return $exittRepository->findByCurrentDate();
+		             //getTotalPrice();
 	             }
             ]);
          });

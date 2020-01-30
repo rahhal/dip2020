@@ -18,15 +18,13 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('email',EmailType::class)
-           // ->add('roles')
             ->add('password',PasswordType::class)
             ->add('company',TextType::Class)
             ->add('director',TextType::Class)
             ->add('phone',TextType::Class)
             ->add('address',TextType::Class)
             ->add('city',EntityType::Class,[
-                'class' => User::class,
-            ])
+                'class' => User::class,])
             ->add('fullname',TextType::Class)
             ->add('RIB',TextType::Class)
         ;

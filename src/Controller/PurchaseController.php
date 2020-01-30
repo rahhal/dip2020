@@ -35,7 +35,7 @@ class PurchaseController extends AbstractController
     }
     /**
      * @Route("/ajout/purchase", name="ajout-purchase")
-     * @Route("/modifier/purchase/{id}", name="modifier-purchase")
+     * @Route("/edit/purchase/{id}", name="purchase_edit")
      * @Route("/new", name="purchase_new")
      *
      */

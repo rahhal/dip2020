@@ -8,9 +8,10 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
-    /**
+/**
      * @Route("/reset")
      */
 class ResettingController extends AbstractController {
@@ -48,9 +49,11 @@ class ResettingController extends AbstractController {
         ]);
 
 
-        return $this->render('reset/reset.html.twig');
+//        return $this->render('reset/reset.html.twig');
     }
     private function sendEmail($email) {
         var_dump($email);
     }
+
+
 }

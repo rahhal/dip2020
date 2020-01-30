@@ -71,7 +71,7 @@
 
                 <div class="col-md-1">
                     <label></label>
-                    <a href="#" class="btn btn-danger" id="btn-delete">حذف</a>
+                    <a href="#" class="btn btn-danger" id="btn-delete"><i class="fa fa-trash " style="margin-left: 0rem"></i>حذف</a>
                 </div>
             </div>
 
@@ -107,16 +107,6 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="well">
-                                                {#{{ form_row(form.date) }}#}
-                                                {#<div class="form-group">
-
-                                                    {{ form_label(form.date, "Date"|trans, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-                                                    <div class="col-sm-4">
-                                                        {{ form_widget(form.date) }}
-                                                        <div class="invalid-feedback text-danger">{{ form_errors(form.date) }}</div>
-                                                    </div>
-                                                </div>#}
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
                                                         <span class="required">*</span>
@@ -167,9 +157,8 @@
                                     <fieldset>
                                         <div class="row">
                                             <div class="well">
-                                                {#{{ form_row(form.linePurchase) }}#}
                                                 <div id="purchase_linePurchase"></div></br>
-                                                <a href="#" id="add_linePurchase" class="btn btn-success m-10">{{ "Add new purchases"|trans }}</a>
+                                                <a href="#" id="add_linePurchase" class="btn btn-success m-10"><i class="fa fa-plus " style="margin-left: 2rem"></i>{{ "Add new purchases"|trans }}</a>
                                                 {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
                                                 {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
                                             </div>

@@ -25,7 +25,9 @@
     {% if loop.first %}
         <h4 style="text-align: right">   {{ vb.ministry }} </h4>
         <h4 style="text-align: right">    {{ vb.office }}</h4>
-        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
+        {#<h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>#}
+        <h4 style="text-align: right">   {{ vb.name }}</h4>
+
     {% endif %}
 {% endfor %}
 {#   {% for line_purchase in line_purchases %}
@@ -45,57 +47,78 @@
 <h3 style="text-align: right"> التاريخ: {{ exitt.date ? exitt.date|date('Y-m-d') : '' }}</h3>
 {% endfor  %}#}
 
-{% for line_exitt in line_exitts %}
+{#{% for line_exitt in line_exitts %}
     {% if loop.first %}
         <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date ? line_exitt.exitt.date|date('Y/m/d') : '' }}</h3>
 
         <h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
 
     {% endif %}
-{% endfor  %}
+{% endfor  %}#}
+<h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
+{#{% for menu in menus %}
 
+    <h3 style="text-align: left"> اليوم: {{ menu.day|trans }}</h3>
+
+{% endfor  %}#}
+{% for line_exitt in line_exitts %}
+    {% if loop.first %}
+    <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date | date('d-m-Y')  }}</h3>
+    {% endif %}
+{% endfor %}
+
+<br>
+<br>
+<h4 style="text-align: center">{{ "Menu today"|trans }}</h4>
+<table>
+    <thead>
+    <tr>
+        <th style="text-align: center" >{{ "Breakfast"|trans }}</th>
+        <th style="text-align: center">{{ "Lunch"|trans }}</th>
+        <th style="text-align: center">{{ "Dinner"|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#{% for menu in menus %}
+        <tr>
+
+            <td style="text-align: center">{{ menu.breakfast }}</td>
+            <td style="text-align: center">{{ menu.lunch }}</td>
+            <td style="text-align: center">{{ menu.dinner }}</td>
+        </tr>
+    {% endfor %}#}
+
+    </tbody>
+</table>
+
+<br>
+<br>
 <br>
 <br>
 
 <table>
-
     <thead>
     <tr>
-
         <th style="text-align: center" >{{ "Name of article"|trans }}</th>
         <th align="center">{{ "Quantity in stock"|trans }}</th>
         <th>{{ "Quantity"|trans }}</th>
         <th style="text-align: center">{{ "Quantity remaining"|trans }}</th>
-
     </tr>
     </thead>
-
-
     <tbody>
-    {# {% set toal = 0 %}
-     {% set somme = 0 %}#}
-    {% for line_exitt in line_exitts %}
+    {% for lineExitt in line_exitts %}
 
+        {% for lineStock in line_stocks %}
+            {#{% if loop.first %}#}
         <tr>
-            <td style="text-align: center">{{ line_exitt.article }}</td>
-            {#<td>{{ line_stock.quantity }}</td>#}
+            <td style="text-align: center">{{ lineStock.linePurchase.article }}</td>
 
-            <td style="text-align: center">{{ line_exitt.quantity }}</td>
-            {% for line_exitt.lineStock in line_stocks %}
-            <td style="text-align: center">{{ lineStock.qty_update }}</td>
-            <td style="text-align: center">{{ lineStock.qty_update - line_exitt.quantity  }}</td>
-            {#<td style="text-align: center">{% set total = line_exitt.quantity * line_exitt.unitPrice %} {{total}} </td>#}
-            {#<td style="text-align: center">{{ line_exitt.totalPrice }}</td>#}
-
+            <td style="text-align: center">{{ lineStock.qtyUpdate}}</td>
+            <td style="text-align: center">{{ lineExitt.quantity }}</td>
+            <td style="text-align: center">{{ lineStock.qtyUpdate - lineExitt.quantity  }}</td>
         </tr>
-        {% if loop.last %}
-            <tr>
-                <td colspan="3" style="text-align: center">{{ "Total price"|trans }}</td>
-                {#<td> {% set somme = total + somme %}
-                    {{somme}}</td>#}
-                <td style="text-align: center">{{ line_exitt.exitt.totalPrice }}</td>
-            </tr>
-        {% endif %}
+             {#{% endif %}#}
+        {% endfor %}
     {% endfor %}
     </tbody>
 </table>

@@ -41,7 +41,7 @@
                                     <tbody>
                                     {% for menu in menus %}
                                         <tr>
-                                            <td>{{ menu.day }}</td>
+                                            <td> {{ menu.day|trans }} </td>
                                             <td>{{ menu.breakfast }}</td>
                                             <td>{{ menu.lunch }}</td>
                                             <td>{{ menu.dinner }}</td>

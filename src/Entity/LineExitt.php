@@ -36,7 +36,7 @@ class LineExitt
     private $article;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\LineStock")
+     * @ORM\ManyToMany(targetEntity="App\Entity\LineStock", inversedBy="lineExitts")
      */
     private $lineStocks;
 

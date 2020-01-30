@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Institution;
 use App\Entity\LinePurchase;
 use App\Entity\LineStock;
 use App\Form\LineStockType;
@@ -121,5 +122,56 @@ class LineStockController extends AbstractController
         }
 
         return $this->redirectToRoute('line_stock_index');
+    }
+
+
+    /**
+     * @Route("/pdf/line_stock", name="line_stock_pdf")
+     *
+     */
+
+    public function pdf()
+    {
+        $lineStock= $this->getDoctrine()
+            ->getRepository(LineStock::class)->findAll();
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+        $html = $this->renderView('pdf/stock.html.twig', array(
+            'title' =>"محتويات المخزن",
+            'lineStocks'=> $lineStock,
+            'institution'=> $institution,
+        ));
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
+    }
+    /**
+     * @Route("/printv/line_stock", name="valid_pdf")
+     *
+     */
+
+    public function printv()
+    {
+        $lineStock= $this->getDoctrine()
+            ->getRepository(LineStock::class)->findAll();
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+
+        $html = $this->renderView('pdf/stk_valid.html.twig', array(
+            'title' =>"صلحية المواد",
+            'lineStocks'=> $lineStock,
+            'institution'=> $institution,
+        ));
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
     }
 }

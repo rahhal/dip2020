@@ -85,14 +85,25 @@ class LinePurchaseController extends AbstractController
      * @Route("/{id}/edit", name="line_purchase_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, LinePurchase $linePurchase): Response
-    {         $entityManager = $this->getDoctrine()->getManager();
+    {         $em=$entityManager = $this->getDoctrine()->getManager();
 
         $form = $this->createForm(LinePurchaseType::class, $linePurchase);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
+
+            /*foreach ($linePurchase as $linePurchases) {
+                // calcul du prix total de chaque line_purchase
+                $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred() * $linePurchase->getUnitPrice() * (1 + ($linePurchase->getTax() / 100)));
+               // $linePurchase->setPurchase($linePurchase->getPurchase());
+
+            }
+            $em->persist($linePurchase);*/
+
+
+
+            $this->getDoctrine()->getManager()->flush();
             $id= $linePurchase->getPurchase()->getId();
             return $this->redirectToRoute('purchase_show',array('id'=>$id));
 

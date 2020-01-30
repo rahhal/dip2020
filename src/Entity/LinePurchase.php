@@ -19,7 +19,7 @@ class LinePurchase
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="linePurchases" )
+     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="linePurchases")
      */
     private $article;
 

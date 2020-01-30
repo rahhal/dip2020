@@ -27,15 +27,16 @@
                             
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
-                                    {#<a href="{{ path('line_stock_today') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Stock today" | trans }} </a>#}
-
+                                    <a href="{{ path('line_stock_pdf') }}" class="btn btn-info left"><i class="fa fa-print" style="margin-left: 1rem"></i>{{  "Print stock today" | trans }} </a>
+                                <br>
+                                <div class="ln_solid"></div>
                                     {#<a href="{{ path('line_stock_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Add article" | trans }} </a>#}
 
                                 </p>
                                 <table id="datatable" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>{{ "Date"|trans }}</th>
+                                            {#<th>{{ "Date"|trans }}</th>#}
                                             <th>{{ "Category"|trans }}</th>
 
                                             <th>{{ "Article in stock"|trans }}</th>
@@ -53,7 +54,7 @@
                                     <tbody>
                                    {% for line_stock in line_stocks %}
                                        <tr>
-                                           <td>{{ line_stock.date ? line_stock.date|date('Y-m-d') : ''  }}</td>
+                                           {#<td>{{ line_stock.date ? line_stock.date|date('Y-m-d') : ''  }}</td>#}
                                            <td>{{ line_stock.linePurchase.article.category }}</td>
 
                                                <td>{{ line_stock.linePurchase.article }}</td>

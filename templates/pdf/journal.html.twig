@@ -24,20 +24,24 @@
 <body style="font-family:Arial">
 <h4 style="text-align: right">  الجمهورية التونسية </h4>
 {% for vb in institution %}
-    {% if loop.first %}
+    {#{% if loop.first %}#}
         <h4 style="text-align: right">   {{ vb.ministry }} </h4>
         <h4 style="text-align: right">    {{ vb.office }}</h4>
         <h4 style="text-align: right">    {{ vb.name }}</h4>
-    {% endif %}
+    {#{% endif %}#}
 {% endfor %}
 
 {% for menu in menus %}
-    {% if loop.first %}
-        <h3 style="text-align: left"> اليوم: {{ menu.day }}</h3>
-        {#<h3 style="text-align: left"> التاريخ: {{ menu.date ? menu.date|date('Y/m/d') : '' }}</h3>#}
-        <h2 style="text-align: center">{{ "Journal of meals"|trans }}</h2>
-    {% endif %}
+    {#{% if loop.first %}#}
+        <h3 style="text-align: left"> اليوم: {{ menu.day|trans }}</h3>
+    {#{% endif %}#}
 {% endfor  %}
+{% for journal in journals %}
+
+        <h3 style="text-align: left"> التاريخ: {{ journal.date | date('d-m-Y')  }}</h3>
+     {% endfor %}
+        <h2 style="text-align: center">{{ "Journal of meals"|trans }}</h2>
+
 <br>
 <br>
 <h4 style="text-align: center">{{ "Menu today"|trans }}</h4>
@@ -66,8 +70,8 @@
 <br>
 <h4 style="text-align: center">{{ "Number of meals today"|trans }}</h4>
 <table>
-    {% for nbMeal in nbMeals %}
-        <tr>
+
+       {# <tr>
             <td style="text-align: center" >{{ "Number of resident studiants"|trans }}</td>
             <td style="text-align: center">{{ nbMeal.stdResident }}</td>
             <td style="text-align: center">{{ "Number of employees"|trans }}</td>
@@ -84,8 +88,29 @@
             <td style="text-align: center">{{ nbMeal.curators}}</td>
             <td style="text-align: center">{{ "Individual meal"|trans }}</td>
             <td style="text-align: center"></td>
+        </tr>#}
+    <thead>
+        <tr>
+            <td style="text-align: center" >{{ "Number of resident studiants"|trans }}</td>
+            <td style="text-align: center">{{ "Number of employees"|trans }}</td>
+            <td style="text-align: center" >{{ "Number of semi-resident studiants"|trans }}</td>
+            <td style="text-align: center">{{ "Number of professors"|trans }}</td>
+            <td style="text-align: center" >{{ "Number of curators"|trans }}</td>
+            <td style="text-align: center">{{ "Individual meal"|trans }}</td>
+        </tr>
+    </thead>
+    <tbody>
+    {% for nbMeal in nbMeals %}
+        <tr>
+            <td style="text-align: center">{{ nbMeal.stdResident }}</td>
+            <td style="text-align: center">{{ nbMeal.employee }}</td>
+            <td style="text-align: center">{{ nbMeal.stdSemiResident }}</td>
+            <td style="text-align: center">{{ nbMeal.professor }}</td>
+            <td style="text-align: center">{{ nbMeal.curators}}</td>
+            <td style="text-align: center"></td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>
 <h4 style="text-align: center">{{ "Exitt today"|trans }}</h4>
 <table>
@@ -104,8 +129,8 @@
             <td style="text-align: center">{{ lineExitt.article }}</td>
             <td style="text-align: center">{{ lineExitt.quantity }}</td>
             <td style="text-align: center">{{ lineExitt.unitPrice }}</td>
-            <td style="text-align: center">{{ lineExitt.totalPrice }}</td>
-
+            {#<td style="text-align: center">{{ lineExitt.totalPrice }}</td>#}
+<td></td>
         </tr>
     {% endfor %}
     </tbody>
@@ -115,10 +140,12 @@
 <br>
 <br>
 <form>
+    {% for journal in journals %}
    <label> {{ "Number of student"|trans }}</label> <input type="text" name="Number of student" value="">
-    <label> {{ "Number of meals"|trans }}</label> <input type="text" name="Number of student" value="">
-    <label>{{ "Total costs"|trans }} </label> <input type="text" name="Number of student" value="">
-    <label>{{ "Unit meal costs"|trans }} </label> <input type="text" name="Number of student" value="">
+    <label> {{ "Number of meals"|trans }}</label> <input type="text" name="Number of student" value="{{ journal.totalMeals }}">
+    <label>{{ "Total costs"|trans }} </label> <input type="text" name="Number of student" value="{{ journal.totalCosts }}">
+    <label>{{ "Unit meal costs"|trans }} </label> <input type="text" name="Number of student" value="{{ journal.unitCost }}">
+{% endfor %}
 </form>
 
 <br>
@@ -134,10 +161,10 @@
         <th style="text-align: center">{{ "PDG"|trans }}</th>
     </tr>
     <tbody>
-            <tr>
-                <td style="text-align: center"></td>
-                <td style="text-align: center"></td>
-                <td style="text-align: center"></td>
+            <tr >
+                <td style="padding: 30px;"></td>
+                <td ></td>
+                <td ></td>
             </tr>
 
     </tbody>
