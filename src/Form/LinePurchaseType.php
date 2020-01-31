@@ -32,15 +32,16 @@ class LinePurchaseType extends AbstractType
                'class' => Purchase::class,
               'multiple' => false
               ])*/
+           ->add('quantity_required',TextType::class,['required'=> false])
             ->add('quantity_delivred',TextType::class,['required'=> true])
             ->add('unit_price',TextType::class,['required'=> true])
             ->add('tax',TextType::class,['required'=> true])
-            ->add('quantity_required',TextType::class,['required'=> false])
+            ->add('validation',TextType::class,['required'=> false])
+            ->add('production', TextType::class,['required'=> false])
             ->add('technical_confirmity',CheckboxType::class, array('required' => false))
            // ->add('total_price',TextType::class)
            ->add('remarque',TextType::class,['required'=> false])
-            ->add('validation',TextType::class,['required'=> false])
-            ->add('production', TextType::class,['required'=> false])
+
         ;
     }
 

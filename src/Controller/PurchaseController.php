@@ -146,10 +146,27 @@ class PurchaseController extends AbstractController
      */
     public function edit(Request $request, Purchase $purchase): Response
     {
+        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(PurchaseType::class, $purchase);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            foreach ($purchase->getLinePurchases() as $linePurchase) {
+                // calcul du prix total de chaque line_purchase
+                $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred() * $linePurchase->getUnitPrice() * (1 + ($linePurchase->getTax() / 100)));
+                $linePurchase->setPurchase($purchase);
+            }
+
+            /* ------ calcul du prix total de chaque purchase -------*/
+            $totalPrice=0;
+            foreach ($purchase->getLinePurchases() as $linePurchase) {
+                $totalPrice += $linePurchase->getTotalPrice();
+            }
+            $purchase->setTotalPrice($totalPrice);
+
+            $em->persist($purchase);
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', "تم التغيير بنجاح");

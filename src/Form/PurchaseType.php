@@ -22,7 +22,7 @@ class PurchaseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('number',TextType::class,['required'=> true])
+
             ->add('date',DateType::class,  [
                 'label' => 'التاريخ :',
                 'required' => true,
@@ -33,8 +33,9 @@ class PurchaseType extends AbstractType
                     'autocomplete' => 'off'
                 ],
             ])
-            ->add('employee',EntityType::class,['class' => Employee::class,'required'=> true])
+            ->add('number',TextType::class,['required'=> true])
             ->add('supplier',EntityType::class,['class' => Supplier::class,'required'=> true])
+            ->add('employee',EntityType::class,['class' => Employee::class,'required'=> true])
             ->add('linePurchases', CollectionType::class, array(
                 'entry_type'   => LinePurchaseType::class,
                 'allow_add'    => true,

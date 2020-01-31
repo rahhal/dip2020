@@ -132,6 +132,42 @@ class ExittController extends AbstractController
 	        'data_exit' => $data_exit
         ]);
     }
+
+    /**
+     * @Route("/{id}/edit", name="exitt_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Exitt $exitt): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ExittType::class, $exitt);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+            /* ---calcul du prix total de chaque exitt---*/
+            $totalPrice=0;
+            foreach ($exitt->getLineExitts() as $lineExitt)
+            {
+                //$lineExitt->setTotalPrice($lineExitt->getQuantity()*$lineExitt->getUnitPrice()*(1+($lineExitt->getTax()/ 100)));
+
+                $totalPrice += $lineExitt->getQuantity()*$lineExitt->getUnitPrice();
+            }
+            $exitt->setTotalPrice($totalPrice);
+
+            $em->persist($exitt);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', "تم التغيير بنجاح");
+            return $this->redirectToRoute('exitt_index');
+        }
+
+        return $this->render('exitt/edit.html.twig', [
+            'exitt' => $exitt,
+            'form' => $form->createView(),
+        ]);
+    }
+
     /**
      * @Route("/{id}", name="exitt_show", methods={"GET"})
      */

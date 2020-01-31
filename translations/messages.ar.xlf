@@ -263,8 +263,8 @@
             <target>تغيير بيانات المزود</target>
         </trans-unit>
 
-    <trans-unit id="Employee" resname=" Employe">
-          <source> Employe</source>
+    <trans-unit id="Employee" resname="Employee">
+          <source>Employee</source>
           <target>الموظف</target>
        </trans-unit>
  <trans-unit id="Details of employee" resname="Details of employee">
@@ -304,6 +304,14 @@
                  <source>Number</source>
                  <target>الرقم</target>
   </trans-unit>
+  <trans-unit id="Validation" resname="Validation">
+                        <source>Validation</source>
+                        <target>  تاريخ الانتهاء   </target>
+        </trans-unit>
+        <trans-unit id="Production" resname="Production">
+                              <source>Production</source>
+                              <target> تاريخ الصنع   </target>
+              </trans-unit>
  <trans-unit id=" detail" resname="detail">
                   <source>detail</source>
                   <target>تفاصيل</target>
@@ -875,6 +883,10 @@
                        <source>logout</source>
                         <target> خروج </target>
                 </trans-unit>
+                 <trans-unit id="Line purchases" resname="Line purchases">
+                                       <source>Line purchases</source>
+                                        <target> المشتريات </target>
+                                </trans-unit>
     </body>
   </file>
 </xliff>
