@@ -9,8 +9,9 @@
     <a class="hiddenanchor" id="reset"></a>
 
     <div class="login_wrapper">
-        <div class="container" style="color: #0000cc; font: 'Times New Roman';">
+        <div class="container" style="color: #0000cc;">
         <div class="animate form login_form">
+            {% include('layouts/flash-messages.html.twig') %}
             <section class="login_content">
                 <form method="post">
                     <h1> تسجيل الدخول</h1>
@@ -30,7 +31,6 @@
                     </div>
                     <div>
                         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="كلمه السر" required="" />
-                      {#<span>  <a  href="#reset">نسيت كلمة المرور</a></span>#}
 
                     </div>
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -38,16 +38,17 @@
                     <div>
                         <button type="submit" class="btn btn-default submit">تسجيل الدخول</button>
                         {#<a class="reset_pass" href="#reset">نسيت كلمة المرور</a> </div>#}
-                        <a class="reset_pass" href="{{ path('reset_index') }}">نسيت كلمة المرور</a>
+                        <a class="reset_pass" href="{{ path('app_forgotten_password') }}">نسيت كلمة المرور</a>
+
                     </div>
                     <div class="clearfix"></div>
 
                     <div class="separator">
                         <div class="clearfix"></div>
                         <br />
-                        <span>  <a  href="#reset">ليس لديك حساب</a></span>
-                        <br />
-                        <br />
+                        {#<span>  <a  href="#reset">ليس لديك حساب</a></span>#}
+                       {# <br />
+                        <br />#}
                         <div>
                             {# <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1> #}
                             <p>©2019 كل الحقوق محفوظة</p>

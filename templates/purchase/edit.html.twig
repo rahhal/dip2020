@@ -1,3 +1,4 @@
+{#
 {% extends 'base.html.twig' %}
 
 {% block title %}Edit Purchase{% endblock %}
@@ -10,4 +11,117 @@
     <a href="{{ path('purchase_index') }}">back to list</a>
 
     {{ include('purchase/_delete_form.html.twig') }}
+{% endblock %}
+#}
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Edit article"|trans }}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <br/>
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                {{ include('purchase/_form.html.twig', {'button_label': 'Update'}) }}
+
+                                {#<div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.name,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.name) }}</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reference_stock">{{ "Reference stock"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.reference_stock,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                    </div>
+                                    <span data-color="red" id="reference_result"></span>
+                                    <div class="invalid-feedback text-danger">{{ form_errors(form.reference_stock) }}</div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit"|trans }}
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.unit,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.unit) }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Category"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.Category,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.Category) }}</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Initial quantity"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.ini_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.ini_qty) }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Quantity alerte"|trans }}
+                                        <span class="required">*</span>
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        {{ form_widget(form.min_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        <div class="invalid-feedback text-danger">{{ form_errors(form.min_qty) }}</div>
+                                    </div>
+                                </div>#}
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                        {#{{ include('article/_form.html.twig') }}
+
+                                        <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "back to list"|trans }}</a>
+                                   #}
+                                        <a href="{{ path('purchase_index') }}">back to list</a>
+
+                                        {{ include('purchase/_delete_form.html.twig') }}
+                                    </div>
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
 {% endblock %}

@@ -71,6 +71,13 @@ class User implements UserInterface
      */
     private $RIB;
 
+    /**
+     * @var string le token qui servira lors de l'oubli de mot de passe
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $resetToken;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -231,5 +238,20 @@ class User implements UserInterface
         $this->RIB = $RIB;
 
         return $this;
+    }
+    /**
+     * @return string
+     */
+    public function getResetToken(): string
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param string $resetToken
+     */
+    public function setResetToken(?string $resetToken): void
+    {
+        $this->resetToken = $resetToken;
     }
 }

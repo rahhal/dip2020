@@ -63,7 +63,6 @@ class PurchaseController extends AbstractController
 		            if (false === $purchase->getLinePurchases()->contains($linePurchase))
 			            $em->remove($linePurchase);
 	            }
-
 	           $stock->setName('stoki');
 	            $em->persist($stock);
 
@@ -141,6 +140,30 @@ class PurchaseController extends AbstractController
             'purchase' => $purchase,
         ]);
     }
+
+    /**
+     * @Route("/{id}/edit", name="purchase_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Purchase $purchase): Response
+    {
+        $form = $this->createForm(PurchaseType::class, $purchase);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', "تم التغيير بنجاح");
+            return $this->redirectToRoute('purchase_index');
+        }
+
+        return $this->render('purchase/edit.html.twig', [
+            'purchase' => $purchase,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+
     /**
      * @Route("/delete/purchase/{id}", name="purchase_delete")
      *
