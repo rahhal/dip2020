@@ -17,35 +17,26 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MenuController extends AbstractController
 {
-    /**
-     * @Route("/", name="menu_index", methods={"GET"})
-     */
-    public function index(MenuRepository $menuRepository): Response
-    {
-        return $this->render('menu/index.html.twig', [
-            'menus' => $menuRepository->findAll(),
-        ]);
-    }
 
     /**
      * @Route("/new", name="menu_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
-    {
+    {$em = $entityManager = $this->getDoctrine()->getManager();
         $menu = new Menu();
         $form = $this->createForm(MenuType::class, $menu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($menu);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('menu_index');
+            $em ->persist($menu);
+            $em ->flush();
+            $this->addFlash('success', "تمت الاضافة بنجاح");
+            return $this->redirectToRoute('menu_new');
         }
-
-        return $this->render('menu/new.html.twig', [
-            'menu' => $menu,
+        $menus = $em->getRepository(Menu::class)->findAll();
+        return $this->render('menu/menu.html.twig', [
+            'menus' => $menus,
             'form' => $form->createView(),
         ]);
     }
@@ -71,7 +62,8 @@ class MenuController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('menu_index');
+            $this->addFlash('success', "تم التغيير بنجاح");
+            return $this->redirectToRoute('menu_new');
         }
 
         return $this->render('menu/edit.html.twig', [
@@ -90,7 +82,7 @@ class MenuController extends AbstractController
             $entityManager->remove($menu);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('menu_index');
+        $this->addFlash('success', "تم الحذف بنجاح");
+        return $this->redirectToRoute('menu_new');
     }
 }

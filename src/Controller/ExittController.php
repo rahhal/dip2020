@@ -96,10 +96,12 @@ class ExittController extends AbstractController
                             $findLineStockByLinePurchase->setQtyUpdate($etat);
                             $findLineStockByLinePurchase->setOldQty($old_quantity);
                        }
-
                 // le prix unitaire de line exitt
                         $lineExitt->setUnitPrice($findLineStockByLinePurchase->getUnitPrice());
 
+
+
+                        $lineExitt->addLineStock($findLineStockByLinePurchase);
                         $em->flush();
 	                }
                 }
@@ -144,7 +146,6 @@ class ExittController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-
             /* ---calcul du prix total de chaque exitt---*/
             $totalPrice=0;
             foreach ($exitt->getLineExitts() as $lineExitt)
@@ -154,6 +155,40 @@ class ExittController extends AbstractController
                 $totalPrice += $lineExitt->getQuantity()*$lineExitt->getUnitPrice();
             }
             $exitt->setTotalPrice($totalPrice);
+
+            /*   -------line stock */
+            foreach ($exitt->getLineExitts() as $lineExitt) {
+                $lineExitt->setExitt($exitt);
+
+                // find Line Purchase By Article: mise à jour du stock
+                $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
+                $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
+                $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $lineExitt->getArticle()]);
+                $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
+                if ($findLineStockByLinePurchase) {
+                    $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
+                    $quantity = $lineExitt->getQuantity();
+                    $etat = $old_quantity - $quantity;
+                    if ($etat < 0) {
+//                            if ($etat < $findLineStockByLinePurchase->getQuantityAlerte())
+
+                        $this->addFlash(
+                            'danger',
+//				                ' لا يمكن، الكمية المطلوبة من مادة: '.$lineExitt->getArticle()->getName().'    اكثر من الكمية المتوفرة بالمخزون '.$old_quantity);
+                            '   الكمية المتوفرة بالمخزون من مادة: ' . $lineExitt->getArticle()->getName() . ' تقدر بـ:  ' . $old_quantity . ' ،لا يمكنك القيام بهذا الخروج  ');
+                        return $this->redirectToRoute("ajout-exitt");
+                    } else {
+                        $findLineStockByLinePurchase->setQtyUpdate($etat);
+                        $findLineStockByLinePurchase->setOldQty($old_quantity);
+                    }
+                    // le prix unitaire de line exitt
+                    $lineExitt->setUnitPrice($findLineStockByLinePurchase->getUnitPrice());
+
+
+                    $lineExitt->addLineStock($findLineStockByLinePurchase);
+                }}
+            /*--------*/
+
 
             $em->persist($exitt);
             $this->getDoctrine()->getManager()->flush();
@@ -191,4 +226,5 @@ class ExittController extends AbstractController
 
         return $this->redirectToRoute('exitt_index');
     }
+
 }

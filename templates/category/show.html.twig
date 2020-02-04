@@ -42,7 +42,7 @@
                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
                                             <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
                                             <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                            <a href="{{ path('category_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                            <a href="{{ path('category_new') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                         </form>
 
                                     </div>

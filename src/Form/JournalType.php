@@ -42,7 +42,7 @@ class JournalType extends AbstractType
             ->add('remarque')
             // ->add('nbMeal')
             //->add('exitt')
-            ->add('save',SubmitType::class)
+           // ->add('save',SubmitType::class)
         ;
 
 	    $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {

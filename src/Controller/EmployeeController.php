@@ -17,36 +17,29 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class EmployeeController extends AbstractController
 {
-    /**
-     * @Route("/", name="employee_index", methods={"GET"})
-     */
-    public function index(EmployeeRepository $employeeRepository): Response
-    {
-        return $this->render('employee/index.html.twig', [
-            'employees' => $employeeRepository->findAll(),
-        ]);
-    }
+
     /**
      * @Route("/new", name="employee_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
+        $entityManager = $this->getDoctrine()->getManager();
+
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($employee);
             $entityManager->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
 
-            return $this->redirectToRoute('employee_index');
+            return $this->redirectToRoute('employee_new');
         }
-
-        return $this->render('employee/new.html.twig', [
-            'employee' => $employee,
+$employees=$entityManager->getRepository(Employee::class)->findAll();
+        return $this->render('employee/employee.html.twig', [
+            'employees' => $employees,
             'form' => $form->createView(),
         ]);
     }
@@ -73,7 +66,7 @@ class EmployeeController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', "تم التعديل بنجاح");
-            return $this->redirectToRoute('employee_index');
+            return $this->redirectToRoute('employee_new');
         }
 
         return $this->render('employee/edit.html.twig', [
@@ -93,6 +86,6 @@ class EmployeeController extends AbstractController
             $entityManager->flush();
         }
         $this->addFlash('success', "تم الحذف بنجاح");
-        return $this->redirectToRoute('employee_index');
+        return $this->redirectToRoute('employee_new');
     }
 }

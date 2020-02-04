@@ -16,21 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class NbMealController extends AbstractController
 {
-    /**
-     * number of meal.
-     * @Route("/", name="nb_meal_index")
-     */
-    public function indexAction()
-    {
-        $em= $this->getDoctrine()->getManager();
-        $nbMeals= $em->getRepository(NbMeal::class)->findAll();
-        // dump($nbMeals);die;
 
-
-        return $this->render('nb_meal/index.html.twig', [
-            'nbMeals' => $nbMeals,
-        ]);
-    }
 
     /** insert into l'ajout
      * @Route("/new", name="nb_meal_new")
@@ -54,10 +40,16 @@ class NbMealController extends AbstractController
               // dump($nbMeal);die();
             $em->persist($nbMeal);
             $em->flush();
-            return $this->redirect($this->generateUrl('nb_meal_index'));
+
+            $this->addFlash('success', "تمت الاضافة بنجاح");
+            return $this->redirect($this->generateUrl('nb_meal_new'));
         }
-        return $this->render('nb_meal/new.html.twig', [
+
+        $nbMeals= $em->getRepository(NbMeal::class)->findAll();
+
+        return $this->render('nb_meal/nbMeal.html.twig', [
             'form' => $formView,
+            'nbMeals'=> $nbMeals,
         ]);
     }
     /** edit Nb meal
@@ -77,8 +69,11 @@ class NbMealController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $em->flush();
+
+
+            $this->addFlash('success', "تم التغيير بنجاح");
             // la redirection vers la page d'acceuil aprés l'ajout
-            return $this->redirect($this->generateUrl('nb_meal_index'));
+            return $this->redirect($this->generateUrl('nb_meal_new'));
         }
 
         return $this->render('nb_meal/edit.html.twig', [
@@ -114,7 +109,8 @@ class NbMealController extends AbstractController
             $em->remove($nbMeal);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nb_meal_index'));
+            $this->addFlash('success', "تم الحذف بنجاح");
+            return $this->redirect($this->generateUrl('nb_meal_new'));
 
         }
 

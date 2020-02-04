@@ -52,26 +52,12 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                               {# <div class="form-group col-lg-12">
-                                    <div class="ln_solid"></div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-success"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                        <a href="{{ path('supplier_index') }}" class="btn btn-primary"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
-                                        {{ include('supplier/_delete_form.html.twig') }}                                    </div>
-                                </div>#}
-                                <div class="form-group col-lg-12">
-                                    <div class="ln_solid"></div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <form method="post" action="{{ path('supplier_delete', {'id': supplier.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ supplier.id) }}">
-                                            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
-                                            <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                            <a href="{{ path('supplier_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
-
-                                        </form>
-
+                                <div class="form-group">
+                                    <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-3">
+                                        {{ include('supplier/_delete_form.html.twig') }}
                                     </div>
+                                    <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                    <a href="{{ path('supplier_new') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                 </div>
                             </div>
                         </div>

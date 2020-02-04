@@ -18,35 +18,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class SupplierController extends AbstractController
 {
     /**
-     * @Route("/", name="supplier_index", methods={"GET"})
-     */
-    public function index(SupplierRepository $supplierRepository): Response
-    {
-        return $this->render('supplier/index.html.twig', [
-            'suppliers' => $supplierRepository->findAll(),
-        ]);
-    }
-
-    /**
      * @Route("/new", name="supplier_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
-    {
+    {    $entityManager = $this->getDoctrine()->getManager();
+
         $supplier = new Supplier();
         $form = $this->createForm(SupplierType::class, $supplier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($supplier);
             $entityManager->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
-            return $this->redirectToRoute('supplier_index');
+            return $this->redirectToRoute('supplier_new');
         }
-
-        return $this->render('supplier/new.html.twig', [
-            'supplier' => $supplier,
+$suppliers=$entityManager->getRepository(Supplier::class)->findAll();
+        return $this->render('supplier/supplier.html.twig', [
+            'suppliers' => $suppliers,
             'form' => $form->createView(),
         ]);
     }
@@ -73,7 +63,7 @@ class SupplierController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', "تم التعديل بنجاح");
-            return $this->redirectToRoute('supplier_index');
+            return $this->redirectToRoute('supplier_new');
         }
 
         return $this->render('supplier/edit.html.twig', [
@@ -94,6 +84,6 @@ class SupplierController extends AbstractController
         }
         $this->addFlash('success', "تم الحذف بنجاح");
 
-        return $this->redirectToRoute('supplier_index');
+        return $this->redirectToRoute('supplier_new');
     }
 }

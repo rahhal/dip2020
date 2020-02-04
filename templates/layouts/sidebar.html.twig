@@ -37,10 +37,10 @@
                                                     style="display: block;"{% endif %}>
 
                          <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
-                        <li><a href="{{ path('category_index') }}">الاصناف</a></li>
-                        <li><a href="{{ path('article_index') }}">المواد</a></li>
-                        <li><a href="{{ path('supplier_index') }}">المزودين</a></li>
-                        <li><a href="{{ path('employee_index') }}"> الموظفين</a></li>
+                        <li><a href="{{ path('category_new') }}">الاصناف</a></li>
+                        <li><a href="{{ path('article_new') }}">المواد</a></li>
+                        <li><a href="{{ path('supplier_new') }}">المزودين</a></li>
+                        <li><a href="{{ path('employee_new') }}"> الموظفين</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-shopping-cart"></i> المشتريات <span class="fa fa-chevron-down"></span></a>
@@ -48,7 +48,7 @@
                                                 or 'purchase_' in route %}
                                                 style="display: block;"{% endif %}>
                         <li><a href="{{ path('demand_index') }}">طلب تزوّد</a></li>
-                        <li><a href="{{ path('commission_index') }}">لجنة قبول المواد</a></li>
+                        <li><a href="{{ path('commission_new') }}">لجنة قبول المواد</a></li>
                         <li><a href="{{ path('purchase_index') }}">جدول المشتريات</a></li>
                     </ul>
                 </li>
@@ -67,9 +67,9 @@
                 <li><a><i class="fa fa-cutlery"></i> الأكلات <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" {% if 'menu_' in route or 'nb_meal_' in route or 'journal_' in route %}
                                                     class= "current" style="display: block;"{% endif %}>
-                        <li><a href="{{ path('menu_index') }}">  جدول الاكلات </a></li>
-                        <li><a href="{{ path('nb_meal_index') }}">عدد الاكلات الموزعة</a></li>
-                        <li><a href="{{ path('journal_index') }}">  الصحيفة اليومية </a></li>
+                        <li><a href="{{ path('menu_new') }}">  جدول الاكلات </a></li>
+                        <li><a href="{{ path('nb_meal_new') }}">عدد الاكلات الموزعة</a></li>
+                        <li><a href="{{ path('journal_new') }}">  الصحيفة اليومية </a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-clone"></i> جرد المخزون <span class="fa fa-chevron-down"></span></a>

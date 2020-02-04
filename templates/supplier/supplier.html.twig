@@ -1,4 +1,5 @@
 
+
 {% extends 'base.html.twig' %}
 
 {% block title %} {{ app.user.email|upper }} {% endblock %}
@@ -15,44 +16,54 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ "List of inventory"|trans }}</h3>
+                        <h3>{{ "Supplier liste"|trans }}</h3>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="row">
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-
+                            <!-- Large modal -->
+                            <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
+                            {{ include('supplier/modal.html.twig') }}
+                            <br>
+                            <div class="ln_solid"></div>
+                            {#---------------------/modal-------------#}
                             {% include('layouts/flash-messages.html.twig') %}
 
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
-                                    <a href="{{ path('inventory_new') }}" class="btn btn-success left"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
+                                    <a href="{{ path('supplier_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
                                 </p>
-                            <br>
-                             <div class="ln_solid"></div>
                                 <table  id="datatable" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>{{ "Date"|trans }}</th>
-                                        <th>{{ "Inv number"|trans }}</th>
+                                        <th>{{ "Supplier name"|trans }}</th>
+                                        <th>{{ "Activity"|trans }}</th>
+                                        <th>{{ "Tax_number"|trans }}</th>
+                                        <th>{{ "Phone"|trans }}</th>
+                                        <th>{{ "Address"|trans }}</th>
+                                        <th>{{ "Email"|trans }}</th>
                                         <th>{{ "Actions"|trans }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for inventory in inventories %}
+                                    {% for supplier in suppliers %}
                                         <tr>
-                                            <td>{{ inventory.date ? inventory.date|date('Y-m-d') : '' }}</td>
-                                            <td>{{ inventory.invNumber }}</td>
+                                            <td>{{ supplier.name }}</td>
+                                            <td>{{ supplier.activity }}</td>
+                                            <td>{{ supplier.taxNumber }}</td>
+                                            <td>{{ supplier.phone }}</td>
+                                            <td>{{ supplier.address }}</td>
+                                            <td>{{ supplier.email }}</td>
                                             <td>
-                                                <a href="{{ path('inventory_show', {'id': inventory.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
-                                                <a href="{{ path('inventory_edit', {'id': inventory.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                                <a href="{{ path('supplier_edit', {'id': supplier.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                                {{ include('supplier/_delete_form.html.twig') }}
                                             </td>
                                         </tr>
                                     {% else %}
                                         <tr class="text-center">
-                                            <td colspan="2">{{ "no records found"|trans }}</td>
+                                            <td colspan="8">{{ "no records found"|trans }}</td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>

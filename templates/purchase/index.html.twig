@@ -26,16 +26,18 @@
 
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
-                                    <a href="{{ path('ajout-purchase') }}" class="btn btn-success">
+                                    <a href="{{ path('ajout-purchase') }}" class="btn btn-success left">
                                         <i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
                                 </p>
+                                <br>
+                                <div class="ln_solid"></div>
                                     <table  id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>{{ "Date"|trans }}</th>
                                                 <th>{{ "Number of purchase"|trans }}</th>
                                                 <th>{{ "Supplier"|trans }}</th>
                                                 <th>{{ "Benificiary"|trans }}</th>
-                                                <th>{{ "Date"|trans }}</th>
                                                 <th>{{ "Total price"|trans }}</th>
                                                 <th>{{ "Actions"|trans }}</th>
                                             </tr>
@@ -43,25 +45,21 @@
                                         <tbody>
                                         {% for purchase in purchases %}
                                             <tr>
+                                                <td>{{ purchase.date ? purchase.date|date('Y-m-d') : '' }}</td>
                                                 <td>{{ purchase.number }}</td>
                                                 <td>{{ purchase.supplier }}</td>
                                                 <td>{{ purchase.employee }}</td>
-                                                <td>{{ purchase.date ? purchase.date|date('Y-m-d') : '' }}</td>
                                                 <td>{{ purchase.totalPrice }}</td>
                                                 <td>
                                                     <a href="{{ path('purchase_show', {'id': purchase.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
-                                                    {#<a href="{{ path('modifier-purchase', {'id': purchase.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{ "edit"|trans }}</a>#}
-                                                    {#<a href="{{ path('linePurchase_detail', {'id': purchase.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-search" style="margin-left: 2rem"></i>{{ "detail"|trans }}</a>#}
-                                                    {# <a href="{{ path('purchase_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 1rem"></i>{{ "print"|trans }}</a>
-                                                    <a href="{{ path('receive_pdf', {'id': purchase.id}) }}" target="_blank" class="btn btn-warning"><i class="fa fa-print" style="margin-left: 1rem"></i>{{ "Print article receipt session"|trans }}</a>
-#}<div class="btn-group"> 
-      <button class=" btn btn-info" data-toggle="dropdown">
-      <i class="fa fa-print" style="margin-left: 1rem"></i> <span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="{{ path('purchase_pdf', {'id': purchase.id}) }}">{{ "print exit"|trans }}</a></li>
-        <li><a href="{{ path('receive_pdf', {'id': purchase.id}) }}">{{ "Print article receipt session"|trans }}</a></li>
-      </ul>
-    </div>
+                                                    <div class="btn-group">
+                                                      <button class=" btn btn-info" data-toggle="dropdown">
+                                                      <i class="fa fa-print" style="margin-left: 1rem"></i> <span class="caret"></span></button>
+                                                      <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="{{ path('purchase_pdf', {'id': purchase.id}) }}">{{ "print purchase"|trans }}</a></li>
+                                                        <li><a href="{{ path('receive_pdf', {'id': purchase.id}) }}">{{ "Print article receipt session"|trans }}</a></li>
+                                                      </ul>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         {% else %}

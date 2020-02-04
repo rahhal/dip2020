@@ -20,43 +20,30 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CommissionController extends AbstractController
 {
-    /**
-     * @Route("/", name="commission_index", methods={"GET"})
-     */
-    public function index(CommissionRepository $commissionRepository): Response
-    {
-
-        $employees=$this->getDoctrine()
-            ->getRepository(Employee::class)
-            ->findAll();
-        return $this->render('commission/index.html.twig', [
-            'commissions' => $commissionRepository->findAll(),
-            'employees' => $employees,
-        ]);
-    }
 
     /**
      * @Route("/new", name="commission_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
-    {
+    {   $em= $entityManager = $this->getDoctrine()->getManager();
         $commission = new Commission();
         $form = $this->createForm(CommissionType::class, $commission);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($commission);
             $entityManager->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
-            return $this->redirectToRoute('commission_index');
+            return $this->redirectToRoute('commission_new');
         }
+        $commissions = $em->getRepository(Commission::class)->findAll();
         $employees=$this->getDoctrine()
             ->getRepository(Employee::class)
             ->findAll();
-        return $this->render('commission/new.html.twig', [
-            'commission' => $commission,
+        return $this->render('commission/commission.html.twig', [
+            'commissions' => $commissions,
             'form' => $form->createView(),
             'employees' => $employees,
         ]);
@@ -84,7 +71,7 @@ class CommissionController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', "تم التغيير بنجاح");
 
-            return $this->redirectToRoute('commission_index');
+            return $this->redirectToRoute('commission_new');
         }
 
         return $this->render('commission/edit.html.twig', [
@@ -105,7 +92,7 @@ class CommissionController extends AbstractController
         }
         $this->addFlash('success', "تم الحذف بنجاح");
 
-        return $this->redirectToRoute('commission_index');
+        return $this->redirectToRoute('commission_new');
     }
 
     /**

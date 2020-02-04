@@ -1,0 +1,108 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Journals of meals"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <!-- Large modal -->
+                            <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
+                            {{ include('journal/modal.html.twig') }}
+                            <br>
+                            <div class="ln_solid"></div>
+                            {#---------------------/modal-------------#}
+
+                            {% include('layouts/flash-messages.html.twig') %}
+                            <div class="x_content">
+                                <table id="datatable" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>{{  "Date" | trans }}</th>
+                                        {#<th>{{  "Day" | trans }}</th>#}
+                                        {#<th>{{  "Number of exit" | trans }}</th>#}
+                                        <th>{{  "Number of meals" | trans }}</th>
+                                        <th>{{  "Total costs" | trans }}</th>
+                                        <th>{{  "Unit meal costs" | trans }}</th>
+                                        <th>{{  "Remarque" | trans }}</th>
+                                        <th>{{  "Actions" | trans }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for journal in journals %}
+                                        <tr>
+                                            <td>{{ journal.date ? journal.date|date('y/m/d') : ''}}</td>
+                                            {#<td>{{ journal.exitt }}</td>#}
+                                            <td>
+                                                {# {% set total_meals = 0 %}
+                                                {% for nbMeal in journal.nbMeal  %}
+                                                    {% set total_meals = nbMeal.stdResident + nbMeal.stdSemiResident+ nbMeal.stdGranted+ nbMeal.professor + nbMeal.employee+ nbMeal.curators %}
+                                                {%endfor%} #}
+                                                {{ journal.totalMeals }}</td>
+                                            <td>
+                                                {# {% set totalCosts = 0 %}
+                                                {% for lineStock in journal.exitt.lineExitts.lineStock  %}
+                                                    {% set totalCosts+ = exitt.totalPrice %}
+                                                {%endfor%} #}
+                                                {{ journal.totalCosts }}
+                                                {#{{ journal.totalCosts|number_format(3, ',',' ') }}#}
+                                            </td>
+                                            <td>
+                                                {# {% set unitCost = 0 %}
+                                                {% for journal in journals  %}
+                                                    {% if journal.nbMeal > 0 %}
+                                                    {% set unitCost = journal.totalCosts|number_format(3, ',',' ') / journal.nbMeal|number_format(3, ',',' ') %}
+                                                 {% endif %}
+                                                {%endfor%} #}
+                                                {{ journal.unitCost }}
+                                                {#{{ journal.unitCost|number_format(3, ',',' ') }}#}
+                                            </td>
+                                            <td>{{ journal.remarque }}</td>
+
+                                            <td>
+                                                {#<a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>#}
+                                                <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                                {{ include('journal/_delete_form.html.twig') }}
+
+                                                <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-info btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>
+                                                    {{  "print" | trans }}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr class="text-center">
+                                            <td colspan="7">{{  "no records found" | trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+{% endblock %}

@@ -18,40 +18,27 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CategoryController extends AbstractController
 {
-
-    /**
-     * @Route("/", name="category_index", methods={"GET"})
-     */
-    public function index(CategoryRepository $categoryRepository): Response
-    {
-        return $this->render('category/index.html.twig', [
-            'categories' => $categoryRepository->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/new", name="category_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
-    {
+    {$em = $entityManager = $this->getDoctrine()->getManager();
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $entityManager->persist($category);
-            $entityManager->flush();
-
+            $em->persist($category);
+            $em->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
 
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('category_new');
         }
+        $categories = $em->getRepository(Category::class)->findAll();
 
-        return $this->render('category/new.html.twig', [
-            'category' => $category,
+        return $this->render('category/category.html.twig', [
+            'categories' => $categories,
             'form' => $form->createView(),
         ]);
     }

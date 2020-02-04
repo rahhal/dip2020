@@ -1,5 +1,7 @@
+
+
 <form method="post" action="{{ path('commission_delete', {'id': commission.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commission.id) }}">
-    <button class="btn">Delete</button>
+    <button class="btn btn-danger btn-block"><i class="fa fa-trash " style="margin-left: 1rem"></i>{{  "Delete" | trans }}</button>
 </form>

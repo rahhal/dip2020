@@ -1,0 +1,98 @@
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">{{ "Create new article"|trans }}</h3>
+            </div>
+            <div class="modal-body">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
+                        <span class="required">*</span>
+                    </label>
+                    <div class=" col-md-4 col-sm-4 col-xs-6">
+                        {{ form_widget(form.created_at,{'attr': {'class':'js-datepicker '} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.created_at) }}</div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Name"|trans }}
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.name,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.name) }}</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reference_stock">{{ "Reference stock"|trans }}
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.reference_stock,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                    </div>
+                    <span data-color="red" id="reference_result"></span>
+                    <div class="invalid-feedback text-danger">{{ form_errors(form.reference_stock) }}</div>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Unit"|trans }}
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.unit,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.unit) }}</div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Category"|trans }}
+                        <span  class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.Category,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.Category) }}</div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Initial quantity"|trans }}
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.ini_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.ini_qty) }}</div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Quantity alerte"|trans }}
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        {{ form_widget(form.min_qty,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                        <div class="invalid-feedback text-danger">{{ form_errors(form.min_qty) }}</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                {#<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close" style="margin-left: 2rem"></i>{{ "Close"|trans }}</button>#}
+
+                <button type="submit" class="btn btn-primary" id="register"><i class="fa fa-save" style="margin-left: 2rem"></i>{{ button_label|default('Save')|trans }}</button>
+                <a href="{{ path('article_new') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

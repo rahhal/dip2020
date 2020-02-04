@@ -137,31 +137,22 @@ class LineExittController extends AbstractController
      */
     public function permit($id)
     {
-      //  $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
-       // $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
-        //$findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $lineExitt->getArticle()]);
-        //$lineStock = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
-        //dump($lineStock);die();
-
-
-        /* $repositoryLineExitt = $this->getDoctrine()->getRepository(LineExitt::class);
-        $findLineExittById = $repositoryLineExitt->findOneBy(['id' => $id]);*/
-
-       /* $date= $lineExitt->getExitt()->getDate();
+        /* $date= $lineExitt->getExitt()->getDate();
         $d=date_format($date, 'l');
         //dump($d);die();
         $menu=$this->getDoctrine()
             ->getRepository(Menu::class)
             ->findBy(['day' => $d]);*/
-
         $lineExitt=$this->getDoctrine()
             ->getRepository(LineExitt::class)
             ->findLineExittByExitt($id);
 
-
-        $lineStock=$this->getDoctrine()
-            ->getRepository(LineStock::class)
-            ->findAll();
+     $line_exitt = $this->getDoctrine()
+            ->getRepository(LineExitt::class)
+            ->find(27);
+       $line_stock = $line_exitt->getLineStocks();
+        dump($line_stock);
+        die();
 
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
@@ -169,7 +160,7 @@ class LineExittController extends AbstractController
         $html = $this->renderView('pdf/permit.html.twig', array(
             // 'form' => $form->createView(),
             'line_exitts' => $lineExitt,
-            'line_stocks' => $lineStock,
+            'line_stocks' => $line_stock,
             'title' =>"إذن وقتي ",
             'institution'=> $institution,
             //'menus'=> $menu,

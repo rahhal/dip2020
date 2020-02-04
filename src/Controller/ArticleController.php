@@ -19,29 +19,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     /**
-     * @Route("/", name="article_index", methods={"GET"})
-     */
-    public function index(ArticleRepository $articleRepository): Response
-    {
-        /*-------la direction au page login en cas de non authentification------
-         if (!$this->getUser()) {
-            return $this->redirectToRoute('app_login');
-        }*/
-        return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
-        ]);
-    }
-
-    /**
      * @Route("/new", name="article_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new( Request $request): Response
     {
-        if (!$this->getUser()) {
-        return $this->redirectToRoute('app_login');
-    }
+        $em = $this->getDoctrine()->getManager();
+            $article = new Article();
 
-        $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -52,15 +36,41 @@ class ArticleController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('article_new');
         }
+        $articles = $em->getRepository(Article::class)->findAll();
+        return $this->render('article/article.html.twig', [
+            'articles' => $articles,
+            'form' => $form->createView(),
+        ]);
 
-        return $this->render('article/new.html.twig', [
+    }
+
+    /**
+     * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
+     */
+    public function edit($id= null, Request $request): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+            $article = $em->find(Article::class, $id);
+
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            $this->addFlash('success', "تم التغيير بنجاح");
+            return $this->redirectToRoute('article_new');
+        }
+        return $this->render('article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="article_show", methods={"GET"})
      */
@@ -79,31 +89,6 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Article $article): Response
-    {
-        /*  redirection to login page */
-       /* if (!$this->getUser()) {
-        return $this->redirectToRoute('app_login');
-    }*/
-        $form = $this->createForm(ArticleType::class, $article);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', "تم التغيير بنجاح");
-            return $this->redirectToRoute('article_index');
-        }
-
-        return $this->render('article/edit.html.twig', [
-            'article' => $article,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="article_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Article $article): Response
@@ -114,7 +99,7 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
         $this->addFlash('success', "تم الحذف بنجاح");
-        return $this->redirectToRoute('article_index');
+        return $this->redirectToRoute('article_new');
     }
 
     /**

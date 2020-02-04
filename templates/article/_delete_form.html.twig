@@ -1,9 +1,7 @@
 
 
-    <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-3">
         <form method="post" action="{{ path('article_delete', {'id': article.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
-            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
+            <button class="btn btn-danger btn-block"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
         </form>
-    </div>

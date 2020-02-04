@@ -24,15 +24,6 @@ use Symfony\Component\HttpFoundation\Response;
 class JournalController extends AbstractController
 {
     /**
-     * @Route("/", name="journal_index", methods={"GET"})
-     */
-    public function index(JournalRepository $journalRepository, $id=null)
-    {
-        return $this->render('journal/index.html.twig', [
-            'journals' => $journalRepository->findAll(),
-        ]);
-    }
-    /**
      * @Route("/new", name="journal_new", methods={"GET","POST"})
      */
 
@@ -41,13 +32,14 @@ class JournalController extends AbstractController
         $journal = new Journal();
          $nbMeal = new NbMeal();
         //die();
+        $em =$entityManager = $this->getDoctrine()->getManager();
         $form = $this->createForm(JournalType::class, $journal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // dump($form->getData());
             // die();
-            $entityManager = $this->getDoctrine()->getManager();
+
 
             /* ------- calcul du plat (unitCost)-------  */
             $nbMeal= $journal->getNbMeal();
@@ -61,10 +53,11 @@ class JournalController extends AbstractController
             else
                 throw new NotFoundHttpException("impossible,division par zero");
 
-            $entityManager->persist($journal);
-            $entityManager->flush();
+            $em->persist($journal);
+            $em->flush();
 
-            return $this->redirectToRoute('journal_index');
+            $this->addFlash('success', 'تمت الاضافة بنجاح!');
+            return $this->redirectToRoute('journal_new');
         }
         $nbMeals=$this->getDoctrine()
             ->getRepository(NbMeal::class)
@@ -72,8 +65,9 @@ class JournalController extends AbstractController
         $exitts=$this->getDoctrine()
             ->getRepository(Exitt::class)
             ->myFindByCurrentDate();
-     return $this->render('journal/new.html.twig', [
-            'journal' => $journal,
+        $journals =$em->getRepository(Journal::class)->findAll();
+     return $this->render('journal/journal.html.twig', [
+            'journals' => $journals,
             'form' => $form->createView(),
              'exitt' => $exitts,
              'nbMeal'=> $nbMeals,
@@ -90,10 +84,8 @@ class JournalController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash(
-                'notice',
-                'تمت العملية بنجاح!'
-            );
+
+            $this->addFlash('success', 'تم التغيير بنجاح!');
             return $this->redirectToRoute('journal_index');
         }
 
@@ -120,10 +112,12 @@ class JournalController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$journal->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($journal);
+
+            $this->addFlash('success', 'تم الحذف بنجاح!');
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('journal_index');
+        return $this->redirectToRoute('journal_new');
     }
     /**
      * * @Route("/pdf/journal/{id}", name="journal_pdf")
