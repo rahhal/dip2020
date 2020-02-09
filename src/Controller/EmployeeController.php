@@ -7,13 +7,14 @@ use App\Form\EmployeeType;
 use App\Repository\EmployeeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/employee")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class EmployeeController extends AbstractController
 {
@@ -46,6 +47,7 @@ $employees=$entityManager->getRepository(Employee::class)->findAll();
 
     /**
      * @Route("/{id}", name="employee_show", methods={"GET"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function show(Employee $employee): Response
     {
@@ -56,6 +58,7 @@ $employees=$entityManager->getRepository(Employee::class)->findAll();
 
     /**
      * @Route("/{id}/edit", name="employee_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Employee $employee): Response
     {
@@ -77,6 +80,7 @@ $employees=$entityManager->getRepository(Employee::class)->findAll();
 
     /**
      * @Route("/{id}", name="employee_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Employee $employee): Response
     {

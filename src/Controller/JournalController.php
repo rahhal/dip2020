@@ -13,13 +13,14 @@ use App\Form\JournalType;
 use App\Repository\JournalRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/journal")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class JournalController extends AbstractController
 {
@@ -39,8 +40,6 @@ class JournalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // dump($form->getData());
             // die();
-
-
             /* ------- calcul du plat (unitCost)-------  */
             $nbMeal= $journal->getNbMeal();
             $exitt = $journal ->getExitt();
@@ -76,6 +75,7 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="journal_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Journal $journal): Response
     {
@@ -97,6 +97,7 @@ class JournalController extends AbstractController
 
     /**
      * @Route("/{id}", name="journal_show", methods={"GET"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function show(Journal $journal): Response
     {
@@ -106,6 +107,7 @@ class JournalController extends AbstractController
     }
     /**
      * @Route("/{id}", name="journal_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Journal $journal): Response
     {

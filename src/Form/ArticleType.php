@@ -20,13 +20,8 @@ class ArticleType extends AbstractType
         $builder
 
          ->add('created_at', DateType::class, [
-             'label' => 'Date :',
-            // 'format'=> 'mm/dd/yyyy',
-             'widget' => 'single_text',
-             //'html5' => false,
-             /* 'attr' => ['class' => 'js-datepicker',
-              'autocomplete' => 'off'
-         ],*/
+	         'widget' => 'single_text',
+	         'format' => 'yyyy-MM-dd',
              ])
             ->add('reference_stock', TextType::class, array('label' => 'المرجع بالمخزن :', 'attr' => array('placeholder' => 'المرجع بالمخزن')))
             ->add('name', TextType::class, array('label' => 'اسم المادة :', 'attr' => array('placeholder' => 'اسم المادة')))

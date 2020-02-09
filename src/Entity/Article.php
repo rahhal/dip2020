@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
  * @UniqueEntity(fields={"name"})
- * @UniqueEntity(fields={"reference_stock"})
+ * @UniqueEntity(fields={"reference_stock"}, message= "هذا المرجع لمادة اخرى")
  */
 class Article
 {
@@ -30,7 +30,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * * @Assert\Length(max=10)
+     *
      */
     private $unit;
 
@@ -50,7 +50,7 @@ class Article
     private $lineExitts;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $reference_stock;
 
@@ -113,7 +113,7 @@ class Article
         return $this->unit;
     }
 
-    public function setUnit(string $unit): self
+    public function setUnit(?string $unit): self
     {
         $this->unit = $unit;
 

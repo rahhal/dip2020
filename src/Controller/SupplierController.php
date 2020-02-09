@@ -7,13 +7,14 @@ use App\Form\SupplierType;
 use App\Repository\SupplierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/supplier")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class SupplierController extends AbstractController
 {
@@ -43,6 +44,7 @@ $suppliers=$entityManager->getRepository(Supplier::class)->findAll();
 
     /**
      * @Route("/{id}", name="supplier_show", methods={"GET"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function show(Supplier $supplier): Response
     {
@@ -53,6 +55,7 @@ $suppliers=$entityManager->getRepository(Supplier::class)->findAll();
 
     /**
      * @Route("/{id}/edit", name="supplier_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Supplier $supplier): Response
     {
@@ -65,15 +68,14 @@ $suppliers=$entityManager->getRepository(Supplier::class)->findAll();
             $this->addFlash('success', "تم التعديل بنجاح");
             return $this->redirectToRoute('supplier_new');
         }
-
         return $this->render('supplier/edit.html.twig', [
             'supplier' => $supplier,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="supplier_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Supplier $supplier): Response
     {

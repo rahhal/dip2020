@@ -8,13 +8,14 @@ use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/category")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class CategoryController extends AbstractController
 {
@@ -42,9 +43,9 @@ class CategoryController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="category_show", methods={"GET"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function show(Category $category): Response
     {
@@ -52,9 +53,9 @@ class CategoryController extends AbstractController
             'category' => $category,
         ]);
     }
-
     /**
      * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -65,7 +66,7 @@ class CategoryController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', "تم التعديل بنجاح");
-            return $this->redirectToRoute('category_index');
+            return $this->redirectToRoute('category_new');
         }
 
         return $this->render('category/edit.html.twig', [
@@ -76,6 +77,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Category $category): Response
     {
@@ -83,10 +85,9 @@ class CategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($category);
             $entityManager->flush();
-
         }
         $this->addFlash('success', "تم الحذف بنجاح");
 
-        return $this->redirectToRoute('category_index');
+        return $this->redirectToRoute('category_new');
     }
 }

@@ -6,12 +6,13 @@ use App\Entity\NbMeal;
 use App\Form\NbMealType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/nb/meal")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 
 class NbMealController extends AbstractController
@@ -36,7 +37,6 @@ class NbMealController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
            /* $data=$form->getData();
             $date=$data->getDate();*/
-
               // dump($nbMeal);die();
             $em->persist($nbMeal);
             $em->flush();
@@ -54,6 +54,7 @@ class NbMealController extends AbstractController
     }
     /** edit Nb meal
      * @Route("/edit/{id}", name="nb_meal_edit")
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function editAction(Request $request, $id)
     {
@@ -69,8 +70,6 @@ class NbMealController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $em->flush();
-
-
             $this->addFlash('success', "تم التغيير بنجاح");
             // la redirection vers la page d'acceuil aprés l'ajout
             return $this->redirect($this->generateUrl('nb_meal_new'));
@@ -80,10 +79,10 @@ class NbMealController extends AbstractController
             'form' => $formView,
             'nbMeal' => $nbMeal,
         ]);
-
     }
     /** show nb Meal
      * @Route("/show/{id}", name="nb_meal_show")
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function showAction($id)
     {
@@ -96,10 +95,10 @@ class NbMealController extends AbstractController
 
             'nbMeal' => $nbMeal,
         ]);
-
     }
     /** delete nb meal
      * @Route("/delete/{id}", name="nb_meal_delete")
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function deleteAction(Request $request, $id)
     {

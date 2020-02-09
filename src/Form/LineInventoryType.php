@@ -20,7 +20,7 @@ class LineInventoryType extends AbstractType
             ->add('qty_inv')
             ->add('article')
            // ->add('inventory')
-           ->add('lineStock')
+          ->add('lineStock')
         ;
        /* $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
             $form = $event->getForm();

@@ -25,10 +25,12 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <!-- Large modal -->
+                            {% if is_granted('ROLE_ENTREPRISE') %}
                             <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
                             {{ include('article/modal_new.html.twig') }}
                             <br>
                             <div class="ln_solid"></div>
+                            {% endif %}
                             {#---------------------/modal-------------#}
 
                             {% include('layouts/flash-messages.html.twig') %}
@@ -58,8 +60,10 @@
                                             <td>{{ article.iniQty }}</td>
                                             <td>{{ article.minQty }}</td>
                                             <td>
+                                                {% if is_granted('ROLE_ENTREPRISE') %}
                                                 <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
                                                  {{ include('article/_delete_form.html.twig') }}
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% else %}

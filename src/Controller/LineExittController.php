@@ -137,33 +137,33 @@ class LineExittController extends AbstractController
      */
     public function permit($id)
     {
-        /* $date= $lineExitt->getExitt()->getDate();
-        $d=date_format($date, 'l');
-        //dump($d);die();
-        $menu=$this->getDoctrine()
-            ->getRepository(Menu::class)
-            ->findBy(['day' => $d]);*/
-        $lineExitt=$this->getDoctrine()
-            ->getRepository(LineExitt::class)
-            ->findLineExittByExitt($id);
 
-     $line_exitt = $this->getDoctrine()
-            ->getRepository(LineExitt::class)
-            ->find(27);
-       $line_stock = $line_exitt->getLineStocks();
-        dump($line_stock);
-        die();
+     $exitt = $this->getDoctrine()
+            ->getRepository(Exitt::class)
+            ->find($id);
 
-        $institution=$this->getDoctrine()
+     $line_exitt = $exitt->getLineExitts();
+
+	    $line_stock = null;
+	    $date = null;
+     foreach ($line_exitt as $item) {
+	     $line_stock = $item->getLineStocks();
+     }
+     $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
+	    $date = $exitt->getDate();
+	    $d = date_format($date, 'l');
+	    $menu = $this->getDoctrine()
+				->getRepository(Menu::class)
+				->findBy(['day' => $d]);
 
         $html = $this->renderView('pdf/permit.html.twig', array(
             // 'form' => $form->createView(),
-            'line_exitts' => $lineExitt,
+            'line_exitts' => $line_exitt,
             'line_stocks' => $line_stock,
             'title' =>"إذن وقتي ",
             'institution'=> $institution,
-            //'menus'=> $menu,
+            'menus'=> $menu,
         ));
 
         // Create an instance of the class:

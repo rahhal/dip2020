@@ -1,0 +1,102 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ " Create new admin"|trans }}</h3>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <br/>
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Fullname"|trans }}
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            {{ form_widget(form.fullname,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                            {# Affichage des erreurs pour ce champ précis. #}
+                                            <div class="invalid-feedback text-danger">{{ form_errors(form.fullname) }}</div>
+                                        </div>
+                                    </div>
+
+                                    {#<div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Phone"|trans }}
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            {{ form_widget(form.phone,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                        </div>
+                                    </div>#}
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Email"|trans }}
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            {{ form_widget(form.email,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                            {# Affichage des erreurs pour ce champ précis. #}
+                                            <div class="invalid-feedback text-danger">{{ form_errors(form.email) }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Password"|trans }}
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            {{ form_widget(form.password,{'attr': {'class':'form-control col-md-7 col-xs-12'} }) }}
+                                            {# Affichage des erreurs pour ce champ précis. #}
+                                            <div class="invalid-feedback text-danger">{{ form_errors(form.password) }}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <div class="ln_solid"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                            {{ include('user/_form.html.twig') }}
+
+                                            <a href="{{ path('admin_list') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+
+                            </div>
+                        </div>
+
+                        {# <div class="x_panel"> <br/>
+                             <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                             <div class="col-md-10 col-sm-10 col-xs-12 ">
+
+                                 {{ include('article/_form.html.twig') }}
+
+                                 <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                             </div>
+                         </div>#}
+                    </div>
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
+
+

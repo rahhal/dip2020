@@ -26,10 +26,12 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <!-- Large modal -->
+                            {% if is_granted('ROLE_ENTREPRISE') %}
                             <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
                             {{ include('journal/modal.html.twig') }}
                             <br>
                             <div class="ln_solid"></div>
+                            {% endif %}
                             {#---------------------/modal-------------#}
 
                             {% include('layouts/flash-messages.html.twig') %}
@@ -79,6 +81,7 @@
                                             <td>{{ journal.remarque }}</td>
 
                                             <td>
+                                                {% if is_granted('ROLE_ENTREPRISE') %}
                                                 {#<a href="{{ path('journal_show', {'id': journal.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>#}
                                                 <a href="{{ path('journal_edit', {'id': journal.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
                                                 {{ include('journal/_delete_form.html.twig') }}
@@ -86,6 +89,7 @@
                                                 <a href="{{ path('journal_pdf', {'id': journal.id}) }}" class="btn btn-info btn-block"><i class="fa fa-print" style="margin-left: 2rem"></i>
                                                     {{  "print" | trans }}
                                                 </a>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% else %}

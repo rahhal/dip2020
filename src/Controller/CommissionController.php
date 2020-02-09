@@ -10,13 +10,14 @@ use App\Form\CommissionType;
 use App\Repository\CommissionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/commission")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class CommissionController extends AbstractController
 {
@@ -51,6 +52,7 @@ class CommissionController extends AbstractController
 
     /**
      * @Route("/{id}", name="commission_show", methods={"GET"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function show(Commission $commission): Response
     {
@@ -61,6 +63,7 @@ class CommissionController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="commission_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Commission $commission): Response
     {
@@ -79,9 +82,9 @@ class CommissionController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/{id}", name="commission_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Commission $commission): Response
     {

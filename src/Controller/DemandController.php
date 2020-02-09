@@ -10,6 +10,7 @@ use App\Form\DemandType;
 use App\Repository\DemandRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/demand")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class DemandController extends AbstractController
 {
@@ -62,9 +63,9 @@ class DemandController extends AbstractController
             'demand' => $demand,
         ]);
     }
-
     /**
      * @Route("/{id}/edit", name="demand_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function edit(Request $request, Demand $demand): Response
     {
@@ -83,6 +84,7 @@ class DemandController extends AbstractController
 
     /**
      * @Route("/{id}", name="demand_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ENTREPRISE", message="! ليس لديك الحق في الدخول الى هذه الصفحةّ!")
      */
     public function delete(Request $request, Demand $demand): Response
     {

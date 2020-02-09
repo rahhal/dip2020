@@ -37,6 +37,7 @@ class ExittController extends AbstractController
 
     public function index(ExittRepository $exittRepository)
     {
+
         return $this->render('exitt/index.html.twig',[
             'exitts' =>$exittRepository->findAll()
         ]);

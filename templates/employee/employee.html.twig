@@ -23,12 +23,13 @@
 
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-
                             <!-- Large modal -->
+                            {% if is_granted('ROLE_ENTREPRISE') %}
                             <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
                             {{ include('employee/modal.html.twig') }}
                             <br>
                             <div class="ln_solid"></div>
+                            {% endif %}
                             {#---------------------/modal-------------#}
                             {% include('layouts/flash-messages.html.twig') %}
 
@@ -49,9 +50,11 @@
                                             <td>{{ employee.activity }}</td>
                                             <td>{{ employee.phone }}</td>
                                             <td>
+                                                {% if is_granted('ROLE_ENTREPRISE') %}
                                                 <a href="{{ path('employee_edit', {'id': employee.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-edit" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
                                                     {{ include('employee/_delete_form.html.twig') }}
-                                            </td>
+                                                {% endif %}
+                                                </td>
                                         </tr>
                                     {% else %}
                                         <tr class="text-center">

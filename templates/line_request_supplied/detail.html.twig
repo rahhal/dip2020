@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+
+{% block body %}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col hidden-print">
+                {% include('layouts/sidebar.html.twig') %}
+            </div>
+            {% include('layouts/navbar.html.twig') %}
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>{{ "Details of request supplied"|trans }}</h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <p class="text-muted font-13 m-b-30">
+                                    <a href="{{ path('request_supplied_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{{ "retour"|trans }}</a>
+                                </p>
+                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ "Article"|trans }}</th>
+                                            <th>{{ "Quantity"|trans }}</th>
+                                            <th>{{ "Remarque"|trans }}</th>
+                                            {#<th>actions</th>#}
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for lineRequestSupplied in lineRequestSupplieds %}
+                                        <tr>
+                                            <td>{{ lineRequestSupplied.article }}</td>
+                                            <td>{{ lineRequestSupplied.quantity }}</td>
+                                            <td>{{ lineRequestSupplied.remarque }}</td>
+                                            {#<td>
+                                            <a href="{{ path('line_RequestSupplied_show', {'id': line_RequestSupplied.id}) }}" class="btn btn-success">show</a>
+                                            <a href="{{ path('line_RequestSupplied_edit', {'id': line_RequestSupplied.id}) }}" class="btn btn-warning">edit</a>
+                                        </td>#}
+                                        </tr>
+                                    {% else %}
+                                        <tr class="text-center">
+                                            <td colspan="3">{{ "no records found"|trans }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% include('layouts/footer.html.twig') %}
+        </div>
+    </div>
+    
+{% endblock %}

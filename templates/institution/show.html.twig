@@ -72,6 +72,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            {% if is_granted('ROLE_ENTREPRISE') %}
                                 <div class="col-md-1 col-sm-1 col-xs-1"></div>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -80,6 +81,7 @@
                                                         {{ "Update institution informations"|trans }}</a>
                                     </div>
                                 </div>
+                                 {% endif %}
                         </div>
 
                 </div>
