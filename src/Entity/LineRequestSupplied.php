@@ -30,16 +30,6 @@ class LineRequestSupplied
      */
     private $remarque;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="lineRequestSupplieds", cascade={"persist","remove"})
-     */
-    private $article;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\RequestSupplied", inversedBy="lineRequestSupplieds")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $requestSupplied;
 
     public function getId(): ?int
     {
@@ -66,30 +56,6 @@ class LineRequestSupplied
     public function setRemarque(string $remarque): self
     {
         $this->remarque = $remarque;
-
-        return $this;
-    }
-
-    public function getArticle(): ?Article
-    {
-        return $this->article;
-    }
-
-    public function setArticle(?Article $article): self
-    {
-        $this->article = $article;
-
-        return $this;
-    }
-
-    public function getRequestSupplied(): ?RequestSupplied
-    {
-        return $this->requestSupplied;
-    }
-
-    public function setRequestSupplied(?RequestSupplied $requestSupplied): self
-    {
-        $this->requestSupplied = $requestSupplied;
 
         return $this;
     }

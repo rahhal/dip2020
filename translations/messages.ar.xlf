@@ -891,6 +891,10 @@
                         <source>Close</source>
                         <target> إغلاق </target>
                  </trans-unit>
+                 <trans-unit id="Quantity exitt" resname="Quantity exitt">
+                         <source>Quantity exitt</source>
+                          <target> كمية الخروج </target>
+                 </trans-unit>
     </body>
   </file>
 </xliff>

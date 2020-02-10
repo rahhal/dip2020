@@ -106,10 +106,9 @@
     </tr>
     </thead>
     <tbody>
-
+    {% for lineExitt in line_exitts %}
 
         {% for lineStock in line_stocks %}
-            {% for lineExitt in line_exitts %}
             {#{% if loop.first %}#}
         <tr>
             <td style="text-align: center">{{ lineStock.linePurchase.article }}</td>

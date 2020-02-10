@@ -30,24 +30,6 @@ class RequestSupplied
      */
     private $tranche;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Supplier", inversedBy="requestSupplieds")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $supplier;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\LineRequestSupplied", mappedBy="requestSupplied", cascade={"persist"}, orphanRemoval=true)
-     */
-    private $lineRequestSupplieds;
-
-    public function __construct()
-    {
-        $this->lineRequestSupplieds = new ArrayCollection();
-    }
-
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -77,48 +59,6 @@ class RequestSupplied
         return $this;
     }
 
-    public function getSupplier(): ?Supplier
-    {
-        return $this->supplier;
-    }
-
-    public function setSupplier(?Supplier $supplier): self
-    {
-        $this->supplier = $supplier;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|LineRequestSupplied[]
-     */
-    public function getLineRequestSupplieds(): Collection
-    {
-        return $this->lineRequestSupplieds;
-    }
-
-    public function addLineRequestSupplied(LineRequestSupplied $lineRequestSupplied): self
-    {
-        if (!$this->lineRequestSupplieds->contains($lineRequestSupplied)) {
-            $this->lineRequestSupplieds[] = $lineRequestSupplied;
-            $lineRequestSupplied->setRequestSupplied($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLineRequestSupplied(LineRequestSupplied $lineRequestSupplied): self
-    {
-        if ($this->lineRequestSupplieds->contains($lineRequestSupplied)) {
-            $this->lineRequestSupplieds->removeElement($lineRequestSupplied);
-            // set the owning side to null (unless already changed)
-            if ($lineRequestSupplied->getRequestSupplied() === $this) {
-                $lineRequestSupplied->setRequestSupplied(null);
-            }
-        }
-
-        return $this;
-    }
 public function __toString()
 {
     // TODO: Implement __toString() method.
