@@ -45,8 +45,13 @@ class ContactController extends AbstractController
             $subject= $contact->getObject();
             /*$sender='test.dipsociete@gmail.com';
             $receiver=$contact->getEmail();*/
-            $receiver ='test.dipsociete@gmail.com';
-            $sender=$contact->getEmail();
+            // $receiver ='test.dipsociete@gmail.com';
+            // $receiver ='rajahrahel@gmail.com';
+            // $sender=$contact->getEmail();
+
+            $receiver='test.dipsociete@gmail.com';
+            $sender =$contact->getEmail();
+
             $body=$contact->getMessage();
 
             $notificationMail->notifieParEmail( $contact,$subject,$sender, $receiver, $body);

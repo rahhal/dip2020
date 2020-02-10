@@ -33,7 +33,8 @@ class MailNotification
             ->setSubject($subject)
             ->setFrom($sender)
             ->setTo($receiver)
-            ->setBody($body, 'text/html','UTF-8');
+           ->setBody($body, 'text/html','UTF-8');
+          
         //dump($message);
         $this->mailer->send($message);
     }

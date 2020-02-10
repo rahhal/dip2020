@@ -20,7 +20,7 @@ class ContactType extends AbstractType
             ->add('object',TextType::class)
             ->add('phone',TelType::class)
             ->add('email',EmailType::class)
-            ->add('message',TextareaType::class)
+            ->add('message',TextareaType::class,[ 'attr'=>['placeholder'=>'اعد كتابة بريدك الالكتروني ثم اكتب الرسالة']])
         ;
     }
 

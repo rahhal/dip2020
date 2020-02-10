@@ -47,30 +47,9 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
-   /* public function stockIni()
-    {
-        $query = $this
-            ->createQueryBuilder('a')
-            ->select( a.{id})
-            ->getQuery();
-
-       var_dump($query->getSQL());
-        die();
-
-        return $query->getResult();
-    }*/
+  
     public function findArticleByCategory($id)
     {
-        /*$entityManager = $this->getEntityManager();
-
-        $query = $entityManager->createQuery(
-            'SELECT p, c
-        FROM App\Entity\Article a
-        INNER JOIN a.category c
-        WHERE a.id = :id')
-            ->setParameter('id', $articleId);
-
-        return $query->getOneOrNullResult();*/
 
         return $this->createQueryBuilder('a')
             ->innerJoin('a.Category', 'c')
