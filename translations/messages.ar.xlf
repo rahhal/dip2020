@@ -34,10 +34,10 @@
         <target>حذف</target>
       </trans-unit>
 
-            <trans-unit id="Actions" resname="Actions">
-              <source>Actions</source>
-              <target>اجراءات</target>
-            </trans-unit>
+      <trans-unit id="Actions" resname="Actions">
+         <source>Actions</source>
+         <target>اجراءات</target>
+      </trans-unit>
        <trans-unit id="Edit Institution" resname="Edit Institution">
        <source>Edit Institution</source>
        <target>تعديل بيانات المؤسسة</target>

@@ -100,8 +100,8 @@
     <thead>
     <tr>
         <th style="text-align: center" >{{ "Name of article"|trans }}</th>
-        <th align="center">{{ "Quantity in stock"|trans }}</th>
-        <th>{{ "Quantity"|trans }}</th>
+        <th align="center">{{ "Quantity"|trans }}</th>
+        <th>{{ "Quantity exitt"|trans }}</th>
         <th style="text-align: center">{{ "Quantity remaining"|trans }}</th>
     </tr>
     </thead>
@@ -111,8 +111,7 @@
         {% for lineStock in line_stocks %}
             {#{% if loop.first %}#}
         <tr>
-            <td style="text-align: center">{{ lineStock.linePurchase.article }}</td>
-
+            <td style="text-align: center">{{ lineExitt.article }}</td>
             <td style="text-align: center">{{ lineStock.qtyUpdate}}</td>
             <td style="text-align: center">{{ lineExitt.quantity }}</td>
             <td style="text-align: center">{{ lineStock.qtyUpdate - lineExitt.quantity  }}</td>

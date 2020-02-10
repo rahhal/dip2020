@@ -149,6 +149,7 @@ class LineExittController extends AbstractController
      foreach ($line_exitt as $item) {
 	     $line_stock = $item->getLineStocks();
      }
+     //dump($line_stock);die();
      $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
 	    $date = $exitt->getDate();

@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
@@ -47,7 +48,7 @@ class ProfileController extends AbstractController
     /** modifier profile
      * @Route("/edit/{id}", name="profile_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, $id, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em= $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
@@ -57,6 +58,8 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
         //dump($user);die;
         if($form->isSubmitted() && $form->isValid()){
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($password);
             $em->flush();
             $this->addFlash('success', "تم تغيير معطيات المستخدم بنجاح");
             return $this->redirect($this->generateUrl('profile'));
