@@ -102,7 +102,6 @@ class LineExittController extends AbstractController
         return $this->redirectToRoute('line_exitt_index');
     }
 
-
     /**
      * @Route("/pdf/{id}", name="exitt_pdf")
      *

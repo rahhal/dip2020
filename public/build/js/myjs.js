@@ -40,7 +40,7 @@ $(document).ready(function () {
         // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
         index++;
     }
-    /*===============*/
+    /*=======pour line exitt========*/
     var $container1 = $('div#exitt_lineExitt');
     var index1 = $container1.find(':input').length;
 

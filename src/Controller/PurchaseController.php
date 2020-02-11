@@ -8,6 +8,9 @@ use App\Entity\LineStock;
 use App\Entity\Stock;
 use App\Entity\Purchase;
 use App\Entity\Article;
+use App\Service\PurchaseService;
+use App\Service\LinePurchaseService;
+use App\Service\LineStockService;
 use App\Form\PurchaseType;
 use App\Repository\PurchaseRepository;
 use App\Repository\LinePurchaseRepository;
@@ -35,11 +38,10 @@ class PurchaseController extends AbstractController
     }
     /**
      * @Route("/ajout/purchase", name="ajout-purchase")
-     * @Route("/edit/purchase/{id}", name="purchase_edit")
      * @Route("/new", name="purchase_new")
      *
      */
-    public function purchase($id = null, Request $request)
+    public function purchase($id = null, Request $request, PurchaseService $purchaseService, LinePurchaseService $linePurchaseService, LineStockService $lineStockService)
     {
         $em = $this->getDoctrine()->getManager();
         if (is_null($id))
@@ -62,56 +64,51 @@ class PurchaseController extends AbstractController
 	            foreach ($oldLinePurchase as $linePurchase) {
 		            if (false === $purchase->getLinePurchases()->contains($linePurchase))
 			            $em->remove($linePurchase);
-	            }
-	           $stock->setName('stoki');
-	            $em->persist($stock);
+                }
+                  /* ------ calcul du prix total de chaque line_purchase -------*/
+
+            foreach ($purchase->getLinePurchases() as $linePurchase) {
+                $linePurchase->setTotalPrice($linePurchaseService->calculPrice($linePurchase));        
+                $linePurchase->setPurchase($purchase);
+            }
+               /* ------ calcul du prix total de chaque purchase -------*/
+            $purchase->setTotalPrice($purchaseService->calculTotalPrice($purchase));
+
+
+            /**** renvoi des données du lineStock */
+	            $stock->setName('stoki');
+	             $em->persist($stock);
 
 	            foreach ($purchase->getLinePurchases() as $linePurchase) {
-                    // calcul du prix total de chaque line_purchase
-		            $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred()*$linePurchase->getUnitPrice()*(1+($linePurchase->getTax()/ 100)));
-		            $linePurchase->setPurchase($purchase);
 		            //  faire mise à jour du stock: find Line Purchase By Article
-		            $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
-		            $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
-		            $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $linePurchase->getArticle()]);
-		            $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
-
-		            if ($findLineStockByLinePurchase) {
+                   $myStock= $lineStockService->newStock($linePurchase);
+                    if ($myStock) {
 		                /* unit price */
-                        $findLineStockByLinePurchase->setUnitPrice($linePurchase->getUnitPrice());
-                        $findLineStockByLinePurchase->setProdDate(new \DateTime($linePurchase->getProduction()));
-                        $findLineStockByLinePurchase->setValidDate(new \DateTime($linePurchase->getValidation()));
+                        $myStock->setUnitPrice($linePurchase->getUnitPrice());
+                        $myStock->setProdDate(new \DateTime($linePurchase->getProduction()));
+                        $myStock->setValidDate(new \DateTime($linePurchase->getValidation()));
 
-                        $old_quantity = $findLineStockByLinePurchase->getQtyUpdate();
-			            //$new_quantity = $linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty();
+                        $old_quantity = $myStock->getQtyUpdate();
                         $new_quantity = $linePurchase->getQuantityDelivred();
-                        $findLineStockByLinePurchase->setQtyUpdate($old_quantity + $new_quantity);
-                        $findLineStockByLinePurchase->setOldQty($old_quantity);
+                        $myStock->setQtyUpdate($old_quantity + $new_quantity);
+                        $myStock->setOldQty($old_quantity);
 			            $em->flush();
 		            } else {
 		            	$lineStock = new LineStock();
 		            	$lineStock->setLinePurchase($linePurchase);
 		            	$lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
-		            	$lineStock->setDate(new \DateTime('now'));
+		            	// $lineStock->setDate(new \DateTime('now'));
 		            	$lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
 		            	$lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
-                       $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
+                        $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
                         $lineStock->setValidDate(new \DateTime($linePurchase->getValidation()));
 		            	$lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
                         $lineStock->setUnitPrice($linePurchase->getUnitPrice());
 
-		            	$lineStock->setStock($stock);
-		            	$em->persist($lineStock);
+		            	 $lineStock->setStock($stock);
+		            	 $em->persist($lineStock);
 		            }
-	            }
-
-	            /* ------ calcul du prix total de chaque purchase -------*/
-	            $totalPrice=0;
-	            foreach ($purchase->getLinePurchases() as $linePurchase) {
-		            $totalPrice += $linePurchase->getTotalPrice();
-	            }
-	            $purchase->setTotalPrice($totalPrice);
-
+	             }
 	            $em->persist($purchase);
                 $em->flush();
                 
@@ -144,79 +141,50 @@ class PurchaseController extends AbstractController
     /**
      * @Route("/{id}/edit", name="purchase_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Purchase $purchase): Response
+    public function edit(Request $request, Purchase $purchase, PurchaseService $purchaseService, LinePurchaseService $linePurchaseService, LineStockService $lineStockService): Response
     {
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(PurchaseType::class, $purchase);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-
-            /*foreach ($purchase->getLinePurchases() as $linePurchase) {
-                // calcul du prix total de chaque line_purchase
-                $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred() * $linePurchase->getUnitPrice() * (1 + ($linePurchase->getTax() / 100)));
-                $linePurchase->setPurchase($purchase);
-            }*/
-
-
-
-
-
+             /* ------ calcul du prix total de chaque line_purchase -------*/
 
             foreach ($purchase->getLinePurchases() as $linePurchase) {
-                // calcul du prix total de chaque line_purchase
-                $linePurchase->setTotalPrice($linePurchase->getQuantityDelivred()*$linePurchase->getUnitPrice()*(1+($linePurchase->getTax()/ 100)));
+                $linePurchase->setTotalPrice($linePurchaseService->calculPrice($linePurchase));        
                 $linePurchase->setPurchase($purchase);
-                //  faire mise à jour du stock: find Line Purchase By Article
-                $repositoryLinePurchase = $this->getDoctrine()->getRepository(LinePurchase::class);
-                $repositoryLineStock = $this->getDoctrine()->getRepository(LineStock::class);
-                $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $linePurchase->getArticle()]);
-                $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
-
-                if ($findLineStockByLinePurchase) {
+            }
+               /* ------ calcul du prix total de chaque purchase -------*/
+            $purchase->setTotalPrice($purchaseService->calculTotalPrice($purchase));
+  
+            //  faire mise à jour du stock:
+            foreach ($purchase->getLinePurchases() as $linePurchase) {
+                $myStock= $lineStockService->newStock($linePurchase);
+                // if ($myStock) {
                     /* unit price */
-                    $findLineStockByLinePurchase->setUnitPrice($linePurchase->getUnitPrice());
-                    $findLineStockByLinePurchase->setProdDate(new \DateTime($linePurchase->getProduction()));
-                    $findLineStockByLinePurchase->setValidDate(new \DateTime($linePurchase->getValidation()));
+                    $myStock->setUnitPrice($linePurchase->getUnitPrice());
+                    $myStock->setProdDate(new \DateTime($linePurchase->getProduction()));
+                    $myStock->setValidDate(new \DateTime($linePurchase->getValidation()));
 
-                    $old_quantity = $findLineStockByLinePurchase->getOldQty();
-                    //$new_quantity = $linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty();
+                    $old_quantity = $myStock->getOldQty();
                     $quantity = $linePurchase->getQuantityDelivred();
-                    $findLineStockByLinePurchase->setQtyUpdate($old_quantity + $quantity);
-                   // $findLineStockByLinePurchase->setOldQty($old_quantity);
+                    $myStock->setQtyUpdate($old_quantity + $quantity);
                     $em->flush();
-                } else {
-                    $lineStock = new LineStock();
-                    $lineStock->setLinePurchase($linePurchase);
-                    $lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
-                    $lineStock->setDate(new \DateTime('now'));
-                    $lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
-                    $lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
-                    $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
-                    $lineStock->setValidDate(new \DateTime($linePurchase->getValidation()));
-                    $lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
-                    $lineStock->setUnitPrice($linePurchase->getUnitPrice());
+                // } else {
+                //     $lineStock = new LineStock();
+                //     $lineStock->setLinePurchase($linePurchase);
+                //     $lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
+                //     $lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
+                //     $lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
+                //     $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
+                //     $lineStock->setValidDate(new \DateTime($linePurchase->getValidation()));
+                //     $lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
+                //     $lineStock->setUnitPrice($linePurchase->getUnitPrice());
 
-                    $lineStock->setStock($stock);
-                    $em->persist($lineStock);
-                }
+                //     $lineStock->setStock($stock);
+                //     $em->persist($lineStock);
+                // }
             }
-
-
-
-
-
-
-            /* ------ calcul du prix total de chaque purchase -------*/
-            $totalPrice=0;
-            foreach ($purchase->getLinePurchases() as $linePurchase) {
-                $totalPrice += $linePurchase->getTotalPrice();
-            }
-            $purchase->setTotalPrice($totalPrice);
-
-
-
             $em->persist($purchase);
             $this->getDoctrine()->getManager()->flush();
 
@@ -229,8 +197,6 @@ class PurchaseController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
 
     /**
      * @Route("/delete/purchase/{id}", name="purchase_delete")
@@ -248,7 +214,7 @@ class PurchaseController extends AbstractController
     }
 
     /**
-     * @Route("/pdf/purchase/{id}", name="purchase_pdf")
+     * @Route("/pdf/{id}", name="purchase_pdf")
      *
      */
 
@@ -280,11 +246,11 @@ class PurchaseController extends AbstractController
         $mpdf->Output();
     }
     /**
-     * * @Route("/receive/purchase/{id}", name="receive_pdf")
+     * * @Route("/receive/{id}", name="receive_pdf")
      *
      */
 
-    public function receive($id = null)
+    public function receive($id)
     { $purchases =$this->getDoctrine()
         ->getRepository(Purchase::class)->findAll();
 

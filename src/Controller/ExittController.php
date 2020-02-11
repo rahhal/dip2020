@@ -99,9 +99,6 @@ class ExittController extends AbstractController
                        }
                 // le prix unitaire de line exitt
                         $lineExitt->setUnitPrice($findLineStockByLinePurchase->getUnitPrice());
-
-
-
                         $lineExitt->addLineStock($findLineStockByLinePurchase);
                         $em->flush();
 	                }

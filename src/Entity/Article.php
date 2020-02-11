@@ -195,8 +195,6 @@ class Article
         return $this;
     }
 
-
-
     public function getReferenceStock(): ?string
     {
         return $this->reference_stock;
