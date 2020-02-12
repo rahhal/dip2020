@@ -83,7 +83,7 @@ class Article
 
 
     public function __construct()
-    {
+    {   
         $this->linePurchases = new ArrayCollection();
         $this->lineExitts = new ArrayCollection();
         $this->lineInventories = new ArrayCollection();

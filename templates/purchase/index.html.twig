@@ -25,12 +25,15 @@
                           {% include('layouts/flash-messages.html.twig') %}
 
                             <div class="x_content">
+                             {% if is_granted('ROLE_ENTREPRISE') %}
+
                                 <p class="text-muted font-13 m-b-30">
                                     <a href="{{ path('ajout-purchase') }}" class="btn btn-success left">
                                         <i class="fa fa-plus" style="margin-left: 2rem"></i>{{ "Create new"|trans }}</a>
                                 </p>
                                 <br>
                                 <div class="ln_solid"></div>
+                             {% endif %}
                                     <table  id="datatable" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>

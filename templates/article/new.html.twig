@@ -27,7 +27,7 @@
                                 <br/>
                                 {{ form_start(form, {'attr': {'class': 'form-horizontal form-label-left'}}) }}
 
-                                <div class="form-group">
+                                {# <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{ "Date"|trans }}
                                         <span class="required">*</span>
                                     </label>
@@ -99,7 +99,7 @@
                                         <div class="invalid-feedback text-danger">{{ form_errors(form.min_qty) }}</div>
 
                                     </div>
-                                </div>
+                                </div>#}
 
                                 <div class="form-group col-lg-12">
                                     <div class="ln_solid"></div>
@@ -108,7 +108,7 @@
                                         <a href="{{ path('article_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                     </div>
                                 </div>
-                                {{ form_end(form) }}
+                                {{ form_end(form) }} 
 
                             </div>
                         </div>

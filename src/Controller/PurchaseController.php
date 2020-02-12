@@ -16,6 +16,7 @@ use App\Repository\PurchaseRepository;
 use App\Repository\LinePurchaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +25,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 /**
  * @Route("/purchase")
- * @IsGranted("ROLE_ENTREPRISE", message="No access! Get out!")
+ * @Security("is_granted('ROLE_ENTREPRISE') or is_granted('ROLE_USER')", message="ليس لديك الحق في الدخول الى هذه الصفحةّ")
  */
 class PurchaseController extends AbstractController
 {  /**
@@ -95,7 +96,7 @@ class PurchaseController extends AbstractController
 		            	$lineStock = new LineStock();
 		            	$lineStock->setLinePurchase($linePurchase);
 		            	$lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
-		            	// $lineStock->setDate(new \DateTime('now'));
+		            	 $lineStock->setDate(new \DateTime('now'));
 		            	$lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
 		            	$lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
                         $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));

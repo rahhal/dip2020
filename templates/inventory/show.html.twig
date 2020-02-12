@@ -41,12 +41,15 @@
                                 </fieldset>
                                 <hr>
                                 <div class="form-group">
-                                     <a href="{{ path('inventory_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-forward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                       {% if is_granted('ROLE_ENTREPRISE') %}
 
                                     <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-3">
                                         {{ include('inventory/_delete_form.html.twig') }}
                                     </div>
                                     <a href="{{ path('inventory_edit', {'id': inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                       {% endif %}
+                                 <a href="{{ path('inventory_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-forward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+
                                 </div>
 
 
@@ -60,9 +63,11 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
+                             {% if is_granted('ROLE_ENTREPRISE') %}
                                 <a href="{{ path('line_inventory_new',{'id': inventory.id}) }}" class="btn btn-success left">
                                     <i class="fa fa-plus-square" style=" margin-left: 2rem "></i>{{ "Create new line inventory"|trans }}</a>
-
+                             {% endif %}
+                             
                                 <table id="datatable-buttons" class="table table-striped table-bordered">
 
                                     <thead>
@@ -86,9 +91,10 @@
                                                  <td> {{line_inventory.qtyInv - line_inventory.lineStock.qtyUpdate }}
                                                  </td>
                                                  <td>
+                                                  {% if is_granted('ROLE_ENTREPRISE') %}
                                                     {# <a href="{{ path('line_inventory_show', {'id': line_inventory.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a> #}
                                                      <a href="{{ path('line_inventory_edit', {'id': line_inventory.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i></a>
-
+                                                  {% endif %}
                                                  </td>
                                              </tr>
 
