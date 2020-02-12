@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200209185000 extends AbstractMigration
+final class Version20200212090455 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -23,8 +23,7 @@ final class Version20200209185000 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE article (id INT AUTO_INCREMENT NOT NULL, category_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, unit VARCHAR(255) DEFAULT NULL, reference_stock VARCHAR(255) NOT NULL, ini_qty INT NOT NULL, min_qty INT NOT NULL, created_at DATE NOT NULL, UNIQUE INDEX UNIQ_23A0E669D973670 (reference_stock), INDEX IDX_23A0E6612469DE2 (category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE budget (id INT AUTO_INCREMENT NOT NULL, year DATE NOT NULL, amount NUMERIC(10, 3) NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, amount_allocated NUMERIC(15, 3) DEFAULT NULL, UNIQUE INDEX UNIQ_64C19C15E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_64C19C15E237E06 (name), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE city (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE commission (id INT AUTO_INCREMENT NOT NULL, employee_id INT NOT NULL, date DATE NOT NULL, INDEX IDX_1C6501588C03F15C (employee_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE contact (id INT AUTO_INCREMENT NOT NULL, fullname VARCHAR(255) NOT NULL, object VARCHAR(255) NOT NULL, phone INT DEFAULT NULL, email VARCHAR(255) NOT NULL, message LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
@@ -39,12 +38,10 @@ final class Version20200209185000 extends AbstractMigration
         $this->addSql('CREATE TABLE line_exitt_line_stock (line_exitt_id INT NOT NULL, line_stock_id INT NOT NULL, INDEX IDX_FBF2FDFAAF398CF4 (line_exitt_id), INDEX IDX_FBF2FDFADEAE316A (line_stock_id), PRIMARY KEY(line_exitt_id, line_stock_id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE line_inventory (id INT AUTO_INCREMENT NOT NULL, article_id INT NOT NULL, inventory_id INT NOT NULL, line_stock_id INT NOT NULL, qty_inv INT NOT NULL, INDEX IDX_12EB1447294869C (article_id), INDEX IDX_12EB1449EEA759 (inventory_id), INDEX IDX_12EB144DEAE316A (line_stock_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE line_purchase (id INT AUTO_INCREMENT NOT NULL, article_id INT DEFAULT NULL, purchase_id INT NOT NULL, quantity_delivred INT NOT NULL, unit_price NUMERIC(15, 3) NOT NULL, tax INT NOT NULL, quantity_required INT DEFAULT NULL, technical_confirmity TINYINT(1) DEFAULT NULL, remarque VARCHAR(255) DEFAULT NULL, total_price NUMERIC(15, 3) NOT NULL, production VARCHAR(255) DEFAULT NULL, validation VARCHAR(255) DEFAULT NULL, INDEX IDX_B27481417294869C (article_id), INDEX IDX_B2748141558FBEB9 (purchase_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE line_request_supplied (id INT AUTO_INCREMENT NOT NULL, article_id INT DEFAULT NULL, request_supplied_id INT NOT NULL, quantity INT NOT NULL, remarque VARCHAR(255) NOT NULL, INDEX IDX_C4AB25987294869C (article_id), INDEX IDX_C4AB25987453C69A (request_supplied_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE line_stock (id INT AUTO_INCREMENT NOT NULL, line_purchase_id INT NOT NULL, stock_id INT NOT NULL, qty_update INT NOT NULL, old_qty INT NOT NULL, quantity_alerte INT NOT NULL, valid_date DATE DEFAULT NULL, prod_date DATE DEFAULT NULL, reference VARCHAR(255) NOT NULL, date DATE NOT NULL, unit_price NUMERIC(15, 3) NOT NULL, INDEX IDX_B4B271E362E93E5A (line_purchase_id), INDEX IDX_B4B271E3DCD6110 (stock_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE menu (id INT AUTO_INCREMENT NOT NULL, day VARCHAR(255) NOT NULL, breakfast VARCHAR(255) NOT NULL, lunch VARCHAR(255) NOT NULL, dinner VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_7D053A93E5A02990 (day), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE nb_meal (id INT AUTO_INCREMENT NOT NULL, date DATE NOT NULL, std_resident INT DEFAULT NULL, std_semi_resident INT DEFAULT NULL, std_granted INT DEFAULT NULL, professor INT DEFAULT NULL, employee INT DEFAULT NULL, curators INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE purchase (id INT AUTO_INCREMENT NOT NULL, employee_id INT NOT NULL, supplier_id INT NOT NULL, number VARCHAR(255) NOT NULL, date DATE NOT NULL, total_price NUMERIC(15, 3) NOT NULL, INDEX IDX_6117D13B8C03F15C (employee_id), INDEX IDX_6117D13B2ADD6D8C (supplier_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE request_supplied (id INT AUTO_INCREMENT NOT NULL, supplier_id INT NOT NULL, date DATE DEFAULT NULL, tranche VARCHAR(255) DEFAULT NULL, INDEX IDX_9ADB390A2ADD6D8C (supplier_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE stock (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE supplier (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, activity VARCHAR(255) NOT NULL, tax_number VARCHAR(255) DEFAULT NULL, phone INT DEFAULT NULL, address VARCHAR(255) DEFAULT NULL, email VARCHAR(180) DEFAULT NULL, UNIQUE INDEX UNIQ_9B2A6C7EE7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE unit (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
@@ -66,13 +63,10 @@ final class Version20200209185000 extends AbstractMigration
         $this->addSql('ALTER TABLE line_inventory ADD CONSTRAINT FK_12EB144DEAE316A FOREIGN KEY (line_stock_id) REFERENCES line_stock (id)');
         $this->addSql('ALTER TABLE line_purchase ADD CONSTRAINT FK_B27481417294869C FOREIGN KEY (article_id) REFERENCES article (id)');
         $this->addSql('ALTER TABLE line_purchase ADD CONSTRAINT FK_B2748141558FBEB9 FOREIGN KEY (purchase_id) REFERENCES purchase (id)');
-        $this->addSql('ALTER TABLE line_request_supplied ADD CONSTRAINT FK_C4AB25987294869C FOREIGN KEY (article_id) REFERENCES article (id)');
-        $this->addSql('ALTER TABLE line_request_supplied ADD CONSTRAINT FK_C4AB25987453C69A FOREIGN KEY (request_supplied_id) REFERENCES request_supplied (id)');
         $this->addSql('ALTER TABLE line_stock ADD CONSTRAINT FK_B4B271E362E93E5A FOREIGN KEY (line_purchase_id) REFERENCES line_purchase (id)');
         $this->addSql('ALTER TABLE line_stock ADD CONSTRAINT FK_B4B271E3DCD6110 FOREIGN KEY (stock_id) REFERENCES stock (id)');
         $this->addSql('ALTER TABLE purchase ADD CONSTRAINT FK_6117D13B8C03F15C FOREIGN KEY (employee_id) REFERENCES employee (id)');
         $this->addSql('ALTER TABLE purchase ADD CONSTRAINT FK_6117D13B2ADD6D8C FOREIGN KEY (supplier_id) REFERENCES supplier (id)');
-        $this->addSql('ALTER TABLE request_supplied ADD CONSTRAINT FK_9ADB390A2ADD6D8C FOREIGN KEY (supplier_id) REFERENCES supplier (id)');
     }
 
     public function down(Schema $schema) : void
@@ -84,7 +78,6 @@ final class Version20200209185000 extends AbstractMigration
         $this->addSql('ALTER TABLE line_exitt DROP FOREIGN KEY FK_9DC259A87294869C');
         $this->addSql('ALTER TABLE line_inventory DROP FOREIGN KEY FK_12EB1447294869C');
         $this->addSql('ALTER TABLE line_purchase DROP FOREIGN KEY FK_B27481417294869C');
-        $this->addSql('ALTER TABLE line_request_supplied DROP FOREIGN KEY FK_C4AB25987294869C');
         $this->addSql('ALTER TABLE article DROP FOREIGN KEY FK_23A0E6612469DE2');
         $this->addSql('ALTER TABLE line_demand DROP FOREIGN KEY FK_36C32FCE5D022E59');
         $this->addSql('ALTER TABLE commission DROP FOREIGN KEY FK_1C6501588C03F15C');
@@ -99,13 +92,10 @@ final class Version20200209185000 extends AbstractMigration
         $this->addSql('ALTER TABLE line_inventory DROP FOREIGN KEY FK_12EB144DEAE316A');
         $this->addSql('ALTER TABLE journal DROP FOREIGN KEY FK_C1A7E74D2CCDAD55');
         $this->addSql('ALTER TABLE line_purchase DROP FOREIGN KEY FK_B2748141558FBEB9');
-        $this->addSql('ALTER TABLE line_request_supplied DROP FOREIGN KEY FK_C4AB25987453C69A');
         $this->addSql('ALTER TABLE line_stock DROP FOREIGN KEY FK_B4B271E3DCD6110');
         $this->addSql('ALTER TABLE demand DROP FOREIGN KEY FK_428D79732ADD6D8C');
         $this->addSql('ALTER TABLE purchase DROP FOREIGN KEY FK_6117D13B2ADD6D8C');
-        $this->addSql('ALTER TABLE request_supplied DROP FOREIGN KEY FK_9ADB390A2ADD6D8C');
         $this->addSql('DROP TABLE article');
-        $this->addSql('DROP TABLE budget');
         $this->addSql('DROP TABLE category');
         $this->addSql('DROP TABLE city');
         $this->addSql('DROP TABLE commission');
@@ -121,12 +111,10 @@ final class Version20200209185000 extends AbstractMigration
         $this->addSql('DROP TABLE line_exitt_line_stock');
         $this->addSql('DROP TABLE line_inventory');
         $this->addSql('DROP TABLE line_purchase');
-        $this->addSql('DROP TABLE line_request_supplied');
         $this->addSql('DROP TABLE line_stock');
         $this->addSql('DROP TABLE menu');
         $this->addSql('DROP TABLE nb_meal');
         $this->addSql('DROP TABLE purchase');
-        $this->addSql('DROP TABLE request_supplied');
         $this->addSql('DROP TABLE stock');
         $this->addSql('DROP TABLE supplier');
         $this->addSql('DROP TABLE unit');

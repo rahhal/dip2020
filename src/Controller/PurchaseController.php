@@ -73,9 +73,7 @@ class PurchaseController extends AbstractController
             }
                /* ------ calcul du prix total de chaque purchase -------*/
             $purchase->setTotalPrice($purchaseService->calculTotalPrice($purchase));
-
-
-            /**** renvoi des données du lineStock */
+            /**** renvoi des données au lineStock */
 	            $stock->setName('stoki');
 	             $em->persist($stock);
 
@@ -212,12 +210,10 @@ class PurchaseController extends AbstractController
 
         return $this->redirectToRoute('purchase_index');
     }
-
     /**
      * @Route("/pdf/{id}", name="purchase_pdf")
      *
      */
-
     public function pdf($id = null)
     {
         $purchases = $this->getDoctrine()
@@ -227,10 +223,8 @@ class PurchaseController extends AbstractController
      $linePurchase=$this->getDoctrine()
             ->getRepository(LinePurchase::class)
             ->findLinePurchaseByPurchase($id);
-
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();
-
         $html = $this->renderView('pdf/purchase.html.twig', array(
             'purchases' => $purchases,
             'line_purchases' => $linePurchase,

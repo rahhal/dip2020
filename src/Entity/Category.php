@@ -31,19 +31,10 @@ class Category
      */
     private $articles;
 
-    /**
-     * @ORM\Column(type="decimal", precision=15, scale=3, nullable=true)
-     */
-    private $amount_allocated;
-
-
-
     public function __construct()
     {
         $this->articles = new ArrayCollection();
     }
-
-
 
     public function getId(): ?int
     {
@@ -95,18 +86,6 @@ class Category
                 $article->setCategory(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getAmountAllocated(): ?string
-    {
-        return $this->amount_allocated;
-    }
-
-    public function setAmountAllocated(string $amount_allocated): self
-    {
-        $this->amount_allocated = $amount_allocated;
 
         return $this;
     }

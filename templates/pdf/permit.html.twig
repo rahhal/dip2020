@@ -30,37 +30,12 @@
 
     {% endif %}
 {% endfor %}
-{#   {% for line_purchase in line_purchases %}
-
-<h3 style="text-align: right">وصل دخول عدد:{{ line_purchase.purchase }}</h3>
-
-<h3 style="text-align: right"> المزود: {{ line_purchase.purchase.supplier }}</h3>
-<h3 style="text-align: right">المعرف الجبائي:....... </h3>
-<h3 style="text-align: right">القسط:.........................................</h3>
-<h3 style="text-align: right"> .................المؤسسة التربوية:</h3>
-
-<br>
-<br>
-{% endfor  %}#}
-
-{#{% for exitt in exitts %}
-<h3 style="text-align: right"> التاريخ: {{ exitt.date ? exitt.date|date('Y-m-d') : '' }}</h3>
-{% endfor  %}#}
-
-{#{% for line_exitt in line_exitts %}
-    {% if loop.first %}
-        <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date ? line_exitt.exitt.date|date('Y/m/d') : '' }}</h3>
-
-        <h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
-
-    {% endif %}
-{% endfor  %}#}
 <h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
-{#{% for menu in menus %}
+{% for menu in menus %}
 
     <h3 style="text-align: left"> اليوم: {{ menu.day|trans }}</h3>
 
-{% endfor  %}#}
+{% endfor  %}
 {% for line_exitt in line_exitts %}
     {% if loop.first %}
     <h3 style="text-align: left"> التاريخ: {{ line_exitt.exitt.date | date('d-m-Y')  }}</h3>
@@ -101,22 +76,20 @@
     <tr>
         <th style="text-align: center" >{{ "Name of article"|trans }}</th>
         <th align="center">{{ "Quantity"|trans }}</th>
-        <th>{{ "Quantity exitt"|trans }}</th>
+        <th align="center">{{ "Quantity exitt"|trans }}</th>
         <th style="text-align: center">{{ "Quantity remaining"|trans }}</th>
     </tr>
     </thead>
     <tbody>
     {% for lineExitt in line_exitts %}
 
-        {% for lineStock in line_stocks %}
-            {#{% if loop.first %}#}
+        {% for lineStock in lineExitt.getLineStocks() %}
         <tr>
             <td style="text-align: center">{{ lineExitt.article }}</td>
             <td style="text-align: center">{{ lineStock.qtyUpdate}}</td>
             <td style="text-align: center">{{ lineExitt.quantity }}</td>
             <td style="text-align: center">{{ lineStock.qtyUpdate - lineExitt.quantity  }}</td>
         </tr>
-             {#{% endif %}#}
         {% endfor %}
     {% endfor %}
     </tbody>
