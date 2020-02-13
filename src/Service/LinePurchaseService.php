@@ -19,14 +19,4 @@ class LinePurchaseService
        return($t_price);
         
     }
-    public function newStock(LinePurchase $linePurchase)
-    {
-        
-            $repositoryLinePurchase =$this->em->getRepository(LinePurchase::class);
-            $repositoryLineStock =$this->em->getRepository(LineStock::class);
-            $findLinePurchaseByArticle = $repositoryLinePurchase->findOneBy(['article' => $linePurchase->getArticle()]);
-            $findLineStockByLinePurchase = $repositoryLineStock->findOneBy(['line_purchase' => $findLinePurchaseByArticle]);
-             return($findLineStockByLinePurchase );
-         
-    }
 }

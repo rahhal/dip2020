@@ -4,9 +4,8 @@
     <list default="true" id="a77a8da8-e0d5-4b80-9891-f015183e90a7" name="Default" comment="xcv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PurchaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200209185000.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pdf/permit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pdf/permit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LinePurchaseService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LinePurchaseService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/LineStockService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LineStockService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,6 +258,7 @@
       <workItem from="1581405501725" duration="1518000" />
       <workItem from="1581494798276" duration="1134000" />
       <workItem from="1581496597171" duration="649000" />
+      <workItem from="1581578635042" duration="1725000" />
     </task>
     <servers />
   </component>
@@ -270,10 +270,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="xcv" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="390" y="190" key="com.intellij.ide.util.TipDialog" timestamp="1581497235414">
+    <state x="390" y="190" key="com.intellij.ide.util.TipDialog" timestamp="1581578664088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581497235414" />
+    <state x="390" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581578664088" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -43,12 +43,10 @@
                                     <div class="ln_solid"></div>
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                        {% if is_granted('ROLE_ENTREPRISE') %}
-                                        <form method="post" action="{{ path('exitt_delete', {'id': exitt.id}) }}" onsubmit="return confirm('هل انت متأكد انك ترغب في حذف هذا العنصر؟');">
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ exitt.id) }}">
-                                            <button class="btn btn-danger"><i class="fa fa-trash " style="margin-left: 2rem"></i>{{  "Delete" | trans }}</button>
-                                            <a href="{{ path('exitt_edit',{'id': exitt.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                        </form>
+                                        <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-3">
+                                                {{ include('exitt/_delete_form.html.twig') }}
+                                         </div>
+                                         <a href="{{ path('exitt_edit',{'id': exitt.id}) }}" class="btn btn-primary"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
                                        {% endif %}
                                         <a href="{{ path('exitt_index') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                     </div>
@@ -59,7 +57,6 @@
 
                 </div>
                 <div class="row">
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
@@ -73,7 +70,6 @@
                                         <th>{{ "Quantity"|trans }}</th>
                                         <th>{{ "Unit price"|trans }}</th>
                                         {#<td></td>#}
-
                                     </tr>
                                     </thead>
                                     <tbody>

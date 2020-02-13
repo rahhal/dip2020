@@ -16,7 +16,7 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ " Details of admin" |trans }}</h3>
+                        <h3>{{ " Details of user" |trans }}</h3>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -24,30 +24,46 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
-
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th>{{ "Fullname" |trans }}</th>
-                                        <td>{{ admin.fullname }}</td>
+                                        <th>{{ "Company" |trans }}</th>
+                                        <td>{{ user.company }}</td>
                                     </tr>
-                                  {#  <tr>
+                                    <tr>
+                                        <th>{{ "Director" |trans }}</th>
+                                        <td>{{ user.director }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ " RIB" |trans }}</th>
+                                        <td>{{ user.rIB }}</td>
+                                    </tr>
+                                    <tr>
                                         <th>{{ "Phone" |trans }}</th>
-                                        <td>{{ admin.phone }}</td>
-                                    </tr>#}
+                                        <td>{{ user.phone }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "Address" |trans }}</th>
+                                        <td>{{ user.address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ "City" |trans }}</th>
+                                        <td>{{ user.city }}</td>
+                                    </tr>
                                     <tr>
                                         <th>{{ "Email" |trans }}</th>
-                                        <td>{{ admin.email }}</td>
+                                        <td>{{ user.email }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
 
+
                                 <div class="form-group">
                                     <div class="col-md-2 col-sm-2 col-xs-2 col-md-offset-3">
-                                        {{ include('user/_delete_form1.html.twig') }}
+                                        {{ include('user/_delete_form.html.twig') }}
                                     </div>
-                                    <a href="{{ path('admin_edit', {'id': admin.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
-                                    <a href="{{ path('admin_list') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
+                                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-primary"><i class="fa fa-edit" style="margin-left: 2rem"></i>{% trans %} Update {% endtrans %}</a>
+                                    <a href="{{ path('user_list') }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-backward" style="margin-left: 2rem"></i>{% trans %} back to list {% endtrans %}</a>
                                 </div>
 
                             </div>

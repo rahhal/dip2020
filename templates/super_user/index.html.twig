@@ -16,7 +16,7 @@
             <div class="right_col" role="main">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>{{ " List of admins"|trans }}</h3>
+                        <h3>{{ "List of users"|trans }}</h3>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -25,42 +25,45 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
 
-                            {% include('layouts/flash-messages.html.twig') %}
-
                             <div class="x_content">
                                 <p class="text-muted font-13 m-b-30">
-                                    <a href="{{ path('admin_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
+                                    <a href="{{ path('user_new') }}" class="btn btn-success"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }} </a>
                                 </p>
-
                                 {#<table  id="datatable" class="table table-striped table-bordered">#}
                                 <table  id="table" class="table table-striped table-bordered">
 
                                 <thead>
                                     <tr>
 
-                                        <th>{{  "Fullname" | trans }}</th>
-                                        {#<th>{{  "Phone" | trans }}</th>#}
+                                        <th>{{  "Company" | trans }}</th>
+                                        <th>{{  "Director" | trans }}</th>
+                                        <th>{{  " RIB" | trans }}</th>
+                                        <th>{{  "Phone" | trans }}</th>
+                                        <th>{{  "Address" | trans }}</th>
+                                        <th>{{  "City" | trans }}</th>
                                         <th>{{  "Email" | trans }}</th>
-                                        {#<th>{{  "Password" | trans }}</th>#}
                                         <th>{{  "Actions" | trans }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for admin in admins %}
+                                    {% for user in users %}
                                         <tr>
-                                            <td>{{ admin.fullname }}</td>
-                                            {#<td>{{ admin.phone }}</td>#}
-                                            <td>{{ admin.email }}</td>
-                                            {#<td>{{ admin.password }}</td>#}
+                                            <td>{{ user.company }}</td>
+                                            <td>{{ user.director }}</td>
+                                            <td>{{ user.rIB }}</td>
+                                            <td>{{ user.phone }}</td>
+                                            <td>{{ user.address }}</td>
+                                            <td>{{ user.city }}</td>
+                                            <td>{{ user.email }}</td>
 
                                             <td>
-                                                <a href="{{ path('admin_show', {'id': admin.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
-                                                <a href="{{ path('admin_edit', {'id': admin.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
+                                                <a href="{{ path('user_show', {'id': user.id}) }} " class="btn btn-default btn-block" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{  "show" | trans }}</a>
+                                                <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-primary btn-block"><i class="fa fa-pencil" style="margin-left: 2rem"></i>{{  "edit" | trans }}</a>
                                             </td>
                                         </tr>
                                     {% else %}
                                         <tr class="text-center">
-                                            <td colspan="3">{{  "no records found" | trans }}</td>
+                                            <td colspan="8">{{  "no records found" | trans }}</td>
                                         </tr>
                                     {% endfor %}
 

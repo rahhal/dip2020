@@ -899,6 +899,10 @@
                          <source>Edit line inventory</source>
                           <target> تغيير المعطيات </target>
                  </trans-unit>
+                 <trans-unit  id="Line exitts" resname="Line exitts">
+                         <source>Line exitts</source>
+                          <target> مواد الخروج </target>
+                 </trans-unit>
     </body>
   </file>
 </xliff>
