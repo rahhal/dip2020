@@ -12,6 +12,7 @@ use App\Service\PurchaseService;
 use App\Service\LinePurchaseService;
 use App\Service\LineStockService;
 use App\Form\PurchaseType;
+use App\Form\PurchaseEditType;
 use App\Repository\PurchaseRepository;
 use App\Repository\LinePurchaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -143,7 +144,7 @@ class PurchaseController extends AbstractController
     public function edit(Request $request, Purchase $purchase, PurchaseService $purchaseService, LinePurchaseService $linePurchaseService, LineStockService $lineStockService): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(PurchaseType::class, $purchase);
+        $form = $this->createForm(PurchaseEditType::class, $purchase);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

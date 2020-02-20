@@ -12,6 +12,7 @@ use App\Entity\LineExitt;
 use App\Entity\Menu;
 use App\Entity\NbMeal;
 use App\Form\ExittType;
+use App\Form\ExittEditType;
 use App\Repository\ExittRepository;
 use App\Repository\LineExittRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -138,7 +139,7 @@ class ExittController extends AbstractController
     public function edit(Request $request, Exitt $exitt): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(ExittType::class, $exitt);
+        $form = $this->createForm(ExittEditType::class, $exitt);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

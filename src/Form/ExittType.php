@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Exitt;
 use App\Entity\LineExitt;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -35,7 +36,7 @@ class ExittType extends AbstractType
                 'allow_add'    => true,
                 'allow_delete' => true
             ))
-            ->add('totalPrice',TextType::class)
+            ->add('totalPrice',HiddenType::class)
             ->add('save',      SubmitType::class)
 
         ;
