@@ -47,4 +47,15 @@ class LineInventoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLineInventoryByInventory($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.inventory', 'i')
+            ->andWhere('i.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

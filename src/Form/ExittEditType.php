@@ -19,8 +19,7 @@ class ExittEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-           // ->remove('date')
-            
+         // ->remove('date') 
             ->remove('save')
 
         ;

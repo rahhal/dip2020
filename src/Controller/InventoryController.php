@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Inventory;
 use App\Entity\LineInventory;
 use App\Entity\LineStock;
+use App\Entity\Institution;
 use App\Form\InventoryType;
 use App\Repository\InventoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -92,4 +93,34 @@ class InventoryController extends AbstractController
 
         return $this->redirectToRoute('inventory_index');
     }
+
+     /**
+     * @Route("/pdf/{id}", name="inventory_pdf")
+     *
+     */
+     public function pdf($id = null)
+     { $inventories= $this->getDoctrine()->getRepository(Inventory::class)->findAll();
+        
+        $lineInventories=$this->getDoctrine()
+        ->getRepository(LineInventory::class)
+        ->findLineInventoryByInventory($id);
+        
+        $institution=$this->getDoctrine()
+             ->getRepository(Institution::class)->findAll();
+         $html = $this->renderView('pdf/inventory.html.twig', array(
+             'lineInventories' => $lineInventories,
+             'title' => "بطاقة جرد",
+             'institution'=> $institution,
+         ));
+         // Create an instance of the class:
+         $mpdf = new \Mpdf\Mpdf();
+         $mpdf->SetDirectionality('rtl');
+         // Write some HTML code:
+         $mpdf->WriteHTML($html);
+         // Output a PDF file directly to the browser
+         $mpdf->Output();
+     }
+
+
+
 }

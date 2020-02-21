@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بطاقة جرد</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body style="font-family:' arial', sans-serif">
+<h4 style="text-align: right">  الجمهورية التونسية </h4>
+
+
+{% for vb in institution %}
+
+    {% if loop.first %}
+
+        <h4 style="text-align: right"> &nbsp;&nbsp;&nbsp;  {{ vb.ministry }} </h4>
+        <h4 style="text-align: right">    {{ vb.office }}</h4>
+        <h4 style="text-align: right">    {{ vb.name }}</h4>
+    {% endif %}
+{% endfor %}
+
+{% for lineInventory in lineInventories %}
+
+        <h3 style="text-align: left"> التاريخ: {{ lineInventory.inventory.date ? lineInventory.inventory.date|date('Y/m/d') : '' }}</h3>
+        <h2 style="text-align: center">بطاقة جرد المخزون</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+
+{% endfor  %}
+
+{# {% for vb in institution %}
+
+    {% if loop.first %}
+        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
+    {% endif %}
+{% endfor %} #}
+
+<br>
+<br>
+<table>
+    <tr>
+        <th style="text-align: center" >{{ "Article"|trans }}</th>
+        <th style="text-align: center">{{ "Quantity"|trans }}</th>
+
+    </tr>
+    {% for lineInventory in lineInventories %}
+
+        <tr>
+
+            <td style="text-align: center">{{ lineInventory.article }}</td>
+            <td style="text-align: center">{{ lineInventory.qtyInv }}</td>
+            
+        </tr>
+    {% endfor %}
+
+
+</table>
+<br>
+<br>
+<h4 style="text-align: center">الإمضـــــــاء</h4>
+<h4 style="text-align: center">رئيس الوحدة</h4>
+</body>
+</html>
