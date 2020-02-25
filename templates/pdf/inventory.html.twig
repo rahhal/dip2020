@@ -32,22 +32,15 @@
 {% endfor %}
 
 {% for lineInventory in lineInventories %}
-
+{% if loop.first %}
         <h3 style="text-align: left"> التاريخ: {{ lineInventory.inventory.date ? lineInventory.inventory.date|date('Y/m/d') : '' }}</h3>
+{% endif %}
+{% endfor  %}
         <h2 style="text-align: center">بطاقة جرد المخزون</h2>
         <br>
         <br>
         <br>
         <br>
-
-{% endfor  %}
-
-{# {% for vb in institution %}
-
-    {% if loop.first %}
-        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
-    {% endif %}
-{% endfor %} #}
 
 <br>
 <br>

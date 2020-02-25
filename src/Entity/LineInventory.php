@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\LineInventoryRepository")
-  * @UniqueEntity(fields={"article"}, message="لقد قمت بادخال هذه المادة")
  */
 class LineInventory
 {

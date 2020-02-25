@@ -123,11 +123,14 @@ class LineExittController extends AbstractController
             'title' =>"وصل خروج",
             'institution'=> $institution,
         ));
-
+        $footer = $this->renderView('pdf/footer.html.twig', array(
+            'institution'=> $institution,
+        ));
 	    // Create an instance of the class:
 	    $mpdf = new \Mpdf\Mpdf();
 	    $mpdf->SetDirectionality('rtl');
 	    // Write some HTML code:
+        $mpdf->SetHTMLFooter($footer);
 	    $mpdf->WriteHTML($html);
 	    // Output a PDF file directly to the browser
 	    $mpdf->Output();

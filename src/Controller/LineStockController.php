@@ -142,9 +142,13 @@ class LineStockController extends AbstractController
             'lineStocks'=> $lineStock,
             'institution'=> $institution,
         ));
+        $footer = $this->renderView('pdf/footer.html.twig', array(
+            'institution'=> $institution,
+        ));
         // Create an instance of the class:
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->SetDirectionality('rtl');
+        $mpdf->SetHTMLFooter($footer);
         // Write some HTML code:
         $mpdf->WriteHTML($html);
         // Output a PDF file directly to the browser

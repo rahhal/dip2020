@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body style="font-family:' arial', sans-serif">
+
+<hr>
+    {% for vb in institution %}
+
+        {% if loop.first %}
+            <span style="text-align: right">{{ vb.office }}&nbsp;&nbsp;&nbsp;
+                <b><u>العنوان:</u></b>  {{ vb.address }} &nbsp;&nbsp;&nbsp;
+                <b><u>الهاتف:</u></b> {{ vb.phone }}&nbsp;&nbsp;&nbsp;&nbsp;
+                <b><u>الفاكس:</u></b>{{ vb.fax }}
+            </span>
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
