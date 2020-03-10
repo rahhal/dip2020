@@ -53,21 +53,31 @@ class PurchaseRepository extends ServiceEntityRepository
             ->where('p.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getResult()
-            ;
+            ->getResult();
     }
-     public function getPurchaseFromDate($max = 5)
-      {
-            $currentdate = new \DateTime('now'); //Date du jour
-           // $em = $this->container->get('doctrine')->getEntityManager();
-            return $this->createQueryBuilder('p')
-           // ->select('entities')
-          //  ->from('MyAppNameBundle:Entity','entities')
+
+    public function getPurchaseFromDate($max = 5)
+    {
+        $currentdate = new \DateTime('now'); //Date du jour
+        // $em = $this->container->get('doctrine')->getEntityManager();
+        return $this->createQueryBuilder('p')
+            // ->select('entities')
+            //  ->from('MyAppNameBundle:Entity','entities')
             ->where('(p.date) >= :date')
-           // ->orderBy('p.date','DESC')
+            // ->orderBy('p.date','DESC')
             ->setParameter('date', $currentdate->format('Y-m-d'))
-            ->setMaxResults($max) //Limiter le nombre de résultat
+            ->setMaxResults($max)//Limiter le nombre de résultat
             ->getQuery()
             ->getResult();
-      }
     }
+    public function getPurchaseByMonth($date)
+        {
+            return $this->createQueryBuilder('p')
+                        ->select(' MONTH(p.date) AS gBmonth, DAY(p.date) AS gBday')
+                        ->where('p.date IS NOT NULL')
+                        ->groupBy('gBmonth')
+                        ->addGroupBy('gBday')
+                        ->getQuery()
+                        ->getResult();
+        }
+}

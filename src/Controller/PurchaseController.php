@@ -75,7 +75,7 @@ class PurchaseController extends AbstractController
             }
                /* ------ calcul du prix total de chaque purchase -------*/
             $purchase->setTotalPrice($purchaseService->calculTotalPrice($purchase));
-            /**** renvoi des données au lineStock */
+            /*------------- calcul de lineStock ------------------------*/
 	            $stock->setName('stoki');
 	             $em->persist($stock);
 
@@ -97,7 +97,7 @@ class PurchaseController extends AbstractController
 		            	$lineStock = new LineStock();
 		            	$lineStock->setLinePurchase($linePurchase);
 		            	$lineStock->setQtyUpdate($linePurchase->getQuantityDelivred()+$linePurchase->getArticle()->getIniQty());
-		            	 $lineStock->setDate(new \DateTime('now'));
+                        $lineStock->setDate(new \DateTime('now'));
 		            	$lineStock->setOldQty($linePurchase->getArticle()->getIniQty());
 		            	$lineStock->setQuantityAlerte($linePurchase->getArticle()->getMinQty());
                         $lineStock->setProdDate(new \DateTime($linePurchase->getProduction()));
@@ -118,9 +118,7 @@ class PurchaseController extends AbstractController
         }
         $purchases = $em->getRepository(Purchase::class)->findAll();
         $articles = $em->getRepository(Article::class)->findAll();
-        /*$linePurchase=$this->getDoctrine()
-            ->getRepository(LinePurchase::class)
-            ->findLinePurchaseByPurchase($id);*/
+
         return $this->render('purchase/purchase.html.twig', array(
             'form' => $form->createView(),
             'purchases' => $purchases,
@@ -269,9 +267,13 @@ class PurchaseController extends AbstractController
            'commissions'=>$commission,
            'institution'=> $institution,
         ));
+        $footer = $this->renderView('pdf/footer.html.twig', array(
+            'institution'=> $institution,
+        ));
         // Create an instance of the class:
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->SetDirectionality('rtl');
+        $mpdf->SetHTMLFooter($footer);
         // Write some HTML code:
         $mpdf->WriteHTML($html);
         // Output a PDF file directly to the browser

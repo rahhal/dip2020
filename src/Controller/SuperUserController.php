@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 /**
- * @Route("/user")
+ * @Route("/superUser")
  * @IsGranted("ROLE_SUPER_ADMIN", message="No access! Get out!")
  */
 class SuperUserController extends AbstractController

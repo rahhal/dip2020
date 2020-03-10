@@ -2948,7 +2948,7 @@ function init_DataTables() {
             $("#datatable-buttons").DataTable({
                 "language": {
                     "sProcessing":   "جارٍ التحميل...",
-                    "sLengthMenu":   "أظهر _MENU_ مدخلات",
+                    "sLengthMenu":   "أظهر _MENU_ ",
                     "sZeroRecords":  "لم يعثر على أية سجلات",
                     "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
                     "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3008,7 +3008,7 @@ function init_DataTables() {
     $('#datatable').dataTable({
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3029,7 +3029,7 @@ function init_DataTables() {
         keys: true,
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_ ",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3049,7 +3049,7 @@ function init_DataTables() {
     $('#datatable-responsive').DataTable({
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3069,7 +3069,7 @@ function init_DataTables() {
     $('#datatable-scroller').DataTable({
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3094,7 +3094,7 @@ function init_DataTables() {
     $('#datatable-fixed-header').DataTable({
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
@@ -3117,7 +3117,7 @@ function init_DataTables() {
     $datatable.dataTable({
         "language": {
             "sProcessing":   "جارٍ التحميل...",
-            "sLengthMenu":   "أظهر _MENU_ مدخلات",
+            "sLengthMenu":   "أظهر _MENU_",
             "sZeroRecords":  "لم يعثر على أية سجلات",
             "sInfo":         "إظهار START إلى END من أصل TOTAL مدخل",
             "sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",

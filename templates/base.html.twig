@@ -13,7 +13,7 @@
     {% endblock %}
 </head>
 
-<body {% block body_class %} {% endblock %}>
+<body style="color: black;" {% block body_class %} {% endblock %}>
 {% block body %}
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">

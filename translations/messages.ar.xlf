@@ -368,7 +368,7 @@
        </trans-unit>
     <trans-unit id="Quantity alerte " resname="Quantity alerte">
                              <source>Quantity alerte</source>
-                              <target>كمية الاندار </target>
+                              <target>كمية الانذار </target>
        </trans-unit>
      <trans-unit id="Valid date " resname="Valid date">
                               <source>Valid date</source>
