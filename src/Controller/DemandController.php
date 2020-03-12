@@ -122,6 +122,7 @@ class DemandController extends AbstractController
         $footer = $this->renderView('pdf/footer.html.twig', array(
             'institution'=> $institution,
         ));
+       
         // Create an instance of the class:
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->SetDirectionality('rtl');

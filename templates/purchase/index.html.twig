@@ -57,7 +57,7 @@
                                                     <a href="{{ path('purchase_show', {'id': purchase.id}) }}" class="btn btn-default" data-toggle="popover"><i class="fa fa-eye" style="margin-left: 2rem"></i>{{ "show"|trans }}</a>
                                                     <div class="btn-group">
                                                       <button class=" btn btn-info" data-toggle="dropdown">
-                                                      <i class="fa fa-print" style="margin-left: 1rem"></i> <span class="caret"></span></button>
+                                                      <i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }} <span class="caret"></span></button>
                                                       <ul class="dropdown-menu" role="menu">
                                                         <li><a href="{{ path('purchase_pdf', {'id': purchase.id}) }}">{{ "print purchase"|trans }}</a></li>
                                                         <li><a href="{{ path('receive_pdf', {'id': purchase.id}) }}">{{ "Print article receipt session"|trans }}</a></li>

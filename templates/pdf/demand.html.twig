@@ -18,18 +18,9 @@
     </style>
 </head>
 <body style="font-family:' arial', sans-serif">
-<h4 style="text-align: right">  الجمهورية التونسية </h4>
 
+{% include('pdf/header.html.twig') %}
 
-{% for vb in institution %}
-
-    {% if loop.first %}
-
-        <h4 style="text-align: right"> &nbsp;&nbsp;&nbsp;  {{ vb.ministry }} </h4>
-        <h4 style="text-align: right">    {{ vb.office }}</h4>
-        <h4 style="text-align: right">    {{ vb.name }}</h4>
-    {% endif %}
-{% endfor %}
 
 {% for demand in demands %}
 
@@ -45,16 +36,7 @@
 
 {% endfor  %}
 
-{% for vb in institution %}
 
-    {% if loop.first %}
-        <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
-        <h4 style="text-align: right">  العنوان: {{ vb.address }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  الهاتف:  {{ vb.phone }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  الفاكس: {{ vb.fax }}</h4>
-       {# <h4 style="text-align: right"> الهاتف:   {{ vb.phone }}</h4>
-        <h4 style="text-align: right"> الفاكس:   {{ vb.fax }}</h4>#}
-
-    {% endif %}
-{% endfor %}
 
 <br>
 <br>

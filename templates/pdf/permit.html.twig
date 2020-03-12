@@ -17,19 +17,9 @@
         }
     </style>
 </head>
-<h4 style="text-align: right">  الجمهورية التونسية </h4>
 <body style="font-family:Arial">
 
-{% for vb in institution %}
-
-    {% if loop.first %}
-        <h4 style="text-align: right">   {{ vb.ministry }} </h4>
-        <h4 style="text-align: right">    {{ vb.office }}</h4>
-        {#<h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>#}
-        <h4 style="text-align: right">   {{ vb.name }}</h4>
-
-    {% endif %}
-{% endfor %}
+{% include('pdf/header.html.twig') %}
 <h2 style="text-align: center">إذن وقتي لخروج المواد الغذائيّة</h2>
 {% for menu in menus %}
 
@@ -56,7 +46,6 @@
     <tbody>
     {% for menu in menus %}
         <tr>
-
             <td style="text-align: center">{{ menu.breakfast }}</td>
             <td style="text-align: center">{{ menu.lunch }}</td>
             <td style="text-align: center">{{ menu.dinner }}</td>
@@ -70,7 +59,7 @@
 <br>
 <br>
 <br>
-
+<h4 style="text-align: center">{{ "Exit today"|trans }}</h4>
 <table>
     <thead>
     <tr>

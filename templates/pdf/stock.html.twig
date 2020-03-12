@@ -18,17 +18,7 @@
     </style>
 </head>
 <body style="font-family:Arial">
-<h4 style="text-align: right">  الجمهورية التونسية&nbsp; </h4>
-
-{% for vb in institution %}
-
-    {% if loop.first %}
-
-        <h4 style="text-align: right"> &nbsp;&nbsp;  {{ vb.ministry }} </h4>
-        <h4 style="text-align: right">    {{ vb.office }}</h4>
-        <h4 style="text-align: right">    {{ vb.name }}</h4>
-    {% endif %}
-{% endfor %}
+{% include('pdf/header.html.twig') %}
 <h2 style="text-align: center">محتويات المخزن</h2>
 <br>
 <br>

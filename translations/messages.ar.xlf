@@ -340,6 +340,10 @@
                                   <source>Number of exit</source>
                                   <target>رقم وصل  الخروج </target>
      </trans-unit>
+     <trans-unit id="Exit today " resname="Exit today">
+                                  <source>Exit today</source>
+                                  <target>الخروج اليومي </target>
+     </trans-unit>
      <trans-unit id="Exit of articles " resname="Exit of articles">
                   <source>Exit of articles</source>
                    <target>خروج المواد </target>

@@ -17,33 +17,11 @@
         }
     </style>
 </head>
-<h4 style="text-align: right">  الجمهورية التونسية </h4>
+
+
 <body style="font-family:Arial">
 
-{% for vb in institution %}
-
-{% if loop.first %}
-    <h4 style="text-align: right">   {{ vb.ministry }} </h4>
-    <h4 style="text-align: right">    {{ vb.office }}</h4>
-    <h4 style="text-align: right">  المؤسسة التربوية:  {{ vb.name }}</h4>
-{% endif %}
-{% endfor %}
-{#   {% for line_purchase in line_purchases %}
-
-<h3 style="text-align: right">وصل دخول عدد:{{ line_purchase.purchase }}</h3>
-
-<h3 style="text-align: right"> المزود: {{ line_purchase.purchase.supplier }}</h3>
-<h3 style="text-align: right">المعرف الجبائي:....... </h3>
-<h3 style="text-align: right">القسط:.........................................</h3>
-<h3 style="text-align: right"> .................المؤسسة التربوية:</h3>
-
-<br>
-<br>
-{% endfor  %}#}
-
-{#{% for exitt in exitts %}
-<h3 style="text-align: right"> التاريخ: {{ exitt.date ? exitt.date|date('Y-m-d') : '' }}</h3>
-{% endfor  %}#}
+{% include('pdf/header.html.twig') %}
 
 {% for line_exitt in line_exitts %}
     {% if loop.first %}
