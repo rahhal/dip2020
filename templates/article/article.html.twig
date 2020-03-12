@@ -28,6 +28,7 @@
                             {% if is_granted('ROLE_ENTREPRISE') %}
                             <button type="button" class="btn btn-success left" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus" style="margin-left: 2rem"></i>{{  "Create new" | trans }}</button>
                             {{ include('article/modal_new.html.twig') }}
+                            <a href="{{ path('printa_pdf') }}" class="btn btn-info left"><i class="fa fa-print" style="margin-left: 2rem"></i>{{ "print"|trans }}</a>
                             <br>
                             <div class="ln_solid"></div>
                             {% endif %}

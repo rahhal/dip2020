@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة المزودين </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="font-family:' arial', sans-serif">
+
+{% include('pdf/header.html.twig') %}
+
+        {# <h3 style="text-align: left"> التاريخ: {{ article.date ? article.date|date('Y/m/d') : '' }}</h3> #}
+        <h2 style="text-align: center">قائمة المزودين</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+
+<br>
+<br>
+<table>
+    <tr>
+         <th>{{ "Supplier name"|trans }}</th>
+          <th>{{ "Activity"|trans }}</th>
+          <th>{{ "Tax_number"|trans }}</th>
+           <th>{{ "Phone"|trans }}</th>
+            <th>{{ "Address"|trans }}</th>
+         <th>{{ "Email"|trans }}</th>
+    </tr>
+     {% for supplier in suppliers %}
+     <tr>
+         <td>{{ supplier.name }}</td>
+        <td>{{ supplier.activity }}</td>
+         <td>{{ supplier.taxNumber }}</td>
+        <td>{{ supplier.phone }}</td>
+        <td>{{ supplier.address }}</td>
+         <td>{{ supplier.email }}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<h4 style="text-align: center">الإمضـــــــاء</h4>
+{# <h4 style="text-align: center">رئيس الوحدة</h4> #}
+</body>
+</html>

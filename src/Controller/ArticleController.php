@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Institution;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Repository\InstitutionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -130,5 +132,36 @@ class ArticleController extends AbstractController
         }
 
         return $response;
+    }
+     /**
+     * @Route("/print/articles", name="printa_pdf")
+     *
+     */
+    public function print()
+    {
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+        
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+
+        $html = $this->renderView('pdf/article.html.twig', array(
+            'articles' => $articles,
+            'title' => "قائمة المواد",
+            'institution'=> $institution,
+        ));
+        $footer = $this->renderView('pdf/footer.html.twig', array(
+            'institution'=> $institution,
+        ));
+       
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        $mpdf->SetHTMLFooter($footer);
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
     }
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة المواد </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body style="font-family:' arial', sans-serif">
+
+{% include('pdf/header.html.twig') %}
+
+        {# <h3 style="text-align: left"> التاريخ: {{ article.date ? article.date|date('Y/m/d') : '' }}</h3> #}
+        <h2 style="text-align: center">قائمة المواد</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+
+<br>
+<br>
+<table>
+    <tr>
+        <th style="text-align: center" >{{ "Article"|trans }}</th>
+         <th style="text-align: center">{{  "Reference Stock" | trans }}</th>
+           <th style="text-align: center">{{  "Name" | trans }}</th>
+            <th style="text-align: center">{{  "Category" | trans }}</th>
+            <th style="text-align: center">{{  "Unit" | trans }}</th>
+            <th style="text-align: center">{{  "Initial quantity" | trans }}</th>
+            <th style="text-align: center">{{  "Quantity alerte" | trans }}</th>
+    </tr>
+    {% for article in articles %}
+
+        <tr>
+
+            <td style="text-align: center">{{ article.name }}</td>
+        <td style="text-align: center">{{ article.referenceStock }}</td>
+                                            <td style="text-align: center">{{ article.name }}</td>
+                                            <td style="text-align: center">{{ article.category }}</td>
+                                            <td style="text-align: center">{{ article.unit }}</td>
+                                            <td style="text-align: center">{{ article.iniQty }}</td>
+                                            <td style="text-align: center">{{ article.minQty }}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<h4 style="text-align: center">الإمضـــــــاء</h4>
+{# <h4 style="text-align: center">رئيس الوحدة</h4> #}
+</body>
+</html>

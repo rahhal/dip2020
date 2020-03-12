@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Supplier;
+use App\Entity\Institution;
 use App\Form\SupplierType;
 use App\Repository\SupplierRepository;
+use App\Repository\InstitutionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -87,5 +89,36 @@ $suppliers=$entityManager->getRepository(Supplier::class)->findAll();
         $this->addFlash('success', "تم الحذف بنجاح");
 
         return $this->redirectToRoute('supplier_new');
+    }
+     /**
+     * @Route("/print/suppliers", name="prints_pdf")
+     *
+     */
+    public function print()
+    {
+        $suppliers = $this->getDoctrine()
+            ->getRepository(Supplier::class)
+            ->findAll();
+        
+        $institution=$this->getDoctrine()
+            ->getRepository(Institution::class)->findAll();
+
+        $html = $this->renderView('pdf/supplier.html.twig', array(
+            'suppliers' => $suppliers,
+            'title' => "قائمة المزودين",
+            'institution'=> $institution,
+        ));
+        $footer = $this->renderView('pdf/footer.html.twig', array(
+            'institution'=> $institution,
+        ));
+       
+        // Create an instance of the class:
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->SetDirectionality('rtl');
+        $mpdf->SetHTMLFooter($footer);
+        // Write some HTML code:
+        $mpdf->WriteHTML($html);
+        // Output a PDF file directly to the browser
+        $mpdf->Output();
     }
 }
