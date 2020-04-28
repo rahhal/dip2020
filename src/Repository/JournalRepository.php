@@ -68,4 +68,14 @@ class JournalRepository extends ServiceEntityRepository
             //->getOneOrNullResult()
             ->getResult();
     }
+    public function findJournalByUser($id)
+    {
+        return $this->createQueryBuilder('j')
+            ->innerJoin('j.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

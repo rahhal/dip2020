@@ -59,4 +59,14 @@ class MenuRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+    public function findMenuByUser($id)
+    {
+        return $this->createQueryBuilder('m')
+            ->innerJoin('m.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

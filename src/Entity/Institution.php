@@ -76,10 +76,11 @@ class Institution
      */
     private $year;
 
-    /**
-     * @ORM\Column(type="string", length=255)
+
+     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="institutions")
      */
-    private $type;
+    private $user;
 
     public function getId(): ?int
     {
@@ -218,14 +219,14 @@ class Institution
         return $this;
     }
 
-    public function getType(): ?string
+    public function getUser(): ?User
     {
-        return $this->type;
+        return $this->user;
     }
 
-    public function setType(string $type): self
+    public function setUser(?User $user): self
     {
-        $this->type = $type;
+        $this->user = $user;
 
         return $this;
     }

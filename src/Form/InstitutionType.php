@@ -7,6 +7,7 @@ use App\Entity\Institution;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +29,8 @@ class InstitutionType extends AbstractType
             ->add('phone', TelType::class, array('label' => 'الهاتف :', 'attr' => array('placeholder' => 'الهاتف')))
             ->add('fax', TelType::class, array('label' => 'الفاكس :', 'attr' => array('placeholder' => 'الفاكس')))
             ->add('year', TextType::class, array('label' => 'السنة الدراسية :', 'attr' => array('placeholder' => 'السنة الدراسية')))
-        ;
+            //->add('User', HiddenType::class)
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

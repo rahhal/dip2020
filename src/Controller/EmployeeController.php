@@ -24,21 +24,26 @@ class EmployeeController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
+        $em= $entityManager = $this->getDoctrine()->getManager();
 
         $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($employee);
-            $entityManager->flush();
+            $user = $this->getUser();
+            $employee->setUser($user); 
+        //dump($employee);die();
+            $em->persist($employee);
+            $em->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
 
             return $this->redirectToRoute('employee_new');
         }
-$employees=$entityManager->getRepository(Employee::class)->findAll();
+// $employees=$entityManager->getRepository(Employee::class)->findAll();
+        $id = $this->getUser()->getId();
+        $employees = $em->getRepository(Employee::class)->findEmployeeByUser($id);
         return $this->render('employee/employee.html.twig', [
             'employees' => $employees,
             'form' => $form->createView(),
@@ -68,7 +73,7 @@ $employees=$entityManager->getRepository(Employee::class)->findAll();
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', "تم التعديل بنجاح");
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('employee_new');
         }
 

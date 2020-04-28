@@ -69,22 +69,37 @@ class NbMealRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findByCurrentDate()
+    public function findByCurrentDate($user)
     {
     	return $this
 		    ->createQueryBuilder('n')
-		    ->andWhere('n.date = :date')
+		    ->where('n.date = :date')
+            ->andWhere('n.user = :user')
             ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->setParameter('user', $user)
+
             ;
     }
-    public function myFindByCurrentDate()
+    public function myFindByCurrentDate($user)
     {
         return $this
             ->createQueryBuilder('n')
-            ->andWhere('n.date = :date')
+            ->where('n.date = :date')
+            ->andWhere('n.user = :user')
             ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->setParameter('user', $user)
             ->getQuery()
             ->getOneOrNullResult()
             ;
+    }
+    public function findNbMealByUser($id)
+    {
+        return $this->createQueryBuilder('n')
+            ->innerJoin('n.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
     }
 }

@@ -28,6 +28,10 @@ class Stock
      */
     private $lineStocks;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="stocks")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -79,6 +83,18 @@ class Stock
                 $lineStock->setStock(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

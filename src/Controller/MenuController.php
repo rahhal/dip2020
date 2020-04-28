@@ -29,13 +29,16 @@ class MenuController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $user = $this->getUser();
+            $menu->setUser($user);
             $em ->persist($menu);
             $em ->flush();
             $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('menu_new');
         }
-        $menus = $em->getRepository(Menu::class)->findAll();
+       // $menus = $em->getRepository(Menu::class)->findAll();
+        $id = $this->getUser()->getId();
+        $menus = $em->getRepository(Menu::class)->findMenuByUser($id);
         return $this->render('menu/menu.html.twig', [
             'menus' => $menus,
             'form' => $form->createView(),

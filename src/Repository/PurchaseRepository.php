@@ -80,4 +80,14 @@ class PurchaseRepository extends ServiceEntityRepository
                         ->getQuery()
                         ->getResult();
         }
+    public function findPurchaseByUser($id)
+    {
+        return $this->createQueryBuilder('p')
+            ->innerJoin('p.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

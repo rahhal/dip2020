@@ -212,6 +212,10 @@
            </trans-unit>
            <trans-unit id="Activity" resname="Activity">
                  <source>Activity</source>
+                 <target>الخطة </target>
+           </trans-unit>
+           <trans-unit id="Activity supplier" resname="Activity supplier">
+                 <source>Activity supplier</source>
                  <target>النشاط </target>
            </trans-unit>
            <trans-unit id="Tax_number" resname="Tax_number">

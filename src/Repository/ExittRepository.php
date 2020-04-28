@@ -58,36 +58,42 @@ class ExittRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findByCurrentDate()
+    public function findByCurrentDate($user)
     {
         return $this
             ->createQueryBuilder('e')
-            ->andWhere('e.date = :date')
+            ->where('e.date = :date')
+            ->andWhere('e.user = :user')
             ->setParameter('date', new \Datetime(date('d-m-Y')))
-        ;
+            ->setParameter('user', $user)
+            ;
     }
 
-    public function myFindByCurrentDate()
+    public function myFindByCurrentDate($user)
     {
         return $this
             ->createQueryBuilder('e')
-            ->andWhere('e.date = :date')
+            ->where('e.date = :date')
+            ->andWhere('e.user = :user')
             ->setParameter('date', new \Datetime(date('d-m-Y')))
+            ->setParameter('user', $user)
             ->getQuery()
             //->getOneOrNullResult()
             ->getResult();
     }
 
-    public function checkOneExitByDate()
+    public function checkOneExitByDate($user)
     {
 	    $current_date = new \DateTime();
 	    $current_date_format = $current_date->format('Y-m-d');
 
 	    $query = $this
 		    ->createQueryBuilder('e')
-		    ->andWhere('e.date = :date')
+		    ->Where('e.date = :date')
+            ->andWhere('e.user = :user')
 		    ->setParameter('date', $current_date_format)
-		    ->getQuery()
+            ->setParameter('user', $user)
+            ->getQuery()
 		    ->getResult();
 
 	    if (!empty($query)) {
@@ -96,5 +102,14 @@ class ExittRepository extends ServiceEntityRepository
 
 	    return false;
     }
-
+    public function findExittByUser($id)
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

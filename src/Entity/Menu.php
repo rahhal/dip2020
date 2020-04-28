@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MenuRepository")
- * @UniqueEntity(fields={"day"}, message="لقد قمت بادخال المعطيات الخاصة بهذا اليوم")
  */
 class Menu
 {
@@ -21,7 +20,7 @@ class Menu
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $day;
 
@@ -39,6 +38,11 @@ class Menu
      * @ORM\Column(type="string", length=255)
      */
     private $dinner;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="menus")
+     */
+    private $user;
 
 
     public function getId(): ?int
@@ -98,5 +102,17 @@ class Menu
         return  $this->day;
         //. " " .$this->lunch." ".$this->dinner;
 
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

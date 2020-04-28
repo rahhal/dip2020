@@ -33,6 +33,8 @@ class CommissionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $commission->setUser($user);
 
             $entityManager->persist($commission);
             $entityManager->flush();
@@ -40,14 +42,14 @@ class CommissionController extends AbstractController
             $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('commission_new');
         }
-        $commissions = $em->getRepository(Commission::class)->findAll();
-        $employees=$this->getDoctrine()
-            ->getRepository(Employee::class)
-            ->findAll();
+        $id = $this->getUser()->getId();
+        $commissions = $em->getRepository(Commission::class)->findCommissionByUser($id);
+        $employees=$this->getDoctrine()-> getRepository(Employee::class)
+            ->findEmployeeByUser($id);
         return $this->render('commission/commission.html.twig', [
             'commissions' => $commissions,
             'form' => $form->createView(),
-            'employees' => $employees,
+            //'employees' => $employees,
         ]);
     }
 
@@ -106,15 +108,15 @@ class CommissionController extends AbstractController
 
     public function printc()
     {
-        $commission=$this->getDoctrine()
-        ->getRepository(Commission::class)
-        ->findAll();
-        $institution=$this->getDoctrine()
-            ->getRepository(Institution::class)->findAll();
+        $id = $this->getUser()->getId();
+        $commissions = $this->getDoctrine()->getRepository(Commission::class)
+                            ->findCommissionByUser($id);
+        $institution=$this->getDoctrine()->getRepository(Institution::class)
+                          ->findInstitutionByUser($id);
 
         $html = $this->renderView('pdf/commission.html.twig', array(
             'title' =>"لجنة قبول المواد",
-            'commissions'=>$commission,
+            'commissions'=>$commissions,
             'institution'=> $institution,
         ));
         $footer = $this->renderView('pdf/footer.html.twig', array(

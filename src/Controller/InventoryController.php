@@ -23,8 +23,12 @@ class InventoryController extends AbstractController
      */
     public function index(InventoryRepository $inventoryRepository): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $id = $this->getUser()->getId();
+        $inventories = $em->getRepository(Inventory::class)->findInventoryByUser($id);
         return $this->render('inventory/index.html.twig', [
-            'inventories' => $inventoryRepository->findAll(),
+           // 'inventories' => $inventoryRepository->findAll(),
+            'inventories' =>$inventories,
         ]);
     }
     /**
@@ -38,6 +42,8 @@ class InventoryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $inventory->setUser($user);
 
             $entityManager->persist($inventory);
             $entityManager->flush();

@@ -48,6 +48,11 @@ class Exitt
      */
     private $totalPrice;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="exitts")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->lineExitts = new ArrayCollection();
@@ -169,6 +174,18 @@ class Exitt
     public function setTotalPrice(string $totalPrice): self
     {
         $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

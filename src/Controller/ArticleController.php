@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Institution;
+use App\Entity\User;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use App\Repository\InstitutionRepository;
@@ -27,6 +28,9 @@ class ArticleController extends AbstractController
     public function new( Request $request): Response
     {
         $em = $this->getDoctrine()->getManager();
+        
+       // $user = $this->getUser()->getUserName();
+        //die(var_dump($user));
             $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
@@ -34,6 +38,13 @@ class ArticleController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+             //$user = $this->getUser()->getUserName();
+            // $article->setUser($user);
+            $user = $this->getUser();
+             $article->setUser($user); 
+         //dump($article);die();
+
+        // die(var_dump($user));
 
             $entityManager->persist($article);
             $entityManager->flush();
@@ -41,7 +52,8 @@ class ArticleController extends AbstractController
             $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('article_new');
         }
-        $articles = $em->getRepository(Article::class)->findAll();
+        $id = $this->getUser()->getId();
+        $articles = $em->getRepository(Article::class)->findArticleByUser($id);
         return $this->render('article/article.html.twig', [
             'articles' => $articles,
             'form' => $form->createView(),
@@ -138,10 +150,11 @@ class ArticleController extends AbstractController
      *
      */
     public function print()
-    {
+    { $id = $this->getUser()->getId();
+        // $articles = $em->getRepository(Article::class)->findArticleByUser($id);
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
-            ->findAll();
+            ->findArticleByUser($id);
         
         $institution=$this->getDoctrine()
             ->getRepository(Institution::class)->findAll();

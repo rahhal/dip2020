@@ -48,4 +48,15 @@ class CommissionRepository extends ServiceEntityRepository
     }
     */
 
+    public function findCommissionByUser($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+
 }

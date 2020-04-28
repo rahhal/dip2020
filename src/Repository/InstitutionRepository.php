@@ -52,4 +52,14 @@ class InstitutionRepository extends ServiceEntityRepository
         $qb = $this->createQueryBuilder('i')->select('COUNT(i)');
         return $qb->getQuery()->getSingleScalarResult();
     }
+    public function findInstitutionByUser($id)
+    {
+        return $this->createQueryBuilder('i')
+            ->innerJoin('i.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

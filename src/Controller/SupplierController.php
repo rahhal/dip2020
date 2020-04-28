@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Supplier;
 use App\Entity\Institution;
+use App\Entity\User;
 use App\Form\SupplierType;
 use App\Repository\SupplierRepository;
 use App\Repository\InstitutionRepository;
@@ -24,20 +25,28 @@ class SupplierController extends AbstractController
      * @Route("/new", name="supplier_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
-    {    $entityManager = $this->getDoctrine()->getManager();
+    {    $em= $entityManager = $this->getDoctrine()->getManager();
 
         $supplier = new Supplier();
         $form = $this->createForm(SupplierType::class, $supplier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($supplier);
-            $entityManager->flush();
+
+            $user = $this->getUser();
+            //dump($user);die();
+            $supplier->setUser($user); 
+      //  dump($supplier);die();
+        $em->persist($supplier);
+        $em->flush();
 
             $this->addFlash('success', "تمت الاضافة بنجاح");
             return $this->redirectToRoute('supplier_new');
         }
-$suppliers=$entityManager->getRepository(Supplier::class)->findAll();
+        //$suppliers=$entityManager->getRepository(Supplier::class)->findAll();
+        $id = $this->getUser()->getId();
+        $suppliers = $em->getRepository(Supplier::class)->findSupplierByUser($id);
+
         return $this->render('supplier/supplier.html.twig', [
             'suppliers' => $suppliers,
             'form' => $form->createView(),
@@ -67,7 +76,7 @@ $suppliers=$entityManager->getRepository(Supplier::class)->findAll();
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', "تم التعديل بنجاح");
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('supplier_new');
         }
         return $this->render('supplier/edit.html.twig', [

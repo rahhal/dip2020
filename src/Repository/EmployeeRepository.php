@@ -47,4 +47,22 @@ class EmployeeRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findEmployeeByUser($id)
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+    public function findByCurrentUser($user)
+    {
+        return $this
+            ->createQueryBuilder('e')
+            ->andWhere('e.user = :user')
+            ->setParameter('user', $user)
+            ;
+    }
 }

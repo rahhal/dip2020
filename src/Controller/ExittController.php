@@ -37,9 +37,10 @@ class ExittController extends AbstractController
 
     public function index(ExittRepository $exittRepository)
     {
+        $id = $this->getUser()->getId();
 
         return $this->render('exitt/index.html.twig',[
-            'exitts' =>$exittRepository->findAll()
+            'exitts' =>$exittRepository->findExittByUser($id)
         ]);
     }
     /**
@@ -50,7 +51,8 @@ class ExittController extends AbstractController
      */
     public  function exitt($id=null, Request $request)
     {  /*  pourqu'on fait un seul exit par jour */
-	    $data_exit = $this->getDoctrine()->getRepository(Exitt::class)->checkOneExitByDate();
+        $user = $this->getUser();
+	    $data_exit = $this->getDoctrine()->getRepository(Exitt::class)->checkOneExitByDate($user);
 
         $em = $this->getDoctrine()->getManager();
         if (is_null($id))
@@ -72,6 +74,8 @@ class ExittController extends AbstractController
 	                if (false=== $exitt->getLineExitts()->contains($lineExitt))
 		                $em->remove($lineExitt);
                 }
+                $user = $this->getUser();
+                $exitt->setUser($user);
                 foreach ($exitt->getLineExitts() as $lineExitt) {
                     $lineExitt->setExitt($exitt);
 
@@ -122,8 +126,11 @@ class ExittController extends AbstractController
                 return $this->redirectToRoute("exitt_index");
             }
         }
-        $exitts=$em->getRepository(Exitt::class) ->findAll();
-        $article = $em->getRepository(Article::class)->findAll();
+        $id = $this->getUser()->getId();
+
+        $exitts=$em->getRepository(Exitt::class) ->findExittByUser($id);
+       // $article = $em->getRepository(Article::class)->findAll();
+        $article = $em->getRepository(Article::class)->findArticleByUser($id);
 
         return $this->render('exitt/exitt.html.twig',[
             'form'=> $form->createView(),

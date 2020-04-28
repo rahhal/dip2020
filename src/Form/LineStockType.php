@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\lineStock;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +24,8 @@ class LineStockType extends AbstractType
             ->add('article',ArticleType::class)
             ->add('line_purchase',LinePurchaseType::class)
             ->add('stock')
+           // ->add('user',HiddenType::class)
+
         ;
     }
 

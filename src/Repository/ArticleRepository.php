@@ -66,4 +66,22 @@ class ArticleRepository extends ServiceEntityRepository
             ->addSelect('cat');
         return $qb->getQuery();
     }
+    public function findArticleByUser($id)
+    {
+        return $this->createQueryBuilder('a')
+            ->innerJoin('a.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+    public function findByCurrentUser($user)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->andWhere('a.user = :user')
+            ->setParameter('user', $user)
+            ;
+    }
 }

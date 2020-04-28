@@ -85,4 +85,24 @@ class LineStockRepository extends ServiceEntityRepository
             ->setParameter('id',$id )
             ;
     }*/
+  /*  public function findLineStockByStock($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.stock', 's')
+            ->andWhere('s.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }*/
+    public function findLineStockByUser($id)
+    {
+        return $this->createQueryBuilder('l')
+            ->innerJoin('l.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

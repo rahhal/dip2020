@@ -62,7 +62,10 @@ class Supplier
      * @ORM\OneToMany(targetEntity="App\Entity\Demand", mappedBy="supplier")
      */
     private $demands;
-
+    /**
+         * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="suppliers")
+     */
+    private $user;
 
 
     public function __construct()
@@ -210,6 +213,18 @@ class Supplier
                 $demand->setSupplier(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

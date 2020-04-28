@@ -33,9 +33,11 @@ class PurchaseController extends AbstractController
  * @Route("/", name="purchase_index", methods={"GET"})
  */
     public function index(PurchaseRepository $purchaseRepository): Response
-    {
+    {  //$em = $this->getDoctrine()->getManager();
+        $id = $this->getUser()->getId();
+        //$purchases = $em->getRepository(Purchase::class)->findPurchaseByUser($id);
         return $this->render('purchase/index.html.twig', [
-            'purchases' => $purchaseRepository->findAll(),
+            'purchases' => $purchaseRepository->findPurchaseByUser($id),
         ]);
     }
     /**
@@ -68,15 +70,19 @@ class PurchaseController extends AbstractController
 			            $em->remove($linePurchase);
                 }
                   /* ------ calcul du prix total de chaque line_purchase -------*/
-
+                $user = $this->getUser();
+                $purchase->setUser($user);
             foreach ($purchase->getLinePurchases() as $linePurchase) {
-                $linePurchase->setTotalPrice($linePurchaseService->calculPrice($linePurchase));        
+                $linePurchase->setTotalPrice($linePurchaseService->calculPrice($linePurchase));
                 $linePurchase->setPurchase($purchase);
             }
                /* ------ calcul du prix total de chaque purchase -------*/
             $purchase->setTotalPrice($purchaseService->calculTotalPrice($purchase));
             /*------------- calcul de lineStock ------------------------*/
 	            $stock->setName('stoki');
+	            $user = $this->getUser();
+	            $stock->setUser($user);
+
 	             $em->persist($stock);
 
 	            foreach ($purchase->getLinePurchases() as $linePurchase) {
@@ -92,7 +98,10 @@ class PurchaseController extends AbstractController
                         $new_quantity = $linePurchase->getQuantityDelivred();
                         $myStock->setQtyUpdate($old_quantity + $new_quantity);
                         $myStock->setOldQty($old_quantity);
-			            $em->flush();
+
+                        $myStock->setUser($user);
+
+                        $em->flush();
 		            } else {
 		            	$lineStock = new LineStock();
 		            	$lineStock->setLinePurchase($linePurchase);
@@ -104,6 +113,7 @@ class PurchaseController extends AbstractController
                         $lineStock->setValidDate(new \DateTime($linePurchase->getValidation()));
 		            	$lineStock->setReference($linePurchase->getArticle()->getReferenceStock());
                         $lineStock->setUnitPrice($linePurchase->getUnitPrice());
+                        $lineStock->setUser($user);
 
 		            	 $lineStock->setStock($stock);
 		            	 $em->persist($lineStock);
@@ -116,9 +126,11 @@ class PurchaseController extends AbstractController
                 return $this->redirectToRoute("purchase_index");
             }
         }
-        $purchases = $em->getRepository(Purchase::class)->findAll();
-        $articles = $em->getRepository(Article::class)->findAll();
-
+        /*$purchases = $em->getRepository(Purchase::class)->findAll();
+        $articles = $em->getRepository(Article::class)->findAll();*/
+        $id = $this->getUser()->getId();
+        $purchases = $em->getRepository(Purchase::class)->findPurchaseByUser($id);
+        $articles = $em->getRepository(Article::class)->findArticleByUser($id);
         return $this->render('purchase/purchase.html.twig', array(
             'form' => $form->createView(),
             'purchases' => $purchases,
@@ -250,16 +262,18 @@ class PurchaseController extends AbstractController
 
     public function receive($id)
     { $purchases =$this->getDoctrine()
-        ->getRepository(Purchase::class)->findAll();
+        ->getRepository(Purchase::class)->findPurchaseByUser($this->getUser()->getId());
 
         $linePurchase=$this->getDoctrine()
             ->getRepository(LinePurchase::class)
             ->findLinePurchaseByPurchase($id);
 
         $institution=$this->getDoctrine()
-            ->getRepository(Institution::class)->findAll();
+            ->getRepository(Institution::class)
+            ->findInstitutionByUser($this->getUser()->getId());
+
         $commission= $this->getDoctrine()
-            ->getRepository(Commission::class)->findAll();
+            ->getRepository(Commission::class)->findCommissionByUser($this->getUser()->getId());
         $html = $this->renderView('pdf/receive.html.twig', array(
             'purchases' => $purchases,
             'line_purchases' => $linePurchase,

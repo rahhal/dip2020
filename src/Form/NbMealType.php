@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\NbMeal;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,6 +30,8 @@ class NbMealType extends AbstractType
             ->add('professor',NumberType::class,['required'=>false])
             ->add('curators',NumberType::class,['required'=>false])
             ->add('employee',NumberType::class,['required'=>false])
+           // ->add('user',HiddenType::class)
+
         ;
     }
 

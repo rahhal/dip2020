@@ -26,11 +26,17 @@ class LineStockController extends AbstractController
      * @Route("/", name="line_stock_index", methods={"GET"})
      */
     public function index(LineStockRepository $lineStockRepository): Response
-    {
+    { //$id= $lineStock->getStock()->getId();
+        $id = $this->getUser()->getId();
+
+        $line_stocks = $this->getDoctrine()->getRepository(LineStock::class)->findLineStockByUser($id);
+        //dump($line_stocks);die();
+
         $line_purchases = $this->getDoctrine()->getRepository(LinePurchase::class)->findAll();
         return $this->render('line_stock/index.html.twig', [
-            'line_stocks' => $lineStockRepository->findAll(),
+            //'line_stocks' => $lineStockRepository->findAll(),
             'line_purchases' => $line_purchases,
+            'line_stocks' => $line_stocks,
         ]);
     }
     /**
@@ -38,11 +44,10 @@ class LineStockController extends AbstractController
      */
     public function stockinitial(Request $request): Response
     {
-        // $em = $this->getDoctrine()->getManager();
-        $articles=$this->getDoctrine()
-            ->getRepository(Article::class)
-            ->findAll();
-
+         $em = $this->getDoctrine()->getManager();
+       // $articles=$this->getDoctrine()->getRepository(Article::class)->findAll();
+        $id = $this->getUser()->getId();
+        $articles = $em->getRepository(Article::class)->findArticleByUser($id);
        // var_dump($article);die();
         // $stck_ini= $em->getRepository(Article::class)->stockIni();
         return $this->render('line_stock/stckIni.html.twig', [
@@ -53,10 +58,10 @@ class LineStockController extends AbstractController
      * @Route("/stockvalid", name="line_stock_valid", methods={"GET"})
      */
     public function stockvalid(Request $request): Response
-    {
-        $lineStocks=$this->getDoctrine()
-            ->getRepository(LineStock::class)
-            ->findAll();
+    {   $em = $this->getDoctrine()->getManager();
+       // $lineStocks=$this->getDoctrine()->getRepository(LineStock::class)->findAll();
+        $id = $this->getUser()->getId();
+        $lineStocks = $em->getRepository(LineStock::class)->findLineStockByUser($id);
         return $this->render('line_stock/stckvalid.html.twig', [
             'lineStocks' => $lineStocks,
         ]);
@@ -133,10 +138,12 @@ class LineStockController extends AbstractController
 
     public function pdf()
     {
+        $id=$this->getUser()->getId();
         $lineStock= $this->getDoctrine()
-            ->getRepository(LineStock::class)->findAll();
+            ->getRepository(LineStock::class)->findLineStockByUser($id);
         $institution=$this->getDoctrine()
-            ->getRepository(Institution::class)->findAll();
+            ->getRepository(Institution::class)->findInstitutionByUser($id);
+
         $html = $this->renderView('pdf/stock.html.twig', array(
             'title' =>"محتويات المخزن",
             'lineStocks'=> $lineStock,
@@ -160,14 +167,14 @@ class LineStockController extends AbstractController
      */
 
     public function printv()
-    {
+    {$id=$this->getUser()->getId();
         $lineStock= $this->getDoctrine()
-            ->getRepository(LineStock::class)->findAll();
+            ->getRepository(LineStock::class)->findLineStockByUser($id);
         $institution=$this->getDoctrine()
-            ->getRepository(Institution::class)->findAll();
+            ->getRepository(Institution::class)->findInstitutionByUser($id);
 
         $html = $this->renderView('pdf/stk_valid.html.twig', array(
-            'title' =>"صلحية المواد",
+            'title' =>"صلوحية المواد",
             'lineStocks'=> $lineStock,
             'institution'=> $institution,
         ));

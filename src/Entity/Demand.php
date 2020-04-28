@@ -39,6 +39,11 @@ class Demand
      */
     private $lineDemands;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="demands")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->lineDemands = new ArrayCollection();
@@ -121,5 +126,17 @@ class Demand
     {
         // TODO: Implement __toString() method.
         return $this-> tranche;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

@@ -28,7 +28,7 @@ class JournalController extends AbstractController
      * @Route("/new", name="journal_new", methods={"GET","POST"})
      */
 
-    public function journal( Request $request, $id=null)
+    public function journal( Request $request, $id = null)
     {
         $journal = new Journal();
          $nbMeal = new NbMeal();
@@ -41,6 +41,9 @@ class JournalController extends AbstractController
             // dump($form->getData());
             // die();
             /* ------- calcul du plat (unitCost)-------  */
+            $user = $this->getUser();
+            $journal->setUser($user);
+
             $nbMeal= $journal->getNbMeal();
             $exitt = $journal ->getExitt();
             $journal->setTotalCosts(floatval($exitt->getTotalPrice()));
@@ -58,13 +61,16 @@ class JournalController extends AbstractController
             $this->addFlash('success', 'تمت الاضافة بنجاح!');
             return $this->redirectToRoute('journal_new');
         }
+        $user = $this->getUser();
+
         $nbMeals=$this->getDoctrine()
             ->getRepository(NbMeal::class)
-            ->myFindByCurrentDate();
+            ->myFindByCurrentDate($user);
         $exitts=$this->getDoctrine()
             ->getRepository(Exitt::class)
-            ->myFindByCurrentDate();
-        $journals =$em->getRepository(Journal::class)->findAll();
+            ->myFindByCurrentDate($user);
+       // $id = $this->getUser()->getId();
+        $journals =$em->getRepository(Journal::class)->findJournalByUser($this->getUser()->getId());
      return $this->render('journal/journal.html.twig', [
             'journals' => $journals,
             'form' => $form->createView(),
@@ -86,7 +92,7 @@ class JournalController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', 'تم التغيير بنجاح!');
-            return $this->redirectToRoute('journal_index');
+            return $this->redirectToRoute('journal_new');
         }
 
         return $this->render('journal/edit.html.twig', [

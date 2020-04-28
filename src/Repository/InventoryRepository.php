@@ -47,4 +47,15 @@ class InventoryRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findInventoryByUser($id)
+    {
+        return $this->createQueryBuilder('i')
+            ->innerJoin('i.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
 }

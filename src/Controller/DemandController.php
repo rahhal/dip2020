@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Demand;
 use App\Entity\LineDemand;
 use App\Entity\Article;
+use App\Entity\User;
 use App\Entity\Institution;
 use App\Form\DemandType;
 use App\Repository\DemandRepository;
@@ -27,8 +28,11 @@ class DemandController extends AbstractController
      */
     public function index(DemandRepository $demandRepository): Response
     {
+        $em=$entityManager = $this->getDoctrine()->getManager();
+        $id = $this->getUser()->getId();
+        $demand = $em->getRepository(Demand::class)->findDemandByUser($id);
         return $this->render('demand/index.html.twig', [
-            'demands' => $demandRepository->findAll(),
+            'demands' => $demand,
         ]);
     }
 
@@ -43,6 +47,8 @@ class DemandController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $user = $this->getUser();
+            $demand->setUser($user);
             $entityManager->persist($demand);
             $entityManager->flush();
 
@@ -71,9 +77,15 @@ class DemandController extends AbstractController
     {
         $form = $this->createForm(DemandType::class, $demand);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $em = $entityManager= $this->getDoctrine()->getManager();
+            /*$user = $this->getUser();
+            $demand->setUser($user);*/
+
+            $em -> flush();
+            //dump($demand);die();
             return $this->redirectToRoute('demand_index');
         }
         return $this->render('demand/edit.html.twig', [
@@ -111,7 +123,7 @@ class DemandController extends AbstractController
             ->findLineDemandByDemand($id);
 
         $institution=$this->getDoctrine()
-            ->getRepository(Institution::class)->findAll();
+            ->getRepository(Institution::class)->findInstitutionByUser($this->getUser()->getId());
 
         $html = $this->renderView('pdf/demand.html.twig', array(
             'demands' => $demands,

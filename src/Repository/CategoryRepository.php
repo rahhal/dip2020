@@ -58,4 +58,22 @@ class CategoryRepository extends ServiceEntityRepository
             // ->getOneOrNullResult();
             ->getResult();
     }
+    public function findCategoryByUser($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+    public function findByCurrentUser($user)
+    {
+        return $this
+            ->createQueryBuilder('c')
+            ->andWhere('c.user = :user')
+            ->setParameter('user', $user)
+            ;
+    }
 }

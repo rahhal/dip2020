@@ -56,4 +56,22 @@ class DemandRepository extends ServiceEntityRepository
                     ->getResult()
                     ;
     }
+    public function findDemandByUser($id)
+    {
+        return $this->createQueryBuilder('d')
+            ->innerJoin('d.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+    public function findByCurrentUser($user)
+    {
+        return $this
+            ->createQueryBuilder('d')
+            ->andWhere('d.user = :user')
+            ->setParameter('user', $user)
+            ;
+    }
 }

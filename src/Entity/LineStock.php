@@ -83,6 +83,11 @@ class LineStock
      */
     private $lineExitts;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lineStocks")
+     */
+    private $user;
+
     public function __construct()
     {
        $this->lineExitts = new ArrayCollection();
@@ -273,4 +278,16 @@ public function setUnitPrice(string $unitPrice): self
     {
         return $this->reference;// TODO: Implement __toString() method.
 }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
 }

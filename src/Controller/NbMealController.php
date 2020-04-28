@@ -38,6 +38,8 @@ class NbMealController extends AbstractController
            /* $data=$form->getData();
             $date=$data->getDate();*/
               // dump($nbMeal);die();
+            $user= $this->getUser();
+            $nbMeal-> setUser($user);
             $em->persist($nbMeal);
             $em->flush();
 
@@ -45,8 +47,9 @@ class NbMealController extends AbstractController
             return $this->redirect($this->generateUrl('nb_meal_new'));
         }
 
-        $nbMeals= $em->getRepository(NbMeal::class)->findAll();
-
+       // $nbMeals= $em->getRepository(NbMeal::class)->findAll();
+        $id = $this->getUser()->getId();
+        $nbMeals = $em->getRepository(NbMeal::class)->findNbMealByUser($id);
         return $this->render('nb_meal/nbMeal.html.twig', [
             'form' => $formView,
             'nbMeals'=> $nbMeals,

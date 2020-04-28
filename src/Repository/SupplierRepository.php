@@ -47,4 +47,22 @@ class SupplierRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findSupplierByUser($id)
+    {
+        return $this->createQueryBuilder('s')
+            ->innerJoin('s.user', 'u')
+            ->andWhere('u.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            // ->getOneOrNullResult();
+            ->getResult();
+    }
+    public function findByCurrentUser($user)
+    {
+        return $this
+            ->createQueryBuilder('s')
+            ->andWhere('s.user = :user')
+            ->setParameter('user', $user)
+            ;
+    }
 }

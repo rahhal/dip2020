@@ -4,19 +4,21 @@
     </div>
 
     <div class="clearfix"></div>
-    {#
+    
        <!-- menu profile quick info -->
        <div class="profile clearfix">
            <div class="profile_pic">
-               <img src="{{ asset('build/images/img.jpg')}}" alt="..." class="img-circle profile_img">
+               <img src="{{ asset('build/images/logo5.png')}}" alt="..." class="img  profile_img" style=" width: 220px; margin-right: 1%; margin-left: 10%;">
            </div>
-          <div class="profile_info">
+          {# <div class="profile_info">
                <span>مرحبا</span>
                <h2>منسق المطعم</h2>
-           </div>
+           </div> #}
        </div>
+
+					
        <!-- /menu profile quick info -->
-   #}
+  
     <br/>
 
     <!-- sidebar menu -->
@@ -36,7 +38,11 @@
                                                    or 'employee_' in route%}class= "current"
                                                     style="display: block;"{% endif %}>
 
-                         <li><a href="{{ path('institution_show') }}">المؤسسة</a></li>
+                         <li>
+                             {#{% if app.user == null %}#}
+                         <a href="{{ path('institution_show') }}">المؤسسة</a>
+                             {#{% else %}<a href="{{ path('institution_show') }}">المؤسسة</a>
+                             {% endif %}#}</li>
                         <li><a href="{{ path('category_new') }}">الاصناف</a></li>
                         <li><a href="{{ path('article_new') }}">المواد</a></li>
                         <li><a href="{{ path('supplier_new') }}">المزودين</a></li>

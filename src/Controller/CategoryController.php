@@ -29,6 +29,9 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $this->getUser();
+            $category->setUser($user);
+
             $em->persist($category);
             $em->flush();
 
@@ -36,8 +39,8 @@ class CategoryController extends AbstractController
 
             return $this->redirectToRoute('category_new');
         }
-        $categories = $em->getRepository(Category::class)->findAll();
-
+    
+        $categories = $em->getRepository(Category::class)->findCategoryByUser($this->getUser()->getId());
         return $this->render('category/category.html.twig', [
             'categories' => $categories,
             'form' => $form->createView(),
@@ -65,7 +68,7 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', "تم التعديل بنجاح");
+            $this->addFlash('success', "تم التغيير بنجاح");
             return $this->redirectToRoute('category_new');
         }
 

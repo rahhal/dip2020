@@ -54,6 +54,10 @@ class Purchase
      */
     private $total_price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="purchases")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -157,6 +161,18 @@ class Purchase
     public function setTotalPrice(string $total_price): self
     {
         $this->total_price = $total_price;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -29,6 +29,10 @@ class Commission
      */
     private $employee;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commissions")
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -55,6 +59,18 @@ class Commission
     public function setEmployee(?Employee $employee): self
     {
         $this->employee = $employee;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

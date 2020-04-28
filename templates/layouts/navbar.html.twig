@@ -8,9 +8,8 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                       aria-expanded="false">
-                        <img src="/build/images/img.jpg" alt="">{{ app.user.email }}
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('/build/images/img.png')}}" alt="">{{ app.user.email }}
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -22,13 +21,13 @@
                <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown"
                        aria-expanded="false">
-                       <span class="image"><img src="../build/images/contac6.png" alt="logo Image"/></span> الاتصال بنا
+                       <span class="image"><img src="{{ asset('/build/images/contac6.png')}}" alt="logo contact"/></span> الاتصال بنا
                         {# <i class="fa fa-envelope-o"></i> الاتصال بنا #}
                         <span class="badge bg-green"></span>
                     </a>
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
-                            <a> <span class="image"><img src="../build/images/logo.png" alt="logo Image"/></span></a>
+                            <a> <span class="image"><img src="{{ asset('build/images/logo.png')}}" alt="logo Image"/></span></a>
                                 <span> <a href="{{ path('contact_ajout') }}">{{ "Contact us"|trans }}</a> </span>
                         </li>
                     </ul>

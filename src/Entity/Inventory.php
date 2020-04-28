@@ -33,6 +33,11 @@ class Inventory
      */
     private $inv_number;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="inventories")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->lineInventories = new ArrayCollection();
@@ -99,6 +104,18 @@ class Inventory
     public function setInvNumber(?string $inv_number): self
     {
         $this->inv_number = $inv_number;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

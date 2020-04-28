@@ -20,9 +20,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Security;
 
 class JournalType extends AbstractType
-{
+{ private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -44,22 +50,22 @@ class JournalType extends AbstractType
             //->add('exitt')
            // ->add('save',SubmitType::class)
         ;
-
-	    $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+        $user = $this->security->getUser();
+	    $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($user){
 		    $form = $event->getForm();
 		    $form->add('nbMeal', EntityType::class, [
 		    	'class' => NbMeal::class,
-			    'query_builder' => function (NbMealRepository $mealRepository) {
-				      return $mealRepository->findByCurrentDate();
+			    'query_builder' => function (NbMealRepository $mealRepository)use ($user) {
+				      return $mealRepository->findByCurrentDate($user);
 			    },
 		    ]);
 	    });
-         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
+         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) use ($user) {
              $form = $event->getForm();
              $form->add('exitt', EntityType::class, [
 	             'class' => Exitt::class,
-	             'query_builder' => function(ExittRepository $exittRepository) {
-		             return $exittRepository->findByCurrentDate();
+	             'query_builder' => function(ExittRepository $exittRepository) use ($user) {
+		             return $exittRepository->findByCurrentDate($user);
 		             //getTotalPrice();
 	             }
             ]);

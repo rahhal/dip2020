@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ app.user.email|upper }} {% endblock %}
+{% block body_class %} class="nav-md" {% endblock %}
+{% block body %}
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col hidden-print">
+            {% include('layouts/sidebar.html.twig') %}
+        </div>
+        {% include('layouts/navbar.html.twig') %}
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>{{ "institution_information"| trans }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="x_panel"> <br/>
+                    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                    <div class="col-md-10 col-sm-10 col-xs-10">
+                        {{ include('institution/_form.html.twig') }}
+                        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include('layouts/footer.html.twig') %}
+    </div>
+    {% endblock %}
+

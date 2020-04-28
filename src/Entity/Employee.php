@@ -42,7 +42,10 @@ class Employee
      * @ORM\OneToMany(targetEntity="App\Entity\Commission", mappedBy="employee", orphanRemoval=true)
      */
     private $commissions;
-
+/**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="employees")
+     */
+    private $user;
 
     public function __construct()
     {
@@ -153,6 +156,18 @@ class Employee
                 $commission->setEmployee(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
